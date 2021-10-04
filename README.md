@@ -1,4 +1,4 @@
-#DiEz - Dev it's Easy
+# DiEz - Dev it's Easy
 
 Welcome to ***DiEz web Site***
 This project aims to pass our diploma in Web and Mobile Web Developer.
