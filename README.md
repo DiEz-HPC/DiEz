@@ -28,6 +28,7 @@ We are specialized in php / symfony development but also use the JS language (Va
 
 ### 3) BackEnd:
 1) [x] VichUpload
+2) [x] EasyAdmin 3
 
 ## For Dev:
 
