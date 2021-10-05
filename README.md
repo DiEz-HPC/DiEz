@@ -1,4 +1,4 @@
-# DiEz - Dev it's Easy
+# DiEz - DevItEasy
 
 Welcome to ***DiEz web Site***
 This project aims to pass our diploma in Web and Mobile Web Developer.
@@ -24,14 +24,16 @@ We are specialized in php / symfony development but also use the JS language (Va
 1) [x] Webpack
 2) [x] ReactJs
 3) [x] Sass
+4) [x] Bootstrap 5 React
+5) [x] Font Awesome React
 
 
 ### 3) BackEnd:
 1) [x] VichUpload
 2) [x] EasyAdmin 3
+3) [x] Doctrine Fixtures
 
 ## For Dev:
-
 ```
    - Run composer install
    - Run npm install
@@ -40,6 +42,10 @@ We are specialized in php / symfony development but also use the JS language (Va
          A) symfony console d:d:c 
          or 
          B) php bin/console d:d:c
+   - Generate Fixtures with :
+         A) symfony console d:f:l 
+         or 
+         B) php bin/console d:f:l 
    - Launch your server php with symfony serve
    - Compile your css with npm run watch or dev-server 
 ```
