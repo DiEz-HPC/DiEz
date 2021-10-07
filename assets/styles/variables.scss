@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'AnjaEliane';
+  src: url('../fonts/Anja-Eliane.ttf');
+}
+
+@font-face {
+  font-family: 'LouisGeorgeCafe';
+  src: url('../fonts/Louis-George-Cafe.ttf');
+}
+
+@font-face {
+  font-family: 'SlencoBlack';
+  src: url('../fonts/Slenco-Black-demo.otf');
+}
+
+$primary: #56C6FF;
+$secondary: #A3E0FF;
+
+/*
+  Reset all spacing
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.logo {
+  font-family: AnjaEliane, serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: SlencoBlack, sans-serif;
+}
+
+h5,
+p {
+  font-family: LouisGeorgeCafe, sans-serif;
+}
