@@ -1,9 +1,11 @@
 import React from "react";
 
-export default function Home() {
+function Home() {
     return (
-        <>
+        <div className={'home'}>
             <h1>Site de DiEz</h1>
-        </>
+        </div>
     )
 }
+
+export default Home;
