@@ -5,7 +5,7 @@ import About from "./views/pages/About";
 import Blog from "./views/pages/Blog";
 import Contact from "./views/pages/Contact";
 import './styles/app.scss';
-
+import './bootstrap';
 
 export default function App() {
     return (
