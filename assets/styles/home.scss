@@ -1,0 +1,10 @@
+@import "variables";
+
+.home {
+  height: 100vh;
+  background-color: $primary;
+
+  h1 {
+    color: white;
+  }
+}
