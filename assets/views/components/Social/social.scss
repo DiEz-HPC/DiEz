@@ -6,21 +6,30 @@
     position: sticky;
     top: 50%;
     margin-left: -6%;
-    @media (min-device-width: 768px) and (max-device-width: 1024px) {
-        margin-left: -15%;
-    }
+    /* Ipad */
     @media (min-device-width: 768px) and (max-device-width: 1080px) {
         margin-left: -15%;
     }
-    @media (min-device-width: 320px) and (max-device-width: 480px) {
-        margin-left: -15%;
+    /* Mobile portrait */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+        margin-left: -18%;
+    }
+    /* Mobile landscape */
+    @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+        margin-left: -12%;
+        max-width: 300px;
     }
     .text-social {
         font-size: 1.5rem;
         font-weight: 999;
         text-align: center;
+        /* Mobile portrait */
         @media (min-device-width: 320px) and (max-device-width: 480px) {
             font-size: 2em;
+        }
+        /* Mobile landscape */
+        @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+            font-size: 1.3em;
         }
     }
 
@@ -39,8 +48,13 @@
     a {
         color: black;
         text-decoration: none;
+        /* Mobile landscape */
+        @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+            margin: 5px 5px 5px 5px !important;
+        }
         svg {
             font-size: 2em;
+            /* Mobile portrait */
             @media (min-device-width: 320px) and (max-device-width: 480px) {
                 font-size: 3em;
             }
