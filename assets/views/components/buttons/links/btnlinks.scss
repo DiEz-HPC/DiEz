@@ -1,0 +1,76 @@
+@import "../../../../styles/variables";
+
+$noir: #0c1016;
+
+.btnLink {
+  display: flex;
+  font-family: 'SlencoBlack', serif;
+  box-sizing: border-box;
+
+  svg {
+    position: absolute;
+    top: -4000px;
+    left: -4000px;
+  }
+
+  #gooey-button {
+
+    font-size: 2rem;
+    min-width: 150px;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    color: $noir;
+    filter: url('#gooey');
+    position: relative;
+    background-color: $secondary;
+
+    &:hover {
+      .bubbles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        .bubble {
+          background-color: $secondary;
+          border-radius: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          display: block;
+          z-index: -1;
+
+          @for $bubble from 1 through 10 {
+            &:nth-child(#{$bubble}) {
+              $size: 25px;
+              left: (random(90)+10)+px;
+              width: $size;
+              height: $size;
+              animation: move-#{$bubble} #{3 + $bubble*0.02}s infinite;
+              animation-delay: #{$bubble*0.2}s;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @for $bubble from 1 through 10 {
+    @keyframes move-#{$bubble}{
+      0% {
+        transform: translate(0, 0);
+      }
+
+      99% {
+        transform: translate(0, -(random(80)+50) + px);
+      }
+
+      100% {
+        transform: translate(0, 0);
+        opacity: 0;
+      }
+    }
+  }
+}
