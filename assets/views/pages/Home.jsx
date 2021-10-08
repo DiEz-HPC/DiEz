@@ -7,8 +7,6 @@ function Home() {
         <div className={'home'}>
             <h1>DiEz <br/>Dev It Easy</h1>
             <Social/>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/> Salut les gens <br/><br/><br/><br/><br/> Salut
         </div>
     )
 }
