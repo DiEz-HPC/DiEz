@@ -2,6 +2,29 @@
 
 $noir: #0c1016;
 
+.btnLink-black {
+    #link-button{
+        color: $primary;
+        background-color: $noir;
+        border: none;
+        .bubble {
+            background-color: $noir;
+        }
+    }
+}
+
+.btnLink-outline {
+    #link-button{
+        color: white;
+        background-color: $primary;
+        border: 2px solid $noir;
+
+        .bubble {
+            background-color: $noir;
+        }
+    }
+}
+
 .btnLink {
     display: flex;
     font-family: 'SlencoBlack', serif;
@@ -14,16 +37,14 @@ $noir: #0c1016;
     }
 
     #link-button {
-        $size: 90;
+        $size: 100;
+        padding: 5px;
         font-size: 1rem;
         min-width: $size + px;
         text-align: center;
         text-decoration: none;
-        border: none;
-        color: $primary;
         filter: url('#gooey');
         position: relative;
-        background-color: $noir;
 
         &:hover {
             .bubbles {
@@ -34,7 +55,6 @@ $noir: #0c1016;
                 right: 0;
 
                 .bubble {
-                    background-color: $noir;
                     border-radius: 100%;
                     position: absolute;
                     top: 0;
