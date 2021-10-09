@@ -1,97 +1,31 @@
-@import "../../../../styles/variables";
-
-$noir: #0c1016;
-
-.btnLink-black {
-    #link-button{
-        color: $primary;
-        background-color: $noir;
-        border: none;
-        .bubble {
-            background-color: $noir;
-        }
-    }
-}
-
-.btnLink-outline {
-    #link-button{
-        color: white;
-        background-color: $primary;
-        border: 2px solid $noir;
-
-        .bubble {
-            background-color: $noir;
-        }
-    }
-}
+@import '../../../../styles/variables';
 
 .btnLink {
-    display: flex;
-    font-family: 'SlencoBlack', serif;
-    box-sizing: border-box;
+    border-radius: 10px !important;
+    padding: $spacing !important;
+    font-family: $font-title !important;
+    font-size: 1.2em !important;
+    min-width: 200px !important;
+}
 
-    svg {
-        position: absolute;
-        top: -4000px;
-        left: -4000px;
-    }
+.btnLink-contained-black {
+    background-color: black !important;
+    color: $primary !important;
+}
 
-    #link-button {
-        $size: 100;
-        padding: 5px;
-        font-size: 1rem;
-        min-width: $size + px;
-        text-align: center;
-        text-decoration: none;
-        filter: url('#gooey');
-        position: relative;
+.btnLink-contained-primary {
+    background-color: $primary !important;
+    color: black !important;
+}
 
-        &:hover {
-            .bubbles {
-                position: absolute;
-                top: 0;
-                left: 0;
-                bottom: 0;
-                right: 0;
+.btnLink-outlined-primary {
+    background-color: $primary !important;
+    color: white !important;
+    border: 2px solid black !important;
+}
 
-                .bubble {
-                    border-radius: 100%;
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    display: block;
-                    z-index: -1;
-
-                    @for $bubble from 1 through 10 {
-                        &:nth-child(#{$bubble}) {
-                            $sizeBubble: ($size * 0.17);
-                            $element: $size - $sizeBubble;
-                            left: (random(round($element)))+px;
-                            width: $sizeBubble + px;
-                            height: $sizeBubble +px;
-                            animation: move-#{$bubble} #{3 + $bubble*0.02}s infinite;
-                            animation-delay: #{$bubble*0.2}s;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @for $bubble from 1 through 10 {
-        @keyframes move-#{$bubble}{
-            0% {
-                transform: translate(0, 0);
-            }
-
-            99% {
-                transform: translate(0, (random(100)+50) + px);
-            }
-
-            100% {
-                transform: translate(0, 0);
-                opacity: 0;
-            }
-        }
-    }
+.btnLink-outlined-white {
+    background-color: white !important;
+    color: black !important;
+    border: 2px solid $primary !important;
 }

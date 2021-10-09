@@ -15,6 +15,10 @@
 
 $primary: #56C6FF;
 $secondary: #A3E0FF;
+$font-title: 'SlencoBlack';
+$font-text: 'LouisGeorgeCafe';
+$font-logo: 'AnjaEliane';
+$spacing: 6px;
 
 /*
   Reset all spacing
@@ -25,17 +29,17 @@ $secondary: #A3E0FF;
 }
 
 .logo {
-  font-family: AnjaEliane, serif;
+  font-family: $font-logo, serif;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: SlencoBlack, sans-serif;
+  font-family: $font-title, sans-serif;
 }
 
 h5,
 p {
-  font-family: LouisGeorgeCafe, sans-serif;
+  font-family: $font-text, sans-serif;
 }
