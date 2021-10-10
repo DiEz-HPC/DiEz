@@ -1,6 +1,5 @@
 import React from "react";
 import '../../styles/home.scss'
-import BtnLinks from "../components/buttons/links/BtnLinks";
 
 function Home() {
     return (
