@@ -7,16 +7,11 @@ function Home() {
         <div className={'home'}>
             <h1>DiEz <br/>Dev It Easy</h1>
             <div className="d-flex">
-                <div className="me-5">
-                    <BtnLinks link={'/'} label={'View our work'} style={'btnLink-outlined-primary'} variant={'outlined'} />
-                </div>
-                <div className="me-5">
-                    <BtnLinks link={'/'} label={'Contact Us'} style={'btnLink-contained-black'} variant={'contained'} />
-                </div>
-                <div className="me-5">
-                    <BtnLinks link={'/'} label={'Get in touch'} style={'btnLink-contained-primary'} variant={'contained'} />
-                </div>
-                <BtnLinks link={'/'} label={'View Project'} style={'btnLink-outlined-white'} variant={'outlined'} />
+                <BtnLinks link={'/'} label={'View our work'} color={'primary'} variant={'outlined'} />
+                <BtnLinks link={'/'} label={'Contact Us'} color={'dark'} variant={'contained'} />
+                <BtnLinks link={'/'} label={'Get in touch'} color={'primary'} variant={'contained'} />
+                <BtnLinks link={'/'} label={'View Project'} color={'white'} variant={'outlined'} />
+                <BtnLinks link={'/'} label={'View all reviews'} color={'dark'} variant={'outlined'} />
             </div>
         </div>
     )

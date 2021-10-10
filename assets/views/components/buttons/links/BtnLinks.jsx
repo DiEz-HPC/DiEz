@@ -4,10 +4,10 @@ import './btnlinks.scss'
 import {Button} from "@mui/material";
 
 function BtnLinks(props) {
-    const {link, label, variant, style, color} = props
+    const {link, label, variant, color} = props
     return (
         <>
-            <Button href={link} className={`btnLink ${style}`} variant={variant} color={color}>{label}</Button>
+            <Button href={link} className={`btnLink btnLink-${variant}-${color} mx-1`} variant={variant} >{label}</Button>
         </>
     );
 }
@@ -15,7 +15,7 @@ function BtnLinks(props) {
 BtnLinks.propTypes = {
     link: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
-    style: PropTypes.string.isRequired,
+    color: PropTypes.string.isRequired,
     variant: PropTypes.string.isRequired
 }
 

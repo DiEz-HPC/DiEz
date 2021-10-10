@@ -1,14 +1,18 @@
 @import '../../../../styles/variables';
 
+$btn-border: 2px solid;
+
 .btnLink {
     border-radius: 10px !important;
     padding: $spacing !important;
     font-family: $font-title !important;
     font-size: 1.2em !important;
     min-width: 200px !important;
+    height: 50px;
+    box-shadow: none !important;
 }
 
-.btnLink-contained-black {
+.btnLink-contained-dark {
     background-color: black !important;
     color: $primary !important;
 }
@@ -21,11 +25,17 @@
 .btnLink-outlined-primary {
     background-color: $primary !important;
     color: white !important;
-    border: 2px solid black !important;
+    border: $btn-border black !important;
 }
 
 .btnLink-outlined-white {
-    background-color: white !important;
+    background-color: initial !important;
     color: black !important;
-    border: 2px solid $primary !important;
+    border: $btn-border $primary !important;
+}
+
+.btnLink-outlined-dark {
+    background-color: initial !important;
+    color: black !important;
+    border: $btn-border black !important;
 }
