@@ -33,18 +33,25 @@ function Footer() {
                 </div>
             </div>
             <div className="footer_body container d-flex justify-content-between">
-                <div className="col-md-2">
+                <div className="footer_body_section1 col-md-2">
                     <h3 className="footer_section_title">DevItEasy</h3>
                     <p>45000 Orléans</p>
-                    <p>Diez.HPC@gmail.com</p>
+                    <p>
+                        <a
+                            href="mailto:
+                        Diez.HPC@gmail.com"
+                        >
+                            Diez.HPC@gmail.com
+                        </a>
+                    </p>
                 </div>
-                <div className="col-md-2">
+                <div className="footer_body_section2 col-md-2">
                     <h3 className="footer_section_title">Nos services</h3>
                     <p>Création de site web</p>
                     <p>Thème Wordpress</p>
                     <p>Script sur mesure</p>
                 </div>
-                <div className="col-md-2">
+                <div className="footer_body_section3 col-md-2">
                     <h3 className="footer_section_title">Qui sommes-nous</h3>
                     <p>
                         <a href=""> À propos de l'entreprise</a>
@@ -53,7 +60,7 @@ function Footer() {
                         <a href="#">À propos de nous</a>
                     </p>
                 </div>
-                <div className="col-md-2">
+                <div className="footer_body_section4 col-md-2">
                     <h3 className="footer_section_title">Contact</h3>
                     <p>
                         <a href="#">Blog</a>
