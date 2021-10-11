@@ -1,0 +1,45 @@
+@import '../../../styles/variables';
+
+$footer_logo_size: 150px;
+$footer_margin: 10%;
+
+.footer {
+    background-color: $primary;
+    .footer_header {
+        margin-bottom: $footer_margin;
+        .footer_logo {
+            height: $footer_logo_size;
+            width: $footer_logo_size;
+            margin-top: $footer_margin/2;
+        }
+        .footer_title {
+            color: $light;
+            span {
+                color: $dark;
+            }
+        }
+        h5 {
+            color: $light;
+        }
+    }
+    .footer_body {
+        margin-bottom: $footer_margin;
+        /* Deleting the row's margin from bootstrap */
+        --bs-gutter-x: 0 !important;
+        color: $light;
+        p {
+            line-height: 50%;
+            a {
+                color: $light;
+                text-decoration: none;
+            }
+        }
+    }
+    .footer_copyright {
+        .copyright {
+            margin: 0;
+            color: $light;
+            opacity: 75%;
+        }
+    }
+}
