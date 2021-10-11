@@ -1,0 +1,13 @@
+@import "../../../styles/variables";
+
+.description {
+    h1 {
+        font-size: $font-size-title + 20px;
+    }
+
+    p {
+        color: white;
+        font-family: $font-title;
+    }
+}
+
