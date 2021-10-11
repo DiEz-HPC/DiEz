@@ -1,38 +1,23 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    faFacebookSquare,
-    faTwitterSquare,
-    faInstagramSquare,
-    faLinkedin,
-} from '@fortawesome/free-brands-svg-icons';
+import LineIcon from "react-lineicons";
 import '../Social/social.scss'
 
 function Social() {
     return (
         <div className="social">
-            <p className="text-social m-auto">Nous suivre</p>
+            <p className="text-social m-auto">NOUS SUIVRE</p>
             <hr className="hr-social m-auto" />
             <a href="#" className=" m-auto">
-                <FontAwesomeIcon icon={faFacebookSquare} className="logo-social" />
+            <LineIcon name="facebook"/>
             </a>
             <a href="#" className=" m-auto">
-                <FontAwesomeIcon
-                    icon={faInstagramSquare}
-                    className="logo-social m-auto"
-                />
+            <LineIcon name="twitter"/>
             </a>
             <a href="#" className=" m-auto">
-                <FontAwesomeIcon
-                    icon={faLinkedin}
-                    className="logo-social m-auto"
-                />
+            <LineIcon name="instagram"/>
             </a>
             <a href="#" className=" m-auto">
-                <FontAwesomeIcon
-                    icon={faTwitterSquare}
-                    className="logo-social m-auto"
-                />
+            <LineIcon name="linkedin"/>
             </a>
         </div>
     );
