@@ -4,9 +4,11 @@
     .first-view{
         height: 100vh;
         background-color: $primary;
+
+        h1 {
+            color: white;
+        }
     }
 
-    h1 {
-        color: white;
-    }
+
 }
