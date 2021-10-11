@@ -1,0 +1,88 @@
+@import '../../../styles/variables.scss';
+
+$margin-left: -10%;
+$spacing-logo: 5px;
+$logo-size: 35px;
+$logo-font-size: 1.5em;
+
+.social {
+    display: flex;
+    justify-content: space-around;
+    transform: rotate(-90deg);
+    max-width: 450px;
+    position: sticky;
+    top: 50%;
+    margin-left: $margin-left;
+    /* Ipad */
+    @media (min-device-width: 768px) and (max-device-width: 1080px) {
+        margin-left: $margin-left - 5%;
+    }
+    /* Mobile portrait */
+    @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+        margin-left: $margin-left - 8%;
+    }
+    /* Mobile landscape */
+    @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+        margin-left: $margin-left - 2%;
+        max-width: 300px;
+    }
+    .text-social {
+        font-size: $logo-font-size;
+        font-weight: 999;
+        text-align: center;
+        font-family: $font-title;
+        /* Mobile portrait */
+        @media (min-device-width: 320px) and (max-device-width: 480px) {
+            font-size: $logo-font-size + 0.5em;
+        }
+        /* Mobile landscape */
+        @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+            font-size: $logo-font-size - 0.5em;
+        }
+    }
+
+    .hr-social {
+        width: 20px;
+        height: 4px;
+        padding: 0;
+        margin: 0;
+        color: black;
+        border-color: black;
+        opacity: 100%;
+    }
+    a {
+        color: rgb(0, 0, 0);
+        text-decoration: none;
+        background-color: black;
+        height: $logo-size;
+        width: $logo-size;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: $spacing-logo;
+        /* Mobile landscape */
+        @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+            margin: $spacing-logo !important;
+        }
+        /* Mobile Portrait */
+        @media (min-device-width: 320px) and (max-device-width: 480px) {
+            font-size: $logo-font-size + 0.5em;
+            height: $logo-size + 15px;
+            width: $logo-size + 15px;
+        }
+        i {
+            transform: rotate(90deg);
+            font-size: $logo-font-size;
+            color: $primary;
+            /* Mobile Portrait */
+            @media (min-device-width: 320px) and (max-device-width: 480px) {
+                font-size: $logo-font-size - 0.5em;
+            }
+            /* Mobile landscape */
+            @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+                font-size: $logo-font-size - 0.2em;
+            }
+        }
+    }
+}
