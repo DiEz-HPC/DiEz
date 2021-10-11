@@ -6,8 +6,13 @@ import Social from "../components/Social/Social";
 function Home() {
     return (
         <div className={'home'}>
-            <Description />
-            <Social />
+            <section className="first-view">
+                <Description />
+                <Social />
+            </section>
+            <section className={'carousel-projects'}>
+                <h2>Nos projets</h2>
+            </section>
         </div>
     )
 }
