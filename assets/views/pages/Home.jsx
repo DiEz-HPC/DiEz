@@ -2,6 +2,7 @@ import React from "react";
 import '../../styles/home.scss'
 import Description from "../components/description/Description";
 import Social from "../components/Social/Social";
+import CarouselProjects from "../components/carousels/carouselProjects/CarouselProjects";
 
 function Home() {
     return (
@@ -10,8 +11,8 @@ function Home() {
                 <Description />
                 <Social />
             </section>
-            <section className={'carousel-projects'}>
-                <h2>Nos projets</h2>
+            <section className={'carousel-projects d-flex justify-content-center'}>
+                <CarouselProjects />
             </section>
         </div>
     )
