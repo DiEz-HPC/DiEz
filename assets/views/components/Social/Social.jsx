@@ -6,7 +6,7 @@ function Social() {
     return (
         <div className="social">
             <p className="text-social m-auto">NOUS SUIVRE</p>
-            <hr className="hr-social m-auto" />
+            <hr className="hr-social" />
             <a href="#" className=" m-auto">
             <LineIcon name="facebook"/>
             </a>
