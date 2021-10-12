@@ -1,8 +1,8 @@
 import React from 'react';
 import './Whatwedo.scss';
-import BtnLinks from '../buttons/links/BtnLinks';
 import FirstPart from './firstpart/FirstPart';
 import SecondParts from './SecondPart/SecondPart';
+import ThirdPart from './ThirdPart/ThirdPart';
 
 function WhatWeDo() {
     return (
@@ -10,14 +10,9 @@ function WhatWeDo() {
             <h2 className="whatwedo_title">
                 What We Do <span> . </span>
             </h2>
-           <FirstPart />
+            <FirstPart />
             <SecondParts />
-            <div className="row">
-                <h2>
-                    Custom website design & development, for brands of all
-                    shapes & sizes
-                </h2>
-            </div>
+            <ThirdPart />
         </div>
     );
 }

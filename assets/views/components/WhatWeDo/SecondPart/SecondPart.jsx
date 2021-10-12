@@ -21,7 +21,7 @@ function SecondParts() {
                     <BtnLinks
                         link={'#'}
                         label={'Commentaires'}
-                        color={'primary'}
+                        color={'dark'}
                         style={'me-4'}
                         variant={'outlined'}
                     />
