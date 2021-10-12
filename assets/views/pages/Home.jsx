@@ -12,7 +12,7 @@ function Home() {
             <section className="first-view">
                 <Description />
             </section>
-            <section className={'carousel-projects d-flex justify-content-center'}>
+            <section className={'carousel-projects'}>
                 <CarouselProjects />
             </section>
             <Footer />
