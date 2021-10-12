@@ -1,0 +1,25 @@
+@import '../../../../styles/variables.scss';
+
+.second_parts {
+    background-color: $secondary;
+    padding: 30px;
+
+    h2 {
+        font-size: $font-size-title;
+        span {
+            color: $light;
+        }
+    }
+    .review {
+        .text_review {
+            font-size: 1.5em;
+        }
+        .author {
+            font-size: 1.2em;
+            font-weight: 900;
+        }
+        .author_info{
+            font-weight: 900;
+        }
+    }
+}

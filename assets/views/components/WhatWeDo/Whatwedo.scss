@@ -3,7 +3,7 @@
 $WWD_margin: 10%;
 
 .whatwedo {
-    .row{
+    .row {
         --bs-gutter-x: none !important;
     }
     .whatwedo_title {
@@ -14,18 +14,5 @@ $WWD_margin: 10%;
         }
     }
 
-    .second_parts {
-        background-color: $secondary;
-        padding:30px;
-
-        h2 {
-            font-size: $font-size-title;
-            span {
-                color: $light;
-            }
-        }
-        p{
-            font-size: 1.5em;
-        }
-    }
+    
 }
