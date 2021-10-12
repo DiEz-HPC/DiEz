@@ -12,14 +12,15 @@
     }
     .review {
         .text_review {
-            font-size: 1.5em;
+            font-size: $font-size-text;
+            font-weight: $font-weight-text;
         }
         .author {
-            font-size: 1.2em;
-            font-weight: 900;
+            font-size: $font-size-text /1.2;
+            font-weight: $font-weight-text*3;
         }
         .author_info{
-            font-weight: 900;
+            font-weight: $font-weight-text
         }
     }
     a{
