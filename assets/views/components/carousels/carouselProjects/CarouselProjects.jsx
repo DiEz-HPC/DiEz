@@ -58,6 +58,10 @@ function CarouselProjects() {
                     <FontAwesomeIcon onClick={() => navigationProject('forward')} size={'3x'} icon={faLongArrowAltRight} />
                 </div>
             </div>
+            <div className="blocImages">
+                <img src="" alt=""/>
+                <img src="" alt=""/>
+            </div>
         </div>
     );
 }

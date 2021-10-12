@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Repository\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -24,7 +23,7 @@ class ProjectController extends AbstractController
     }
 
     #[Route('/projects', name: 'all')]
-    public function getAll(ProjectRepository $projectRepository): Response
+    public function getAllProjects(ProjectRepository $projectRepository): Response
     {
         $projects = $projectRepository->findAll();
         $projects = $this->serializer->serialize($projects, 'json');
