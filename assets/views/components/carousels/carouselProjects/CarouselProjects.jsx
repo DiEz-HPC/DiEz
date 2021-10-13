@@ -8,6 +8,9 @@ import {
 import BtnLinks from "../../buttons/links/BtnLinks";
 import {getAllProjects} from "../../../../queries/projects";
 import goutte from "../../../../images/logo_goutte.png";
+import IphoneX from "../../edevices/iphoneX/IphoneX";
+import MacbookPro from "../../edevices/macbookPro/MacbookPro";
+import imageTest from '../../../../images/test.jpg'
 
 function CarouselProjects() {
     const [projects, setProjects] = useState([])
@@ -47,8 +50,8 @@ function CarouselProjects() {
     }
 
     return (
-        <div className={'carouselProjects d-flex flex-row align-items-center mb-5 col-12'}>
-            <div className="blocPiloting col-2 ms-5">
+        <div className={'carouselProjects d-flex flex-row align-items-center ms-5 mb-5 col-12'}>
+            <div className="blocPiloting col-2">
                 <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo"/>
                 <h2>{project?.name}</h2>
                 <p>{project?.description}</p>
@@ -58,9 +61,9 @@ function CarouselProjects() {
                     <FontAwesomeIcon onClick={() => navigationProject('forward')} size={'3x'} icon={faLongArrowAltRight} />
                 </div>
             </div>
-            <div className="blocImages">
-                <img src="" alt=""/>
-                <img src="" alt=""/>
+            <div className="blocImages d-flex">
+                <IphoneX image={imageTest} alt={''} scale={100} />
+                <MacbookPro image={imageTest} alt={''} scale={100} />
             </div>
         </div>
     );

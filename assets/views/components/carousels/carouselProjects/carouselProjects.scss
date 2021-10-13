@@ -1,9 +1,15 @@
 @import "../../../../styles/variables";
 
 .carouselProjects {
+    position: relative;
     height: 100vh;
 
-    .goutte{
-        width: 40px;
+    .blocPiloting{
+        position: absolute;
+        bottom: 25%;
+        margin-left: 20%;
+        .goutte{
+            width: 40px;
+        }
     }
 }

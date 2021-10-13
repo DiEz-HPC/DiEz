@@ -10,4 +10,15 @@
         }
     }
 
+    .carousel-projects {
+        position: relative;
+        .wave{
+            transform: scale(-1 , 1);
+            width: 120%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    }
 }
