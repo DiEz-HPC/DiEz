@@ -60,8 +60,10 @@ body{
     .device-content {
         border: (2px / $divisor) solid lighten($device-silver-panel, 2%);
         border-radius: 2px / $divisor;
-        height: 360px / $divisor;
-        width: 576px / $divisor;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
     }
 
     .device-power {

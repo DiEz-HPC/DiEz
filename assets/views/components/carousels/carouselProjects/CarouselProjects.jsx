@@ -10,7 +10,7 @@ import {getAllProjects} from "../../../../queries/projects";
 import goutte from "../../../../images/logo_goutte.png";
 import IphoneX from "../../edevices/iphoneX/IphoneX";
 import MacbookPro from "../../edevices/macbookPro/MacbookPro";
-import imageTest from '../../../../images/test.jpg'
+import {imageUrl} from "../../../../tools/image";
 
 function CarouselProjects() {
     const [projects, setProjects] = useState([])
@@ -25,9 +25,14 @@ function CarouselProjects() {
         await setProject(projects[0])
     }, [projects])
 
+    const [image, setImage] = useState(['test.jpg']);
+    useEffect(() =>{
+        setImage(project?.imageName)
+    }, [project])
+
     const [paginate, setPaginate] = useState(0)
-    useEffect(() => {
-        setProject(projects[paginate])
+    useEffect(async () => {
+        await setProject(projects[paginate])
     }, [paginate])
 
     function navigationProject (move) {
@@ -46,24 +51,26 @@ function CarouselProjects() {
             default:
                 break;
         }
-
     }
 
     return (
-        <div className={'carouselProjects d-flex flex-row align-items-center ms-5 mb-5 col-12'}>
+        <div id={'projects'} className={'carouselProjects d-flex flex-row align-items-center ms-5 mb-5 col-12'}>
             <div className="blocPiloting col-2">
                 <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo"/>
                 <h2>{project?.name}</h2>
                 <p>{project?.description}</p>
-                <BtnLinks link={'#'} label={'Voir le projet'} color={'white'} variant={'outlined'} />
-                <div className="pagination d-flex">
-                    <FontAwesomeIcon className={'me-5'} onClick={() => navigationProject('backward')} size={'3x'} icon={faLongArrowAltLeft} />
-                    <FontAwesomeIcon onClick={() => navigationProject('forward')} size={'3x'} icon={faLongArrowAltRight} />
+                <div className="command d-flex flex flex-column">
+                    <BtnLinks link={`/projects/${project?.name}`} label={'Voir le projet'} color={'white'} variant={'outlined'} />
+                    <div className="pagination d-flex justify-content-between">
+                        <FontAwesomeIcon onClick={() => navigationProject('backward')} size={'3x'} icon={faLongArrowAltLeft} />
+                        <FontAwesomeIcon onClick={() => navigationProject('forward')} size={'3x'} icon={faLongArrowAltRight} />
+                    </div>
                 </div>
+
             </div>
             <div className="blocImages d-flex">
-                <IphoneX image={imageTest} alt={''} scale={100} />
-                <MacbookPro image={imageTest} alt={''} scale={100} />
+                <IphoneX image={imageUrl(image)} alt={''} scale={100} />
+                <MacbookPro image={imageUrl(image)} alt={''} scale={100} />
             </div>
         </div>
     );
