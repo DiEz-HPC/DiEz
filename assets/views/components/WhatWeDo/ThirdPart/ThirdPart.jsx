@@ -12,13 +12,13 @@ import Ipad from './device/Ipad';
 function ThirdPart() {
     return (
         <div className="thirdPart">
-            <div className="row d-flex justify-content-evenly">
-                <div className="col-md-6 row d-flex justify-content-around align-items-center">
+            <div className="inner-container row d-flex justify-content-evenly">
+                <div className="device-div col-md-6 row d-flex justify-content-around align-items-center">
                     <MacBook picture={ComputerPic} scale="90" alt="macbook" />
                     <Ipad picture={TabletPic} scale="90" alt="ipad" />
                     <Iphone picture={PhonePic} scale="50" alt="iphone" />
                 </div>
-                <div className="col-md-4">
+                <div className="text-div col-12 col-md-4">
                     <h2 className="text-start">
                         Custom website design & development , for brands of all
                         shapes & sizes
