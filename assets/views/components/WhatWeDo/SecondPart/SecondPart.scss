@@ -2,10 +2,12 @@
 
 .second_parts {
     background-color: $secondary;
-    padding: 30px;
-
+    padding: 75px;
+ /* Mobile portrait */
+ @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    padding: 40px;
+}
     h2 {
-        font-size: $font-size-title;
         span {
             color: $light;
         }
@@ -16,11 +18,15 @@
             font-weight: $font-weight-text;
         }
         .author {
-            font-size: $font-size-text /1.2;
-            font-weight: $font-weight-text*3;
+            font-size: $font-size-text;
+            font-weight: $font-weight-text;
+            font-family: $font-title;
+            line-height: 5px;
         }
         .author_info{
-            font-weight: $font-weight-text
+            font-weight: $font-weight-text;
+            line-height: 5px;
+
         }
     }
     a{

@@ -4,9 +4,9 @@ import './SecondPart.scss'
 function SecondParts() {
     return (
         <div className="row second_parts">
-            <div className="col-md-8 m-auto">
+            <div className="col-11 col-md-8 m-auto">
                 <h2>
-                    Great result come from geat relationships
+                    Great results come from geat relationships
                     <span> . </span>
                 </h2>
                 <div className="review">
@@ -16,6 +16,7 @@ function SecondParts() {
                         ea quo fugit, voluptas beatae corrupti odio eaque
                         doloremque illum saepe dolorem blanditiis quibusdam?"
                     </p>
+                    <br/>
                     <p className="author">Arthur Moreau</p>
                     <p className="author_info"> Little Society </p>
                     <BtnLinks

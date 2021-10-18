@@ -1,6 +1,6 @@
 @import '../../../styles/variables';
 
-$WWD_margin: 10%;
+$WWD_margin: 7%;
 
 .whatwedo {
     .row {
@@ -8,11 +8,10 @@ $WWD_margin: 10%;
     }
     .whatwedo_title {
         margin-left: $WWD_margin;
-        font-size: $font-size-title;
+        margin-bottom: $WWD_margin/2;
         span {
             color: $primary;
         }
     }
-
     
 }

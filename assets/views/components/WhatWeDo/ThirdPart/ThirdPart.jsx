@@ -2,39 +2,35 @@ import React from 'react';
 import './ThirdPart.scss';
 import '../../../../styles/device.min.scss';
 import Button from '../../buttons/links/BtnLinks';
-import PhonePic from '../../../../images/Fiverr.png';
-import ComputerPic from '../../../../images/FiverPc.png';
+import PhonePic from '../../../../images/JobPermutMobile.png';
+import ComputerPic from '../../../../images/JobPermutPc.png';
+import TabletPic from '../../../../images/JobPermutTablet.png';
 import Iphone from './device/Iphone';
 import MacBook from './device/MacBook';
+import Ipad from './device/Ipad';
 
 function ThirdPart() {
     return (
         <div className="thirdPart">
             <div className="row d-flex justify-content-evenly">
-                <div className="col-md-6 d-flex align-items-center">
-                    <Iphone 
-                        picture={PhonePic}
-                        scale='60'
-                        alt="iphone"
-                    />
-                    <MacBook
-                        picture={ComputerPic}
-                        scale='100'
-                        alt="macbook"
-                    />
+                <div className="col-md-6 row d-flex justify-content-around align-items-center">
+                    <MacBook picture={ComputerPic} scale="90" alt="macbook" />
+                    <Ipad picture={TabletPic} scale="90" alt="ipad" />
+                    <Iphone picture={PhonePic} scale="50" alt="iphone" />
                 </div>
                 <div className="col-md-4">
-                    <h2>
-                        Custom website design & development, for brands of all
+                    <h2 className="text-start">
+                        Custom website design & development , for brands of all
                         shapes & sizes
                     </h2>
-                    <p>
+                    <p className="text-start">
                         Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Nobis fugiat eligendi ex cum velit facere odio
                         natus. Perferendis esse molestiae deleniti, incidunt
                         fugit, aspernatur exercitationem velit necessitatibus
                         minus architecto numquam!
                     </p>
+                    <div className="d-flex justify-content-center justify-content-md-start">
                     <Button
                         link={'#'}
                         label={'Nos projets'}
@@ -45,10 +41,10 @@ function ThirdPart() {
                     <Button
                         link={'#'}
                         label={'Contact'}
-                        color={'primary'}
+                        color={'dark'}
                         style={'me-4'}
-                        variant={'outlined'}
-                    />
+                        variant={'contained'}
+                    /></div>
                 </div>
             </div>
         </div>

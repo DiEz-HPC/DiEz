@@ -21,8 +21,9 @@ $font-title: 'SlencoBlack';
 $font-text: 'LouisGeorgeCafe';
 $font-logo: 'AnjaEliane';
 $spacing: 6px;
-$font-size-title: 36px;
-$font-size-text: 18px;
+$font-size-title : 76px;
+$font-size-subtitle: 56px;
+$font-size-text: 24px;
 $font-weight-text: 900;
 
 /*
@@ -43,6 +44,12 @@ h3,
 h4,
 h5 {
   font-family: $font-title, sans-serif;
+}
+h1{
+    font-size: $font-size-title;
+}
+h2{
+    font-size: $font-size-subtitle;
 }
 
 p {

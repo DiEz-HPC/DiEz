@@ -1,9 +1,67 @@
 @import '../../../../styles/variables.scss';
 
-.thirdPart{
-    padding: 30px;
-    .img-fluid{
+$third-part-spacing : 40px;
+$device-size : 50%;
+.thirdPart {
+    padding: 75px;
+     /* Mobile portrait */
+     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+        padding: $third-part-spacing;
+    }
+    .img-fluid {
         width: 100%;
         height: 100%;
+    }
+    p {
+        font-size: $font-size-text;
+    }
+
+    .cd-mac {
+        display: none;
+        /* Ipad */
+        @media (min-device-width: 768px) and (max-device-width: 1080px) {
+            display: inline;
+            font-size: $device-size !important;
+        }
+        /* Mobile portrait */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+            display: inline;
+            margin-bottom: $third-part-spacing;
+            font-size: $device-size !important;
+        }
+        /* Mobile landscape */
+        @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+            font-size: $device-size !important;
+        }
+    }
+    .cd-iphone-6 {
+        /* Ipad */
+        @media (min-device-width: 768px) and (max-device-width: 1080px) {
+            font-size: $device-size;
+        }
+        /* Mobile portrait */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+            display: none;
+        }
+        /* Mobile landscape */
+        @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+            font-size: $device-size;
+            display: none;
+        }
+    }
+    .cd-ipad{
+        /* Ipad */
+        @media (min-device-width: 768px) and (max-device-width: 1080px) {
+            display: none;
+        }
+        /* Mobile portrait */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+            font-size: $device-size !important;
+            margin-bottom: $third-part-spacing;
+        }
+        /* Mobile landscape */
+        @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+            font-size: 50% !important;
+        }
     }
 }
