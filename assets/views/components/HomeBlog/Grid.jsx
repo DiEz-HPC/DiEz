@@ -3,7 +3,7 @@ import './grid.scss';
 
 function Grid(props) {
     return (
-        <div class={`grid${props.number}`}>
+        <div className={`grid${props.number}`}>
             <div className="picture">
                 <div className="content">
                     <h4 className="title">{props.title}</h4>
