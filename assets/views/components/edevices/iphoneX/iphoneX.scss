@@ -1,17 +1,27 @@
 // iPhone X
-.device-iphone-x {
 
+@function translate-media-condition($device) {
+    $devices: (
+            "desk": 3,
+            "ipad": 4,
+            "mobile": 5.5,
+    );
+    @return map-get($devices, $device);
+}
+
+@mixin divisor($device) {
+    
     $device-silver: #e2e3e4;
     $device-silver-dark: darken($device-silver, 10%);
     $device-silver-panel: #222;
-
-    $divisor: 3;
-
+    
+    $divisor: translate-media-condition($device);
+    
     height: (868px / $divisor);
     width: (428px / $divisor);
-
+    
     z-index: 1;
-
+    
     .device-frame {
         background: $device-silver-panel;
         border-radius: (68px / $divisor);
@@ -20,7 +30,7 @@
         padding: (28px / $divisor);
         width: 100%;
     }
-
+    
     // 2436-by-1125-pixel resolution
     .device-content {
         border-radius: (40px / $divisor);
@@ -29,7 +39,7 @@
         object-fit: cover;
         object-position: top;
     }
-
+    
     .device-stripe {
         &::after,
         &::before {
@@ -50,7 +60,7 @@
             bottom: (85px / $divisor);
         }
     }
-
+    
     .device-header {
         background: $device-silver-panel;
         border-bottom-left-radius: (20px / $divisor);
@@ -61,7 +71,7 @@
         position: absolute;
         top: (28px / $divisor);
         width: (204px / $divisor);
-
+        
         &::after,
         &::before {
             content: "";
@@ -79,7 +89,7 @@
             right: (-10px / $divisor);
         }
     }
-
+    
     .device-sensors {
         &::after,
         &::before {
@@ -105,7 +115,7 @@
             width: (14px / $divisor);
         }
     }
-
+    
     .device-btns {
         background: $device-silver-dark;
         height: (32px / $divisor);
@@ -113,7 +123,7 @@
         position: absolute;
         top: (115px / $divisor);
         width: (3px / $divisor);
-
+        
         &::after,
         &::before {
             background: $device-silver-dark;
@@ -123,7 +133,7 @@
             position: absolute;
             width: (3px / $divisor);
         }
-
+        
         &::after {
             top: (60px / $divisor);
         }
@@ -131,7 +141,7 @@
             top: (140px / $divisor);
         }
     }
-
+    
     .device-power {
         background: $device-silver-dark;
         height: (100px / $divisor);
@@ -139,5 +149,15 @@
         position: absolute;
         top: (200px / $divisor);
         width: (3px / $divisor);
+    }
+}
+
+.device-iphone-x {
+    @include divisor('desk');
+    @media screen and (max-width: 768px) {
+        @include divisor('ipad')
+    }
+    @media screen and (max-width: 411px) {
+        @include divisor('mobile');
     }
 }

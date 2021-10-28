@@ -3,15 +3,34 @@
 .carouselProjects {
     position: relative;
     height: 100vh;
-
+    
+    p {
+        font-size: $font-size-text;
+        text-align: center;
+    }
+    
     .blocPiloting{
         position: absolute;
         bottom: 25%;
-        .goutte{
-            width: 40px;
+        height: 250px;
+        
+        .block-title {
+            height: 35%;
+            .goutte{
+                width: 40px;
+            }
+        }
+        
+        .block-description {
+            height: 45%;
+        }
+        
+        .command {
+            height: 20%
         }
 
-        @media screen and (max-width: 375px) {
+
+        @media screen and (max-width: 768px) {
             position: static;
             bottom: initial;
         }
@@ -27,10 +46,26 @@
             left: 0px;
             bottom: 0;
         }
-
-        @media screen and (max-width: 375px) {
-            position: static;
+    
+        @media screen and (max-width: 768px) {
+            position: relative;
+            right: initial;
+            top: initial;
+        
+            .element2 {
+                position: absolute;
+                left: 100px;
+                bottom: 0;
+            }
+        
         }
+
+        @media screen and (max-width: 411px) {
+            .element2 {
+                left: 15px;
+            }
+        }
+        
     }
 
 }

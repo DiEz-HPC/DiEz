@@ -1,132 +1,153 @@
 // MacBook Pro
-body{
-    overflow-x: hidden;
+body {
+	overflow-x: hidden;
 }
+
+@function translate-media-condition($device) {
+	$devices: (
+			"desk": 1,
+			"ipad": 1.35,
+			"mobile": 2.2,
+	);
+	@return map-get($devices, $device);
+}
+
+@mixin divisor($device) {
+	
+	$device-silver: #e2e3e4;
+	$device-silver-dark: darken($device-silver, 10%);
+	$device-silver-panel: #0d0d0d;
+	$device-spacegray: #83878a;
+	$device-spacegray-dark: darken($device-spacegray, 5%);
+	$device-spacegray-panel: #0d0d0d;
+	
+	$divisor: translate-media-condition($device);
+	
+	height: 444px / $divisor;
+	width: 740px / $divisor;
+	z-index: 0;
+	
+	.device-frame {
+		background: $device-silver-panel;
+		border-radius: 20px / $divisor;
+		box-shadow: inset 0 0 0 (2px/$divisor) $device-silver-dark;
+		height: 428px / $divisor;
+		margin: 0 auto;
+		padding: (29px / $divisor) (19px / $divisor) (39px / $divisor) (19px / $divisor);
+		position: relative;
+		width: 614px / $divisor;
+		
+		&::after {
+			background: lighten($device-silver-panel, 10%);
+			border-radius: 0 0 (20px / $divisor) (20px / $divisor);
+			bottom: 2px / $divisor;
+			content: "";
+			height: 26px / $divisor;
+			left: 2px / $divisor;
+			position: absolute;
+			width: 610px / $divisor;
+		}
+		
+		&::before {
+			bottom: 10px / $divisor;
+			color: $device-silver-dark;
+			content: " ";
+			font-size: 12px / $divisor;
+			height: 16px / $divisor;
+			left: 50%;
+			line-height: 16px / $divisor;
+			margin-left: -100px / $divisor;
+			position: absolute;
+			text-align: center;
+			width: 200px / $divisor;
+			z-index: 1;
+		}
+	}
+	
+	// 1680-by-1050-pixel resolution
+	.device-content {
+		border: (2px / $divisor) solid lighten($device-silver-panel, 2%);
+		border-radius: 2px / $divisor;
+		height: 100%;
+		width: 100%;
+		object-fit: cover;
+		object-position: top;
+	}
+	
+	.device-power {
+		$border-x: 2px / $divisor;
+		$border-y: 4px / $divisor;
+		background: $device-silver;
+		border: solid darken($device-silver, 5%);
+		border-radius: (2px / $divisor) (2px / $divisor) 0 0;
+		border-width: $border-x $border-y 0 $border-y;
+		height: 14px / $divisor;
+		margin-top: -10px / $divisor;
+		position: relative;
+		width: 740px / $divisor;
+		z-index: 9;
+		
+		&::after,
+		&::before {
+			content: "";
+			position: absolute;
+		}
+		
+		&::after {
+			background: lighten($device-silver-dark, 5%);
+			border-radius: 0 0 (10px / $divisor) (10px / $divisor);
+			box-shadow: inset 0 0 (4px / $divisor) (2px / $divisor) darken($device-silver-dark, 5%);
+			height: 10px / $divisor;
+			left: 50%;
+			margin-left: -60px / $divisor;
+			top: -2px / $divisor;
+			width: 120px / $divisor;
+		}
+		
+		&::before {
+			$border-radius-dl1: 0 0 (180px / $divisor) (180px / $divisor);
+			$border-radius-dl2: 0 0 (12px / $divisor) (12px / $divisor);
+			background: darken($device-silver-dark, 15%);
+			border-radius: $border-radius-dl1 / $border-radius-dl2;
+			box-shadow: inset 0 (-2px / $divisor) (6px / $divisor) 0 darken($device-silver-dark, 50%);
+			height: 12px / $divisor;
+			left: -4px / $divisor;
+			margin: 0 auto;
+			top: 10px / $divisor;
+			width: 740px / $divisor;
+		}
+	}
+	
+	// Space Gray edition
+	&.device-spacegray {
+		.device-frame {
+			box-shadow: inset 0 0 0 (2px / $divisor) $device-spacegray-dark;
+		}
+		
+		.device-power {
+			background: lighten($device-spacegray, 5%);
+			border-color: $device-spacegray-dark;
+			
+			&::after {
+				background: lighten($device-spacegray-dark, 5%);
+				box-shadow: inset 0 0 4px 2px darken($device-spacegray-dark, 5%);
+			}
+			
+			&::before {
+				background: darken($device-spacegray-dark, 15%);
+				box-shadow: inset 0 -2px 6px 0 darken($device-spacegray-dark, 50%);
+			}
+		}
+	}
+}
+
+
 .device-macbook-pro {
-
-    $device-silver: #e2e3e4;
-    $device-silver-dark: darken($device-silver, 10%);
-    $device-silver-panel: #0d0d0d;
-    $device-spacegray: #83878a;
-    $device-spacegray-dark: darken($device-spacegray, 5%);
-    $device-spacegray-panel: #0d0d0d;
-
-    $divisor: 1;
-
-    @media screen and (max-width: 375px) {
-        display: none;
-    }
-
-    height: 444px / $divisor;
-    width: 740px / $divisor;
-    z-index: 0;
-
-    .device-frame {
-        background: $device-silver-panel;
-        border-radius: 20px / $divisor;
-        box-shadow: inset 0 0 0 (2px/$divisor) $device-silver-dark;
-        height: 428px / $divisor;
-        margin: 0 auto;
-        padding: (29px / $divisor) (19px / $divisor) (39px / $divisor) (19px / $divisor);
-        position: relative;
-        width: 614px / $divisor;
-
-        &::after {
-            background: lighten($device-silver-panel, 10%);
-            border-radius: 0 0 (20px / $divisor) (20px / $divisor);
-            bottom: 2px / $divisor;
-            content: "";
-            height: 26px / $divisor;
-            left: 2px / $divisor;
-            position: absolute;
-            width: 610px / $divisor;
-        }
-        &::before {
-            bottom: 10px / $divisor;
-            color: $device-silver-dark;
-            content: " ";
-            font-size: 12px / $divisor;
-            height: 16px / $divisor;
-            left: 50%;
-            line-height: 16px / $divisor;
-            margin-left: -100px / $divisor;
-            position: absolute;
-            text-align: center;
-            width: 200px / $divisor;
-            z-index: 1;
-        }
-    }
-
-    // 1680-by-1050-pixel resolution
-    .device-content {
-        border: (2px / $divisor) solid lighten($device-silver-panel, 2%);
-        border-radius: 2px / $divisor;
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
-        object-position: top;
-    }
-
-    .device-power {
-        $border-x: 2px / $divisor;
-        $border-y: 4px / $divisor;
-        background: $device-silver;
-        border: solid darken($device-silver, 5%);
-        border-radius: (2px / $divisor) (2px / $divisor) 0 0;
-        border-width: $border-x $border-y 0 $border-y;
-        height: 14px / $divisor;
-        margin-top: -10px / $divisor;
-        position: relative;
-        width: 740px / $divisor;
-        z-index: 9;
-
-        &::after,
-        &::before {
-            content: "";
-            position: absolute;
-        }
-        &::after {
-            background: lighten($device-silver-dark, 5%);
-            border-radius: 0 0 (10px / $divisor) (10px / $divisor);
-            box-shadow: inset 0 0 (4px / $divisor) (2px / $divisor) darken($device-silver-dark, 5%);
-            height: 10px / $divisor;
-            left: 50%;
-            margin-left: -60px / $divisor;
-            top: -2px / $divisor;
-            width: 120px / $divisor;
-        }
-        &::before {
-            $border-radius-dl1: 0 0 (180px / $divisor) (180px / $divisor);
-            $border-radius-dl2: 0 0 (12px / $divisor) (12px / $divisor);
-            background: darken($device-silver-dark, 15%);
-            border-radius: $border-radius-dl1 / $border-radius-dl2;
-            box-shadow: inset 0 (-2px / $divisor) (6px / $divisor) 0 darken($device-silver-dark, 50%);
-            height: 12px / $divisor;
-            left: -4px / $divisor;
-            margin: 0 auto;
-            top: 10px / $divisor;
-            width: 740px / $divisor;
-        }
-    }
-
-    // Space Gray edition
-    &.device-spacegray {
-        .device-frame {
-            box-shadow: inset 0 0 0 (2px / $divisor) $device-spacegray-dark;
-        }
-
-        .device-power {
-            background: lighten($device-spacegray, 5%);
-            border-color: $device-spacegray-dark;
-
-            &::after {
-                background: lighten($device-spacegray-dark, 5%);
-                box-shadow: inset 0 0 4px 2px darken($device-spacegray-dark, 5%);
-            }
-            &::before {
-                background: darken($device-spacegray-dark, 15%);
-                box-shadow: inset 0 -2px 6px 0 darken($device-spacegray-dark, 50%);
-            }
-        }
-    }
+	@include divisor('desk');
+	@media screen and (max-width: 768px) {
+		@include divisor('ipad')
+	}
+	@media screen and (max-width: 411px) {
+		@include divisor('mobile')
+	}
 }

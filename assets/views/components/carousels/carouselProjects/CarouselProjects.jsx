@@ -14,7 +14,7 @@ import {imageUrl} from "../../../../tools/image";
 
 function CarouselProjects() {
     const [projects, setProjects] = useState([])
-    useEffect(async () =>{
+    useEffect(async () => {
         const query = await getAllProjects;
         const response = await query.json();
         setProjects(response);
@@ -26,7 +26,7 @@ function CarouselProjects() {
     }, [projects])
 
     const [image, setImage] = useState(['test.jpg']);
-    useEffect(() =>{
+    useEffect(() => {
         setImage(project?.imageName)
     }, [project])
 
@@ -35,9 +35,9 @@ function CarouselProjects() {
         await setProject(projects[paginate])
     }, [paginate])
 
-    function navigationProject (move) {
+    function navigationProject(move) {
         const projectNumber = projects.length
-        switch (move){
+        switch (move) {
             case 'backward':
                 if (paginate > 0) {
                     setPaginate(paginate - 1)
@@ -54,25 +54,34 @@ function CarouselProjects() {
     }
 
     return (
-        <div id={'projects'} className={'carouselProjects d-flex flex-row align-items-sm-center mb-5 col-12'}>
-            <div className="blocPiloting col-12 col-sm-2 px-5 px-sm-0 mt-5 mt-sm-0">
-                <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo"/>
-                <h2>{project?.name}</h2>
-                <p>{project?.description}</p>
-                <div className="command d-flex flex flex-column">
-                    <BtnLinks link={`/projects/${project?.name}`} label={'Voir le projet'} color={'white'} variant={'outlined'} />
-                    <div className="pagination d-flex justify-content-between">
-                        <FontAwesomeIcon onClick={() => navigationProject('backward')} size={'3x'} icon={faLongArrowAltLeft} />
-                        <FontAwesomeIcon onClick={() => navigationProject('forward')} size={'3x'} icon={faLongArrowAltRight} />
-                    </div>
-                </div>
-            </div>
-            <div className="blocImages d-flex col-12 col-sm-2">
-                <div className="element1">
-                    <MacbookPro image={imageUrl(image)} alt={''} scale={100} />
+        <div id={'projects'} className={'carouselProjects d-flex flex-column flex-lg-row align-items-center mb-5 col-12'}>
+            <div className="blocImages d-flex justify-content-center mb-5 mt-5 col-12 col-lg-2">
+                <div className="element1 mt-5 mt-sm-0">
+                    <MacbookPro image={imageUrl(image)} alt={''} scale={100}/>
                 </div>
                 <div className="element2">
-                    <IphoneX image={imageUrl(image)} alt={''} scale={100} />
+                    <IphoneX image={imageUrl(image)} alt={''} scale={100}/>
+                </div>
+            </div>
+            <div className="blocPiloting d-flex flex-column align-items-center col-12 col-md-4 px-5 px-sm-0 mt-5">
+                <div className={'block-title'}>
+                    <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo"/>
+                    <h3 className={'mb-3'}>{project?.name}</h3>
+                </div>
+                <div className="block-description d-flex align-items-center">
+                    <p>{project?.description}</p>
+                </div>
+                <div className="command d-flex flex flex-column">
+                    <div className="col-6">
+                        <BtnLinks link={`/projects/${project?.name}`} label={'Voir le projet'} color={'white'}
+                                  variant={'outlined'}/>
+                    </div>
+                    <div className="pagination d-flex justify-content-between col-12">
+                        <FontAwesomeIcon onClick={() => navigationProject('backward')} size={'4x'}
+                                         icon={faLongArrowAltLeft}/>
+                        <FontAwesomeIcon onClick={() => navigationProject('forward')} size={'4x'}
+                                         icon={faLongArrowAltRight}/>
+                    </div>
                 </div>
             </div>
         </div>

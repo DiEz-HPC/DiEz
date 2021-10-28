@@ -12,9 +12,9 @@ function Description() {
     return (
         <div className={'description d-flex flex-column justify-content-center align-items-center'}>
             <h1 className={'text-center'}>UNE ÉQUIPE <br/> A VOTRE ECOUTE <Dot /></h1>
-            <h5 className={'text-center col-7 text-light mb-4'}>{text.description}</h5>
+            <p className={'text-center col-7 text-light mb-4'}>{text.description}</p>
             <div className="d-flex">
-                <BtnLinks link={'#projects'} label={'Nos porjets'} color={'primary'} style={'me-4'} variant={'outlined'} />
+                <BtnLinks link={'#projects'} label={'Nos projets'} color={'primary'} style={'me-4'} variant={'outlined'} />
                 <BtnLinks link={'/contact'} label={'Contactez-nous'} color={'dark'} variant={'contained'} />
             </div>
         </div>

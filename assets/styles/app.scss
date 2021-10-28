@@ -4,3 +4,51 @@
 */
 @import 'variables';
 @import '~bootstrap/scss/bootstrap';
+
+/*
+  Reset all spacing
+ */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.logo {
+	font-family: $font-logo, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: $font-title, sans-serif;
+}
+h1{
+	font-size: $font-size-title;
+}
+
+h2{
+	font-size: $font-size-subtitle;
+}
+
+h3{
+	font-size: $font-size-subtitle - 20px;
+}
+
+h4{
+	font-size: $font-size-subtitle - 25px;
+}
+
+h5{
+	font-size: $font-size-subtitle - 30px;
+}
+
+
+p {
+	font-family: $font-text, sans-serif;
+}
+
+h1 {
+	font-size: $font-size-title;
+}
