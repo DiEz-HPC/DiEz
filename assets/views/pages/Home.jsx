@@ -19,6 +19,9 @@ function Home() {
             <section className={'HomeBlog'}>
                 <HomeBlog />
             </section>
+            <section className={'what-we-do'}>
+                <WhatWeDo />
+            </section>
             <Footer />
         </div>
     );
