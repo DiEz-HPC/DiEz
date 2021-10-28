@@ -4,7 +4,8 @@ import Description from "../components/description/Description";
 import Social from "../components/Social/Social";
 import CarouselProjects from "../components/carousels/carouselProjects/CarouselProjects";
 import Footer from '../components/footer/Footer';
-import wave from '../../images/wave.svg'
+import wave from '../../images/wave.svg';
+import WhatWeDo from "../components/WhatWeDo/Whatwedo";
 
 function Home() {
     return (
@@ -16,6 +17,9 @@ function Home() {
             <section className={'carousel-projects col-12'}>
                 <img className={'wave'} src={wave} alt="wave"/>
                 <CarouselProjects />
+            </section>
+            <section className={'what-we-do'}>
+                <WhatWeDo />
             </section>
             <Footer />
         </div>
