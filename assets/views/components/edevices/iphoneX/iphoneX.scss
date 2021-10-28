@@ -3,7 +3,7 @@
 @function translate-media-condition($device) {
     $devices: (
             "desk": 3,
-            "ipad": 4,
+            "ipad": 4.5,
             "mobile": 5.5,
     );
     @return map-get($devices, $device);
@@ -157,7 +157,7 @@
     @media screen and (max-width: 768px) {
         @include divisor('ipad')
     }
-    @media screen and (max-width: 411px) {
+    @media screen and (max-width: 767px) {
         @include divisor('mobile');
     }
 }
