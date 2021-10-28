@@ -54,8 +54,8 @@ function CarouselProjects() {
     }
 
     return (
-        <div id={'projects'} className={'carouselProjects d-flex flex-row align-items-center ms-5 mb-5 col-12'}>
-            <div className="blocPiloting col-2">
+        <div id={'projects'} className={'carouselProjects d-flex flex-row align-items-sm-center mb-5 col-12'}>
+            <div className="blocPiloting col-12 col-sm-2 px-5 px-sm-0 mt-5 mt-sm-0">
                 <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo"/>
                 <h2>{project?.name}</h2>
                 <p>{project?.description}</p>
@@ -66,11 +66,14 @@ function CarouselProjects() {
                         <FontAwesomeIcon onClick={() => navigationProject('forward')} size={'3x'} icon={faLongArrowAltRight} />
                     </div>
                 </div>
-
             </div>
-            <div className="blocImages d-flex">
-                <IphoneX image={imageUrl(image)} alt={''} scale={100} />
-                <MacbookPro image={imageUrl(image)} alt={''} scale={100} />
+            <div className="blocImages d-flex col-12 col-sm-2">
+                <div className="element1">
+                    <MacbookPro image={imageUrl(image)} alt={''} scale={100} />
+                </div>
+                <div className="element2">
+                    <IphoneX image={imageUrl(image)} alt={''} scale={100} />
+                </div>
             </div>
         </div>
     );

@@ -12,12 +12,17 @@ class ProjectFixtures extends Fixture
         [
             'name' => 'JobPermut',
             'description' => 'The site of de la mort qui tue',
-            'imageName' => 'logo_goutte.png'
+            'imageName' => 'test.jpg'
         ],
         [
             'name' => 'Fiverr Helper',
             'description' => 'The site number 1',
             'imageName' => 'logo_goutte.png'
+        ],
+        [
+            'name' => 'Projet qui bug',
+            'description' => 'Pas de bol ce dernier rien ne marche',
+            'imageName' => '404.png'
         ]
     ];
     public function load(ObjectManager $manager): void

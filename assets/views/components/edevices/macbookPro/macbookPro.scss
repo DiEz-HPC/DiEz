@@ -13,11 +13,12 @@ body{
 
     $divisor: 1;
 
+    @media screen and (max-width: 375px) {
+        display: none;
+    }
+
     height: 444px / $divisor;
     width: 740px / $divisor;
-    position: absolute;
-    right: -10%;
-    top: 20%;
     z-index: 0;
 
     .device-frame {
