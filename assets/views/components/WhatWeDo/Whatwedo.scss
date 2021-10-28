@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+
+$WWD_margin: 7%;
+
+.whatwedo {
+    .row {
+        --bs-gutter-x: none !important;
+    }
+    .whatwedo_title {
+        margin-left: $WWD_margin;
+        margin-bottom: $WWD_margin/2;
+        span {
+            color: $primary;
+        }
+    }
+    
+}
