@@ -5,6 +5,7 @@ import Social from "../components/Social/Social";
 import CarouselProjects from "../components/carousels/carouselProjects/CarouselProjects";
 import Footer from '../components/footer/Footer';
 import wave from '../../images/wave.svg';
+import HomeBlog from '../components/HomeBlog/HomeBlog';
 import WhatWeDo from "../components/WhatWeDo/Whatwedo";
 
 function Home() {
@@ -18,12 +19,17 @@ function Home() {
                 <img className={'wave'} src={wave} alt="wave"/>
                 <CarouselProjects />
             </section>
+
+            <section className={'HomeBlog'}>
+                <HomeBlog />
+          </section>
             <section className={'what-we-do'}>
                 <WhatWeDo />
+
             </section>
             <Footer />
         </div>
-    )
+    );
 }
 
 export default Home;
