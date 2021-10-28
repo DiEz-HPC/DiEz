@@ -4,6 +4,7 @@ import Description from '../components/description/Description';
 import Social from '../components/Social/Social';
 import Footer from '../components/footer/Footer';
 import HomeBlog from '../components/HomeBlog/HomeBlog';
+import WhatWeDo from "../components/WhatWeDo/Whatwedo";
 
 function Home() {
     return (
