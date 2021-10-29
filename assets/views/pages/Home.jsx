@@ -15,7 +15,7 @@ function Home() {
             <section className="first-view">
                 <Description />
             </section>
-            <section className={'carousel-projects col-12'}>
+            <section className={'carousel-projects'}>
                 <img className={'wave'} src={wave} alt="wave"/>
                 <CarouselProjects />
             </section>

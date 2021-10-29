@@ -54,16 +54,18 @@ function CarouselProjects() {
     }
 
     return (
-        <div id={'projects'} className={'carouselProjects d-flex flex-column flex-lg-row align-items-center mb-5 col-12'}>
-            <div className="blocImages d-flex justify-content-center mb-5 mt-5 col-12 col-lg-2">
-                <div className="element1 mt-5 mt-sm-0">
-                    <MacbookPro image={imageUrl(image)} alt={''} scale={100}/>
-                </div>
-                <div className="element2">
-                    <IphoneX image={imageUrl(image)} alt={''} scale={100}/>
+        <div id={'projects'} className={'carouselProjects d-flex flex-column flex-xl-row align-items-center'}>
+            <div className="blocImages d-flex justify-content-center my-5 pt-5 mt-5 col-12 col-xl-2">
+                <div className="edevices">
+                    <div className="element1 mt-5 mt-sm-0">
+                        <MacbookPro image={imageUrl(image)} alt={''} scale={100}/>
+                    </div>
+                    <div className="element2">
+                        <IphoneX image={imageUrl(image)} alt={''} scale={100}/>
+                    </div>
                 </div>
             </div>
-            <div className="blocPiloting d-flex flex-column align-items-center col-12 col-md-4 px-5 px-sm-0 mt-5">
+            <div className="blocPiloting d-flex flex-column align-items-center align-items-xl-start col-12 col-md-4 px-5 px-sm-0 mt-5 mt-sm-0 mb-sm-5">
                 <div className={'block-title'}>
                     <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo"/>
                     <h3 className={'mb-3'}>{project?.name}</h3>
@@ -77,9 +79,9 @@ function CarouselProjects() {
                                   variant={'outlined'}/>
                     </div>
                     <div className="pagination d-flex justify-content-between col-12">
-                        <FontAwesomeIcon onClick={() => navigationProject('backward')} size={'4x'}
+                        <FontAwesomeIcon className={'arrow'} onClick={() => navigationProject('backward')} size={'4x'}
                                          icon={faLongArrowAltLeft}/>
-                        <FontAwesomeIcon onClick={() => navigationProject('forward')} size={'4x'}
+                        <FontAwesomeIcon className={'arrow'} onClick={() => navigationProject('forward')} size={'4x'}
                                          icon={faLongArrowAltRight}/>
                     </div>
                 </div>

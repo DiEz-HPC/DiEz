@@ -4,10 +4,17 @@ body {
 }
 
 @function translate-media-condition($device) {
+	$max: 2.2;
+	$min: 0.6;
+	$div: 5;
+	$reduc: ($max - $min) / $div;
 	$devices: (
-			"desk": 1,
-			"ipad": 1.35,
-			"mobile": 2.2,
+			"xxl": $min,
+			"xl": $max - $reduc * 4,
+			"lg": $max - $reduc * 3,
+			"md": $max - $reduc * 2,
+			"sm": $max - $reduc,
+			"xs": $max,
 	);
 	@return map-get($devices, $device);
 }
@@ -143,11 +150,20 @@ body {
 
 
 .device-macbook-pro {
-	@include divisor('desk');
-	@media screen and (max-width: 768px) {
-		@include divisor('ipad')
+	@include divisor('xxl');
+	@media screen and (max-width: 1399px) {
+		@include divisor('xl');
+	}
+	@media screen and (max-width: 1199px) {
+		@include divisor('lg');
+	}
+	@media screen and (max-width: 991px) {
+		@include divisor('md');
 	}
 	@media screen and (max-width: 767px) {
-		@include divisor('mobile')
+		@include divisor('sm');
+	}
+	@media screen and (max-width: 576px) {
+		@include divisor('xs');
 	}
 }

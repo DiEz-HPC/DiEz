@@ -1,10 +1,17 @@
 // iPhone X
 
 @function translate-media-condition($device) {
+    $max: 7;
+    $min: 1.8;
+    $div: 5;
+    $reduc: ($max - $min) / $div;
     $devices: (
-            "desk": 3,
-            "ipad": 4.5,
-            "mobile": 5.5,
+            "xxl": $min,
+            "xl": $max - $reduc * 4,
+            "lg": $max - $reduc * 3,
+            "md": $max - $reduc * 2,
+            "sm": $max - $reduc,
+            "xs": $max,
     );
     @return map-get($devices, $device);
 }
@@ -153,11 +160,20 @@
 }
 
 .device-iphone-x {
-    @include divisor('desk');
-    @media screen and (max-width: 768px) {
-        @include divisor('ipad')
+    @include divisor('xxl');
+    @media screen and (max-width: 1399px) {
+        @include divisor('xl');
+    }
+    @media screen and (max-width: 1199px) {
+        @include divisor('lg');
+    }
+    @media screen and (max-width: 991px) {
+        @include divisor('md');
     }
     @media screen and (max-width: 767px) {
-        @include divisor('mobile');
+        @include divisor('sm');
+    }
+    @media screen and (max-width: 576px) {
+        @include divisor('xs');
     }
 }
