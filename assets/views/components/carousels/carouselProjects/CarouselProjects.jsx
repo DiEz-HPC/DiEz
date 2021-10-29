@@ -54,14 +54,14 @@ function CarouselProjects() {
     }
 
     return (
-        <div id={'projects'} className={'carouselProjects d-flex flex-column flex-xl-row align-items-center'}>
+        <div id={'projects'} className={'carouselProjects d-flex flex-column flex-xl-row align-items-center justify-content-center'}>
             <div className="blocImages d-flex justify-content-center my-5 pt-5 mt-5 col-12 col-xl-2">
                 <div className="edevices">
                     <div className="element1 mt-5 mt-sm-0">
-                        <MacbookPro image={imageUrl(image)} alt={''} scale={100}/>
+                        <MacbookPro image={imageUrl(image)} alt={`${project?.name} sur pc`} scale={100}/>
                     </div>
                     <div className="element2">
-                        <IphoneX image={imageUrl(image)} alt={''} scale={100}/>
+                        <IphoneX image={imageUrl(image)} alt={`${project?.name} sur mobile`} scale={100}/>
                     </div>
                 </div>
             </div>
