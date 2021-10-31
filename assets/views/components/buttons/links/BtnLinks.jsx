@@ -7,7 +7,7 @@ function BtnLinks(props) {
     const {link, label, variant, color, style} = props
     return (
         <>
-            <Button href={link} className={`btnLink btnLink-${variant}-${color} ${style} mx-1`} variant={variant} >{label}</Button>
+            <Button href={link} className={`btnLink btnLink-${variant}-${color} ${style}`} variant={variant} >{label}</Button>
         </>
     );
 }

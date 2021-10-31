@@ -25,7 +25,7 @@ function HomeBlog() {
     return (
         <div className="home-blog">
             <h2 className="text-center"> Nos dernières actualités <Dot/></h2>
-            <div class="parent m-auto">
+            <div className="parent m-auto">
                 <Grid number={1} title={actu.title} description={actu.description} picture={actu.picture} />
                 <Grid number={2} title={actu.title} description={actu.description} picture={actu.picture2} />
                 <Grid number={3} title={actu.title} description={actu.description} picture={actu.picture3} />
