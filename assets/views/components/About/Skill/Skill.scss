@@ -1,0 +1,23 @@
+@import '../../../../styles/variables.scss';
+
+.second-part {
+    .row {
+        margin-top: $spacing * 8;
+        .text-right{
+            text-align: center;
+        }
+        .text-left{
+            text-align: center;
+        }
+        ul{
+            list-style:none;
+            li{
+                line-height: 400%;
+            }
+        }
+        img{
+            width: 100%;
+        }
+    }
+    
+}

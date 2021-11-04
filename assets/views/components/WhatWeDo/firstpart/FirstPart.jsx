@@ -7,7 +7,7 @@ import CoffeeLogo from '../../../../images/cofee_icon.png';
 
 function FirstPart() {
     return (
-        <div className="outer-container">
+        <div className="First-outer-container">
             <div className="first_part row mb-5 d-flex justify-content-around">
                 <Card
                     icon={PcLogo}
