@@ -10,5 +10,21 @@
         }
     }
 
-
+    .carousel-projects {
+        position: relative;
+        height: 100vh;
+        
+        @media screen and (max-height: 990px) {
+            min-height: 800px;
+        }
+        
+        .wave{
+            position: absolute;
+            transform: scale(-1 , 1);
+            width: 100%;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+    }
 }
