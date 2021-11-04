@@ -1,8 +1,10 @@
-import React from 'react';
-import '../../styles/home.scss';
-import Description from '../components/description/Description';
-import Social from '../components/Social/Social';
+import React from "react";
+import '../../styles/home.scss'
+import Description from "../components/description/Description";
+import Social from "../components/Social/Social";
+import CarouselProjects from "../components/carousels/carouselProjects/CarouselProjects";
 import Footer from '../components/footer/Footer';
+import wave from '../../images/wave.svg';
 import HomeBlog from '../components/HomeBlog/HomeBlog';
 import WhatWeDo from "../components/WhatWeDo/Whatwedo";
 
@@ -14,7 +16,8 @@ function Home() {
                 <Description />
             </section>
             <section className={'carousel-projects'}>
-                <h2>Nos projets</h2>
+                <img className={'wave'} src={wave} alt="wave"/>
+                <CarouselProjects />
             </section>
 
             <section className={'HomeBlog'}>

@@ -32,7 +32,7 @@ $footer_line_height: 50%;
             display: grid !important;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(2, 1fr);
-            grid-column-gap: 0px;
+            grid-column-gap: 0;
             .footer_body_section1 {
                 margin:auto;
                 grid-area: 1 / 1 / 2 / 2;
