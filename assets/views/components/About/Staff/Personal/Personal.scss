@@ -1,6 +1,7 @@
 @import '../../../../../styles/variables.scss';
 
 $full: 100%;
+$half: 50vh;
 $box-width: 35vw;
 
 .text-on {
@@ -44,6 +45,8 @@ $box-width: 35vw;
         height: $full;
     }
 }
+
+// Mobile portrait
 @media screen and (max-width: 768px) {
     .text-off,
     .text-on {
@@ -53,10 +56,54 @@ $box-width: 35vw;
     }
     .text-box {
         width: $full;
-        height: 25vh;
+        height: $half/2;
     }
     .img-box {
         width: $full;
-        height: 50vh;
+        height: $half;
+    }
+}
+@media screen and (min-width: 768px ) and (max-width: 992px) {
+    .text-off,
+    .text-on {
+        display: block;
+        color: $light;
+        background-color: $dark;  
+    }
+    
+    .text-box {
+        width: $full;
+        height: $half/4;
+    }
+    .img-box {
+        width: $full;
+        height: $half;
+        display: flex;
+        justify-content: center;
+        background-color: $dark;
+        padding-bottom: auto;
+        img{
+            width: $full/2;
+            height: $full;
+        }
+    }
+}
+@media screen and (min-width: 992px ) and (max-width: 1080px) and (max-height: 810px) {
+    .text-box{
+        height: $full;
+        width: $full;
+    }
+    .img-box {
+        width: $full;
+        height: $full;
+        display: flex;
+        justify-content: center;
+        background-color: $dark;
+        padding-bottom: auto;
+        img{
+            width: $full;
+            height: $full;
+        }
+    
     }
 }

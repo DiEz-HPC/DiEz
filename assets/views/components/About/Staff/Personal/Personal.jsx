@@ -34,9 +34,11 @@ function Personal(props) {
                     </div>
                 </div>
             </div>
-            <div
-                className="img-box"
+            <div className="img-box"
                 onMouseEnter={(e) => {
+                    render(index);
+                }}
+                onTouchStart={(e) => {
                     render(index);
                 }}
             >

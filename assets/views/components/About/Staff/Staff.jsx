@@ -14,7 +14,6 @@ function Staff() {
         const response = await query.json();
         const shuffled = response.sort(() => 0.5 - Math.random());
         setPersonals(shuffled);
-        console.log(shuffled);
     }, []);
 
     function isMobile() {
