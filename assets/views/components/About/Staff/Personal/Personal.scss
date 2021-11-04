@@ -1,0 +1,62 @@
+@import '../../../../../styles/variables.scss';
+
+$full: 100%;
+$box-width: 35vw;
+
+.text-on {
+    color: $light;
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+.text-off {
+    display: none;
+}
+
+.text-box {
+    height: $full;
+    width: $box-width;
+    .staff-info {
+        .staff-status {
+            font-size: $font-size-text;
+            font-weight: lighter;
+        }
+        .staff-name {
+            font-size: $font-size-subtitle/2;
+            font-weight: bolder;
+        }
+    }
+    .staff-social {
+        li {
+            a {
+                color: $light;
+                font-size: $font-size-subtitle/1.5;
+            }
+        }
+        li:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+.img-box {
+    width: $box-width;
+    height: $full;
+    img {
+        width: $full;
+        height: $full;
+    }
+}
+@media screen and (max-width: 768px) {
+    .text-off,
+    .text-on {
+        display: block;
+        color: $light;
+        background-color: $dark;  
+    }
+    .text-box {
+        width: $full;
+        height: 25vh;
+    }
+    .img-box {
+        width: $full;
+        height: 50vh;
+    }
+}
