@@ -16,12 +16,17 @@
 		$height-title: $height-init * .3;
 		$height-descripion: ($height-init - $height-title) * .4;
 		$height-command: $height-init - $height-title - $height-descripion;
+		$height-block: 250px;
 		
 		position: absolute;
 		bottom: 25%;
-		height: 250px;
+		height: $height-block;
 		top: 40%;
 		left: 20%;
+		
+		@media screen and (max-width: 768px) {
+			height: $height-block + 100px;
+		}
 		
 		.block-title {
 			@media screen and (max-width: 768px) {
