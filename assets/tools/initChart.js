@@ -1,3 +1,8 @@
-const graph = document.getElementById('1').getContext('2d');
-const data = JSON.parse(graph.canvas.dataset.view);
-const myChart = new Chart(graph, data);
+const graphs = [...document.getElementsByTagName('canvas')];
+
+graphs.map( async (graph) => {
+    const data = await JSON.parse(graph.dataset.view);
+    console.log(data)
+    const myChart = new Chart(graph, data);
+})
+

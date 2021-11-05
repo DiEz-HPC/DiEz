@@ -1,14 +1,24 @@
 {% extends '@EasyAdmin/page/content.html.twig' %}
-{% block page_title %}test welcome
+{% block page_title %}
+    <div class="text-center mb-4">
+        Salut
+        {{ app.user.username ?? 'Employé' }}
+    </div>
 {% endblock %}
 {% block head_javascript %}
     {{ parent() }}
-  <script src=
-"https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
 
-{{ encore_entry_script_tags('initChart') }}
+    {{ encore_entry_script_tags('initChart') }}
 {% endblock %}
 
 {% block main %}
-    {{ render_chart(chart) }}
+    <div class="row h-100">
+        <div class="col-md-5 h-100">
+            {{ render_chart(chart1) }}
+        </div>
+        <div class="col-md-5 h-100">
+            {{ render_chart(chart2) }}
+        </div>
+    </div>
 {% endblock %}

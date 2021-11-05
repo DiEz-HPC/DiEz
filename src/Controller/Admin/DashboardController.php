@@ -30,7 +30,7 @@ class DashboardController extends AbstractDashboardController
                 'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 'datasets' => [
                     [
-                        'label' => 'Nombre d\'employé',
+                        'label' => 'Exemple1',
                         'backgroundColor' => 'rgb(255, 99, 132)',
                         'borderColor' => 'rgb(255, 99, 132)',
                         'data' => [3, 3, 3, 3, 3, 3, 3],
@@ -44,18 +44,47 @@ class DashboardController extends AbstractDashboardController
                         ['ticks' => ['min' => 0, 'max' => 10]],
                     ],
                 ],
+            ]
+        ];
+        $params2 = [
+            'data' => [
+                'labels' => ['rouge', 'Orange', 'Jaune', 'vert'],
+                'datasets' => [
+                    [
+                        'label' => '',
+                        'backgroundColor' => [
+                            'rgb(255, 45, 0)',
+                            'rgb(255, 139, 0 )',
+                            'rgb(255, 243, 0 )',
+                            'rgb(73, 255, 0 )',
+                           
+                        ],
+                        'borderColor' => [],
+                        'data' => [8, 3, 3, 3],
+                    ],
+                   
+                ],
             ],
-            'attributes' => [
-                'id' => '1'
+            'options' => [
+                'legend' =>[
+                    'position' => 'bottom'
+                ]
             ]
         ];
 
-        $this->chartCreator->setParams($params);
-        $this->chartCreator->setChartType(Chart::TYPE_LINE);
-
+        $chart1= $this->chartCreator->createChart(
+            params: $params, 
+            chartType: Chart::TYPE_LINE
+        );
     
+        $chart2= $this->chartCreator->createChart(
+            params: $params2, 
+            chartType: Chart::TYPE_PIE
+        );
+
         return $this->render('bundles/EasyAdminBundle/welcome.html.twig', [
-            'chart' => $this->chartCreator->createChart(),
+            'chart1' => $chart1,
+            'chart2' => $chart2
         ]);
     }
 
