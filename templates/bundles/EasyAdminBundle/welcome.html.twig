@@ -2,7 +2,7 @@
 {% block page_title %}
     <div class="text-center mb-4">
         Salut
-        {{ app.user.username ?? 'Employé' }}
+        {{ app.user.firstname ?? 'Employé' }}
     </div>
 {% endblock %}
 {% block head_javascript %}
