@@ -3,10 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
-use GuzzleHttp\Client;
 use App\Entity\Project;
 use App\Service\ChartCreator;
-use App\Service\GithubApi;
 use Symfony\UX\Chartjs\Model\Chart;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,7 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 class DashboardController extends AbstractDashboardController
 {
 
-  public function __construct(private ChartCreator $chartCreator, private GithubApi $githubApi)
+  public function __construct(private ChartCreator $chartCreator)
   {
   }
 

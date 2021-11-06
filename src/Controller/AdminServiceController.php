@@ -13,7 +13,12 @@ class AdminServiceController extends AbstractController
     #[Route('/github', name: 'github')]
     public function index(GithubApi $githubApi): Response
     {
-        $githubApi->saveRepos();
+        // A faire : Gérer les message d'erreur
+        if($githubApi->saveRepos()) {
+            $this->addFlash('success', 'Les répos ont bien été sauvegardés');
+        } else {
+            $this->addFlash('error', 'Les répos n\'ont pas pu être sauvegardés ou sont déja à jour');
+        }
         return $this->redirectToRoute('admin_index');
     }
 }
