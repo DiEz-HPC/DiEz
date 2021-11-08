@@ -5,6 +5,8 @@ namespace App\EventSubscriber;
 use App\Entity\Post;
 use Cocur\Slugify\Slugify;
 use DateTimeImmutable;
+use DateTimeZone;
+use Exception;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityPersistedEvent;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
@@ -16,6 +18,9 @@ class PostAdminSubscriber implements EventSubscriberInterface
     {
     }
 
+    /**
+     * @throws Exception
+     */
     public function onBeforeEntityPersistedEvent(BeforeEntityPersistedEvent $event): BeforeEntityPersistedEvent
     {
         $entity = $event->getEntityInstance();
@@ -29,9 +34,9 @@ class PostAdminSubscriber implements EventSubscriberInterface
             $entity->setUrl('blog/' . $entity->getSlug());
 
             if (!$entity->getCreatedAt()) {
-                $entity->setCreatedAt(new DateTimeImmutable());
+                $entity->setCreatedAt(new DateTimeImmutable('', new DateTimeZone('Europe/Paris')));
             } else {
-                $entity->setUpdatedAt(new DateTimeImmutable());
+                $entity->setUpdatedAt(new DateTimeImmutable('', new DateTimeZone('Europe/Paris')));
             }
 
             if (!$entity->getAuthor()) {
