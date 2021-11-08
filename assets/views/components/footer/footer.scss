@@ -1,0 +1,84 @@
+@import '../../../styles/variables';
+
+$footer_logo_size: 150px;
+$footer_margin: 10%;
+$footer_grid_width: 80%;
+$footer_line_height: 50%;
+
+.footer {
+    background-color: $primary;
+    .footer_header {
+        margin-bottom: $footer_margin;
+        .footer_logo {
+            height: $footer_logo_size;
+            width: $footer_logo_size;
+            margin-top: $footer_margin/2;
+        }
+        .footer_title {
+            color: $light;
+            span {
+                color: $dark;
+            }
+        }
+        h5 {
+            color: $light;
+        }
+    }
+    .footer_body {
+        margin-bottom: $footer_margin;
+        color: $light;
+        /* Mobile portrait */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+            display: grid !important;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            grid-column-gap: 0px;
+            .footer_body_section1 {
+                margin:auto;
+                grid-area: 1 / 1 / 2 / 2;
+                width: $footer_grid_width;
+            }
+            .footer_body_section2 {
+                margin:auto;
+                grid-area: 1 / 2 / 2 / 3;
+                width: $footer_grid_width;
+            }
+            .footer_body_section3 {
+                margin:auto;
+                grid-area: 2 / 1 / 3 / 2;
+                width: $footer_grid_width;
+            }
+            .footer_body_section4 {
+                margin:auto;
+                grid-area: 2 / 2 / 3 / 3;
+                width: $footer_grid_width;
+            }
+        }
+        p {
+            line-height: $footer_line_height;
+            /* Ipad */
+            @media (min-device-width: 768px) and (max-device-width: 1080px) {
+                line-height: $footer_line_height + 40%;
+            }
+            /* Mobile portrait */
+            @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+                line-height: $footer_line_height + 40%;
+            }
+            /* Mobile landscape */
+            @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
+                line-height: $footer_line_height + 40%;
+            }
+            a {
+                color: $light;
+                text-decoration: none;
+            }
+        }
+    }
+    .footer_copyright {
+        .copyright {
+            margin: 0;
+            color: $light;
+            opacity: 75%;
+        }
+    }
+}

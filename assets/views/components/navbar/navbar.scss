@@ -1,289 +1,220 @@
 @import "../../../styles/variables";
 
-#header {
-	padding: 2rem;
+@-webkit-keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
   }
-  
-  $menu-bg: $dark;
-  $menu-color: #ffffff;
-  $menu-font-size: 2.5rem;
-  $menu-zindex: 1100;
-  $hamburger-color: #fff;
-  $hamburger-width: 50px;
-  $hamburger-height: 50px;
-  $hamburger-zindex: $menu-zindex + 10;
-  
-  
-  #menu {
-	background: $menu-bg;
-	height: 100%;
-	left: 0;
-	opacity: 0;
-	overflow: hidden;
-	position: fixed;
-	text-align: center;
-	top: 0;
-	transition: all 0.7s ease-in-out;
-	// For some sweet fadez
-	visibility: hidden;
-	width: 100%;
-	z-index: $menu-zindex;
-  
-	&.open {
-	  opacity: 1;
-	  visibility: visible;
-  
-	  @for $i from 1 through 10 {
-		li:nth-child(#{$i}) {
-		  animation-delay: $i*0.1s;
-		}
-	  }
-  
-	  li {
-		animation-duration: 1.0s;
-		animation-fill-mode: both;
-		animation-name: fadeInUp;
-	  }
-	}
-  
-	ul {
-	  &:hover {
-		a {
-		  opacity: 0.5;
-		}
-	  }
-  
-	  a {
-		// Stops it being a twitchy mess in chrome :pray:
-		// https://www.binarymoon.co.uk/2014/02/fixing-css-transitions-in-google-chrome/
-		-webkit-transform: translateZ(0);
-		transition: opacity 0.3s ease-in-out;
-		&:hover {
-		  opacity: 1;
-		}
-	  }
-	}
-  
-	.main-nav {
-	  position: relative;
-	  top: 50%;
-	  transform: translateY(-50%);
-  
-	  ul {
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	  }
-  
-	  a {
-		color: $menu-color;
-		display: block;
-		font-size: $menu-font-size;
-		font-weight: bold;
-		padding: 1rem 1rem;
-		text-decoration: none;
-		text-transform: uppercase;
-		&:first {
-		  padding-top: 0;
-		}
-	  }
-	}
-  
-	.menu-footer {
-	  
-	  bottom: 0;
-	  left: 0;
-	}
-  }
-  
-  
-  // Hamburger menu toggler
-  .toggle-menu {
-	background-color: transparent;
-	border: none;
-	cursor: pointer;
-	display: inline-block;
-	float: right;
-	height: $hamburger-height;
-	outline: none;
-	padding: 0;
-	pointer-events: initial;
-	position: relative;
-	vertical-align: middle;
-	width: $hamburger-width;
-	z-index: $hamburger-zindex;
-  
-	span {
-	  background-color: $hamburger-color;
-	  content: "";
-	  display: block;
-	  height: 2px;
-	  left: calc(50% - 13px );
-	  position: absolute;
-	  top: calc(50% - 1px );
-	  transform-origin: 50% 50%;
-	  transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out,  transform 0.2s linear;
-	  width: 26px;
-  
-	  &:before, &:after {
-		background-color: $hamburger-color;
-		content: "";
-		display: block;
-		height: 2px;
-		position: absolute;
-		transform-origin: 50% 50%;
-		transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out,  transform 0.2s linear;
-		width: 26px;
-	  }
-  
-	  &:before {
-		top: 7px;
-	  }
-  
-	  &:after {
-		top: -7px;
-	  }
-	}
-  
-	&.active {
-	  span {
-		background-color: transparent;
-		transition: background 0.2s ease-out;
-  
-		&:before, &:after {
-		  transition: top 0.2s ease-out, transform 0.2s 0.2s ease-out;
-		}
-  
-		&:before {
-		  top: 0;
-		  transform: rotate3d(0, 0, 1, -45deg);
-		}
-  
-		&:after {
-		  top: 0;
-		  transform: rotate3d(0, 0, 1, 45deg);
-		}
-	  }
-	}
-  }
-  
-// social menu
 
-  .menu-social {
-	text-transform: uppercase;
-	color: rgba(255, 255, 255, 0.8);
-	display: inline-block;
-	cursor: pointer;
-	pointer-events: none;
-	position: absolute;
-	bottom: 20px;
-	left: 20px;
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
   }
-  .menu-social:hover {
-	pointer-events: all;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    -ms-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
   }
-  .label {
-	display: inline-block;
-	cursor: pointer;
-	pointer-events: all;
+
+  100% {
+    opacity: 1;
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
   }
-  .spacer {
-	display: inline-block;
-	width: 80px;
-	margin-right: 15px;
-	vertical-align: middle;
-	cursor: pointer;
-	position: relative;
+}
+
+#header {
+  padding: 2rem;
+}
+
+// It actually starts here
+
+$menu-bg: #DE4152;
+$menu-color: #ffffff;
+$menu-font-size: 2.5rem;
+$menu-zindex: 1100;
+$hamburger-color: #fff;
+$hamburger-width: 50px;
+$hamburger-height: 50px;
+$hamburger-zindex: $menu-zindex + 10;
+
+
+#menu {
+  background: $menu-bg;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  overflow: hidden;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  transition: all 0.7s ease-in-out;
+  // For some sweet fadez
+  visibility: hidden;
+  width: 100%;
+  z-index: $menu-zindex;
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+
+    @for $i from 1 through 10 {
+      li:nth-child(#{$i}) {
+        animation-delay: $i*0.1s;
+      }
+    }
+
+    li {
+      animation-duration: 1.0s;
+      animation-fill-mode: both;
+      animation-name: fadeInUp;
+    }
   }
-  .spacer:before {
-	content: "";
-	position: absolute;
-	border-bottom: 1px solid #ffffff;
-	height: 1px;
-	width: 0%;
-	transition: width 0.25s ease;
-	transition-delay: 0.7s;
+
+  ul {
+    &:hover {
+      a {
+        opacity: 0.5;
+      }
+    }
+
+    a {
+      // Stops it being a twitchy mess in chrome :pray:
+      // https://www.binarymoon.co.uk/2014/02/fixing-css-transitions-in-google-chrome/
+      -webkit-transform: translateZ(0);
+      transition: opacity 0.3s ease-in-out;
+      &:hover {
+        opacity: 1;
+      }
+    }
   }
-  .item {
-	position: relative;
-	display: inline-block;
-	margin-left: 60px;
-	top: 10px;
-	opacity: 0;
-	transition: opacity 0.5s ease, top 0.5s ease;
-	transition-delay: 0;
+
+  .main-nav {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: $menu-color;
+      display: block;
+      font-size: $menu-font-size;
+      font-weight: bold;
+      padding: 1rem 1rem;
+      text-decoration: none;
+      text-transform: uppercase;
+      &:first {
+        padding-top: 0;
+      }
+    }
   }
+
+  .menu-footer {
+    padding: 2rem;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+
+    ul {
+      display: inline-block;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: inline;
+        margin: 0 1rem;
+      }
+    }
+
+    a {
+      color: $menu-color;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+// Hamburger menu toggler stuff below
+.toggle-menu {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  height: $hamburger-height;
+  outline: none;
+  padding: 0;
+  pointer-events: initial;
+  position: relative;
+  vertical-align: middle;
+  width: $hamburger-width;
+  z-index: $hamburger-zindex;
+
   span {
-	transition: color 0.5s ease;
+    background-color: $hamburger-color;
+    content: "";
+    display: block;
+    height: 2px;
+    left: calc(50% - 13px );
+    position: absolute;
+    top: calc(50% - 1px );
+    transform-origin: 50% 50%;
+    transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out,  transform 0.2s linear;
+    width: 26px;
+
+    &:before, &:after {
+      background-color: $hamburger-color;
+      content: "";
+      display: block;
+      height: 2px;
+      position: absolute;
+      transform-origin: 50% 50%;
+      transition: background-color 0.2s ease-in-out, top 0.2s 0.2s ease-out,  transform 0.2s linear;
+      width: 26px;
+    }
+
+    &:before {
+      top: 7px;
+    }
+
+    &:after {
+      top: -7px;
+    }
   }
-  .item:hover span {
-	color: $primary;
+
+  &.open {
+    span {
+      background-color: transparent;
+      transition: background 0.2s ease-out;
+
+      &:before, &:after {
+        transition: top 0.2s ease-out, transform 0.2s 0.2s ease-out;
+      }
+
+      &:before {
+        top: 0;
+        transform: rotate3d(0, 0, 1, -45deg);
+      }
+
+      &:after {
+        top: 0;
+        transform: rotate3d(0, 0, 1, 45deg);
+      }
+    }
   }
-  .menu-social:hover .spacer:before {
-	width: 100%;
-	transition-delay: 0s;
-  }
-  .menu-social:hover .item {
-	opacity: 1;
-	top: 0px;
-  }
-  .item:nth-child(1) {
-	transition-delay: 0.45s;
-  }
-  .item:nth-child(2) {
-	transition-delay: 0.4s;
-  }
-  .item:nth-child(3) {
-	transition-delay: 0.35s;
-  }
-  .item:nth-child(4) {
-	transition-delay: 0.3s;
-  }
-  .item:nth-child(5) {
-	transition-delay: 0.25s;
-  }
-  .item:nth-child(6) {
-	transition-delay: 0.2s;
-  }
-  .item:nth-child(7) {
-	transition-delay: 0.15s;
-  }
-  .item:nth-child(8) {
-	transition-delay: 0.1s;
-  }
-  .item:nth-child(9) {
-	transition-delay: 0.05s;
-  }
-  .item:nth-child(10) {
-	transition-delay: 0s;
-  }
-  .menu-social:hover .item:nth-child(1) {
-	transition-delay: 0.25s;
-  }
-  .menu-social:hover .item:nth-child(2) {
-	transition-delay: 0.3s;
-  }
-  .menu-social:hover .item:nth-child(3) {
-	transition-delay: 0.35s;
-  }
-  .menu-social:hover .item:nth-child(4) {
-	transition-delay: 0.4s;
-  }
-  .menu-social:hover .item:nth-child(5) {
-	transition-delay: 0.45s;
-  }
-  .menu-social:hover .item:nth-child(6) {
-	transition-delay: 0.5s;
-  }
-  .menu-social:hover .item:nth-child(7) {
-	transition-delay: 0.55s;
-  }
-  .menu-social:hover .item:nth-child(8) {
-	transition-delay: 0.6s;
-  }
-  .menu-social:hover .item:nth-child(9) {
-	transition-delay: 0.65s;
-  }
-  .menu-social:hover .item:nth-child(10) {
-	transition-delay: 0.7s;
-  }
+}
