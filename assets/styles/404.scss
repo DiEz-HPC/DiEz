@@ -1,0 +1,118 @@
+@import './variables.scss';
+
+$fullSize: 100%;
+$fullScreenHeight: 100vh;
+$fullScreenWidth: 100vw;
+$shadow: 2.5px;
+$initPos: 0;
+
+html,
+body {
+    height: $fullSize;
+}
+
+body {
+    display: table;
+    width: $fullSize;
+    height: $fullSize;
+    position: relative;
+    overflow: hidden;
+    font-weight: $font-weight-text;
+    .lines {
+        position: absolute;
+        top: $initPos;
+        left: $initPos;
+        right: 50%;
+        height: $fullSize;
+        margin: auto;
+        width: 90vw;
+        .line {
+            position: absolute;
+            width: 3px;
+            height: $fullSize;
+            top: $initPos;
+            left: $fullSize;
+            overflow: hidden;
+        }
+        .line::after {
+            content: '';
+            display: block;
+            position: absolute;
+            height: 15vh;
+            width: $fullSize;
+            top: -50%;
+            left: $initPos;
+
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0) 0%,
+                $primary 75%,
+                $primary 100%
+            );
+            -webkit-animation: drop 6s 0s infinite;
+            animation: drop 6s 0s infinite;
+            -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+            -webkit-animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+            animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+        }
+        @for $i from 1 through 5 {
+            .line:nth-child(#{$i}) {
+                margin-left: $i * -20%;
+            }
+            .line:nth-child(#{$i})::after {
+                -webkit-animation-delay: random(10) + s;
+                animation-delay: random(10) + s;
+            }
+        }
+    }
+
+    .notFound__container {
+        .NotFoundContainer {
+            position: absolute;
+            height: $fullScreenHeight;
+            width: $fullScreenWidth;
+            z-index: 2;
+            background-color: transparent;
+            .title {
+                font-size: 10rem;
+                text-shadow: $primary $shadow $shadow;
+                font-weight: bold;
+            }
+            p{
+                font-size: $font-size-text;
+            }
+        }
+        .btnNotFound{
+            color: $dark;
+            border: 2px solid black;
+            border-radius: 0.5rem;
+            box-shadow: $shadow $shadow $shadow $primary;
+            font-size: $font-size-text;
+            padding: 1%;
+            &:hover{
+                    color: $light;
+                    background-color: $primary;
+                     box-shadow: -2.5px -2.5px $primary;
+            }
+        }
+    }
+}
+
+@-webkit-keyframes drop {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 110%;
+    }
+}
+
+@keyframes drop {
+    0% {
+        top: -50%;
+    }
+    100% {
+        top: 110%;
+    }
+}
