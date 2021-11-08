@@ -19,7 +19,7 @@ export default function App() {
             <Switch>
                 <Route exact path={'/'} component={Home}/>
                 <Route exact path={'/qui-sommes-nous'} component={About} />
-                <Route exact path={'/actualites'} component={Blog} />
+                <Route exact path={'/blog'} component={Blog} />
                 <Route exact path={'/contact'} component={Contact} />
                 <Route path="*" component={NotFound}/>
             </Switch>

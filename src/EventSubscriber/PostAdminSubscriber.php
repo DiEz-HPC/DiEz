@@ -26,6 +26,8 @@ class PostAdminSubscriber implements EventSubscriberInterface
                 $slugify->slugify($entity->getTitle())
             );
 
+            $entity->setUrl('blog/' . $entity->getSlug());
+
             if (!$entity->getCreatedAt()) {
                 $entity->setCreatedAt(new DateTimeImmutable());
             } else {

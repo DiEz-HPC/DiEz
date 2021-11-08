@@ -20,7 +20,6 @@ class DashboardController extends AbstractDashboardController
 
   public function __construct(private ChartCreator $chartCreator)
   {
-      
   }
 
     #[Route('', name: 'index')]
@@ -82,10 +81,12 @@ class DashboardController extends AbstractDashboardController
             params: $params2, 
             chartType: Chart::TYPE_PIE
         );
+   
 
         return $this->render('bundles/EasyAdminBundle/welcome.html.twig', [
             'chart1' => $chart1,
-            'chart2' => $chart2
+            'chart2' => $chart2,
+
         ]);
     }
 
@@ -99,7 +100,12 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('L\'équipe', 'fa fa-user', User::class);
-        yield MenuItem::linkToCrud('Les projets', 'fas fa-project-diagram', Project::class);
+        yield MenuItem::subMenu('Projets', 'fas fa-project-diagram')
+            ->setSubItems([
+                MenuItem::linkToCrud('Les projets', 'fas fa-folder-open', Project::class),
+                MenuItem::linkToRoute('Refresh Project', 'fas fa-sync', 'admin_service_github')
+            ])
+        ;
         yield MenuItem::linkToCrud('Les actus', 'fas fa-newspaper', Post::class);
         yield MenuItem::subMenu('Médias', 'fas fa-photo-video')
             ->setSubItems([

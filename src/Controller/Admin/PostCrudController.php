@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -25,12 +26,15 @@ class PostCrudController extends AbstractCrudController
     {
         return [
             TextField::new(propertyName: 'title', label: 'Titre'),
-            UrlField::new(propertyName: 'slug', label: 'lien',)
+            UrlField::new(propertyName: 'url', label: 'lien',)
                 ->onlyOnIndex(),
             TextEditorField::new(propertyName: 'article', label: 'Article'),
             TextareaField::new(propertyName: 'imageFile', label: 'Image mise en avant')
                 ->setFormType(VichImageType::class)
                 ->onlyOnForms(),
+            ImageField::new(propertyName: 'imageName', label: 'Image mise en avant')
+                ->setBasePath('/uploads/images/')
+                ->onlyOnIndex(),
         ];
     }
 
