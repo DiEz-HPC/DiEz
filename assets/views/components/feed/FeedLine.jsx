@@ -13,12 +13,12 @@ function FeedLine() {
             <a href="/">Accueil </a>
             {feeds.map((feed, index) => {
                 return (
-                    <>
+                    <div key={index} className={'d-flex'}>
                         <span className={'ms-2 me-2'}>>></span>
-                        <div key={index} className="feedline-item">
+                        <div className="feedline-item">
                             <a href={`/${feed}`}>{ucFirst(feed)}</a>
                         </div>
-                    </>
+                    </div>
                 )
             })}
         </div>
