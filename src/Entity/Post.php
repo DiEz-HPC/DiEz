@@ -3,12 +3,15 @@
 namespace App\Entity;
 
 use App\Repository\PostRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
+ * @Vich\Uploadable
  */
 class Post
 {
@@ -45,9 +48,20 @@ class Post
     private $article;
 
     /**
-     * @ORM\ManyToMany(targetEntity=UploadedImage::class)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $images;
+    private $imageName;
+
+    /**
+     * @Vich\UploadableField(mapping="uploaded_image", fileNameProperty="imageName")
+     * @var File|null
+     */
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private $updatedAt;
 
     public function __construct()
     {
@@ -83,12 +97,12 @@ class Post
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
 
@@ -119,26 +133,43 @@ class Post
         return $this;
     }
 
-    /**
-     * @return Collection
-     */
-    public function getImages(): Collection
+    public function getImageName(): ?string
     {
-        return $this->images;
+        return $this->imageName;
     }
 
-    public function addImage(UploadedImage $image): self
+    public function setImageName(?string $imageName): self
     {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-        }
+        $this->imageName = $imageName;
 
         return $this;
     }
 
-    public function removeImage(UploadedImage $image): self
+    /**
+     * @param File|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
     {
-        $this->images->removeElement($image);
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function getUpdatedAt(): ?DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?DateTimeImmutable $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }

@@ -8,9 +8,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PostCrudController extends AbstractCrudController
 {
@@ -26,7 +28,8 @@ class PostCrudController extends AbstractCrudController
             UrlField::new(propertyName: 'slug', label: 'lien',)
                 ->onlyOnIndex(),
             TextEditorField::new(propertyName: 'article', label: 'Article'),
-            AssociationField::new(propertyName: 'images', label: 'Images')
+            TextareaField::new(propertyName: 'imageFile', label: 'Image mise en avant')
+                ->setFormType(VichImageType::class)
                 ->onlyOnForms(),
         ];
     }
