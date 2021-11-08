@@ -5,20 +5,22 @@ namespace App\Service;
 use App\Entity\Project;
 use App\Repository\ProjectRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use GuzzleHttp\Client;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
+
 
 class GithubApi
 {
+    private const TIME_UPLOAD_LIMIT = 30;    // Value in minutes
+    private bool $updated = false;
     private $client;
     private EntityManagerInterface $entityManager;
     private ProjectRepository $projectRepository;
-    public function __construct(private string $GITHUB_TOKEN, EntityManagerInterface $entityManager, ProjectRepository $projectRepository)
+    public function __construct(private string $GITHUB_TOKEN, EntityManagerInterface $entityManager, ProjectRepository $projectRepository, HttpClientInterface $client)
     {
-        $this->client = new Client([
-            'base_uri' => 'https://api.github.com/orgs/Diez-HPC/repos',
+        $this->client = $client->withOptions([
             'headers' => [
                 'Accept' => 'application/vnd.github.v3+json',
-                'Authorization' => 'token ' . $this->GITHUB_TOKEN,
+                'Authorization' => 'token ' . $GITHUB_TOKEN,
             ],
         ]);
         $this->entityManager = $entityManager;
@@ -37,14 +39,19 @@ class GithubApi
     public function checkLastSave()
     {
         $allProject = $this->entityManager->getRepository(Project::class)->findAll();
-        $now = new \DateTime('now');
-        foreach ($allProject as $project) {
-            $lastSave = $project->getLastSave();
-            if ($lastSave->diff($now)->format('%a') > 1) {
-                return true;
-            } else {
-                return false;
-                
+        $now = (new \DateTime('', new \DateTimeZone('Europe/Paris')))->modify(
+            '-' . self::TIME_UPLOAD_LIMIT . ' minutes'
+        );
+        if (empty($allProject)) {
+            return true;
+        } else {
+            foreach ($allProject as $project) {
+                $lastSave = $project->getLastSave();
+                if ($lastSave <= $now) {
+                    return true;
+                } else {
+                    return false;
+                }
             }
         }
     }
@@ -53,11 +60,8 @@ class GithubApi
     public function getRepos()
     {
         if ($this->checkLastSave()) {
-            $httpClient = $this->client;
-            $response = $httpClient->request(
-                'GET'
-            );
-            $repos = json_decode($response->getBody()->getContents(), true);
+            $response = $this->client->request('GET', 'https://api.github.com/orgs/Diez-HPC/repos');
+            $repos = json_decode($response->getContent(), true);
             $repos = array_map(function ($repo) {
                 return [
                     'name' => $repo['name'],
@@ -90,23 +94,28 @@ class GithubApi
     {
         $repos = $this->getRepos();
         if ($repos) {
+            $this->updated = true;
             foreach ($repos as $repo) {
                 // Si le repo n'existe pas dans la base de données on l'enregistre
                 if (!$this->chekIfRepoExistInDb($repo['name'])) {
                     $project = new Project();
                     $project->setName($repo['name']);
+
                     if ($repo['description']) {
                         $project->setDescription($repo['description']);
                     } else {
                         $project->setDescription('Veuillez configuré votre déscription sur github');
                     }
+
                     $project->setDescription($repo['description']);
                     $project->setUrl($repo['url']);
+
                     if ($repo['language']) {
                         $project->setLanguage($repo['language']);
                     } else {
                         $project->setLanguage('N/A');
                     }
+
                     $project->setCreatedAt($repo['created_at']);
                     $project->setUpdatedAt($repo['updated_at']);
                     $project->setIssueNumber($repo['open_issues_count']);
@@ -121,7 +130,10 @@ class GithubApi
                 }
             }
             $this->entityManager->flush();
+        } else {
+            $this->updated = false;
         }
+        return $this->updated;
     }
 
     // Met a jour les repositories dans la base de données
