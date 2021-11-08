@@ -63,11 +63,6 @@ class Post
      */
     private $updatedAt;
 
-    public function __construct()
-    {
-        $this->images = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;

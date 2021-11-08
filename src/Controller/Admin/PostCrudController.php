@@ -57,6 +57,9 @@ class PostCrudController extends AbstractCrudController
             ->update(Crud::PAGE_NEW, Action::SAVE_AND_RETURN, function (Action $action) {
                 return $action->setLabel('Créer');
             })
+            ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+                return $action->setLabel('Supprimer');
+            })
             ;
     }
 }
