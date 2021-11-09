@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class PostCrudController extends AbstractCrudController
@@ -28,7 +29,9 @@ class PostCrudController extends AbstractCrudController
             TextField::new(propertyName: 'title', label: 'Titre'),
             UrlField::new(propertyName: 'url', label: 'lien',)
                 ->onlyOnIndex(),
-            TextEditorField::new(propertyName: 'article', label: 'Article'),
+            TextEditorField::new(propertyName: 'article', label: 'Article')
+                ->setFormType(CKEditorType::class)
+            ,
             TextareaField::new(propertyName: 'imageFile', label: 'Image mise en avant')
                 ->setFormType(VichImageType::class)
                 ->onlyOnForms(),
@@ -46,6 +49,7 @@ class PostCrudController extends AbstractCrudController
             ->setPageTitle(Crud::PAGE_INDEX, '%entity_label_plural%')
             ->setPageTitle(Crud::PAGE_EDIT, 'Modifier l\'actualité')
             ->setPageTitle(Crud::PAGE_NEW, 'Ajouter une actualité')
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig')
             ;
     }
 

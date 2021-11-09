@@ -29,6 +29,8 @@ class PostController extends AbstractController
     ]
     public function getPost(Post $post): Response
     {
+        $post->setArticle(str_replace('<div>', '', $post->getArticle()));
+        $post->setArticle(str_replace('</div>', '', $post->getArticle()));
         $post = $this->serializer->serialize($post, 'json');
         return new Response(
             content: $post,

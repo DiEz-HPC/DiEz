@@ -1,0 +1,7 @@
+fos_ck_editor:
+    configs:
+        basic_conf:
+            toolbar: full
+twig:
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'

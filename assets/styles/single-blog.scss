@@ -1,0 +1,49 @@
+@import "variables";
+
+.blog {
+	.header-blog {
+		position: relative;
+		
+		.bg-blue {
+			background-color: $primary;
+		}
+		
+		.wave {
+			position: absolute;
+			bottom: -140%;
+			z-index: -1;
+			transform: scale(-1, 1);
+			width: 100%;
+			
+			@media screen and (max-width: 1440px) {
+				bottom: -90%;
+			}
+			
+			@media screen and (max-width: 411px) {
+				bottom: -20%;
+			}
+			
+		}
+	}
+	
+	.content {
+		.block-content {
+			img {
+				object-fit: contain;
+				object-position: center;
+				border-radius: 2%;
+			}
+		}
+	}
+	
+	hr {
+		color: $primary;
+		height: 5px;
+		opacity: 1;
+		width: 90%;
+		margin: 0 auto;
+		border-radius: 5px;
+	}
+}
+
+
