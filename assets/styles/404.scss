@@ -16,7 +16,6 @@ body {
     width: $fullSize;
     height: $fullSize;
     position: relative;
-    overflow: hidden;
     font-weight: $font-weight-text;
     .lines {
         position: absolute;
@@ -79,21 +78,21 @@ body {
                 text-shadow: $primary $shadow $shadow;
                 font-weight: bold;
             }
-            p{
+            p {
                 font-size: $font-size-text;
             }
         }
-        .btnNotFound{
+        .btnNotFound {
             color: $dark;
             border: 2px solid black;
             border-radius: 0.5rem;
             box-shadow: $shadow $shadow $shadow $primary;
             font-size: $font-size-text;
             padding: 1%;
-            &:hover{
-                    color: $light;
-                    background-color: $primary;
-                     box-shadow: -2.5px -2.5px $primary;
+            &:hover {
+                color: $light;
+                background-color: $primary;
+                box-shadow: -2.5px -2.5px $primary;
             }
         }
     }
