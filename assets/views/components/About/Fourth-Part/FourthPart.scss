@@ -2,6 +2,8 @@
 
 $fullInPercent : 100%;
 $fullInVW : 100vw;
+$boxWidth : 750px;
+$boxHeight : 450px;
 
 .fourth-part {
     .fourth-part__outer__container {
@@ -15,8 +17,8 @@ $fullInVW : 100vw;
                 background-color: $primary;
                 padding: 5%;
                 position: absolute;
-                width: 750px;
-                height: 450px;
+                width: $boxWidth;
+                height: $boxHeight;
                 left: 10%;
                 top: 5%;
                 z-index: 1;
@@ -39,8 +41,8 @@ $fullInVW : 100vw;
                     height: $fullInPercent;
                 }
                 position: absolute;
-                width: 750px;
-                height: 450px;
+                width: $boxWidth;
+                height: $boxHeight;
                 left: 40%;
                 top: 100px;
             }
