@@ -1,6 +1,10 @@
 @import "variables";
 
 .blog {
+	$border-radius-hr: 5px;
+	$height-hr: 4px;
+	$opacity-hr: 1;
+	
 	.header-blog {
 		position: relative;
 		
@@ -9,41 +13,48 @@
 		}
 		
 		.wave {
+			$bottom: -140%;
+			
 			position: absolute;
-			bottom: -140%;
+			bottom: $bottom;
 			z-index: -1;
 			transform: scale(-1, 1);
 			width: 100%;
 			
 			@media screen and (max-width: 1440px) {
-				bottom: -90%;
+				bottom: $bottom + 50%;
+			}
+			
+			@media screen and (max-width: 768px) {
+				bottom: $bottom + 70%;
 			}
 			
 			@media screen and (max-width: 411px) {
-				bottom: -20%;
+				bottom: $bottom + 110%;
 			}
 			
 		}
 	}
 	
-	.content {
-		.block-content {
-			img {
-				object-fit: contain;
-				object-position: center;
-				border-radius: 2%;
-			}
-		}
-	}
-	
-	hr {
+	.line-blue {
 		color: $primary;
-		height: 5px;
-		opacity: 1;
+		height: $height-hr;
+		opacity: $opacity-hr;
 		width: 90%;
 		margin: 0 auto;
-		border-radius: 5px;
+		border-radius: $border-radius-hr;
 	}
+	
+	.line-dark {
+		color: $dark;
+		height: $height-hr - 2px;
+		opacity: $opacity-hr;
+		width: 18px;
+		border-radius: $border-radius-hr;
+		transform: rotate(90deg);
+	}
+	
+
 }
 
 

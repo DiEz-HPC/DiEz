@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
 import {getPost} from "../../queries/posts";
 import FeedLine from "../components/feed/FeedLine";
-import {imageUploadUrl} from "../../tools/image";
 import '../../styles/single-blog.scss';
 import wave from '../../images/wave.svg';
 import {timeToRead} from "../../tools/timeToRead";
 import {ucFirst} from "../../tools/ucFirst";
+import Footer from "../components/footer/Footer";
 
 function SingleBlog() {
     const locations = window.location.pathname.split('/').filter(link => link !== '');
@@ -33,25 +33,29 @@ function SingleBlog() {
 
     return (
         <div className={'blog'}>
-            <div className="header-blog">
-                <div className="bg-blue d-flex flex-column justify-content-center py-3">
-                    <div className="ms-sm-5 ps-sm-5">
-                        <FeedLine {...post} />
+            <div className="header-blog mb-5">
+                <div className="bg-blue d-flex flex-column justify-content-center py-3 ps-sm-4 ps-xl-5">
+                    <div className="ms-xl-5">
+                        <div className="ms-2 my-2 ms-xl-5 ps-xl-5">
+                            <FeedLine {...post} />
+                        </div>
+                        <h1 className="ms-2 text-light ms-xl-5 ps-xl-5">{ucFirst(post.title)}</h1>
+                        <div className="ms-2 text-light d-flex ms-xl-5 ps-xl-5">
+                            <p className={'mt-2'}>Publié le : {published}</p>
+                            <hr className={'line-dark'}/>
+                            <p className={'mt-2'}>{post?.article ? timeToRead(post?.article) : ''}</p>
+                        </div>
                     </div>
-                    <h1 className="ms-sm-5 ps-sm-5 text-light">{ucFirst(post.title)}</h1>
-                    <p className="ms-sm-5 ps-sm-5 text-light">Publié le {published} | {post?.article ? timeToRead(post?.article) +' minutes de lecture' : '' }</p>
                 </div>
                 <img src={wave} className={'wave'} alt="vague"/>
             </div>
-            <section className={'content pt-sm-5 mt-sm-2'}>
-                <div className="block-content d-flex flex-column flex-sm-row-reverse justify-content-between ">
-                    <img className={'col-12 col-sm-6 me-sm-5 pe-sm-5'} src={imageUploadUrl(post.imageName)} alt=""/>
-                    <article className={'ms-sm-5 ps-sm-5 col-12 col-sm-5'}>
-                        <div dangerouslySetInnerHTML={{__html: post.article}}/>
-                    </article>
-                </div>
+            <section className={'mx-2 ps-xl-5 ms-xl-5 mt-5 pt-5'}>
+                <article className={'col-12 col-xl-6 ps-xl-5 ms-xl-5 pt-sm-4 mt-sm-5'}>
+                    <div dangerouslySetInnerHTML={{__html: post.article}}/>
+                </article>
             </section>
-            <hr className={'my-5'} />
+            <hr className={'my-5 line-blue'}/>
+            <Footer/>
         </div>
     )
 }
