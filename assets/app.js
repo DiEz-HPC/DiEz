@@ -8,6 +8,12 @@ import Blog from "./views/pages/Blog";
 import Contact from "./views/pages/Contact";
 import NotFound from "./views/pages/404";
 
+require ('../assets/tools/scrollMenu.js');
+require ('../assets/tools/switchColorSocial.js');
+
+require('@fortawesome/fontawesome-free/css/all.min.css');
+require('@fortawesome/fontawesome-free/js/all.js');
+
 
 
 export default function App() {

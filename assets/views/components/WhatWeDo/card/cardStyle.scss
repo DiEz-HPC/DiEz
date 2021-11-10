@@ -1,0 +1,24 @@
+@import '../../../../styles/variables.scss';
+
+.WWD_card {
+    max-width: 400px;
+    .card_icon {
+       img{
+        width: 40%;
+        height: auto;
+        max-width: 50%;
+        max-height: 50%;
+        margin-bottom: 10px;
+       
+       }
+    }
+    .card_content{
+        .card_title{
+            font-size: $font-size-subtitle / 1.4;
+        }
+        .card_text{
+            font-size: $font-size-text / 1.4;
+            font-weight: $font-weight-text;
+        }
+    }
+}

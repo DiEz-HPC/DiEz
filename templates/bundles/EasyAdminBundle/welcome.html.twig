@@ -1,0 +1,23 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+{% block page_title %}
+    <div class="text-center mb-4">
+        Salut
+        {{ app.user.firstname ?? 'Employé' }}
+    </div>
+{% endblock %}
+{% block head_javascript %}
+    {{ parent() }}
+
+    {{ encore_entry_script_tags('initChart') }}
+{% endblock %}
+
+{% block main %}
+    <div class="row h-100">
+        <div class="col-md-5 h-100">
+            {{ render_chart(chart1) }}
+        </div>
+        <div class="col-md-5 h-100">
+            {{ render_chart(chart2) }}
+        </div>
+    </div>
+{% endblock %}

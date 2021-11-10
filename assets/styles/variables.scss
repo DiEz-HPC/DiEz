@@ -15,38 +15,13 @@
 
 $primary: #56C6FF;
 $secondary: #A3E0FF;
-$dark: black;
+$dark: rgb(15, 15, 15);
 $light: white;
 $font-title: 'SlencoBlack';
 $font-text: 'LouisGeorgeCafe';
 $font-logo: 'AnjaEliane';
 $spacing: 6px;
-$font-size-title: 36px;
-
-/*
-  Reset all spacing
- */
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.logo {
-  font-family: $font-logo, serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5 {
-  font-family: $font-title, sans-serif;
-}
-
-p {
-  font-family: $font-text, sans-serif;
-}
-
-h1 {
-  font-size: $font-size-title;
-}
+$font-size-title : 76px;
+$font-size-subtitle: 56px;
+$font-size-text: 15px;
+$font-weight-text: 900;

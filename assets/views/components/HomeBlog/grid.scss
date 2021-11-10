@@ -1,0 +1,53 @@
+@import '../../../styles/variables.scss';
+
+$width: 100%;
+$inline-spacing: 24px;
+.grid1,
+.grid2,
+.grid3,
+.grid4,
+.grid5,
+.grid6 {
+    .picture {
+        width: $width;
+        height: $width;
+        overflow: hidden;
+        img {
+            width: $width;
+            height: $width;
+            object-fit: cover;
+            transform: scale(1);
+            transition: 0.4s ease-in-out;
+        }
+    }
+    .content {
+        display: none;
+    }
+    &:hover {
+        position: relative;
+        z-index: 1;
+
+        .picture {
+            img {
+                width: $width;
+                height: $width;
+                opacity: 0.4;
+                transform: scale(1.1);
+            }
+        }
+        .content {
+            background-color: transparent;
+            display: inline-block;
+            position: absolute;
+            z-index: 100;
+            padding-left: $inline-spacing;
+            padding-right: $inline-spacing;
+            .title {
+                text-align: center;
+            }
+            .description {
+                font-weight: 900;
+            }
+        }
+    }
+}

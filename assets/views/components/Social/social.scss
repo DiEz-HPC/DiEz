@@ -1,4 +1,4 @@
-@import '../../../styles/variables.scss';
+@import "../../../styles/variables.scss";
 
 $margin-left: -10%;
 $spacing-logo: 5px;
@@ -7,12 +7,12 @@ $logo-font-size: 1.5em;
 
 .social {
     display: flex;
-    justify-content: space-around;
     transform: rotate(-90deg);
     max-width: 450px;
     height: 0;
     position: sticky;
-    top: 50%;
+    top: 40%;
+    z-index: 5;
     margin-left: $margin-left;
 
     /* Ipad Landscape */
@@ -33,35 +33,35 @@ $logo-font-size: 1.5em;
         display: none;
     }
     .text-social {
-        font-size: $logo-font-size;
-        font-weight: 999;
-        text-align: center;
+        padding-top: 7px;
+        font-size: $font-size-text;
         font-family: $font-title;
+        p{
+            color: $dark;
+        }
     }
+    
 
     .hr-social {
-        width: 20px;
-        height: 4px;
+        width: 15px;
+        height: 2px;
         padding: 0;
-        color: black;
-        border-color: black;
+        color: $dark;
+        margin-right: 10px;
+        margin-left: 10px;
         opacity: 100%;
     }
+
     a {
-        color: rgb(0, 0, 0);
         text-decoration: none;
-        background-color: black;
         height: $logo-size;
         width: $logo-size;
-        border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
         padding: $spacing-logo;
-        i {
-            transform: rotate(90deg);
-            font-size: $logo-font-size;
-            color: $light;
-        }
+        transform: rotate(90deg);
+        font-size: $logo-font-size;
+        color: $dark;
     }
 }
