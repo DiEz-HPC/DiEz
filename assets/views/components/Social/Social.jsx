@@ -4,20 +4,20 @@ import '../Social/social.scss'
 
 function Social() {
     return (
-        <div className="social">
+        <div id={'social'} className="social">
             <p className="text-social m-auto">NOUS SUIVRE</p>
-            <hr className="hr-social" />
+            <hr className="hr-social"/>
             <a href="#" className=" m-auto">
-            <LineIcon name="facebook"/>
+                <LineIcon name="facebook"/>
             </a>
             <a href="#" className=" m-auto">
-            <LineIcon name="twitter"/>
+                <LineIcon name="twitter"/>
             </a>
             <a href="#" className=" m-auto">
-            <LineIcon name="instagram"/>
+                <LineIcon name="instagram"/>
             </a>
             <a href="#" className=" m-auto">
-            <LineIcon name="linkedin"/>
+                <LineIcon name="linkedin"/>
             </a>
         </div>
     );
