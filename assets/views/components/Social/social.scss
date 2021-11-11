@@ -1,13 +1,13 @@
 @import '../../../styles/variables.scss';
 
-$margin-left: -10%;
+$margin-left: -190px;
 $spacing-logo: 5px;
-$logo-size: 35px;
+$logo-size: 16px;
+$text-size: 14px;
 $logo-font-size: 1.5em;
 
 .social {
     display: flex;
-    justify-content: space-around;
     transform: rotate(-90deg);
     max-width: 450px;
     height: 0;
@@ -18,11 +18,11 @@ $logo-font-size: 1.5em;
 
     /* Ipad Landscape */
     @media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
-        margin-left: $margin-left - 8%;
+       // margin-left: $margin-left - 8%;
     }
     /* Ipad portrait */
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-        margin-left: $margin-left - 15%;
+       // margin-left: $margin-left - 15%;
     }
 
     /* Mobile portrait */
@@ -34,35 +34,42 @@ $logo-font-size: 1.5em;
         display: none;
     }
     .text-social {
-        font-size: $logo-font-size;
+        font-size: $text-size;
         font-weight: 999;
         text-align: center;
         font-family: $font-title;
+        color: $light;
+        text-transform: uppercase;
+        margin-top: -2px;
     }
 
     .hr-social {
-        width: 20px;
-        height: 4px;
-        padding: 0;
-        color: black;
+        width: 12px;
+        height: 2px;
+        color: $light;
         border-color: black;
         opacity: 100%;
+        margin-left: 15px;
+        margin-top: 7.3px;
+        
     }
     a {
-        color: rgb(0, 0, 0);
+        margin-left: 15px;
+        color: $light;
         text-decoration: none;
-        background-color: black;
         height: $logo-size;
         width: $logo-size;
-        border-radius: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: $spacing-logo;
+        transform: rotate(90deg);
+        font-size: $logo-size;
+        
         i {
-            transform: rotate(90deg);
-            font-size: $logo-font-size;
+           
+            font-size: $logo-size;
             color: $light;
+            
         }
     }
 }
