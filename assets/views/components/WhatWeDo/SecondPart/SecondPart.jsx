@@ -3,7 +3,7 @@ import BtnLinks from '../../buttons/links/BtnLinks';
 import './SecondPart.scss'
 function SecondParts() {
     return (
-        <div className="row second_parts">
+        <div className="row second_parts background-blue">
             <div className="col-11 col-md-8 m-auto">
                 <h2>
                     Great results come from geat relationships

@@ -1,7 +1,8 @@
 import React from "react";
-import '../../styles/home.scss'
+import "../../styles/home.scss";
 import Description from "../components/description/Description";
 import Social from "../components/Social/Social";
+import Navbar from "../components/navbar/Navbar";
 import CarouselProjects from "../components/carousels/carouselProjects/CarouselProjects";
 import Footer from '../components/footer/Footer';
 import wave from '../../images/wave.svg';
@@ -12,7 +13,9 @@ function Home() {
     return (
         <div className={'home'}>
             <Social />
-            <section className="first-view">
+            <Navbar />
+            <section className="first-view background-blue">
+            
                 <Description />
             </section>
             <section className={'carousel-projects'}>
