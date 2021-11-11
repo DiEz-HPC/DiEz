@@ -1,0 +1,16 @@
+@import "../../../styles/variables";
+
+.feedline {
+	.chevron {
+		color: $light;
+	}
+	
+	.last-feed {
+		color: $light;
+	}
+	
+	a {
+		text-decoration: none;
+		color: $dark;
+	}
+}

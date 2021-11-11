@@ -1,0 +1,60 @@
+@import "variables";
+
+.blog {
+	$border-radius-hr: 5px;
+	$height-hr: 4px;
+	$opacity-hr: 1;
+	
+	.header-blog {
+		position: relative;
+		
+		.bg-blue {
+			background-color: $primary;
+		}
+		
+		.wave {
+			$bottom: -140%;
+			
+			position: absolute;
+			bottom: $bottom;
+			z-index: -1;
+			transform: scale(-1, 1);
+			width: 100%;
+			
+			@media screen and (max-width: 1440px) {
+				bottom: $bottom + 50%;
+			}
+			
+			@media screen and (max-width: 768px) {
+				bottom: $bottom + 70%;
+			}
+			
+			@media screen and (max-width: 411px) {
+				bottom: $bottom + 110%;
+			}
+			
+		}
+	}
+	
+	.line-blue {
+		color: $primary;
+		height: $height-hr;
+		opacity: $opacity-hr;
+		width: 90%;
+		margin: 0 auto;
+		border-radius: $border-radius-hr;
+	}
+	
+	.line-dark {
+		color: $dark;
+		height: $height-hr - 2px;
+		opacity: $opacity-hr;
+		width: 18px;
+		border-radius: $border-radius-hr;
+		transform: rotate(90deg);
+	}
+	
+
+}
+
+

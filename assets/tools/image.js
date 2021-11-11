@@ -5,3 +5,10 @@ export function imageUrl(imageName) {
         return '';
     }
 }
+export function imageUploadUrl(imageName) {
+    try {
+        return require(`../../public/uploads/images/${imageName}`)
+    } catch (err) {
+        return '';
+    }
+}

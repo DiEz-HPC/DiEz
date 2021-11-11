@@ -7,6 +7,7 @@ import About from "./views/pages/About";
 import Blog from "./views/pages/Blog";
 import Contact from "./views/pages/Contact";
 import NotFound from "./views/pages/404";
+import SingleBlog from "./views/pages/SingleBlog";
 
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
@@ -19,7 +20,8 @@ export default function App() {
             <Switch>
                 <Route exact path={'/'} component={Home}/>
                 <Route exact path={'/qui-sommes-nous'} component={About} />
-                <Route exact path={'/actualites'} component={Blog} />
+                <Route exact path={'/blog'} component={Blog} />
+                <Route exact path={'/blog/*'} component={SingleBlog} />
                 <Route exact path={'/contact'} component={Contact} />
                 <Route path="*" component={NotFound}/>
             </Switch>
