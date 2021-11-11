@@ -1,8 +1,9 @@
 @import "../../../styles/variables.scss";
 
-$margin-left: -10%;
+$margin-left: -190px;
 $spacing-logo: 5px;
-$logo-size: 35px;
+$logo-size: 16px;
+$text-size: 14px;
 $logo-font-size: 1.5em;
 
 .social {
@@ -17,11 +18,11 @@ $logo-font-size: 1.5em;
 
     /* Ipad Landscape */
     @media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
-        margin-left: $margin-left - 8%;
+       // margin-left: $margin-left - 8%;
     }
     /* Ipad portrait */
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-        margin-left: $margin-left - 15%;
+       // margin-left: $margin-left - 15%;
     }
 
     /* Mobile portrait */
@@ -33,35 +34,44 @@ $logo-font-size: 1.5em;
         display: none;
     }
     .text-social {
-        padding-top: 7px;
-        font-size: $font-size-text;
+        font-size: $text-size;
+        font-weight: 999;
+        text-align: center;
         font-family: $font-title;
-        p{
-            color: $dark;
-        }
+        color: $light;
+        text-transform: uppercase;
+        margin-top: -2px;
     }
     
 
     .hr-social {
-        width: 15px;
+        width: 12px;
         height: 2px;
-        padding: 0;
-        color: $dark;
-        margin-right: 10px;
-        margin-left: 10px;
+        color: $light;
+        border-color: black;
         opacity: 100%;
+        margin-left: 15px;
+        margin-top: 7.3px;
+        
     }
 
     a {
+        margin-left: 15px;
+        color: $light;
         text-decoration: none;
         height: $logo-size;
         width: $logo-size;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: $spacing-logo;
         transform: rotate(90deg);
-        font-size: $logo-font-size;
-        color: $dark;
+        font-size: $logo-size;
+        
+        i {
+           
+            font-size: $logo-size;
+            color: $light;
+            
+        }
     }
 }

@@ -1,10 +1,9 @@
-@import "variables";
+@import 'variables';
 
 .home {
-    .first-view{
+    .first-view {
         height: 100vh;
         background-color: $primary;
-
         h1 {
             color: white;
         }
@@ -13,18 +12,24 @@
     .carousel-projects {
         position: relative;
         height: 100vh;
-        
-        @media screen and (max-height: 990px) {
-            min-height: 800px;
-        }
-        
-        .wave{
+        .wave {
             position: absolute;
-            transform: scale(-1 , 1);
+            transform: scale(-1, 1);
             width: 100%;
             z-index: -1;
-            top: 0;
+            top: -15px;
             left: 0;
+        }
+        @media screen and (max-height: 990px) {
+            min-height: 800px;
+            .wave {
+                position: absolute;
+                transform: scale(-1, 1);
+                width: 100%;
+                z-index: -1;
+                top: -160px;
+                left: 0;
+            }
         }
     }
 }
