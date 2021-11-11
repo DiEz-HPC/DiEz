@@ -61,7 +61,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $Status;
 
-    #[Pure]
     public function getFullName(): string
     {
         return $this->getLastName() . ' ' . $this->getFirstName();
