@@ -12,7 +12,7 @@ function changeColorAccordingBackgroundColor(
         .filter(
             (element) =>
                 element !== elementChange &&
-                !notElements.includes(elementChange) &&
+                !notElements.includes(element) &&
                 positionElement.top >= element.getBoundingClientRect().top &&
                 positionElement.top <=element.getBoundingClientRect().top + element.getBoundingClientRect().height &&
                 positionElement.width >=element.getBoundingClientRect().left &&
@@ -34,8 +34,9 @@ function changeColorAccordingBackgroundColor(
     return color;
 }
 
-function initChangeColor(
+export function initChangeColor(
     element,
+    notElements = [],
     parent = 'root',
     dark = 'rgb(0, 0, 0)',
     light = 'rgb(255, 255, 255)',
@@ -46,14 +47,10 @@ function initChangeColor(
         const color = changeColorAccordingBackgroundColor(element, parent, {
             dark: dark,
             light: light,
-        });
+        },
+        notElements
+        );
         element.style.transition = 'color ' + transition;
         element.style.color = color;
     });
 }
-
-window.onload = () => {
-    window.onscroll = () => {
-        initChangeColor(document.getElementById('social'));
-    };
-};
