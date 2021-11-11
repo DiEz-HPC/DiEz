@@ -9,8 +9,7 @@ import Contact from "./views/pages/Contact";
 import NotFound from "./views/pages/404";
 import SingleBlog from "./views/pages/SingleBlog";
 
-require ('../assets/tools/scrollMenu.js');
-require('./tools/changeColorAccordingBackgroundColor.js')
+require ('../assets/tools/onLoad.js');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
 

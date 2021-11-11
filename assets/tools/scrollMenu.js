@@ -1,5 +1,6 @@
 let prevScrollpos = window.pageYOffset;
-window.onscroll = () => {
+
+export function scrollMenu(){
   const header = document.getElementById("header");
   let currentScrollPos = window.pageYOffset;
 // Si la position actuelle est dans la premiere vue (100vh)
@@ -23,7 +24,6 @@ window.onscroll = () => {
     if (prevScrollpos > currentScrollPos) {
       if (!header.classList.contains("header-dark")) {
         header.classList.add("header-dark");
-        
       }
     // Si scroll down
     } else {
@@ -34,15 +34,3 @@ window.onscroll = () => {
   prevScrollpos = currentScrollPos;
 }
 
-window.onload = () => {
-  const buttonMenu = document.getElementById('buttonMenu');
-  buttonMenu.addEventListener('click', (e) => {
-    const navbar = document.getElementById('header');
-    navbar.style.setProperty("top", "0px");
-    let currentScrollPos = window.pageYOffset;
-    if ( currentScrollPos > 0 )
-    {
-      navbar.classList.toggle('header-dark')
-    }
-  });
-}
