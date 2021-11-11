@@ -22,6 +22,8 @@ function changeColorAccordingBackgroundColor(body, elementChange, colorsForChang
                 )
                 .map(selector => {
                     colors.push(window.getComputedStyle(selector).backgroundColor);
+
+                    console.log(positionElement.left, element.getBoundingClientRect().left, selector.getBoundingClientRect().left);
                 })
 
             for (let i = colors.length - 1; i >= 0; i--) {
