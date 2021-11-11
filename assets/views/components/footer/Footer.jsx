@@ -5,7 +5,7 @@ import Button from '../buttons/links/BtnLinks';
 
 function Footer() {
     return (
-        <footer className="footer">
+        <footer className="footer background-blue">
             <div className="container">
                 <div className="footer_header text-center">
                     <img src={logo} alt="logo" className="footer_logo" />

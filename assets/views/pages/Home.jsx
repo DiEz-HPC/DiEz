@@ -14,7 +14,7 @@ function Home() {
         <div className={'home'}>
             <Social />
             <Navbar />
-            <section className="first-view">
+            <section className="first-view background-blue">
             
                 <Description />
             </section>

@@ -1,9 +1,11 @@
 import React from "react";
+import FeedLine from "../components/feed/FeedLine";
 
 function Blog() {
     return (
         <div className={'blog'}>
-            <h1>Actualités</h1>
+            <FeedLine/>
+            <h1>blog</h1>
         </div>
     )
 }

@@ -23,7 +23,7 @@ function HomeBlog() {
     };
 
     return (
-        <div className="home-blog">
+        <div className="home-blog" id="HomeBlog">
             <h2 className="text-center"> Nos dernières actualités <Dot/></h2>
             <div className="parent m-auto">
                 <Grid number={1} title={actu.title} description={actu.description} picture={actu.picture} />
