@@ -6,7 +6,6 @@ import FirstPart from '../components/About/First-Part/FirstPart';
 import FourthPart from '../components/About/Fourth-Part/FourthPart';
 import Skill from '../components/About/Skill/Skill';
 import Staff from '../components/About/Staff/Staff';
-import Footer from '../components/footer/Footer';
 
 function About() {
     return (
