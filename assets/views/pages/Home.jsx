@@ -16,7 +16,7 @@ function Home() {
                 <Description />
             </section>
             <section className={'carousel-projects'}>
-                <img className={'wave'} src={wave} alt="wave"/>
+                <img id={'wave'} className={'wave'} src={wave} alt="wave"/>
                 <CarouselProjects />
             </section>
 

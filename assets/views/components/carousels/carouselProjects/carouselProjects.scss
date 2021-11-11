@@ -4,6 +4,7 @@
 	$init: initial;
 	position: relative;
 	height: 100vh;
+    overflow: hidden;
 	
 	p {
 		font-size: $font-size-text;

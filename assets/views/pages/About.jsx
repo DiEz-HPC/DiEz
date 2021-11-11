@@ -4,10 +4,12 @@ import FourthPart from '../components/About/Fourth-Part/FourthPart';
 import Skill from '../components/About/Skill/Skill';
 import Staff from '../components/About/Staff/Staff';
 import Footer from '../components/footer/Footer';
+import Social from '../components/Social/Social';
 
 function About() {
     return (
         <div className={'about'}>
+             <Social />
             <section className={'about-first-part'}>
                 <FirstPart />
             </section>
