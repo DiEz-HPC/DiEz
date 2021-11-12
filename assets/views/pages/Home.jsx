@@ -12,10 +12,9 @@ import WhatWeDo from "../components/WhatWeDo/Whatwedo";
 function Home() {
     return (
         <div className={'home'}>
-            <Social />
             <Navbar />
-            <section className="first-view background-blue">
-            
+            <Social />
+            <section id={'firstView'} className="first-view background-blue d-flex">
                 <Description />
             </section>
             <section className={'carousel-projects'}>
