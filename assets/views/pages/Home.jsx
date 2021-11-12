@@ -22,7 +22,6 @@ function Home() {
                 <img id={'wave'} className={'wave'} src={wave} alt="wave"/>
                 <CarouselProjects />
             </section>
-
             <section className={'HomeBlog'}>
                 <HomeBlog />
           </section>

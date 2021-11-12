@@ -3,8 +3,12 @@
 .carouselProjects {
 	$init: initial;
 	position: relative;
-	height: 100vh;
+	min-height: 100vh;
     overflow: hidden;
+	
+	@media (max-height: 900px) {
+        min-height: 950px;
+    }
 	
 	p {
 		font-size: $font-size-text;
@@ -35,6 +39,7 @@
 				right: $init;
 				top: $init;
 			}
+			
 			height: $height-title;
 			
 			.goutte {
@@ -63,7 +68,7 @@
 	.blocImages {
 		position: absolute;
 		right: 5%;
-		top: 15%;
+		top: 10%;
 		
 		.edevices {
 			position: relative;
@@ -76,12 +81,12 @@
 		}
 		
 		
-		
 		@media screen and (max-width: 1199px) {
 			position: relative;
 			right: $init;
 			top: $init;
 		}
+
 	}
 	
 }
