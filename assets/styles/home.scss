@@ -1,11 +1,32 @@
 @import 'variables';
 
+@keyframes arrow-animation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
 .home {
     .first-view {
         height: 100vh;
         background-color: $primary;
         h1 {
-            color: white;
+            color: $light;
+        }
+        .arrowBox {
+            .arrow {
+                opacity: 35%;
+                color: $light;
+                font-size: 36px;
+                transition: visibility 0.5s, opacity 0.5s linear;
+                animation: arrow-animation 1.5s infinite;
+            }
         }
     }
 

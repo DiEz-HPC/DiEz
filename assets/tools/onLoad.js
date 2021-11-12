@@ -1,5 +1,6 @@
 import {scrollMenu} from "./scrollMenu";
 import {initChangeColor} from "./changeColorAccordingBackgroundColor";
+import {displayArrow} from "./displayArrow";
 
 function colors() {
     initChangeColor(document.getElementById('social'), [document.getElementById('menu'), document.getElementById('header')]);
@@ -21,6 +22,7 @@ window.onload = () => {
 
     window.onscroll = () => {
         colors()
+        displayArrow('arrowIcon')
     }
 
 }
