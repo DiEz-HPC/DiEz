@@ -12,12 +12,12 @@ import WhatWeDo from '../components/WhatWeDo/Whatwedo';
 function Home() {
     return (
         <div className={'home'}>
-            <Social />
             <Navbar />
+            <Social />
             <section className="first-view background-blue d-flex flex-column justify-content-between">
                 <Description />
                 <div className={'arrowBox text-center mb-3'} >
-                    <i class="fas fa-angle-double-down arrow" id={'arrowIcon'}></i>
+                    <i class="fas fa-angle-double-down arrow" id={'arrowIcon'} />
                 </div>
             </section>
             <section className={'carousel-projects'}>
