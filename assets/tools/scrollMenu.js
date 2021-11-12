@@ -4,7 +4,6 @@ export function scrollMenu() {
     const header = document.getElementById("header");
     const menu = document.getElementById("menu");
     let currentScrollPos = window.pageYOffset;
-    console.log(window.innerHeight, prevScrollpos, currentScrollPos);
 // Si la position actuelle est dans la premiere vue (100vh)
     if (!menu.classList.contains('open'))
     {
