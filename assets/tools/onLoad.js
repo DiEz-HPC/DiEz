@@ -1,5 +1,6 @@
 import {scrollMenu} from "./scrollMenu";
 import {initChangeColor} from "./changeColorAccordingBackgroundColor";
+import {displayArrow} from "./displayArrow";
 
 function colors() {
     initChangeColor(document.getElementById('social'), [document.getElementById('menu'), document.getElementById('header')]);
@@ -10,6 +11,7 @@ window.onload = () => {
     colors()
     window.onscroll = () => {
         colors()
+        displayArrow('arrowIcon')
     }
 
     const buttonMenu = document.getElementById('buttonMenu');
@@ -20,5 +22,4 @@ window.onload = () => {
             navbar.classList.toggle('header-dark')
         }
     });
-
 }
