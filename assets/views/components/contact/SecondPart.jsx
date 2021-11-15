@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import mail from '../../../images/mail.png'
-import './secondPart.scss'
 
 function SecondPart() {
   const messageObject = {

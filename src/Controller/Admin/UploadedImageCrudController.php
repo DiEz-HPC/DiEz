@@ -34,6 +34,12 @@ class UploadedImageCrudController extends AbstractCrudController
     {
         return $actions
             ->remove(Crud::PAGE_INDEX, Action::EDIT)
+            ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+                return $action->setCssClass('action-delete dropdown-item text-danger');
+            })
+            ->update(Crud::PAGE_DETAIL, Action::DELETE, function (Action $action) {
+                return $action->setCssClass('action-delete btn btn-secondary pr-0 text-danger');
+            });
             ;
     }
 }
