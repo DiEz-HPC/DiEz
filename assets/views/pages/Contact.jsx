@@ -7,6 +7,7 @@ import FeedLine from "../components/feed/FeedLine";
 import Dot from "../components/dot/Dot";
 import SecondPart from "../components/Contact/SecondPart/SecondPart";
 import FirstPart from "../components/Contact/FirstPart/FirstPart";
+import Footer from '../components/footer/Footer';
 
 function Contact() {
   return (
@@ -26,9 +27,11 @@ function Contact() {
       <section className={"contact_first_part"}>
         <FirstPart />
       </section>
+      <hr className="hr-contact mt-5"></hr>
       <section className="contact_second_part">
         <SecondPart />
       </section>
+      <Footer />
     </div>
   );
 }

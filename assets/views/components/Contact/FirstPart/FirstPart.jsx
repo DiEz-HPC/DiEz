@@ -5,7 +5,7 @@ import "./FirstPart.scss";
 function FirstPart() {
   return (
     <>
-      <div className="contact-first-part">
+      <div className="contact-first-part m-2">
         <div className="contact-first-part-text">
           <div className="contact-describe">
             <h1>Information</h1>

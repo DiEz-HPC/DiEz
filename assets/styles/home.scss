@@ -16,9 +16,33 @@
     .first-view {
         height: 100vh;
         background-color: $primary;
+        position: relative;
+        
+        .image-pc{
+            $width-pc: 100%;
+            position: relative;
+            width: $width-pc;
+            @media screen and (max-width: 1200px) {
+                bottom: -10%
+            }
+            .pc {
+                position: absolute;
+                width: $width-pc - 53%;
+                opacity: 0.15;
+                right: 0;
+                z-index: 0;
+                @media screen and (max-width: 768px) {
+                    width: 100%
+                }
+
+            }
+        }
+        
         h1 {
             color: $light;
+            z-index: 1;
         }
+        
         .arrowBox {
             .arrow {
                 opacity: 35%;

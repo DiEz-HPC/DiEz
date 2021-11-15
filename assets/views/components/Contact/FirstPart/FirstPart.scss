@@ -1,9 +1,12 @@
+@import "../../../../styles/variables";
+
 .contact-first-part {
     padding: 0 150px;
     margin: 0;
     width: 100vw;
     display: flex;
     flex-direction: row;
+    background-color: $light;
 }
 
 .contact-first-part-text {
