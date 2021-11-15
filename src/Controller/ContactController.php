@@ -28,7 +28,7 @@ class ContactController extends AbstractController
     }
 
     #[Route('/contact', name: 'contact', methods: ['POST'])]
-    public function index(Request $request, ValidatorInterface $validator, EntityManagerInterface $entityManager): Response
+    public function newContact(Request $request, ValidatorInterface $validator, EntityManagerInterface $entityManager): Response
     {
         $requestMessage = $request->getContent();
         $contactMessage = $this->serializer->deserialize($requestMessage, ContactMessage::class, 'json');
