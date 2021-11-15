@@ -1,0 +1,10 @@
+@import "../../../../styles/variables";
+
+.form-control {
+    background-color: rgb(231, 231, 231);
+}
+.sendButton {
+    background-color: $primary;
+    font-family: $font-logo;
+    color: $light;
+}
