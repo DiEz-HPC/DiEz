@@ -75,7 +75,7 @@ function CarouselProjects() {
                 </div>
                 <div className="command d-flex flex flex-column">
                     <div className="col-6">
-                        <BtnLinks link={`/projects/${project?.name}`} label={'Voir le projet'} color={'white'}
+                        <BtnLinks link={project?.link ? project.link : imageUploadUrl(image)} label={'Voir le projet'} color={'white'}
                                   variant={'outlined'}/>
                     </div>
                     <div className="pagination d-flex justify-content-between col-12">
