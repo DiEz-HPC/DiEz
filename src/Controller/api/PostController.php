@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\api;
 
 use App\Entity\Post;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
