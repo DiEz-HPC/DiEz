@@ -28,13 +28,13 @@ class DashboardController extends AbstractDashboardController
     {        
         $params = [
             'data' => [
-                'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                'labels' => ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
                 'datasets' => [
                     [
                         'label' => 'Exemple1',
                         'backgroundColor' => 'rgb(255, 99, 132)',
                         'borderColor' => 'rgb(255, 99, 132)',
-                        'data' => [3, 3, 3, 3, 3, 3, 3],
+                        'data' => [3, 10, 5, 2, 15, 30, 3, 18, 6, 0, 6, 60],
                     ],
                    
                 ],
@@ -42,7 +42,7 @@ class DashboardController extends AbstractDashboardController
             'options' => [
                 'scales' => [
                     'yAxes' => [
-                        ['ticks' => ['min' => 0, 'max' => 10]],
+                        ['ticks' => ['min' => 0, 'max' => 100]],
                     ],
                 ],
             ]
