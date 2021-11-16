@@ -5,6 +5,7 @@
         {{ app.user.firstname ?? 'Employé' }}
     </div>
 {% endblock %}
+
 {% block head_javascript %}
     {{ parent() }}
 
@@ -12,20 +13,52 @@
 {% endblock %}
 
 {% block main %}
-    <div class="row h-100">
+    <div class="row w-100">
         <div class="col-md-5 h-100 m-auto">
             {{ render_chart(chart1) }}
         </div>
     </div>
+
     <div class="row my-5">
+        <h2 class="text-center mb-4">Les derniers messages</h2>
         {% for message in messages %}
-            <div class="card m-auto " style="width: 18rem; height: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ message.nom }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">{{ message.email }}</h6>
+            <div class="card m-auto" style="width: 18rem; height: 18rem;">
+                <div class="card-body  overflow-auto">
+                    <h5 class="card-title text-center mb-3">{{ message.nom }}</h5>
+                    <h6 class="card-subtitle mb-2 text-center text-muted">{{ message.email }}</h6>
                     <p class="card-text">{{ message.message }}</p>
+                </div>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary w-50 my-2" data-bs-toggle="modal" data-bs-target="#ModalMessage">
+                        Voir
+                    </button>
+                </div>
+            </div>
+            {% include "includes/modalMessage.html.twig" %}
+        {% endfor %}
+    </div>
+
+    <div class="row my-5">
+        <h2 class="text-center mb-4">Les projets en cours</h2>
+        {% for project in projects %}
+            <div class="card text-center m-auto" style="width: 18rem; height: 18rem;">
+                <div class="card-header">
+                    {{ project.visibility }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ project.name }}</h5>
+                    <p class="card-text">{{ project.description }}</p>
+                </div>
+                <div class="text-center mb-4">
+                    <a href="{{ project.url }}" class="btn btn-primary w-50">
+                        <i class="fab fa-github-alt "></i>
+                    </a>
+                </div>
+                <div class="card-footer text-muted">
+                    Nombre d'issue :
+                    {{ project.issueNumber }}
                 </div>
             </div>
         {% endfor %}
     </div>
-{% endblock %}
+    {% endblock %}
