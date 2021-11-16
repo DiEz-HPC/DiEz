@@ -20,34 +20,39 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 class DashboardController extends AbstractDashboardController
 {
 
-  public function __construct(private ChartCreator $chartCreator, private VisitorCounterService $visitorCounterService)
-  {
-  }
+    public function __construct(private ChartCreator $chartCreator, private VisitorCounterService $visitorCounterService)
+    {
+    }
 
     #[Route('', name: 'index')]
     public function index(): Response
-    {        
+    {
         $params = $this->visitorCounterService->VisitorChartParams(date('Y'));
-        $chart1= $this->chartCreator->createChart(
-            params: $params, 
+        $chart1 = $this->chartCreator->createChart(
+            params: $params,
             chartType: Chart::TYPE_LINE
         );
 
+        $messages = $this->getDoctrine()->getRepository(ContactMessage::class)->findBy([], [], 5);
 
-        $messages = $this->getDoctrine()->getRepository(ContactMessage::class)->findAll([], [], 5);
-   
+        $projects = $this->getDoctrine()->getRepository(Project::class)->findBy(
+            [],
+            ['updated_at' => 'DESC'],
+            3
+        );
 
         return $this->render('bundles/EasyAdminBundle/welcome.html.twig', [
             'chart1' => $chart1,
             'messages' => $messages,
-
+            'projects' => $projects,
         ]);
     }
 
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('DiEz');
+            ->setTitle('DiEz')
+            ->renderContentMaximized();
     }
 
     public function configureMenuItems(): iterable
@@ -59,13 +64,11 @@ class DashboardController extends AbstractDashboardController
             ->setSubItems([
                 MenuItem::linkToCrud('Les projets', 'fas fa-folder-open', Project::class),
                 MenuItem::linkToRoute('Refresh Project', 'fas fa-sync', 'admin_service_github')
-            ])
-        ;
+            ]);
         yield MenuItem::linkToCrud('Les actus', 'fas fa-newspaper', Post::class);
         yield MenuItem::subMenu('Médias', 'fas fa-photo-video')
             ->setSubItems([
                 MenuItem::linkToCrud('Images', 'fas fa-images', UploadedImage::class),
             ]);
-        ;
     }
 }
