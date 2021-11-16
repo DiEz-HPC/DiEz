@@ -17,7 +17,7 @@ class AdminServiceController extends AbstractController
         if($githubApi->saveRepos()) {
             $this->addFlash('success', 'Les répos ont bien été sauvegardés ou mis à jour');
         } else {
-            $this->addFlash('error', 'Aucune modification n\'a était apportée.');
+            $this->addFlash('danger', 'Aucune modification n\'a était apportée.');
         }
         return $this->redirectToRoute('admin_index');
     }
