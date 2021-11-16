@@ -33,10 +33,10 @@ class VisitorCounterRepository extends ServiceEntityRepository
         ;
 
         foreach($visitors as $visitor) {
-            if (isset($result[$visitor->getDate()->format('F')])) {
-                $result[$visitor->getDate()->format('F')] ++ ;
+            if (isset($result[$visitor->getDate()->format('n')])) {
+                $result[$visitor->getDate()->format('n')] ++ ;
             } else {
-                $result[$visitor->getDate()->format('F')] = 1;
+                $result[$visitor->getDate()->format('n')] = 1;
             }
 
         }

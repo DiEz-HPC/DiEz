@@ -8,6 +8,7 @@ use App\Entity\UploadedImage;
 use App\Entity\User;
 use App\Entity\Project;
 use App\Service\ChartCreator;
+use App\Service\VisitorCounterService;
 use Symfony\UX\Chartjs\Model\Chart;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -19,76 +20,25 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 class DashboardController extends AbstractDashboardController
 {
 
-  public function __construct(private ChartCreator $chartCreator)
+  public function __construct(private ChartCreator $chartCreator, private VisitorCounterService $visitorCounterService)
   {
   }
 
     #[Route('', name: 'index')]
     public function index(): Response
     {        
-        $params = [
-            'data' => [
-                'labels' => ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
-                'datasets' => [
-                    [
-                        'label' => 'Exemple1',
-                        'backgroundColor' => 'rgb(255, 99, 132)',
-                        'borderColor' => 'rgb(255, 99, 132)',
-                        'data' => [3, 10, 5, 2, 15, 30, 3, 18, 6, 0, 6, 60],
-                    ],
-                   
-                ],
-            ],
-            'options' => [
-                'scales' => [
-                    'yAxes' => [
-                        ['ticks' => ['min' => 0, 'max' => 100]],
-                    ],
-                ],
-            ]
-        ];
-        $params2 = [
-            'data' => [
-                'labels' => ['rouge', 'Orange', 'Jaune', 'vert'],
-                'datasets' => [
-                    [
-                        'label' => '',
-                        'backgroundColor' => [
-                            'rgb(255, 45, 0)',
-                            'rgb(255, 139, 0 )',
-                            'rgb(255, 243, 0 )',
-                            'rgb(73, 255, 0 )',
-                           
-                        ],
-                        'borderColor' => [],
-                        'data' => [8, 3, 3, 3],
-                    ],
-                   
-                ],
-            ],
-            'options' => [
-                'legend' =>[
-                    'position' => 'bottom'
-                ]
-            ]
-        ];
-
+        $params = $this->visitorCounterService->VisitorChartParams(date('Y'));
         $chart1= $this->chartCreator->createChart(
             params: $params, 
             chartType: Chart::TYPE_LINE
         );
-    
-        $chart2= $this->chartCreator->createChart(
-            params: $params2, 
-            chartType: Chart::TYPE_PIE
-        );
+
 
         $messages = $this->getDoctrine()->getRepository(ContactMessage::class)->findAll([], [], 5);
    
 
         return $this->render('bundles/EasyAdminBundle/welcome.html.twig', [
             'chart1' => $chart1,
-            'chart2' => $chart2,
             'messages' => $messages,
 
         ]);

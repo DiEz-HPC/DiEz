@@ -111,7 +111,7 @@ function SecondPart() {
                 placeholder="Votre message"
                 onChange={onChange}
                 value={message.message}
-              ></textarea>
+              />
             </div>
             {send ? (
                 <div className="text-center">
