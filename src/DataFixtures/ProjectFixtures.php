@@ -55,7 +55,6 @@ class ProjectFixtures extends Fixture
             $project->setUpdatedAt($fake['updated_at']);
             $project->setIssueNumber($fake['open_issues_count']);
             $project->setVisibility($fake['visibility']);
-            $project->setImageName($fake['imageName']);
             $project->setLastSave(new \DateTime('now'));
             $manager->persist($project);
         }

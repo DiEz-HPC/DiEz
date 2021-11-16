@@ -3,10 +3,14 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
+ * @Vich\Uploadable
  */
 class Project
 {
@@ -28,9 +32,15 @@ class Project
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imageName;
+
+    /**
+     * @Vich\UploadableField(mapping="uploaded_image", fileNameProperty="imageName")
+     * @var File|null
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="text")
@@ -72,6 +82,16 @@ class Project
      */
     private $githubId;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $homeVisible = false;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $link;
+
 
     public function getId(): ?int
     {
@@ -107,11 +127,28 @@ class Project
         return $this->imageName;
     }
 
-    public function setImageName(string $imageName): self
+    public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
 
         return $this;
+    }
+
+    /**
+     * @param File|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updated_at = (new DateTimeImmutable())->format('Y-m-d h-i-s');
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 
     public function getUrl(): ?string
@@ -206,6 +243,30 @@ class Project
     public function setGithubId(?int $githubId): self
     {
         $this->githubId = $githubId;
+
+        return $this;
+    }
+
+    public function getHomeVisible(): ?bool
+    {
+        return $this->homeVisible;
+    }
+
+    public function setHomeVisible(bool $homeVisible): self
+    {
+        $this->homeVisible = $homeVisible;
+
+        return $this;
+    }
+
+    public function getLink(): ?string
+    {
+        return $this->link;
+    }
+
+    public function setLink(?string $link): self
+    {
+        $this->link = $link;
 
         return $this;
     }

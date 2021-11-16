@@ -10,7 +10,7 @@ import {getAllProjects} from "../../../../queries/projects";
 import goutte from "../../../../images/logo_goutte.png";
 import IphoneX from "../../edevices/iphoneX/IphoneX";
 import MacbookPro from "../../edevices/macbookPro/MacbookPro";
-import {imageUrl} from "../../../../tools/image";
+import {imageUploadUrl} from "../../../../tools/image";
 
 function CarouselProjects() {
     const [projects, setProjects] = useState([])
@@ -58,10 +58,10 @@ function CarouselProjects() {
             <div className="blocImages d-flex justify-content-center my-5 pt-5 mt-5 col-12 col-xl-2">
                 <div className="edevices">
                     <div className="element1 mt-5 mt-sm-0">
-                        <MacbookPro image={imageUrl(image)} alt={`${project?.name} sur pc`} scale={100}/>
+                        <MacbookPro image={imageUploadUrl(image)} alt={`${project?.name} sur pc`} scale={100}/>
                     </div>
                     <div className="element2">
-                        <IphoneX image={imageUrl(image)} alt={`${project?.name} sur mobile`} scale={100}/>
+                        <IphoneX image={imageUploadUrl(image)} alt={`${project?.name} sur mobile`} scale={100}/>
                     </div>
                 </div>
             </div>
