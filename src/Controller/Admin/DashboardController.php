@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\ContactMessage;
 use App\Entity\Post;
 use App\Entity\UploadedImage;
 use App\Entity\User;
@@ -81,11 +82,14 @@ class DashboardController extends AbstractDashboardController
             params: $params2, 
             chartType: Chart::TYPE_PIE
         );
+
+        $messages = $this->getDoctrine()->getRepository(ContactMessage::class)->findAll([], [], 5);
    
 
         return $this->render('bundles/EasyAdminBundle/welcome.html.twig', [
             'chart1' => $chart1,
             'chart2' => $chart2,
+            'messages' => $messages,
 
         ]);
     }
@@ -100,6 +104,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('L\'équipe', 'fa fa-user', User::class);
+        yield MenuItem::linkToCrud('Message', 'fas fa-envelope-open-text', ContactMessage::class);
         yield MenuItem::subMenu('Projets', 'fas fa-project-diagram')
             ->setSubItems([
                 MenuItem::linkToCrud('Les projets', 'fas fa-folder-open', Project::class),

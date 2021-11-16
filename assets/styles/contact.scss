@@ -1,27 +1,33 @@
 @import 'variables';
 
 .header {
-    height: 35vh;
+    position: relative;
+		
+    .bg-blue {
+        background-color: $primary;
+    }
+    
     .wave {
+        $bottom: -140%;
+        
         position: absolute;
+        bottom: $bottom;
+        z-index: -1;
         transform: scale(-1, 1);
         width: 100%;
-        z-index: -1;
-        top: -15px;
-        left: 0;
-    }
-    .feedLineBox{
-        position: relative;
-        top: 90px;
-        left: 50px;
-        .pageTitle{
-            font-size: 25px;
-            color: $light;
-            .dot{
-                font-size: 25px;
-                color: $dark;
-            }
+        
+        @media screen and (max-width: 1440px) {
+            bottom: $bottom + 50%;
         }
+        
+        @media screen and (max-width: 768px) {
+            bottom: $bottom + 70%;
+        }
+        
+        @media screen and (max-width: 411px) {
+            bottom: $bottom + 110%;
+        }
+        
     }
 }
 

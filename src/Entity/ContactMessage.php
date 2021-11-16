@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ContactMessageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ContactMessageRepository::class)
@@ -18,18 +19,46 @@ class ContactMessage
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
-    private $name;
+    #[
+        Assert\NotNull(
+            message: "Nous avons besoin de votre nom"
+        ),
+        Assert\NotBlank(
+            message: "Votre nom ne doit pas être vide"
+        ),
+        ]
+    private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=false)
      */
+    #[
+        Assert\NotNull(
+            message: "Nous avons besoin de votre email"
+        ),
+        Assert\NotBlank(
+            message: "Nous avons besoin de votre email"
+        ),
+        Assert\Email(
+            message: "Nous avons besoin d'un email valide"
+        )
+    ]
     private $email;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=false)
      */
+    #[
+        Assert\NotNull(
+            message: "Donnez nous plus d'information"
+        ),
+        Assert\Length(
+            min: 20,
+            minMessage: "Votre message doit faire au moins {{ limit }} caractères"
+        )
+    ] 
     private $message;
 
     public function getId(): ?int
@@ -37,19 +66,19 @@ class ContactMessage
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getNom(): string
     {
-        return $this->name;
+        return $this->nom;
     }
 
-    public function setName(string $name): self
+    public function setNom(string $nom): self
     {
-        $this->name = $name;
+        $this->nom = $nom;
 
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -61,7 +90,7 @@ class ContactMessage
         return $this;
     }
 
-    public function getMessage(): ?string
+    public function getMessage(): string
     {
         return $this->message;
     }

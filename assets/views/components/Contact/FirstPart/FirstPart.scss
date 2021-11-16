@@ -1,23 +1,19 @@
 @import "../../../../styles/variables";
 
 .contact-first-part {
-    padding: 0 150px;
-    margin: 0;
-    width: 100vw;
+    padding-top: 250px;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: $light;
 }
 
 .contact-first-part-text {
     display: flex;
     flex-direction: column;
-    padding: 0 50px;
 }
 
 .contact-info {
     list-style: none;
-    margin-top: 20px;
     ul {
         padding: 0 !important;
         li {
@@ -27,8 +23,3 @@
     }
 }
 
-.contact-image img {
-    height: 80vh;
-    width: 40vw;
-    margin-top: -300px;
-}
