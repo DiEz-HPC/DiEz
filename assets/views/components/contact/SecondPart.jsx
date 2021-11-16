@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import mail from '../../../images/mail.png'
-import './secondPart.scss'
 
 function SecondPart() {
   const messageObject = {
@@ -112,7 +111,7 @@ function SecondPart() {
                 placeholder="Votre message"
                 onChange={onChange}
                 value={message.message}
-              ></textarea>
+              />
             </div>
             {send ? (
                 <div className="text-center">
