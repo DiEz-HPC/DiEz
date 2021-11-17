@@ -90,9 +90,9 @@ class GithubApi
     }
 
     // Retourne 'true' si le repository est enregistré dans la base de données, sinon 'false'
-    private function chekIfRepoExistInDb(string $repoName): bool
+    private function chekIfRepoExistInDb(string $repoId): bool
     {
-        $repo = $this->projectRepository->findOneBy(['name' => $repoName]);
+        $repo = $this->projectRepository->findOneBy(['githubId' => $repoId]);
         if ($repo) {
             return true;
         }
@@ -111,7 +111,7 @@ class GithubApi
             $this->updated = true;
             foreach ($repos as $repo) {
                 // Si le repo n'existe pas dans la base de données on l'enregistre
-                if (!$this->chekIfRepoExistInDb($repo['name'])) {
+                if (!$this->chekIfRepoExistInDb($repo['repoId'])) {
                     $project = new Project();
                     $project->setName($repo['name']);
 
@@ -137,7 +137,7 @@ class GithubApi
                     $project->setGithubId($repo['repoId']);
                     $project->setLastSave(new DateTime('now'));
                     $this->entityManager->persist($project);
-                } elseif ($this->chekIfRepoExistInDb($repo['name'])) {
+                } elseif ($this->chekIfRepoExistInDb($repo['repoId'])) {
                     $this->updateProject($repo);
                 }
             }
@@ -151,8 +151,7 @@ class GithubApi
     // Met a jour les repositories dans la base de données
     private function updateProject($repo)
     {
-        $project = $this->projectRepository->findOneBy(['name' => $repo['name']]);
-        $project->setName($repo['name']);
+        $project = $this->projectRepository->findOneBy(['githubId' => $repo['repoId']]);
         if ($repo['description']) {
             $project->setDescription($repo['description']);
         } else {
