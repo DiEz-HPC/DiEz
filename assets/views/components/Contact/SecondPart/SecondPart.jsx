@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import mail from "../../../../images/mail.png";
 import Dot from "../../dot/Dot";
+import "./SecondPart.scss";
 
 function SecondPart() {
   const messageObject = {
@@ -64,7 +65,7 @@ function SecondPart() {
         Contactez-nous
         <Dot color="#56C6FF" />
       </h2>
-      <div className="d-flex flex-column col-12 flex-md-row justify-content-center justify-content-md-start justify-content-xl-center align-items-center mb-5 mx-md-auto">
+      <div className="d-flex flex-column col-12 flex-md-row justify-content-center justify-content-md-start justify-content-xl-center align-items-center mb-5 mx-md-auto my-4">
         <div className="d-flex justify-content-center justify-content-xl-start col-12 col-md-6 col-xl-3">
           <img className="w-75 opacity-75" src={mail} alt="mail" />
         </div>
@@ -126,13 +127,15 @@ function SecondPart() {
                 <p> Envoi en cours...</p>
               </div>
             ) : (
-              <button
-                type="submit"
-                value="send"
-                className="btn w-100 sendButton"
-              >
-                Envoyer
-              </button>
+              <div className="d-flex justify-content-center justify-content-xl-start">
+                <button
+                  type="submit"
+                  value="send"
+                  className="btn btn-primary mx-auto rounded-circle mt-2"
+                >
+                  <i class="fas fa-paper-plane me-1"></i>
+                </button>
+              </div>
             )}
           </form>
         </div>

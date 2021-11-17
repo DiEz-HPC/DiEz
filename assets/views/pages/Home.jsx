@@ -9,10 +9,12 @@ import wave from '../../images/wave.svg';
 import pcFirst from '../../images/pc_first.png';
 import HomeBlog from '../components/HomeBlog/HomeBlog';
 import WhatWeDo from '../components/WhatWeDo/Whatwedo';
+import Cursor from '../components/Cursor/Cursor';
 
 function Home() {
     return (
         <div className={'home'}>
+            <Cursor />
             <Navbar/>
             <Social/>
             <section className="first-view background-blue d-flex flex-column justify-content-between">
