@@ -10,7 +10,7 @@ function Dot(props){
     }
     return (
         <>
-            <span style={style} className={'dot'}>.</span>
+            <i style={style} className="fas fa-circle dot ms-2"></i>
         </>
     )
 }

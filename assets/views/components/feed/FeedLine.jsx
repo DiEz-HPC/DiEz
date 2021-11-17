@@ -11,7 +11,7 @@ function FeedLine(props) {
     }, []);
 
     return (
-        <div className="feedline d-flex">
+        <div className="feedline d-flex my-2">
             <a href="/">Accueil </a>
             {feeds.map((feed, index) => {
                 return (

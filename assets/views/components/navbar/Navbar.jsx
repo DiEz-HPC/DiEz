@@ -24,10 +24,13 @@ function Navbar() {
       <header id="header">
         <nav className="nav d-flex justify-content-between">
           <div className="full-logo">
-            <img src={logo} alt="logo" className="logo" />
-            <p className="m-auto">DEVITEASY</p>
+            <a href="/">
+              <img src={logo} alt="logo" className="logo" />
+              </a>
+              <p className="m-auto">DEVITEASY</p>
           </div>
-          <button id="buttonMenu"
+          <button
+            id="buttonMenu"
             className={`toggle-menu ${isOpen}`}
             onClick={() => {
               setIsActive((current) => !current);
@@ -52,7 +55,7 @@ function Navbar() {
             </li>
 
             <li>
-              <a href="#">Contact</a>
+              <a href="contact">Contact</a>
             </li>
           </ul>
         </nav>

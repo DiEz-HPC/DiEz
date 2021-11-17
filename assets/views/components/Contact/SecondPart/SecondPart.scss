@@ -1,0 +1,19 @@
+@import "../../../../styles/variables";
+
+.form-control {
+    font-family: $font-text;
+    background-color: #F5F5F5;
+    border: 1px solid #F5F5F5;
+}
+
+.btn {
+    height: 50px;
+    width: 50px;
+    font-family: $font-text;
+    color: $light;
+}
+
+.btn:hover {
+    color: $light;
+}
+  
