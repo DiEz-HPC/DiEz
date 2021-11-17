@@ -1,25 +1,28 @@
 @import "../../../../styles/variables";
 
 .contact-first-part {
-    padding-top: 250px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-}
-
-.contact-first-part-text {
-    display: flex;
-    flex-direction: column;
+    @media screen and (min-width: 992px) {
+        margin-top: -150px;
+    } 
 }
 
 .contact-info {
     list-style: none;
     ul {
         padding: 0 !important;
-        li {
-            display: flex;
-            flex-direction: row;
+        .icon-contact{
+            color: $primary !important;
         }
     }
 }
 
+.contact-image {
+    margin-top: -100px;
+    z-index: 900;
+    @media screen and (min-width: 810px) {
+        margin-top: -175px;
+    }
+    @media screen and (min-width: 1080px) {
+        margin-top: -230px;
+    }
+}

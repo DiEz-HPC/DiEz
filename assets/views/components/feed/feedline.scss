@@ -1,6 +1,8 @@
 @import "../../../styles/variables";
 
 .feedline {
+	font-family: $font-text;
+	font-size: 12px;
 	.chevron {
 		color: $light;
 	}

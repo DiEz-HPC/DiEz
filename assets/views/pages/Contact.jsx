@@ -11,42 +11,28 @@ import Footer from "../components/footer/Footer";
 
 function Contact() {
   return (
-
-
-
-    
     <div className={"contact"}>
       <Navbar />
       <div className="header">
         <div className="bg-blue">
-          <img id={"wave"} className={"wave"} src={wave} alt="wave" />
-          <div className="feedLineBox">
-            
-            <h2 className="pageTitle">
-              Contact
-              <Dot />
-              <FeedLine title="contact" />
-            </h2>
-          </div>
+          <FeedLine title="contact" />
+          <h1 className="pageTitle">
+            Contact
+            <Dot color="white"/>
+          </h1>
         </div>
       </div>
-
-
-
-
-
-
-
-
-
-
-
+      <div className="wave">
+        <img id={"wave"} src={wave} alt="wave" />
+      </div>
       <Social />
       <section className={"contact_first_part"}>
         <FirstPart />
       </section>
-      <hr className="hr-contact"></hr>
-
+      <hr className="hr-contact text-center"/>
+      <section className={"contact_second_part"}>
+        <SecondPart />
+      </section>
       <Footer />
     </div>
   );

@@ -1,40 +1,28 @@
-@import 'variables';
+@import "variables";
 
 .header {
-    position: relative;
-		
+
     .bg-blue {
+        padding-top: 80px;
+        padding-left: 80px;
         background-color: $primary;
-    }
-    
-    .wave {
-        $bottom: -140%;
-        
-        position: absolute;
-        bottom: $bottom;
-        z-index: -1;
-        transform: scale(-1, 1);
-        width: 100%;
-        
-        @media screen and (max-width: 1440px) {
-            bottom: $bottom + 50%;
-        }
-        
-        @media screen and (max-width: 768px) {
-            bottom: $bottom + 70%;
-        }
-        
-        @media screen and (max-width: 411px) {
-            bottom: $bottom + 110%;
-        }
-        
     }
 }
 
+.wave {
+    overflow: hidden;
+    margin-top: -15px;
 
-.hr-contact{
-border-top: 3px solid $primary;
-opacity: 1;
-margin-left: 150px;
-margin-right: 150px;
+    img {
+        width: 100vw;
+        height: auto;
+        transform: scale(-1, 1)
+}
+}
+
+.hr-contact {
+    border-top: 3px solid $primary;
+    color: $primary;
+    opacity: 1;
+    margin: 50px 10%
 }

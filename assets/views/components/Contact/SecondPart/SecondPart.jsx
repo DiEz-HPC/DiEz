@@ -1,23 +1,24 @@
-import React, { useState } from 'react'
-import mail from '../../../../images/mail.png'
+import React, { useState } from "react";
+import mail from "../../../../images/mail.png";
+import Dot from "../../dot/Dot";
 
 function SecondPart() {
   const messageObject = {
-    nom: '',
-    email: '',
-    message: '',
-  }
-  const [message, setMessage] = useState(messageObject)
+    nom: "",
+    email: "",
+    message: "",
+  };
+  const [message, setMessage] = useState(messageObject);
 
-  const [errors, setErrors] = useState({})
-  const [success, setSuccess] = useState('')
-  const [send, setSend] = useState(false)
+  const [errors, setErrors] = useState({});
+  const [success, setSuccess] = useState("");
+  const [send, setSend] = useState(false);
 
   function onChange(event) {
     setMessage({
       ...message,
       [event.target.name]: event.target.value,
-    })
+    });
   }
 
   function alertErrors(field) {
@@ -26,56 +27,60 @@ function SecondPart() {
         <div key={index} className="alert alert-danger" role="alert">
           {error}
         </div>
-      )
-    })
+      );
+    });
   }
   async function submitForm(event) {
-    setSend(true)
-    event.preventDefault()
+    setSend(true);
+    event.preventDefault();
     const config = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
-        accept: 'application/json',
+        "Content-Type": "application/json",
+        accept: "application/json",
       },
       body: JSON.stringify(message),
-    }
-    const url = '/api/v2/contact'
+    };
+    const url = "/api/v2/contact";
 
-    const query = await fetch(url, config)
-    const status = query.status
-    const response = await query.json()
+    const query = await fetch(url, config);
+    const status = query.status;
+    const response = await query.json();
 
     if (status === 422) {
-      setErrors(response.errors)
-      setSuccess('')
+      setErrors(response.errors);
+      setSuccess("");
     } else {
-      setErrors({})
-      setSuccess(response)
-      setMessage(messageObject)
+      setErrors({});
+      setSuccess(response);
+      setMessage(messageObject);
     }
-    setSend(false)
+    setSend(false);
   }
 
   return (
     <div>
-      <div className="row d-flex justify-content-center align-items-center">
-        <div className="col-md-5">
-          <img src={mail} alt="mail" />
+      <h2 className="h1 text-center mt-4">
+        Contactez-nous
+        <Dot color="#56C6FF" />
+      </h2>
+      <div className="d-flex flex-column col-12 flex-md-row justify-content-center justify-content-md-start justify-content-xl-center align-items-center mb-5 mx-md-auto">
+        <div className="d-flex justify-content-center justify-content-xl-start col-12 col-md-6 col-xl-3">
+          <img className="w-75 opacity-75" src={mail} alt="mail" />
         </div>
 
-        <div className="col-md-3">
+        <div className="col-10 col-md-4 col-xl-3">
           {success?.success ? (
             <div className="alert alert-success" role="alert">
               {success.success}
             </div>
           ) : (
-            ''
+            ""
           )}
 
           <form onSubmit={submitForm}>
             <div className="mb-3">
-              {errors?.nom ? alertErrors(errors.nom) : ''}
+              {errors?.nom ? alertErrors(errors.nom) : ""}
               <label htmlFor="nom"> </label>
               <input
                 type="text"
@@ -88,7 +93,7 @@ function SecondPart() {
               />
             </div>
             <div className="mb-3">
-              {errors?.email ? alertErrors(errors.email) : ''}
+              {errors?.email ? alertErrors(errors.email) : ""}
               <label htmlFor="email"> </label>
               <input
                 type="email"
@@ -101,7 +106,7 @@ function SecondPart() {
               />
             </div>
             <div className="mb-3">
-              {errors?.message ? alertErrors(errors.message) : ''}
+              {errors?.message ? alertErrors(errors.message) : ""}
               <label htmlFor="message"> </label>
               <textarea
                 className="form-control"
@@ -111,14 +116,14 @@ function SecondPart() {
                 placeholder="Votre message"
                 onChange={onChange}
                 value={message.message}
-              ></textarea>
+              />
             </div>
             {send ? (
-                <div className="text-center">
-              <div className="spinner-border text-primary" role="status">
-                <span className="sr-only">Loading...</span>
-              </div>
-              <p> Envoi en cours...</p>
+              <div className="text-center">
+                <div className="spinner-border text-primary" role="status">
+                  <span className="sr-only">Loading...</span>
+                </div>
+                <p> Envoi en cours...</p>
               </div>
             ) : (
               <button
@@ -133,6 +138,6 @@ function SecondPart() {
         </div>
       </div>
     </div>
-  )
+  );
 }
-export default SecondPart
+export default SecondPart;
