@@ -8,3 +8,14 @@ export const getPost = (slug) => fetch(
         },
     }
 );
+
+export const getLastPostByNumber = (number) => fetch(
+    `/api/v2/posts/last/${number}`,
+    {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json',
+        },
+    }
+);

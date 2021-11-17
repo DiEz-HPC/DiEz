@@ -5,6 +5,7 @@
 	position: relative;
 	min-height: 100vh;
     overflow: hidden;
+	margin-top: -20%;
 	
 	@media (max-height: 900px) {
         min-height: 950px;
@@ -18,7 +19,7 @@
 	.blocPiloting {
 		
 		$height-init: 100%;
-		$height-title: $height-init * .3;
+		$height-title: $height-init * .2;
 		$height-descripion: ($height-init - $height-title) * .4;
 		$height-command: $height-init - $height-title - $height-descripion;
 		$height-block: 250px;
@@ -26,7 +27,6 @@
 		position: absolute;
 		bottom: 25%;
 		height: $height-block;
-		top: 40%;
 		left: 20%;
 		
 		@media screen and (max-width: 768px) {
@@ -37,7 +37,6 @@
 			@media screen and (max-width: 768px) {
 				position: relative;
 				right: $init;
-				top: $init;
 			}
 			
 			height: $height-title;
@@ -68,7 +67,6 @@
 	.blocImages {
 		position: absolute;
 		right: 5%;
-		top: 10%;
 		
 		.edevices {
 			position: relative;
@@ -84,7 +82,6 @@
 		@media screen and (max-width: 1199px) {
 			position: relative;
 			right: $init;
-			top: $init;
 		}
 
 	}

@@ -57,12 +57,11 @@
     .carousel-projects {
         position: relative;
         .wave {
-            position: absolute;
-            transform: scale(-1, 1);
+            overflow: hidden;
+            margin-top: -15px;
             width: 100%;
-            z-index: -1;
-            top: -15px;
-            left: 0;
+            height: auto;
+            transform: scale(-1, 1)
         }
     }
 }
