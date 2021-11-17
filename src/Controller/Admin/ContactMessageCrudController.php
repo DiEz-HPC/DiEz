@@ -29,9 +29,18 @@ class ContactMessageCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        return $actions
+        $actions
             ->remove(Crud::PAGE_INDEX, Action::EDIT)
-            ;
+            ->remove(Crud::PAGE_INDEX, Action::NEW)
+            ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+                return $action->setCssClass('action-delete dropdown-item text-danger');
+            })
+            ->update(Crud::PAGE_DETAIL, Action::DELETE, function (Action $action) {
+                return $action->setCssClass('action-delete btn btn-secondary pr-0 text-danger');
+            });
+
+        return $actions;
+      
     }
     
 }

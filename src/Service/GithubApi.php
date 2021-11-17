@@ -4,7 +4,9 @@ namespace App\Service;
 
 use App\Entity\Project;
 use App\Repository\ProjectRepository;
+use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
+use Exception;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 
@@ -15,12 +17,13 @@ class GithubApi
     private $client;
     private EntityManagerInterface $entityManager;
     private ProjectRepository $projectRepository;
+
     public function __construct(private string $GITHUB_TOKEN, EntityManagerInterface $entityManager, ProjectRepository $projectRepository, HttpClientInterface $client)
     {
         $this->client = $client->withOptions([
             'headers' => [
                 'Accept' => 'application/vnd.github.v3+json',
-                'Authorization' => 'token ' . $GITHUB_TOKEN,
+                'Authorization' => 'token ' . $this->GITHUB_TOKEN,
             ],
         ]);
         $this->entityManager = $entityManager;
@@ -29,36 +32,43 @@ class GithubApi
 
     /**
      *  A FAIRE :
-     * 
+     *
      * - Enregistré chaque répository dans la base de données
-     * - Appeler la méthode getRepos() 1fois par jour maximum 
-     * 
+     * - Appeler la méthode getRepos() 1fois par jour maximum
+     *
+     * @throws Exception
      */
 
     // Retourne 'true' si le project est enregistré depuis plus de 24h, sinon 'false'
-    public function checkLastSave()
+    private function checkLastSave(): bool
     {
         $allProject = $this->entityManager->getRepository(Project::class)->findAll();
-        $now = (new \DateTime('', new \DateTimeZone('Europe/Paris')))->modify(
+        $now = (new DateTime('', new \DateTimeZone('Europe/Paris')))->modify(
             '-' . self::TIME_UPLOAD_LIMIT . ' minutes'
         );
         if (empty($allProject)) {
             return true;
-        } else {
-            foreach ($allProject as $project) {
-                $lastSave = $project->getLastSave();
-                if ($lastSave <= $now) {
-                    return true;
-                } else {
-                    return false;
-                }
+        }
+
+        foreach ($allProject as $project) {
+            $lastSave = $project->getLastSave();
+            if ($lastSave <= $now) {
+                return true;
             }
         }
+
+        return false;
+
     }
 
     // Retourne la liste des repositories de l'organisation Diez-HPC Si "checkLastSave" retourne 'true'
-    public function getRepos()
+
+    /**
+     * @throws Exception
+     */
+    private function getRepos(): array
     {
+        $repos = [];
         if ($this->checkLastSave()) {
             $response = $this->client->request('GET', 'https://api.github.com/orgs/Diez-HPC/repos');
             $repos = json_decode($response->getContent(), true);
@@ -75,14 +85,14 @@ class GithubApi
                     'repoId' => $repo['id'],
                 ];
             }, $repos);
-            return $repos;
         }
+        return $repos;
     }
 
     // Retourne 'true' si le repository est enregistré dans la base de données, sinon 'false'
-    public function chekIfRepoExistInDb(string $repoName)
+    private function chekIfRepoExistInDb(string $repoId): bool
     {
-        $repo = $this->projectRepository->findOneBy(['name' => $repoName]);
+        $repo = $this->projectRepository->findOneBy(['githubId' => $repoId]);
         if ($repo) {
             return true;
         }
@@ -90,14 +100,18 @@ class GithubApi
     }
 
     // Enregistre les repositories dans la base de données si il n'y sont pas déja
-    public function saveRepos()
+
+    /**
+     * @throws Exception
+     */
+    public function saveRepos(): bool
     {
         $repos = $this->getRepos();
         if ($repos) {
             $this->updated = true;
             foreach ($repos as $repo) {
                 // Si le repo n'existe pas dans la base de données on l'enregistre
-                if (!$this->chekIfRepoExistInDb($repo['name'])) {
+                if (!$this->chekIfRepoExistInDb($repo['repoId'])) {
                     $project = new Project();
                     $project->setName($repo['name']);
 
@@ -121,11 +135,9 @@ class GithubApi
                     $project->setIssueNumber($repo['open_issues_count']);
                     $project->setVisibility($repo['visibility']);
                     $project->setGithubId($repo['repoId']);
-                    $project->setLastSave(new \DateTime('now'));
-                    ///////////// A faire : Gérer le setImageName ///////////////////
-                    $project->setImageName($repo['name']);
+                    $project->setLastSave(new DateTime('now'));
                     $this->entityManager->persist($project);
-                } elseif ($this->chekIfRepoExistInDb($repo['name'])) {
+                } elseif ($this->chekIfRepoExistInDb($repo['repoId'])) {
                     $this->updateProject($repo);
                 }
             }
@@ -137,10 +149,9 @@ class GithubApi
     }
 
     // Met a jour les repositories dans la base de données
-    public function updateProject($repo)
+    private function updateProject($repo)
     {
-        $project = $this->projectRepository->findOneBy(['name' => $repo['name']]);
-        $project->setName($repo['name']);
+        $project = $this->projectRepository->findOneBy(['githubId' => $repo['repoId']]);
         if ($repo['description']) {
             $project->setDescription($repo['description']);
         } else {
@@ -158,9 +169,7 @@ class GithubApi
         $project->setIssueNumber($repo['open_issues_count']);
         $project->setVisibility($repo['visibility']);
         $project->setGithubId($repo['repoId']);
-        $project->setLastSave(new \DateTime('now'));
-        ///////////// A faire : Gérer le setImageName ///////////////////
-        $project->setImageName($repo['name']);
+        $project->setLastSave(new DateTime('now'));
         $this->entityManager->persist($project);
     }
 }

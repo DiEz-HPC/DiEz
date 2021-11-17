@@ -14,16 +14,16 @@ function Social() {
 
             <hr className="hr-social"/>
             <a href="#" className="ms-3">
-                <i className="fab fa-facebook-f"></i>
+                <i className="fab fa-facebook-f"/>
             </a>
             <a href="#" className="ms-4">
-                <i className="fab fa-twitter"></i>
+                <i className="fab fa-twitter"/>
             </a>
             <a href="#" className="ms-4">
-                <i className="fab fa-instagram"></i>
+                <i className="fab fa-instagram"/>
             </a>
             <a href="#" className="ms-4">
-                <i className="fab fa-linkedin-in"></i>
+                <i className="fab fa-linkedin-in"/>
             </a>
 
         </div>

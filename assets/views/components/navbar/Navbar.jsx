@@ -32,11 +32,11 @@ function Navbar() {
           <button
             id="buttonMenu"
             className={`toggle-menu ${isOpen}`}
-            onClick={(e) => {
+            onClick={() => {
               setIsActive((current) => !current);
             }}
           >
-            <span></span>
+            <span/>
           </button>
         </nav>
       </header>
@@ -65,25 +65,25 @@ function Navbar() {
             <ul>
               <li>
                 <a href="#">
-                  <i className="fab fa-linkedin-in me-2"></i>
+                  <i className="fab fa-linkedin-in me-2"/>
                   <span>Linkedin</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i className="fab fa-instagram me-2"></i>
+                  <i className="fab fa-instagram me-2"/>
                   <span>Instagram</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i className="fab fa-twitter me-2"></i>
+                  <i className="fab fa-twitter me-2"/>
                   <span>Twitter</span>
                 </a>
               </li>
               <li>
                 <a href="#">
-                  <i className="fab fa-facebook-f me-2"></i>
+                  <i className="fab fa-facebook-f me-2"/>
                   <span>Facebook</span>
                 </a>
               </li>

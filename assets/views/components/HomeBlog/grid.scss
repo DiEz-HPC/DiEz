@@ -12,6 +12,7 @@ $inline-spacing: 24px;
         width: $width;
         height: $width;
         overflow: hidden;
+
         img {
             width: $width;
             height: $width;
@@ -36,18 +37,29 @@ $inline-spacing: 24px;
             }
         }
         .content {
+            color: $dark;
             background-color: transparent;
             display: inline-block;
             position: absolute;
             z-index: 100;
+            height: $width;
             padding-left: $inline-spacing;
             padding-right: $inline-spacing;
-            .title {
-                text-align: center;
+          .content-container{
+              height:$width;
+              }
+            .grid_header{
             }
-            .description {
-                font-weight: 900;
-            }
+              .grid_footer {
+                  width: $width;
+                  margin-top: -25px;
+                  .author {
+                      font-weight: 900;
+                  }
+              }
+          }
+
         }
     }
-}
+
+

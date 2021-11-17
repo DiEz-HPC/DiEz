@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\api;
 
 use App\Repository\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,7 +25,9 @@ class ProjectController extends AbstractController
     #[Route('/projects', name: 'all')]
     public function getAllProjects(ProjectRepository $projectRepository): Response
     {
-        $projects = $projectRepository->findAll();
+        $projects = $projectRepository->findBy([
+            'homeVisible' => true,
+        ]);
         $projects = $this->serializer->serialize($projects, 'json');
         return new Response(
             content: $projects,

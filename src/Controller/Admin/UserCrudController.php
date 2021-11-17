@@ -3,6 +3,9 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
 class UserCrudController extends AbstractCrudController
@@ -12,14 +15,17 @@ class UserCrudController extends AbstractCrudController
         return User::class;
     }
 
-    /*
-    public function configureFields(string $pageName): iterable
+    public function configureActions(Actions $actions): Actions
     {
-        return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
-        ];
+        $actions
+            ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
+                return $action->setCssClass('action-delete dropdown-item text-danger');
+            })
+            ->update(Crud::PAGE_DETAIL, Action::DELETE, function (Action $action) {
+                return $action->setCssClass('action-delete btn btn-secondary pr-0 text-danger');
+            });
+
+        return $actions;
+      
     }
-    */
 }

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\api;
 
 use App\Entity\Post;
+use App\Repository\PostRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -24,6 +25,22 @@ class PostController extends AbstractController
     }
 
     #[
+        Route('/posts/last/{number}', name: 'by_number'),
+    ]
+    public function getLastPosts(string $number, PostRepository $postRepository): Response
+    {
+        $posts = $postRepository->findBy([], ['id' => 'DESC'], $number);
+        $posts = $this->serializer->serialize($posts, 'json');
+        return new Response(
+            content: $posts,
+            status: Response::HTTP_OK,
+            headers: [
+                'content-type' => 'application/json'
+            ]
+        );
+    }
+
+    #[
         Route('/posts/{slug}', name: 'by_slug'),
         ParamConverter('post', class: Post::class, options: ['mapping' => ['slug' => 'slug']]),
     ]
@@ -40,4 +57,5 @@ class PostController extends AbstractController
             ]
         );
     }
+
 }

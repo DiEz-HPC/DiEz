@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Personal.scss';
 
 function Personal(props) {
@@ -18,7 +18,7 @@ function Personal(props) {
                             <ul className="m-0 list-unstyled px-4">
                                 <li>
                                     <a href={props.linkedin} target="_blank">
-                                        <i className="fab fa-linkedin"></i>
+                                        <i className="fab fa-linkedin"/>
                                     </a>
                                 </li>
                                 <li>
@@ -26,7 +26,7 @@ function Personal(props) {
                                         href={`mailto:${props.email}`}
                                         target="_blank"
                                     >
-                                        <i className="fas fa-envelope-square"></i>
+                                        <i className="fas fa-envelope-square"/>
                                     </a>
                                 </li>
                             </ul>

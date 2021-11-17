@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\api;
 
 use App\Repository\UserRepository;
 use Symfony\Component\Serializer\Serializer;

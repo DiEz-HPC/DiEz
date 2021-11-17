@@ -1,18 +1,17 @@
 import React from "react";
 import "../../styles/contact.scss";
 import wave from "../../images/wave.svg";
-import Navbar from "../components/navbar/Navbar";
-import Social from "../components/Social/Social";
 import FeedLine from "../components/feed/FeedLine";
 import Dot from "../components/dot/Dot";
 import SecondPart from "../components/Contact/SecondPart/SecondPart";
 import FirstPart from "../components/Contact/FirstPart/FirstPart";
-import Footer from "../components/footer/Footer";
+import Layout from "../components/layout/Layout";
+
 
 function Contact() {
   return (
+    <Layout>
     <div className={"contact"}>
-      <Navbar />
       <div className="header">
         <div className="bg-blue">
           <FeedLine title="contact" />
@@ -25,7 +24,6 @@ function Contact() {
       <div className="wave">
         <img id={"wave"} src={wave} alt="wave" />
       </div>
-      <Social />
       <section className={"contact_first_part"}>
         <FirstPart />
       </section>
@@ -33,8 +31,8 @@ function Contact() {
       <section className={"contact_second_part"}>
         <SecondPart />
       </section>
-      <Footer />
     </div>
+    </Layout>
   );
 }
 
