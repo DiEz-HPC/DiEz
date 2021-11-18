@@ -44,6 +44,7 @@
         }
         
         .arrowBox {
+            z-index: 1;
             .arrow {
                 opacity: 35%;
                 color: $light;
