@@ -1,5 +1,6 @@
 import React from 'react';
 import './Personal.scss';
+import {imageUploadUrl} from "../../../../../tools/image";
 
 function Personal(props) {
     const { index, render } = props;
@@ -35,14 +36,14 @@ function Personal(props) {
                 </div>
             </div>
             <div className="img-box"
-                onMouseEnter={(e) => {
+                onMouseEnter={() => {
                     render(index);
                 }}
-                onTouchStart={(e) => {
+                onTouchStart={() => {
                     render(index);
                 }}
             >
-                <img className="Imagetest" src={props.image} alt="" />
+                <img className={`image de ${props.firstname}`} src={imageUploadUrl(props.image)} alt="" />
             </div>
         </>
     );
