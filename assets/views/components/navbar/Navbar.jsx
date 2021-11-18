@@ -24,10 +24,10 @@ function Navbar() {
       <header id="header">
         <nav className="nav d-flex justify-content-between">
           <div className="full-logo">
-            <a href="/">
+            <a className={'d-flex'} href="/">
               <img src={logo} alt="logo" className="logo" />
-              </a>
               <p className="m-auto">DEVITEASY</p>
+            </a>
           </div>
           <button
             id="buttonMenu"
@@ -55,7 +55,7 @@ function Navbar() {
             </li>
 
             <li>
-              <a href="contact">Contact</a>
+              <a href="/contact">Contact</a>
             </li>
           </ul>
         </nav>
