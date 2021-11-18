@@ -39,9 +39,9 @@ function Footer() {
                     <p>
                         <a
                             href="mailto:
-                        Diez.HPC@gmail.com"
+                        contact@deviteasy.fr"
                         >
-                            Diez.HPC@gmail.com
+                            contact@deviteasy.fr
                         </a>
                     </p>
                 </div>
