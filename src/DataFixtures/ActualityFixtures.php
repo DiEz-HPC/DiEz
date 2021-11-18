@@ -17,12 +17,13 @@ class ActualityFixtures extends Fixture
     {
         $faker = \Faker\Factory::create('fr_FR');
         for ($i = 0; $i < 10; $i++) {
+            $random = array_rand(self::AUTHOR);
             $actuality = new Post();
             $actuality->setTitle($faker->sentence(3));
             $actuality->setSlug($faker->slug());
             $actuality->setUrl($faker->url());
             $actuality->setCreatedAt(new \DateTimeImmutable('now'));
-            $actuality->setAuthor(array_rand(self::AUTHOR));
+            $actuality->setAuthor(self::AUTHOR[$random]);
             $actuality->setArticle($faker->paragraph(4, true));
             $manager->persist($actuality);
         }
