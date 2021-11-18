@@ -2,8 +2,9 @@
 
 namespace App\Service;
 
-
+use App\Entity\ContactMessage;
 use App\Repository\UserRepository;
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 
@@ -14,10 +15,12 @@ class SendMail
     {
     }
 
-    public function onNewMessage()
+    public function onNewMessage(ContactMessage $message)
     {
         $users = $this->userRepository->findAll();
-
+        $userName = $message->getNom();
+        $userEmail = $message->getEmail();
+        $message = $message->getMessage();
         $userEmails = [];
         foreach ($users as $user) {
             if (in_array('ROLE_ADMIN', $user->getRoles())) {
@@ -25,12 +28,16 @@ class SendMail
             }
         }
 
-        $mail = (new Email())
+        $mail = (new TemplatedEmail())
             ->from($this->MAILER_FROM)
             ->to(...$userEmails)
             ->subject('Nouveau message de contact')
-            ->text('Nouveau message client');
-
-        $this->mailer->send($mail);
-    }
+            ->htmlTemplate('mail/mail.html.twig')
+            ->context([
+                'userName' => $userName,
+                'userEmail' => $userEmail,
+                'message' => $message, 
+            ]);
+                $this->mailer->send($mail);
+            }
 }
