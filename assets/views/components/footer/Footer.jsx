@@ -54,19 +54,19 @@ function Footer() {
                 <div className="footer_body_section3 col-md-2">
                     <h3 className="footer_section_title">Qui sommes-nous</h3>
                     <p>
-                        <a href=""> À propos de l'entreprise</a>
+                        <a href="/qui-sommes-nous/#aboutCompany"> À propos de l'entreprise</a>
                     </p>
                     <p>
-                        <a href="#">À propos de nous</a>
+                        <a href="/qui-sommes-nous/#aboutStaff">À propos de nous</a>
                     </p>
                 </div>
                 <div className="footer_body_section4 col-md-2">
                     <h3 className="footer_section_title">Contact</h3>
                     <p>
-                        <a href="#">Blog</a>
+                        <a href="/blog">Blog</a>
                     </p>
                     <p>
-                        <a href="#">Nous contacter</a>
+                        <a href="/contact">Nous contacter</a>
                     </p>
                 </div>
             </div>

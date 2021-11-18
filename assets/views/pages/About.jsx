@@ -9,7 +9,7 @@ function About() {
     return (
         <Layout>
             <div className={"about"}>
-                <section className={"about-first-part"}>
+                <section className={"about-first-part"} id="aboutCompany">
                     <FirstPart/>
                 </section>
                 <section className={"about-second-part"}>
@@ -29,7 +29,7 @@ function About() {
                         />
                     </div>
                 </section>
-                <section className={"about-third-part"}>
+                <section className={"about-third-part"} id="aboutStaff">
                     <Staff/>
                 </section>
                 <section className={"about-fourth-part"}>
