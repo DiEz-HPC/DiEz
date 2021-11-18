@@ -43,7 +43,7 @@ function changeColorAccordingBackgroundColor(
 
 export function initChangeColor(
   element,
-  isBackground = false,
+  style = {},
   notElements = [],
   parent = "root",
   dark = "rgb(0, 0, 0)",
@@ -61,10 +61,8 @@ export function initChangeColor(
       },
       notElements
     );
-    if (isBackground === true) {
-      element.style.backgroundColor = color;
-    } else {
-      element.style.color = color;
+    for (let property in style) {
+      element.style[property] = color;
     }
     element.style.transition = "color " + transition;
   });
