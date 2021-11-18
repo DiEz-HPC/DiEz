@@ -1,0 +1,35 @@
+@import '../../../styles/variables.scss';
+
+.scroll-up {
+    display: inline-block;
+    background-color: $primary;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    svg{
+        width: 20px;
+        height: 20px;
+        color: $light;
+    }
+}
+
+.scroll-up:hover {
+    cursor: pointer;
+    background-color: $secondary;
+}
+.scroll-up:active {
+    background-color: #555;
+}
+.scroll-up.show {
+    opacity: 1;
+    visibility: visible;
+}
