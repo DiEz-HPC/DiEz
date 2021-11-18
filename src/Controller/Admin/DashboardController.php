@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\ContactMessage;
 use App\Entity\Post;
+use App\Entity\Testimony;
 use App\Entity\UploadedImage;
 use App\Entity\User;
 use App\Entity\Project;
@@ -60,6 +61,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('L\'équipe', 'fa fa-user', User::class);
         yield MenuItem::linkToCrud('Message', 'fas fa-envelope-open-text', ContactMessage::class);
+        yield MenuItem::linkToCrud('Témoignages', 'fas fa-comment', Testimony::class);
         yield MenuItem::subMenu('Projets', 'fas fa-project-diagram')
             ->setSubItems([
                 MenuItem::linkToCrud('Les projets', 'fas fa-folder-open', Project::class),

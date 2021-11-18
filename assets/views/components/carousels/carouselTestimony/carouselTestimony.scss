@@ -1,0 +1,38 @@
+.carousel {
+	height: 15vh;
+	@media screen and (max-width: 900px) {
+		height: 30vh;
+	}
+	
+	.carousel-caption {
+		position: static !important;
+	}
+}
+
+
+.disable {
+	opacity: 0;
+	height: 0;
+	transition: height 1s, opacity .5s;
+}
+
+.enable {
+	display: block;
+	opacity: 1;
+	height: 48vh;
+	transition: height .5s, opacity 2s;
+	
+	@media screen and (max-width: 411px) {
+		height: 58vh;
+	}
+}
+
+.btnStopEnable {
+	display: block;
+}
+
+.btnStopDisable {
+	display: none;
+}
+
+
