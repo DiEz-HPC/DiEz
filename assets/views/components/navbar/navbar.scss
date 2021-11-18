@@ -47,7 +47,7 @@
 .header-dark {
   background-color: $dark !important;
   top: -25px !important;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.55) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.55) !important;
 }
 
 .header-hidden {
@@ -70,10 +70,16 @@ $hamburger-zindex: $menu-zindex + 10;
   flex-direction: row;
   color: white;
   z-index: 1110;
-
-  p{
-    font-family: $font-logo !important;
+  
+  a {
+    text-decoration: none;
+    color: $light;
+    
+    p{
+      font-family: $font-logo !important;
+    }
   }
+  
 }
 
 .logo {

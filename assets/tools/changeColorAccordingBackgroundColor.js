@@ -50,6 +50,7 @@ export function initChangeColor(
   light = "rgb(255, 255, 255)",
   transition = "0.2s"
 ) {
+  const transitionStyle = "color " + transition;
   const elements = [...element.querySelectorAll("*")];
   elements.map((element) => {
     const color = changeColorAccordingBackgroundColor(
@@ -62,8 +63,11 @@ export function initChangeColor(
       notElements
     );
     for (let property in style) {
+      if (color !== element.style[property])
       element.style[property] = color;
     }
-    element.style.transition = "color " + transition;
+    if (element.style.transition !== transitionStyle) {
+      element.style.transition = transitionStyle;
+    }
   });
 }
