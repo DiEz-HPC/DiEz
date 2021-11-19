@@ -1,47 +1,283 @@
 @import '../../../../styles/variables';
+@import 'css-vars';
 
-$btn-border: 2px solid;
+// default button styles
+
+$waveColor: $primary !global;
+$textColor: $primary !global;
+$textColorHover: $light !global;
+$fontButton: $font-title !global;
+$paddingBtn: 12px !global;
+$borderW: 2px !global;
+$borderR: 50px !global;
+$animation: all 0,3s ease-in-out !global;
+
+////////////////////////////// Start button styles /!\ Don't touch this part //////////////////////////////
 
 .btnLink {
-    border-radius: 10px !important;
-    padding: 2px 12px !important;
-    font-family: $font-title !important;
-    text-align: center;
-    font-size: .8em !important;
-    min-width: 150px !important;
-    height: 35px !important;
-    box-shadow: none !important;
+    min-width: 200px !important;
+    min-height: 10px;
 }
 
+.blob-btn {
+    $numOfBlobs: 4;
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: $font-size-text;
+    font-family: $fontButton !important;
+    font-weight: bold;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    transition: color 0.5s;
+    border-radius: $borderR;
+    min-width: 200px !important;
+    min-height: 10px;
+    .labelBtn {
+        color: $textColor;
+        transition: $animation;
+        padding: $paddingBtn !important;
+        margin: 0;
+    }
+    &:before {
+        content: '';
+        z-index: 1;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        transition: border 0.2s;
+        border: $borderW solid $light;
+        border-radius: $borderR;
+    }
+
+    &:after {
+        content: '';
+        z-index: -2;
+        position: absolute;
+        left: $borderW * 1.5;
+        top: $borderW * 1.5;
+        width: 100%;
+        height: 100%;
+        transition: $animation;
+        border-radius: $borderR;
+    }
+
+    &:hover {
+        border-radius: $borderR;
+        .labelBtn {
+            color: $textColorHover;
+            transition: $animation;
+        }
+        &:before {
+            transition: $animation;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+                rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        }
+        &:after {
+            transition: $animation;
+            left: 0;
+            top: 0;
+            border-radius: $borderR;
+        }
+    }
+
+    &__inner {
+        z-index: -1;
+        overflow: hidden;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: $borderR;
+        background: $light;
+    }
+
+    // additional container created, because in FF blobs are breaking overflow:hidden of element with svg gooey filter
+    &__blobs {
+        position: relative;
+        display: block;
+        height: 100%;
+        filter: url('#goo');
+    }
+
+    &__blob {
+        position: absolute;
+        top: $borderW;
+        width: 100% / $numOfBlobs;
+        height: 100%;
+        background: $waveColor;
+        border-radius: 100%;
+        transform: translate3d(0, 150%, 0) scale(1.7);
+        transition: transform 0.45s;
+
+        @supports (filter: url('#goo')) {
+            transform: translate3d(0, 150%, 0) scale(1.4);
+        }
+
+        @for $i from 1 through $numOfBlobs {
+            &:nth-child(#{$i}) {
+                left: ($i - 1) * (120% / $numOfBlobs);
+                transition-delay: ($i - 1) * 0.08s;
+            }
+        }
+
+        .blob-btn:hover & {
+            transform: translateZ(0) scale(1.7);
+
+            @supports (filter: url('#goo')) {
+                transform: translateZ(0) scale(1.4);
+            }
+        }
+    }
+}
+.svgBtn {
+    width: 0 !important;
+    height: 0 !important;
+}
+
+////////////////////////////// End button styles /!\ Don't touch this part //////////////////////////////
+
+////////////////////////////// Start Variant styles ::: Edit this part //////////////////////////////
+
 .btnLink-contained-dark {
-    background-color: black !important;
-    color: $primary !important;
+    .blob-btn {
+        .labelBtn {
+            // Label styles
+            font-size: $font-size-text;
+            font-family: $fontButton;
+            color: $primary;
+        }
+        &:before {
+            // Border button color 
+            border: $borderW solid $dark;
+        }
+        &:hover {
+            .labelBtn {
+                // Label styles hover
+                color: $light;
+            }
+            &:before {
+                // border button color hover
+                border: $borderW solid $primary;
+            }
+        }
+        &__inner {
+            // Background button color
+            background: $dark;
+        }
+        &__blob {
+            // WaveColor button color
+            background: $primary;
+        }
+    }
 }
 
 .btnLink-contained-primary {
-    background-color: $primary !important;
-    color: black !important;
-}
-
-.btnLink-contained-danger {
-    background-color: red !important;
-    color: black !important;
+    .blob-btn {
+        font-size: $font-size-text;
+        font-family: $fontButton;
+        .labelBtn {
+            color: $textColor;
+        }
+        &:before {
+            border: $borderW solid $primary;
+        }
+        &:hover {
+            .labelBtn {
+                color: $textColorHover;
+            }
+        }
+        &__inner {
+            background: $light;
+        }
+        &__blob {
+            background: $waveColor;
+        }
+    }
 }
 
 .btnLink-outlined-primary {
-    background-color: $primary !important;
-    color: white !important;
-    border: $btn-border black !important;
+    .blob-btn {
+        font-size: $font-size-text;
+        font-family: $fontButton;
+        .labelBtn {
+            color: $textColor;
+        }
+        &:before {
+            border: $borderW solid $light;
+        }
+        &:hover {
+            .labelBtn {
+                color: $textColorHover;
+            }
+            &:before {
+                border: $borderW solid $primary;
+            }
+        }
+        &__inner {
+            background: $light;
+        }
+
+        &__blob {
+            background: $waveColor;
+        }
+    }
+}
+
+.btnLink-outlined-secondary {
+    .blob-btn {
+        font-size: $font-size-text;
+        font-family: $fontButton;
+        .labelBtn {
+            color: $secondary;
+        }
+        &:before {
+            border: $borderW solid $light;
+        }
+        &:hover {
+            .labelBtn {
+                color: $light;
+            }
+            &:before {
+                border: $borderW solid $light;
+            }
+        }
+        &__inner {
+            background: $light;
+        }
+
+        &__blob {
+            background: $secondary;
+        }
+    }
 }
 
 .btnLink-outlined-white {
-    background-color: initial !important;
-    color: black !important;
-    border: $btn-border $primary !important;
+    .blob-btn {
+        font-size: $font-size-text;
+        font-family: $fontButton;
+        .labelBtn {
+            color: $textColor;
+        }
+        &:before {
+            border: $borderW solid $primary;
+        }
+        &:hover {
+            .labelBtn {
+                color: $textColorHover;
+            }
+        }
+        &__inner {
+            background: $light;
+        }
+        &__blob {
+            background: $waveColor;
+        }
+    }
 }
 
-.btnLink-outlined-dark {
-    background-color: initial !important;
-    color: black !important;
-    border: $btn-border black !important;
-}
