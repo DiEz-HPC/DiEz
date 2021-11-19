@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Client;
+use App\Entity\Project;
+use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -18,6 +20,7 @@ class ClientCrudController extends AbstractCrudController
     {
         return Client::class;
     }
+
     public function configureFields(string $pageName): iterable
     {
         return [
@@ -34,6 +37,11 @@ class ClientCrudController extends AbstractCrudController
             TextField::new(propertyName: 'contract', label: 'Contrat',)
                 ->setTextAlign('center'),
             AssociationField::new('project', 'Projet(s)')
+                ->setQueryBuilder(function (QueryBuilder $qb) {
+                    return $qb->select('project')
+                        ->from(Project::class, 'project')
+                        ->andWhere('project.client IS NULL');
+                })
                 ->setTextAlign('center'),
         ];
     }
