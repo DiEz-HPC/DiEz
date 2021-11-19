@@ -1,0 +1,62 @@
+@import "../../../../styles/variables";
+
+.carousel {
+	$height: 20vh;
+	height: $height;
+	display: flex;
+	align-items: center;
+	
+	.carousel-item {
+		height: $height;
+	}
+	
+	.carousel-caption {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: static !important;
+		height: $height;
+	}
+	
+	@media screen and (max-width: 900px) {
+		$height: $height + 5vh;
+		height: $height;
+		
+        .carousel-caption {
+            height: $height;
+        }
+		
+		.carousel-item {
+			height: $height;
+		}
+    }
+}
+
+
+.disable {
+	opacity: 0;
+	height: 0;
+	transition: height 1s, opacity .5s;
+}
+
+.enable {
+	$height: 50vh;
+	display: block;
+	opacity: 1;
+	height: $height;
+	transition: height .5s, opacity 2s;
+	
+	@media screen and (max-width: 411px) {
+		height: $height + 10vh;
+	}
+}
+
+.btnStopEnable {
+	display: block;
+}
+
+.btnStopDisable {
+	display: none;
+}
+
+
