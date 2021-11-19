@@ -19,7 +19,6 @@ window.onload = () => {
     }
     document.body.onmousemove = () => { 
         const menu = !document.getElementById('menu').classList.contains('open') ? document.getElementById('menu') : document.getElementById('header');
-        console.log(menu);
         initChangeColor(document.querySelector('.dot-cursor'), true, [menu, dot, outline]);
     }
     
