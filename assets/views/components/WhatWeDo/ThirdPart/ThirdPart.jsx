@@ -7,14 +7,14 @@ import ComputerPic from '../../../../images/JobPermutPc.png';
 import TabletPic from '../../../../images/JobPermutTablet.png';
 import Iphone from './device/Iphone';
 import Ipad from './device/Ipad';
-import MacbookPro from '../../edevices/macbookPro/MacbookPro';
+import Macbook from './device/MacBook';
 
 function ThirdPart() {
     return (
         <div className="thirdPart">
             <div className="inner-container row d-flex justify-content-evenly">
                 <div className="device-div col-md-6 row d-flex justify-content-around align-items-center">
-                <MacbookPro image={ComputerPic} alt={`projet sur pc`} scale={100}/>
+                    <Macbook picture={ComputerPic} scale="90" alt="MacBook" />
                     <Ipad picture={TabletPic} scale="90" alt="ipad" />
                     <Iphone picture={PhonePic} scale="50" alt="iphone" />
                 </div>

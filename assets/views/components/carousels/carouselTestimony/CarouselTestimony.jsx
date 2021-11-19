@@ -27,7 +27,7 @@ function CarouselTestimony() {
 
     const scroll = () => {
         const div = document.querySelector('.second_parts');
-        window.scroll(div.offsetLeft, div.offsetTop - 10 );
+        window.scroll(div.offsetLeft, div.offsetTop);
     }
 
     const[success , setSuccess] = useState({});
