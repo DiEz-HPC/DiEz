@@ -1,12 +1,35 @@
+@import "../../../../styles/variables";
+
 .carousel {
-	height: 15vh;
-	@media screen and (max-width: 900px) {
-		height: 30vh;
+	$height: 20vh;
+	height: $height;
+	display: flex;
+	align-items: center;
+	
+	.carousel-item {
+		height: $height;
 	}
 	
 	.carousel-caption {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		position: static !important;
+		height: $height;
 	}
+	
+	@media screen and (max-width: 900px) {
+		$height: $height + 5vh;
+		height: $height;
+		
+        .carousel-caption {
+            height: $height;
+        }
+		
+		.carousel-item {
+			height: $height;
+		}
+    }
 }
 
 
@@ -17,13 +40,14 @@
 }
 
 .enable {
+	$height: 50vh;
 	display: block;
 	opacity: 1;
-	height: 48vh;
+	height: $height;
 	transition: height .5s, opacity 2s;
 	
 	@media screen and (max-width: 411px) {
-		height: 58vh;
+		height: $height + 10vh;
 	}
 }
 

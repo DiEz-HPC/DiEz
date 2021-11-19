@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import BtnLinks from "../../buttons/links/BtnLinks";
 import {postTesitimony} from "../../../../queries/testimony";
+import './formTestimony.scss';
 
 function FormTestimony(props) {
-    const {display, success} = props;
+    const {display, success, cancel} = props;
 
     const formEmpty = {
         lastName: '',
@@ -44,17 +45,20 @@ function FormTestimony(props) {
 
     const disableFormulae = (e) => {
         e.preventDefault();
-        display('disable')
+        display('disable');
+        setErrors({});
+        setForm(formEmpty);
+        cancel();
     }
 
     return (
         <>
-            <form>
+            <form className={'testimony'}>
                 <div className="mb-3 col-12">
-                    <label htmlFor="inputLastName" className="form-label">Nom</label>
+                    <label htmlFor="inputLastName" className="form-label">Nom<span className={'text-light fw-bold'}> *</span></label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control opacity-50"
                         id="lastname"
                         aria-describedby="lastname"
                         value={form.lastName}
@@ -63,10 +67,10 @@ function FormTestimony(props) {
                     {errors?.lastName ? alertErrors(errors.lastName) : ""}
                 </div>
                 <div className="mb-3 col-12">
-                    <label htmlFor="inputfirstName" className="form-label">Prénom</label>
+                    <label htmlFor="inputfirstName" className="form-label">Prénom<span className={'text-light fw-bold'}> *</span></label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control opacity-50"
                         id="firstname"
                         aria-describedby="firstname"
                         value={form.firstName}
@@ -78,7 +82,7 @@ function FormTestimony(props) {
                     <label htmlFor="inputfirstName" className="form-label">Société</label>
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control opacity-50"
                         id="company"
                         aria-describedby="company"
                         value={form.company}
@@ -87,16 +91,17 @@ function FormTestimony(props) {
                     {errors?.company ? alertErrors(errors.company) : ""}
                 </div>
                 <div className="mb-3 col-12">
-                    <label htmlFor="floatingTextarea">Témoignages</label>
+                    <label htmlFor="floatingTextarea" className={'form-label'}>Témoignages<span className={'text-light fw-bold'}> *</span></label>
                     <textarea
-                        className="form-control"
+                        className="form-control opacity-50"
                         placeholder="Tapez votre témoignage ici"
                         id="floatingTextarea"
-                        value={form.comments}
+                        value={form.comment}
                         onChange={(e) => setForm({...form, comment: e.target.value})}
                     />
                     {errors?.comment ? alertErrors(errors.comment) : ""}
                 </div>
+                <span className={'text-light fw-bold'}>* Requis</span>
                 <div className="btnsForm d-flex">
                     <div className={'btnStop me-2'} onClick={e => disableFormulae(e)}>
                         <BtnLinks
