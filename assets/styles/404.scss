@@ -11,10 +11,10 @@ body {
     height: $fullSize;
 }
 
-body {
+.notFound {
     display: table;
     width: $fullSize;
-    height: $fullSize;
+    height: $fullScreenHeight;
     position: relative;
     font-weight: $font-weight-text;
     .lines {
@@ -83,6 +83,7 @@ body {
             }
         }
         .btnNotFound {
+            width: 50%;
             color: $dark;
             border: 2px solid black;
             border-radius: 0.5rem;

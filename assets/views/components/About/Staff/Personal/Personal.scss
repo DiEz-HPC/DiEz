@@ -43,6 +43,8 @@ $box-width: 35vw;
     img {
         width: $full;
         height: $full;
+        object-fit: cover;
+        object-position: center;
     }
 }
 

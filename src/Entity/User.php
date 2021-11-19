@@ -3,13 +3,16 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
-use JetBrains\PhpStorm\Pure;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @Vich\Uploadable()
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -57,9 +60,20 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $image;
 
     /**
+     * @Vich\UploadableField(mapping="uploaded_image", fileNameProperty="image")
+     * @var File|null
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $Status;
+
+    /**
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private $updatedAt;
 
     public function getFullName(): string
     {
@@ -203,6 +217,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * @param File|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
     public function getStatus(): ?string
     {
         return $this->Status;
@@ -211,6 +242,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setStatus(string $Status): self
     {
         $this->Status = $Status;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
