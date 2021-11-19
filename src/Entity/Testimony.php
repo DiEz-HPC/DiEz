@@ -151,6 +151,11 @@ class Testimony
 
     public function getFullName(): string
     {
-        return $this->getLastName() . ' ' . $this->getFirstName();
+        return strtoupper($this->lastName) . ' ' . ucfirst($this->firstName);
+    }
+
+    public function __toString(): string
+    {
+        return $this->getFullName();
     }
 }

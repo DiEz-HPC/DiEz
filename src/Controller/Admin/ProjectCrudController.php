@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -26,6 +27,7 @@ class ProjectCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
                 return $action->setCssClass('action-delete dropdown-item text-danger');
             })
@@ -39,11 +41,13 @@ class ProjectCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new(propertyName: 'name', label: 'Nom du projet'),
+            TextField::new(propertyName: 'name', label: 'Nom du projet')
+                ->setTextAlign('center'),
+            AssociationField::new(propertyName: 'client', label: 'Nom du client')
+                ->setTextAlign('center'),
             TextField::new(propertyName: 'visibility', label: 'Visibilité Projet Github')
                 ->onlyOnIndex()
-                ->setTextAlign('center')
-            ,
+                ->setTextAlign('center'),
             UrlField::new(propertyName: 'url', label: 'Lien Github',)
                 ->setTextAlign('center')
                 ->onlyOnIndex(),
@@ -51,8 +55,7 @@ class ProjectCrudController extends AbstractCrudController
                 ->setTextAlign('center'),
             TextField::new(propertyName: 'issue_number', label: 'Nombre d\'issues')
                 ->setTextAlign('center')
-                ->onlyOnIndex()
-            ,
+                ->onlyOnIndex(),
             TextareaField::new(propertyName: 'imageFile', label: 'Image carousel')
                 ->setTextAlign('center')
                 ->setFormType(VichImageType::class)

@@ -14,7 +14,7 @@ function Description() {
             <h1 className={'text-center'}>UNE ÉQUIPE <br/> A VOTRE ECOUTE <Dot /></h1>
             <p className={'text-center col-7 text-light mb-4'}>{text.description}</p>
             <div className="d-flex flex-column justify-content-around flex-md-row align-items-center">
-                <BtnLinks link={'#projects'} label={'Nos projets'} color={'primary'} style={'m-1'} variant={'outlined'} />
+                <BtnLinks link={'/qui-sommes-nous'} label={'Qui sommes nous ?'} color={'primary'} style={'m-1'} variant={'outlined'} />
                 <BtnLinks link={'/contact'} label={'Contactez-nous'} color={'dark'} style={'m-1'} variant={'contained'} />
             </div>
         </div>
