@@ -102,13 +102,13 @@ function FormTestimony(props) {
                     {errors?.comment ? alertErrors(errors.comment) : ""}
                 </div>
                 <span className={'text-light fw-bold'}>* Requis</span>
-                <div className="btnsForm d-flex">
+                <div className="btnsForm d-flex flex-column justify-content-around flex-md-row align-items-center">
                     <div className={'btnStop me-2'} onClick={e => disableFormulae(e)}>
                         <BtnLinks
                             link={'#'}
                             label={'Annuler'}
                             color={'dark'}
-                            style={'mt-5'}
+                            style={'mt-3'}
                             variant={'contained'}
                         />
                     </div>
@@ -117,7 +117,7 @@ function FormTestimony(props) {
                             link={'#'}
                             label={'Envoyer le témoignage'}
                             color={'dark'}
-                            style={'mt-5'}
+                            style={'mt-3'}
                             variant={'outlined'}
                         />
                     </div>

@@ -18,6 +18,9 @@ $device-size: 50%;
     .inner-container {
         @media (min-device-width: 768px) and (max-device-width: 1080px) {
             flex-direction: column-reverse;
+            .device-div{
+                margin-top: $third-part-spacing;
+            }
         }
         .device-div {
             /* Ipad */
@@ -30,24 +33,7 @@ $device-size: 50%;
             @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
                 margin-top: $third-part-spacing;
             }
-            .cd-mac {
-                display: none;
-                /* Ipad */
-                @media (min-device-width: 768px) and (max-device-width: 1080px) {
-                    display: inline;
-                    font-size: $device-size !important;
-                }
-                /* Mobile portrait */
-                @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-                    display: inline;
-                    margin-bottom: $third-part-spacing;
-                    font-size: $device-size !important;
-                }
-                /* Mobile landscape */
-                @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
-                    font-size: $device-size !important;
-                }
-            }
+            
             .cd-iphone-6 {
                 /* Ipad */
                 @media (min-device-width: 768px) and (max-device-width: 1080px) {

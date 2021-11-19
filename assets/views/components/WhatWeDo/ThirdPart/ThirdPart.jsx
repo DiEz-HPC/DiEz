@@ -6,15 +6,15 @@ import PhonePic from '../../../../images/JobPermutMobile.png';
 import ComputerPic from '../../../../images/JobPermutPc.png';
 import TabletPic from '../../../../images/JobPermutTablet.png';
 import Iphone from './device/Iphone';
-import MacBook from './device/MacBook';
 import Ipad from './device/Ipad';
+import MacbookPro from '../../edevices/macbookPro/MacbookPro';
 
 function ThirdPart() {
     return (
         <div className="thirdPart">
             <div className="inner-container row d-flex justify-content-evenly">
                 <div className="device-div col-md-6 row d-flex justify-content-around align-items-center">
-                    <MacBook picture={ComputerPic} scale="90" alt="macbook" />
+                <MacbookPro image={ComputerPic} alt={`projet sur pc`} scale={100}/>
                     <Ipad picture={TabletPic} scale="90" alt="ipad" />
                     <Iphone picture={PhonePic} scale="50" alt="iphone" />
                 </div>
@@ -30,19 +30,19 @@ function ThirdPart() {
                         fugit, aspernatur exercitationem velit necessitatibus
                         minus architecto numquam!
                     </p>
-                    <div className="d-flex justify-content-center justify-content-md-start">
+                    <div className="d-flex flex-column justify-content-around flex-md-row align-items-center">
                     <Button
                         link={'#'}
                         label={'Nos projets'}
                         color={'white'}
-                        style={'me-4'}
+                        style={'m-1'}
                         variant={'outlined'}
                     />
                     <Button
                         link={'#'}
                         label={'Contact'}
                         color={'dark'}
-                        style={'me-4'}
+                        style={'me-1'}
                         variant={'contained'}
                     /></div>
                 </div>
