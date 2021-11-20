@@ -66,8 +66,7 @@ class ProjectCrudController extends AbstractCrudController
                 ->onlyOnIndex(),
             UrlField::new(propertyName: 'link', label: 'Lien site en prod',)
                 ->setTextAlign('center'),
-            BooleanField::new(propertyName: 'homeVisible', label: 'Affichage')
-                ->setTextAlign('center'),
+            BooleanField::new(propertyName: 'homeVisible', label: 'Affichage'),
         ];
     }
 }
