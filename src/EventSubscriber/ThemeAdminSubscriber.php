@@ -24,32 +24,40 @@ class ThemeAdminSubscriber implements EventSubscriberInterface
     public function onBeforeEntityPersistedEvent(BeforeEntityPersistedEvent $event)
     {
         $themeUpdate = $event->getEntityInstance();
-        if ($themeUpdate->getIsActive()) {
-            $this->resetActiveTheme($themeUpdate);
+        if ($themeUpdate instanceof Theme) {
+            if ($themeUpdate->getIsActive()) {
+                $this->resetActiveTheme($themeUpdate);
+            }
         }
     }
 
     public function onBeforeEntityUpdatedEvent(BeforeEntityUpdatedEvent $event)
     {
         $themeUpdate = $event->getEntityInstance();
-        if ($themeUpdate->getIsActive()) {
-           $this->resetActiveTheme($themeUpdate);
+        if ($themeUpdate instanceof Theme) {
+            if ($themeUpdate->getIsActive()) {
+                $this->resetActiveTheme($themeUpdate);
+            }
         }
     }
 
     public function onAfterEntityPersistedEvent(AfterEntityPersistedEvent $event)
     {
         $themeUpdate = $event->getEntityInstance();
-        if ($themeUpdate->getIsActive()) {
-            $this->configurationTheme->defineTheme();
+        if ($themeUpdate instanceof Theme) {
+            if ($themeUpdate->getIsActive()) {
+                $this->configurationTheme->defineTheme();
+            }
         }
     }
 
     public function onAfterEntityUpdatedEvent(AfterEntityUpdatedEvent $event)
     {
         $themeUpdate = $event->getEntityInstance();
-        if ($themeUpdate->getIsActive()) {
-            $this->configurationTheme->defineTheme();
+        if ($themeUpdate instanceof Theme) {
+            if ($themeUpdate->getIsActive()) {
+                $this->configurationTheme->defineTheme();
+            }
         }
     }
 
