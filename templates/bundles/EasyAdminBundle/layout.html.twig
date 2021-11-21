@@ -31,6 +31,7 @@
 
     {% block head_javascript %}
         <script src="{{ asset('bundles/easyadmin/app.js') }}"></script>
+        {{ encore_entry_script_tags('adminScript') }}
     {% endblock head_javascript %}
 
     {% block configured_javascripts %}

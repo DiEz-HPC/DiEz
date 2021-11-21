@@ -33,6 +33,7 @@ Encore
     .addEntry('index', './assets/index.js')
     .addEntry('app', './assets/app.js')
     .addEntry('initChart', './assets/tools/initChart.js')
+    .addEntry('adminScript', './assets/js/admin.js')
     .addStyleEntry('adminStyle', './assets/styles/admin.scss')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)

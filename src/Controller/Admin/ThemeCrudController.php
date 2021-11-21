@@ -23,7 +23,9 @@ class ThemeCrudController extends AbstractCrudController
             ColorField::new('secondaryColor', 'Secondary'),
             ColorField::new('darkColor', 'Dark'),
             ColorField::new('lightColor', 'Light'),
-            BooleanField::new('isActive', 'Actif'),
+            BooleanField::new('isActive', 'Actif')
+                ->setTextAlign('center')
+                ->setCssClass('radioColor'),
         ];
     }
 

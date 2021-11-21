@@ -2,6 +2,7 @@
 
 namespace App\Controller\api;
 
+use App\Entity\Theme;
 use App\Repository\ThemeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,6 +40,37 @@ class ThemeController extends AbstractController
             headers: [
                 'content-type' => 'application/json'
             ]
+        );
+    }
+
+    #[
+        Route('/themes/{id}', name: 'getByName', methods: ['POST'])
+    ]
+    public function defineTheme(
+        Theme $theme,
+        ThemeRepository $themeRepository,
+        EntityManagerInterface $entityManager
+    ): Response
+    {
+        if($theme->getIsActive()) {
+            $theme->setIsActive(false);
+        } else {
+            $theme->setIsActive(true);
+        }
+        $entityManager->persist($theme);
+
+        $themes = $themeRepository->findAll();
+        foreach ($themes as $t) {
+            if($t !== $theme) {
+                $t->setIsActive(false);
+                $entityManager->persist($t);
+            }
+        }
+        $entityManager->flush();
+
+
+        return new Response(
+            status: Response::HTTP_OK,
         );
     }
 }
