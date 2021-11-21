@@ -8,111 +8,119 @@ $initPos: 0;
 
 html,
 body {
-    height: $fullSize;
+  height: $fullSize;
 }
 
 .notFound {
-    display: table;
-    width: $fullSize;
-    height: $fullScreenHeight;
-    position: relative;
-    font-weight: $font-weight-text;
-    .lines {
-        position: absolute;
-        top: $initPos;
-        left: $initPos;
-        right: 50%;
-        height: $fullSize;
-        margin: auto;
-        width: 90vw;
-        .line {
-            position: absolute;
-            width: 3px;
-            height: $fullSize;
-            top: $initPos;
-            left: $fullSize;
-            overflow: hidden;
-        }
-        .line::after {
-            content: '';
-            display: block;
-            position: absolute;
-            height: 15vh;
-            width: $fullSize;
-            top: -50%;
-            left: $initPos;
+  display: table;
+  width: $fullSize;
+  height: $fullScreenHeight;
+  position: relative;
+  font-weight: $font-weight-text;
 
-            background: linear-gradient(
-                to bottom,
-                rgba(255, 255, 255, 0) 0%,
-                $primary 75%,
-                $primary 100%
-            );
-            -webkit-animation: drop 6s 0s infinite;
-            animation: drop 6s 0s infinite;
-            -webkit-animation-fill-mode: forwards;
-            animation-fill-mode: forwards;
-            -webkit-animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
-            animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
-        }
-        @for $i from 1 through 5 {
-            .line:nth-child(#{$i}) {
-                margin-left: $i * -20%;
-            }
-            .line:nth-child(#{$i})::after {
-                -webkit-animation-delay: random(10) + s;
-                animation-delay: random(10) + s;
-            }
-        }
+  .lines {
+    position: absolute;
+    top: $initPos;
+    left: $initPos;
+    right: 50%;
+    height: $fullSize;
+    margin: auto;
+    width: 90vw;
+
+    .line {
+      position: absolute;
+      width: 3px;
+      height: $fullSize;
+      top: $initPos;
+      left: $fullSize;
+      overflow: hidden;
     }
 
-    .notFound__container {
-        .NotFoundContainer {
-            position: absolute;
-            height: $fullScreenHeight;
-            width: $fullScreenWidth;
-            z-index: 2;
-            background-color: transparent;
-            .title {
-                font-size: 10rem;
-                text-shadow: $primary $shadow $shadow;
-                font-weight: bold;
-            }
-            p {
-                font-size: $font-size-text;
-            }
-        }
-        .btnNotFound {
-            width: 50%;
-            color: $dark;
-            border: 2px solid black;
-            border-radius: 0.5rem;
-            box-shadow: $shadow $shadow $shadow $primary;
-            font-size: $font-size-text;
-            padding: 1%;
-            &:hover {
-                color: $light;
-                background-color: $primary;
-                box-shadow: -2.5px -2.5px $primary;
-            }
-        }
+    .line::after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 15vh;
+      width: $fullSize;
+      top: -50%;
+      left: $initPos;
+
+      background: linear-gradient(
+                      to bottom,
+                      rgba(255, 255, 255, 0) 0%,
+                      var(--primaryColor) 75%,
+                      var(--primaryColor) 100%
+      );
+      -webkit-animation: drop 6s 0s infinite;
+      animation: drop 6s 0s infinite;
+      -webkit-animation-fill-mode: forwards;
+      animation-fill-mode: forwards;
+      -webkit-animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+      animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
     }
+
+    @for $i from 1 through 5 {
+      .line:nth-child(#{$i}) {
+        margin-left: $i * -20%;
+      }
+      .line:nth-child(#{$i})::after {
+        -webkit-animation-delay: random(10) + s;
+        animation-delay: random(10) + s;
+      }
+    }
+  }
+
+  .notFound__container {
+    .NotFoundContainer {
+      position: absolute;
+      height: $fullScreenHeight;
+      width: $fullScreenWidth;
+      z-index: 2;
+      background-color: transparent;
+
+      .title {
+        font-size: 10rem;
+        text-shadow:  var(--primaryColor) $shadow $shadow;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: $font-size-text;
+      }
+    }
+
+    .btnNotFound {
+      width: 50%;
+      color:  var(--darkColor);
+      border: 2px solid black;
+      border-radius: 0.5rem;
+      box-shadow: $shadow $shadow $shadow  var(--primaryColor);
+      font-size: $font-size-text;
+      padding: 1%;
+
+      &:hover {
+        color:  var(--lightColor);
+        background-color:  var(--primaryColor);
+        box-shadow: -2.5px -2.5px  var(--primaryColor);
+      }
+    }
+  }
 }
 
 @-webkit-keyframes drop {
-    0% {
-        top: -50%;
-    }
-    100% {
-        top: 110%;
-    }
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 110%;
+  }
 }
 
 @keyframes drop {
-    0% {
-        top: -50%;
-    }
-    100% {
-        top: 110%;
-    }
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: 110%;
+  }
 }

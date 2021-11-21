@@ -133,7 +133,7 @@ function SecondPart() {
                   value="send"
                   className="btn btn-primary mx-auto rounded-circle mt-2"
                 >
-                  <i class="fas fa-paper-plane me-1"></i>
+                  <i className="fas fa-paper-plane me-1"/>
                 </button>
               </div>
             )}

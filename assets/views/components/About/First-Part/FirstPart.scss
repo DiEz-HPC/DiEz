@@ -1,17 +1,17 @@
 @import '../../../../styles/variables.scss';
 
 .first-part{
-    background-color: $primary;
+    background-color:  var(--darkColor);
     height: 100%;
     width: 100%;
     padding: $spacing;
     h2{
-        color: $light;
+        color:  var(--darkColor);
         font-size: $font-size-subtitle;
         font-weight: bold;
     }
     p{
-        color: $light;
+        color:  var(--darkColor);
         font-size: $font-size-text;
         font-weight: bold;
     }

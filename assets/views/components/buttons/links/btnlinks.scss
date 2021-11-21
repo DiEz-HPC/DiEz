@@ -2,9 +2,9 @@
 
 // default button styles
 
-$waveColor: $primary !global;
-$textColor: $primary !global;
-$textColorHover: $light !global;
+$waveColor:  var(--primaryColor) !global;
+$textColor:  var(--primaryColor) !global;
+$textColorHover:  var(--lightColor) !global;
 $fontButton: $font-title !global;
 $paddingBtn: 12px !global;
 $borderW: 2px !global;
@@ -49,7 +49,7 @@ $animation: all 0,3s ease-in-out !global;
         width: 100%;
         height: 100%;
         transition: border 0.2s;
-        border: $borderW solid $light;
+        border: $borderW solid  var(--lightColor);
         border-radius: $borderR;
     }
 
@@ -93,7 +93,7 @@ $animation: all 0,3s ease-in-out !global;
         width: 100%;
         height: 100%;
         border-radius: $borderR;
-        background: $light;
+        background:  var(--lightColor);
     }
 
     // additional container created, because in FF blobs are breaking overflow:hidden of element with svg gooey filter
@@ -149,29 +149,29 @@ $animation: all 0,3s ease-in-out !global;
             // Label styles
             font-size: $font-size-text;
             font-family: $fontButton;
-            color: $primary;
+            color:  var(--primaryColor);
         }
         &:before {
-            // Border button color 
-            border: $borderW solid $dark;
+            // Border button color
+            border: $borderW solid  var(--darkColor);
         }
         &:hover {
             .labelBtn {
                 // Label styles hover
-                color: $light;
+                color:  var(--lightColor);
             }
             &:before {
                 // border button color hover
-                border: $borderW solid $primary;
+                border: $borderW solid  var(--primaryColor);
             }
         }
         &__inner {
             // Background button color
-            background: $dark;
+            background:  var(--darkColor);
         }
         &__blob {
             // WaveColor button color
-            background: $primary;
+            background:  var(--primaryColor);
         }
     }
 }
@@ -184,7 +184,7 @@ $animation: all 0,3s ease-in-out !global;
             color: $textColor;
         }
         &:before {
-            border: $borderW solid $primary;
+            border: $borderW solid  var(--primaryColor);
         }
         &:hover {
             .labelBtn {
@@ -192,7 +192,7 @@ $animation: all 0,3s ease-in-out !global;
             }
         }
         &__inner {
-            background: $light;
+            background:  var(--lightColor);
         }
         &__blob {
             background: $waveColor;
@@ -208,18 +208,18 @@ $animation: all 0,3s ease-in-out !global;
             color: $textColor;
         }
         &:before {
-            border: $borderW solid $light;
+            border: $borderW solid  var(--lightColor);
         }
         &:hover {
             .labelBtn {
                 color: $textColorHover;
             }
             &:before {
-                border: $borderW solid $primary;
+                border: $borderW solid  var(--primaryColor);
             }
         }
         &__inner {
-            background: $light;
+            background:  var(--lightColor);
         }
 
         &__blob {
@@ -233,25 +233,25 @@ $animation: all 0,3s ease-in-out !global;
         font-size: $font-size-text;
         font-family: $fontButton;
         .labelBtn {
-            color: $secondary;
+            color:  var(--secondaryColor);
         }
         &:before {
-            border: $borderW solid $light;
+            border: $borderW solid  var(--lightColor);
         }
         &:hover {
             .labelBtn {
-                color: $light;
+                color:  var(--lightColor);
             }
             &:before {
-                border: $borderW solid $light;
+                border: $borderW solid  var(--lightColor);
             }
         }
         &__inner {
-            background: $light;
+            background:  var(--lightColor);
         }
 
         &__blob {
-            background: $secondary;
+            background:  var(--secondaryColor);
         }
     }
 }
@@ -264,7 +264,7 @@ $animation: all 0,3s ease-in-out !global;
             color: $textColor;
         }
         &:before {
-            border: $borderW solid $primary;
+            border: $borderW solid  var(--primaryColor);
         }
         &:hover {
             .labelBtn {
@@ -272,7 +272,7 @@ $animation: all 0,3s ease-in-out !global;
             }
         }
         &__inner {
-            background: $light;
+            background:  var(--lightColor);
         }
         &__blob {
             background: $waveColor;

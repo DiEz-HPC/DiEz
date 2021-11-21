@@ -5,7 +5,7 @@
     .bg-blue {
         padding-top: 80px;
         padding-left: 80px;
-        background-color: $primary;
+        background-color:  var(--primaryColor);
     }
 }
 
@@ -21,8 +21,8 @@
 }
 
 .hr-contact {
-    border-top: 3px solid $primary;
-    color: $primary;
+    border-top: 3px solid  var(--primaryColor);
+    color:  var(--primaryColor);
     opacity: 1;
     margin: 50px 10%
 }

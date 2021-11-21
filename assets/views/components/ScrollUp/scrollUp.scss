@@ -2,14 +2,15 @@
 
 $size: 50px;
 $placement: 30px;
+
 .scroll-up {
     display: inline-block;
-    background-color: $primary;
+    background-color:  var(--primaryColor);
     width: $size;
     height: $size;
     text-align: center;
     border-radius: 4px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     position: fixed;
     bottom: $placement;
     right: $placement;
@@ -18,14 +19,14 @@ $placement: 30px;
     visibility: hidden;
     z-index: 1000;
     svg {
-        font-size: calc($size / 2);
-        color: $light;
+        font-size: $size / 2;
+        color:  var(--lightColor);
     }
 }
 
 .scroll-up:hover {
     cursor: pointer;
-    background-color: $secondary;
+    background-color:  var(--secondaryColor);
 }
 .scroll-up.show {
     opacity: 1;

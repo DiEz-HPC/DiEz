@@ -13,8 +13,6 @@ require ('../assets/tools/onLoad.js');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
 
-
-
 export default function App() {
     return (
         <BrowserRouter>

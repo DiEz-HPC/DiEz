@@ -75,8 +75,13 @@ function CarouselProjects() {
                 </div>
                 <div className="command d-flex flex flex-column">
                     <div className="col-6">
-                        <BtnLinks link={project?.link ? project.link : imageUploadUrl(image)} label={'Voir le projet'} color={'white'}
-                                  variant={'outlined'}/>
+                        <BtnLinks
+                            link={project?.link ? project.link : imageUploadUrl(image)}
+                            label={'Voir le projet'}
+                            color={'white'}
+                            variant={'outlined'}
+                            target={'__blank'}
+                        />
                     </div>
                     <div className="pagination d-flex justify-content-between col-12">
                         <FontAwesomeIcon className={'arrow'} onClick={() => navigationProject('backward')} size={'4x'}
