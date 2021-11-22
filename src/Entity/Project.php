@@ -92,6 +92,11 @@ class Project
      */
     private $link;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="project")
+     */
+    private $client;
+
 
     public function getId(): ?int
     {
@@ -271,5 +276,21 @@ class Project
         return $this;
     }
 
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(?Client $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
+    }
 
 }

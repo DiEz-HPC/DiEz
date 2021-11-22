@@ -26,11 +26,11 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            EmailField::new(propertyName: 'email', label: 'Email')
-                ->setTextAlign('center'),
             TextField::new(propertyName: 'firstName', label: 'Prénom')
                 ->setTextAlign('center'),
             TextField::new(propertyName: 'lastName', label: 'Nom')
+                ->setTextAlign('center'),
+            EmailField::new(propertyName: 'email', label: 'Email')
                 ->setTextAlign('center'),
             UrlField::new(propertyName: 'linkedin', label: 'Linkedin',)
                 ->setTextAlign('center'),
@@ -60,6 +60,7 @@ class UserCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions
     {
         $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
                 return $action->setCssClass('action-delete dropdown-item text-danger');
             })
