@@ -12,7 +12,7 @@ body {
 
 
     a {
-        color:  $primary;
+        color:  var(--primaryColor);
     }
   
     .form_container {
