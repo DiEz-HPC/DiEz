@@ -12,7 +12,6 @@ export function themeVariables() {
         .then(response => response.json())
         .then(data => {
             const {primaryColor, secondaryColor, darkColor, lightColor} = data;
-            console.log(data);
             let root = document.documentElement;
             root.style.setProperty('--primaryColor', primaryColor);
             root.style.setProperty('--secondaryColor', secondaryColor);
