@@ -26,8 +26,14 @@ function CarouselTestimony() {
     }
 
     const scroll = () => {
-        const div = document.querySelector('.second_parts');
-        window.scroll(div.offsetLeft, div.offsetTop);
+        const div = document.querySelector('.form');
+        console.log(div.classList.contains('enable'));
+        const secondParts = document.querySelector('.second_parts');
+        if (!div.classList.contains('enable')) {
+            window.scroll(div.offsetLeft, div.offsetTop - 70);
+        } else {
+            window.scroll(secondParts.offsetLeft, secondParts.offsetTop - 70);
+        }
     }
 
     const[success , setSuccess] = useState({});
