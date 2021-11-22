@@ -3,7 +3,7 @@
 .contact-first-part {
     @media screen and (min-width: 992px) {
         margin-top: -150px;
-    } 
+    }
 }
 
 .contact-info {
@@ -11,7 +11,7 @@
     ul {
         padding: 0 !important;
         .icon-contact{
-            color: $primary !important;
+            color:  var(--primaryColor) !important;
         }
     }
 }

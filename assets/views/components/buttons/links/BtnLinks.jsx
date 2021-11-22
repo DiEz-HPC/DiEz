@@ -4,19 +4,19 @@ import './btnlinks.scss'
 
 
 function BtnLinks(props) {
-  const { link, label, variant, color, style } = props
+  const { link, label, variant, color, style, target } = props
 
   return (
-    <div className={`btnLink btnLink-${variant}-${color} ${style} text-center`}  variant={variant}>
-      <a href={link} target="_blank">
+    <div className={`btnLink btnLink-${variant}-${color} ${style} text-center`}>
+      <a href={link} target={target}>
         <button className="blob-btn">
           <div className="labelBtn">{label}</div>
           <span className="blob-btn__inner">
             <span className="blob-btn__blobs">
-              <span className="blob-btn__blob"></span>
-              <span className="blob-btn__blob"></span>
-              <span className="blob-btn__blob"></span>
-              <span className="blob-btn__blob"></span>
+              <span className="blob-btn__blob"/>
+              <span className="blob-btn__blob"/>
+              <span className="blob-btn__blob"/>
+              <span className="blob-btn__blob"/>
             </span>
           </span>
         </button>
@@ -28,14 +28,14 @@ function BtnLinks(props) {
               in="SourceGraphic"
               result="blur"
               stdDeviation="10"
-            ></feGaussianBlur>
+            />
             <feColorMatrix
               in="blur"
               mode="matrix"
               values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7"
               result="goo"
-            ></feColorMatrix>
-            <feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+            />
+            <feBlend in2="goo" in="SourceGraphic" result="mix"/>
           </filter>
         </defs>
       </svg>

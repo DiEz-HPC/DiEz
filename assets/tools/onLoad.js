@@ -12,6 +12,7 @@ function colors() {
 }
 
 window.onload = () => {
+
     const dot = document.querySelector('.cursor-dot');
     const outline = document.querySelector('.cursor-dot-outline');
 

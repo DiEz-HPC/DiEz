@@ -40,15 +40,10 @@
 }
 
 .enable {
-	$height: 53vh;
 	display: block;
 	opacity: 1;
-	height: $height;
+	height: 100vh;
 	transition: height .5s, opacity 2s;
-	
-	@media screen and (max-width: 411px) {
-		height: $height + 10vh;
-	}
 }
 
 .btnStopEnable {

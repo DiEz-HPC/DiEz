@@ -5,13 +5,13 @@
 @import 'variables';
 @import '~bootstrap/scss/bootstrap';
 
+
 /*
   Reset all spacing
  */
 * {
 	margin: 0;
 	padding: 0;
-	scrollbar-width: thin;
 }
 
 body {
@@ -32,6 +32,13 @@ h5 {
 
 p {
 	font-family: $font-text, sans-serif;
+}
+
+:root{
+	--primaryColor: #56C6FF;
+	--secondaryColor: #A3E0FF;
+	--darkColor: #0F0F0FFF;
+	--lightColor: #FFFFFFFF;
 }
 
 

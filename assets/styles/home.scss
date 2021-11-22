@@ -15,9 +15,9 @@
 .home {
     .first-view {
         height: 100vh;
-        background-color: $primary;
+        background-color:  var(--primaryColor);
         position: relative;
-        
+
         .image-pc{
             $width-pc: 100%;
             position: relative;
@@ -37,17 +37,17 @@
 
             }
         }
-        
+
         h1 {
-            color: $light;
+            color:  var(--lightColor);
             z-index: 1;
         }
-        
+
         .arrowBox {
             z-index: 1;
             .arrow {
                 opacity: 35%;
-                color: $light;
+                color:  var(--lightColor);
                 font-size: 36px;
                 transition: visibility 0.5s, opacity 0.5s linear;
                 animation: arrow-animation 1.5s infinite;

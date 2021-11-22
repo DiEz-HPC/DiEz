@@ -6,6 +6,7 @@ use App\Entity\Client;
 use App\Entity\ContactMessage;
 use App\Entity\Post;
 use App\Entity\Testimony;
+use App\Entity\Theme;
 use App\Entity\UploadedImage;
 use App\Entity\User;
 use App\Entity\Project;
@@ -72,6 +73,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Les actus', 'fas fa-newspaper', Post::class);
         yield MenuItem::subMenu('Médias', 'fas fa-photo-video')
             ->setSubItems([
+                MenuItem::linkToCrud('Themes', 'fas fa-palette', Theme::class),
                 MenuItem::linkToCrud('Images', 'fas fa-images', UploadedImage::class),
             ]);
     }
