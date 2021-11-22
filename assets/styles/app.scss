@@ -41,4 +41,7 @@ p {
 	--lightColor: #FFFFFFFF;
 }
 
-
+span[class="highlight"] {
+	font-weight: bolder;
+	color: var(--primaryColor);
+}
