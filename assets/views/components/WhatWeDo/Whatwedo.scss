@@ -11,8 +11,8 @@ $WWD_margin: 7%;
         margin-left: $WWD_margin;
         margin-bottom: $WWD_margin/2;
         span {
-            color: $primary;
+            color:  var(--primaryColor);
         }
     }
-    
+
 }

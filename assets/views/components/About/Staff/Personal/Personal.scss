@@ -5,7 +5,7 @@ $half: 50vh;
 $box-width: 35vw;
 
 .text-on {
-    color: $light;
+    color:  var(--lightColor);
     text-shadow: 0 0 10px rgb(0, 0, 0);
 }
 .text-off {
@@ -28,7 +28,7 @@ $box-width: 35vw;
     .staff-social {
         li {
             a {
-                color: $light;
+                color:  var(--lightColor);
                 font-size: $font-size-subtitle/1.5;
             }
         }
@@ -53,8 +53,8 @@ $box-width: 35vw;
     .text-off,
     .text-on {
         display: block;
-        color: $light;
-        background-color: $dark;  
+        color:  var(--lightColor);
+        background-color:  var(--darkColor);
     }
     .text-box {
         width: $full;
@@ -69,10 +69,10 @@ $box-width: 35vw;
     .text-off,
     .text-on {
         display: block;
-        color: $light;
-        background-color: $dark;  
+        color:  var(--lightColor);
+        background-color:  var(--darkColor);
     }
-    
+
     .text-box {
         width: $full;
         height: $half/4;
@@ -82,7 +82,7 @@ $box-width: 35vw;
         height: $half;
         display: flex;
         justify-content: center;
-        background-color: $dark;
+        background-color:  var(--darkColor);
         padding-bottom: auto;
         img{
             width: $full/2;
@@ -100,12 +100,12 @@ $box-width: 35vw;
         height: $full;
         display: flex;
         justify-content: center;
-        background-color: $dark;
+        background-color:  var(--darkColor);
         padding-bottom: auto;
         img{
             width: $full;
             height: $full;
         }
-    
+
     }
 }
