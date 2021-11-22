@@ -3,39 +3,51 @@ import "./CardBlog.scss";
 import { imageUploadUrl } from "../../../tools/image";
 
 function CardBlog(props) {
-  console.log(props)
-  const { article, title, author, image, link, date } = props;
+  const { article, title, author, imageName, slug, createdAt } = props;
+
+  const day = new Date(createdAt?.timestamp * 1000).toLocaleDateString(
+    "fr-FR",
+    {
+      day: "numeric",
+    }
+  );
+
+  const month = new Date(createdAt?.timestamp * 1000).toLocaleDateString(
+    "fr-FR",
+    {
+      month: "long",
+    }
+  );
+
   return (
     <>
-        <div className="card m-5">
-          <div className="card__header">
-            <img
-              src={imageUploadUrl(image)}
-              alt="card__image"
-              className="card__image"
-              width="600"
-            ></img>
+      <div class="container">
+        <div class="column"></div>
+        <div class="post-module">
+          <div class="thumbnail">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/photo-1429043794791-eb8f26f44081.jpeg"></img>
           </div>
-          <div className="card__body">
-            <span className="tag tag-blue">Technology</span>
-            <h4>{title}</h4>
-            <p dangerouslySetInnerHTML={{__html: article}}/>
-          </div>
-          <div className="card__footer">
-            <div className="user">
-              <img
-                src="https://i.pravatar.cc/40?img=1"
-                alt="user__image"
-                className="user__image"
-              ></img>
-              <div className="user__info">
-                <h5>{author}</h5>
-                <small>{date}</small>
-              </div>
-              <button><a href={`/blog/${link}`}></a></button>
+
+          <div class="post-content">
+            <div class="category">CATEGORY</div>
+            <h1 class="title">Title Goes Here</h1>
+            <h2 class="sub_title">And Subtitle Goes Here.</h2>
+            <p className="description">
+              New York, the largest city in the U.S., is an architectural marvel
+              with plenty of historic monuments, magnificent buildings and
+              countless dazzling skyscrapers.
+            </p>
+            <div class="post-meta">
+              <span class="timestamp">
+                <i class="fa fa-clock-">o</i> 6 mins ago
+              </span>
+              <span class="comments">
+                <i class="fa fa-comments"></i>
+              </span>
             </div>
           </div>
         </div>
+      </div>
     </>
   );
 }

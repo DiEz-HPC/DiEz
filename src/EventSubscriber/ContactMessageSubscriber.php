@@ -18,7 +18,7 @@ class ContactMessageSubscriber implements EventSubscriberInterface
         $entity = $args->getEntity();
 
         if ($entity instanceof ContactMessage) {
-            $this->sendMail->onNewMessage();
+            $this->sendMail->onNewMessage($entity);
         }
     }
     

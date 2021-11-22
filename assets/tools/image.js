@@ -7,7 +7,7 @@ export function imageUrl(imageName) {
 }
 export function imageUploadUrl(imageName) {
     try {
-        return require(`../../public/uploads/images/${imageName}`)
+        return window.location.origin + `/uploads/images/${imageName}`;
     } catch (err) {
         return '';
     }

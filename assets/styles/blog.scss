@@ -1,1 +1,23 @@
 @import './variables.scss';
+
+body {
+    
+}
+.header {
+
+    .bg-blue {
+        padding-top: 80px;
+        padding-left: 80px;
+        background-color: $primary;
+    }
+
+}
+
+.wave {
+    overflow: hidden;
+} 
+
+.articles-blog {
+    margin-top: -400px !important;
+}
+

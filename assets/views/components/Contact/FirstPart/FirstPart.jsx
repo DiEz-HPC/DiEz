@@ -34,7 +34,7 @@ function FirstPart() {
                   </li>
                   <li className="d-flex justify-content-center justify-content-md-start me-1">
                     <i class="icon-contact fas fa-envelope mt-1 me-2 fw-bold"></i>
-                    <p>nous.contactez@deviteasy.fr</p>
+                    <p>contact@deviteasy.fr</p>
                   </li>
                 </ul>
               </div>

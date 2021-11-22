@@ -19,3 +19,14 @@ export const getLastPostByNumber = (number) => fetch(
         },
     }
 );
+
+export const getPosts = () => fetch(
+    `/api/v2/posts`,
+    {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json',
+        },
+    }
+);

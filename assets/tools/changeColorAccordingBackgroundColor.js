@@ -43,13 +43,14 @@ function changeColorAccordingBackgroundColor(
 
 export function initChangeColor(
   element,
-  isBackground = false,
+  style = {},
   notElements = [],
   parent = "root",
   dark = "rgb(0, 0, 0)",
   light = "rgb(255, 255, 255)",
   transition = "0.2s"
 ) {
+  const transitionStyle = "color " + transition;
   const elements = [...element.querySelectorAll("*")];
   elements.map((element) => {
     const color = changeColorAccordingBackgroundColor(
@@ -61,11 +62,12 @@ export function initChangeColor(
       },
       notElements
     );
-    if (isBackground === true) {
-      element.style.backgroundColor = color;
-    } else {
-      element.style.color = color;
+    for (let property in style) {
+      if (color !== element.style[property])
+      element.style[property] = color;
     }
-    element.style.transition = "color " + transition;
+    if (element.style.transition !== transitionStyle) {
+      element.style.transition = transitionStyle;
+    }
   });
 }
