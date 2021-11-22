@@ -26,18 +26,23 @@ class PostCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new(propertyName: 'title', label: 'Titre'),
+            TextField::new(propertyName: 'title', label: 'Titre')
+                ->setTextAlign('center'),
             UrlField::new(propertyName: 'url', label: 'lien',)
-                ->onlyOnIndex(),
+                ->onlyOnIndex()
+                ->setTextAlign('center'),
             TextEditorField::new(propertyName: 'article', label: 'Article')
                 ->setFormType(CKEditorType::class)
+                ->setTextAlign('center')
             ,
             TextareaField::new(propertyName: 'imageFile', label: 'Image mise en avant')
                 ->setFormType(VichImageType::class)
-                ->onlyOnForms(),
+                ->onlyOnForms()
+                ->setTextAlign('center'),
             ImageField::new(propertyName: 'imageName', label: 'Image mise en avant')
                 ->setBasePath('/uploads/images/')
-                ->onlyOnIndex(),
+                ->onlyOnIndex()
+                ->setTextAlign('center'),
         ];
     }
 
@@ -49,13 +54,13 @@ class PostCrudController extends AbstractCrudController
             ->setPageTitle(Crud::PAGE_INDEX, '%entity_label_plural%')
             ->setPageTitle(Crud::PAGE_EDIT, 'Modifier l\'actualité')
             ->setPageTitle(Crud::PAGE_NEW, 'Ajouter une actualité')
-            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig')
-            ;
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
     }
 
     public function configureActions(Actions $actions): Actions
     {
         return $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->update(Crud::PAGE_INDEX, Action::NEW, function (Action $action) {
                 return $action->setLabel('Ajouter une %entity_label_singular%');
             })

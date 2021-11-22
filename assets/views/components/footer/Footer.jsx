@@ -17,14 +17,7 @@ function Footer() {
                         dans vos projets.
                     </h5>
                     <Button
-                        link="#"
-                        label="Nos projets"
-                        color="primary"
-                        variant="outlined"
-                        style={'my-4'}
-                    />
-                    <Button
-                        link="#"
+                        link="/contact"
                         label="Contactez-nous"
                         color="dark"
                         variant="contained"

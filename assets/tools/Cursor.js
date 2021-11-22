@@ -72,6 +72,17 @@ export function customCursor(dot, outline) {
         self.$dot.style.left = self.endX + "px";
       });
 
+      // Scroll Events
+       document.addEventListener("wheel", function (e) {
+            self.cursorVisible = false;
+            self.toggleCursorVisibility();
+            // Position the dot
+            self.endX = e.pageX;
+            self.endY = e.pageY;
+            self.$dot.style.top = self.endY + "px";
+            self.$dot.style.left = self.endX + "px";
+        });
+
       // Hide/show cursor
       document.addEventListener("mouseenter", function (e) {
         self.cursorVisible = true;

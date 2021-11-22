@@ -21,15 +21,19 @@ class ContactMessageCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('nom'),
-            TextField::new('email'),
-            TextEditorField::new('message'),
+            TextField::new('nom')
+                ->setTextAlign('center'),
+            TextField::new('email')
+                ->setTextAlign('center'),
+            TextEditorField::new('message')
+                ->setTextAlign('center'),
         ];
     }
 
     public function configureActions(Actions $actions): Actions
     {
         $actions
+            ->add(Crud::PAGE_INDEX, Action::DETAIL)
             ->remove(Crud::PAGE_INDEX, Action::EDIT)
             ->remove(Crud::PAGE_INDEX, Action::NEW)
             ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {

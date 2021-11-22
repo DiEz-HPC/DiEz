@@ -25,15 +25,15 @@ function FirstPart() {
               <div className="contact-info-item text-center text-md-start">
                 <ul>
                   <li className="d-flex justify-content-center justify-content-md-start me-1">
-                    <i class="icon-contact fas fa-map-marker-alt mt-1 me-2 fw-bold"></i>
+                    <i className="icon-contact fas fa-map-marker-alt mt-1 me-2 fw-bold"/>
                     <p>45160 Olivet, Loiret</p>
                   </li>
                   <li className="d-flex justify-content-center justify-content-md-start me-1">
-                    <i class="icon-contact fas fa-phone-alt mt-1 me-2 fw-bold"></i>
+                    <i className="icon-contact fas fa-phone-alt mt-1 me-2 fw-bold"/>
                     <p>06.99.99.99.99</p>
                   </li>
                   <li className="d-flex justify-content-center justify-content-md-start me-1">
-                    <i class="icon-contact fas fa-envelope mt-1 me-2 fw-bold"></i>
+                    <i className="icon-contact fas fa-envelope mt-1 me-2 fw-bold"/>
                     <p>contact@deviteasy.fr</p>
                   </li>
                 </ul>

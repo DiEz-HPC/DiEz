@@ -12,6 +12,7 @@ function colors() {
 }
 
 window.onload = () => {
+
     const dot = document.querySelector('.cursor-dot');
     const outline = document.querySelector('.cursor-dot-outline');
 
@@ -23,8 +24,10 @@ window.onload = () => {
     colors()
 
     window.onscroll = () => {
+        const menu = !document.getElementById('menu').classList.contains('open') ? document.getElementById('menu') : document.getElementById('header');
         colors()
         displayArrow('arrowIcon')
+        initChangeColor(document.querySelector('.dot-cursor'), styleCursor, [menu, dot, outline]);
     }
 
     document.body.onmousemove = () => {
