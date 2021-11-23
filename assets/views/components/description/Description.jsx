@@ -6,7 +6,7 @@ import Dot from "../dot/Dot";
 function Description() {
 
     const text = {
-        description: 'Besoin d’une solution web pour votre entreprise? Dev It Easy est à votre écoute afin de vous proposer non pas «une» mais «votre solution». D’un site à une demande personnalisée de script, nous étudierons avec vous l’ensemble de vos besoins pour vous apporter la concrétisation de vos idées.',
+        description: 'Besoin d’une solution web pour votre entreprise? Dev It Easy est à votre écoute afin de vous proposer non pas «une» mais «votre solution». D’un site web à une demande personnalisée de script, nous étudierons avec vous l’ensemble de vos besoins pour vous apporter la concrétisation de vos idées.',
     }
 
     return (
