@@ -7,7 +7,7 @@ function BtnLinks(props) {
   const { link, label, variant, color, style, target } = props
 
   return (
-    <div className={`btnLink btnLink-${variant}-${color} ${style} text-center`}>
+    <div className={`btnLink btnLink-${variant}-${color} text-center ${style}`}>
       <a href={link} target={target}>
         <button className="blob-btn">
           <div className="labelBtn">{label}</div>

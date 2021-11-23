@@ -8,7 +8,7 @@ function WhatWeDo() {
     return (
         <div className="whatwedo">
             <h2 className="whatwedo_title">
-                What We Do <span> . </span>
+                Nos compétences <span> . </span>
             </h2>
             <FirstPart />
             <SecondParts />
