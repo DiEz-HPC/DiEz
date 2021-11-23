@@ -18,7 +18,7 @@ function Blog() {
     setActus(data);
   }, []);
 
-  const [articleLimit, setArticleLimit] = useState(4);
+  const [articleLimit, setArticleLimit] = useState(6);
   const [articleNumber, setArticleNumber] = useState(0);
   const [articles, setArticles] = useState([]);
 
@@ -54,15 +54,13 @@ function Blog() {
         <div className="wave">
           <img id={"wave"} src={wave} alt="wave" />
         </div>
-        <div className="articles-blog">
-          <div className="">
-            {articles.map((actu, index) => {
-              return <CardBlog key={index} {...actu} />;
-            })}
-          </div>
-          <div className="d-flex justify-content-center mb-5">
-            <Pagination setPage={setPage} pageNumber={pageNumber} />
-          </div>
+        <div className="container-fluid d-flex justify-content-center row mb-5 mx-auto">
+          {articles.map((actu, index) => {
+            return <CardBlog key={index} {...actu} />;
+          })}
+        </div>
+        <div className="d-flex justify-content-center mb-5">
+          <Pagination setPage={setPage} pageNumber={pageNumber} />
         </div>
       </div>
     </Layout>

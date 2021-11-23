@@ -8,7 +8,7 @@ body {
     .bg-blue {
         padding-top: 80px;
         padding-left: 80px;
-        background-color: $primary;
+        background-color: var(--primaryColor);
     }
 
 }
@@ -17,7 +17,8 @@ body {
     overflow: hidden;
 } 
 
-.articles-blog {
-    margin-top: -400px !important;
+.container-fluid {
+	width: 80%;
+    margin-top: -300px;
 }
 
