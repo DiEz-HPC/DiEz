@@ -109,4 +109,11 @@ class ClientCrudController extends AbstractCrudController
     {
         return $this->request->attributes->get('easyadmin_context')->getEntity()->getPrimaryKeyValue();
     }
+
+    public function createIndexQueryBuilder(SearchDto $searchDto, EntityDto $entityDto, FieldCollection $fields, FilterCollection $filters): QueryBuilder
+    {
+        $response = parent::createIndexQueryBuilder($searchDto, $entityDto, $fields, $filters);
+        $response->orderBy('entity.lastName', 'ASC');
+        return $response;
+    }
 }
