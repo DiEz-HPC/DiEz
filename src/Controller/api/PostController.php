@@ -58,4 +58,20 @@ class PostController extends AbstractController
         );
     }
 
+    #[
+        Route('/posts', name: 'all'),
+    ]
+    public function getPosts(PostRepository $postRepository): Response
+    {
+        $posts = $postRepository->findBy([], ['id' => 'DESC']);
+        $posts = $this->serializer->serialize($posts, 'json');
+        return new Response(
+            content: $posts,
+            status: Response::HTTP_OK,
+            headers: [
+                'content-type' => 'application/json'
+            ]
+        );
+    }
+
 }
