@@ -44,26 +44,26 @@ function CardBlog(props) {
         onMouseEnter={mouseEnter}
         onMouseLeave={mouseLeave}
       >
-        <div class="thumbnail col-12">
-          <div class="date">
-            <div class="day">{day}</div>
-            <div class="month">{month}</div>
+        <div className="thumbnail col-12">
+          <div className="date">
+            <div className="day">{day}</div>
+            <div className="month">{month}</div>
           </div>
           <img className="w-100 h-75" src={imageUploadUrl(imageName)} />
         </div>
 
-        <div class="post-content d-flex flex-column justify-content-between col-12">
+        <div className="post-content d-flex flex-column justify-content-between col-12">
           <div>
-            <div class="category">{article ? timeToRead(article) : ''}</div>
-            <h1 class="title">{title}</h1>
+            <div className="category">{article ? timeToRead(article) : ''}</div>
+            <h1 className="title">{title}</h1>
             <div
-              class="description"
+              className="description"
               dangerouslySetInnerHTML={{ __html: articlePreviewString }}
             />
           </div>
-          <div class="post-meta d-flex flex-column flex-xl-row justify-content-between col-12">
-            <div class="user d-flex align-items-center col-12 col-md-3 mb-5 mb-xl-0">
-              <i class="fa fa-user icon-user me-2"></i>
+          <div className="post-meta d-flex flex-column flex-xl-row justify-content-between col-12">
+            <div className="user d-flex align-items-center col-12 col-md-3 mb-5 mb-xl-0">
+              <i className="fa fa-user icon-user me-2"></i>
               <span>{author}</span>
             </div>
             <div className="d-flex justify-content-center align-items-center col-12 col-xl-6 me-xl-3">
