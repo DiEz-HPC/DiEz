@@ -51,7 +51,7 @@ function Navbar() {
               <a href="/qui-sommes-nous">Qui sommes-nous ?</a>
             </li>
             <li>
-              <a href="/blog">Blog</a>
+              <a href="#">Blog</a>
             </li>
 
             <li>
