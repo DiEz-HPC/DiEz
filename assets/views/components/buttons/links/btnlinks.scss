@@ -9,7 +9,7 @@ $fontButton: $font-title !global;
 $paddingBtn: 12px !global;
 $borderW: 2px !global;
 $borderR: 50px !global;
-$animation: all .3s ease-in-out !global;
+$animation: all 0,3s ease-in-out !global;
 
 ////////////////////////////// Start button styles /!\ Don't touch this part //////////////////////////////
 
@@ -67,10 +67,6 @@ $animation: all .3s ease-in-out !global;
 
     &:hover {
         border-radius: $borderR;
-        .blob-btn__inner{
-            background-color: var(--primaryColor);
-            transition: background-color 2s;
-        }
         .labelBtn {
             color: $textColorHover;
             transition: $animation;
