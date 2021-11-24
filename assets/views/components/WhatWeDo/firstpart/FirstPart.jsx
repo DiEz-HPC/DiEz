@@ -12,7 +12,7 @@ function FirstPart() {
         <Card
           icon={CartLogo}
           title="Site Web et E-commerce"
-          text="Nous développons des sites web et E-commerce <span class='highlight'>sur mesure</span> optimisés pour <span class='highlight'>toutes plateformes</span> (mobile, tablette, ordinateur). <br> De la maquette au déploiement, laissez <span class='highlight'>notre expertise vous accompagner</span> durant tout le processus de création."
+          text="Nous développons des sites web et E-commerce <span class='highlight'>sur mesure</span> optimisé pour <span class='highlight'>toutes plateforme</span> (mobile, tablette, ordinateur). <br> De la maquette au déploiement, laissez <span class='highlight'>notre expertise vous accompagnez</span> durant tout le processus de création."
           BtnLink="#"
           BtnLabel="En savoir plus"
         />
@@ -26,7 +26,7 @@ function FirstPart() {
         <Card
           icon={CoffeeLogo}
           title="Une équipe disponible"
-          text="Grâce à notre méthode de travail <span class='highlight'>AGILE*</span>, nous serons en <span class='highlight'>étroite collaboration</span> avec vous lors des <span class='highlight'>étapes clés de votre projet</span> afin de vous livrer un produit <span class='highlight'>conforme à vos attentes et envies.</span>"
+          text="Grace à notre méthodologie de travail <span class='highlight'>AGILE*</span>, nous serons en <span class='highlight'>étroite collaboration</span> avec vous lors des <span class='highlight'>étapes clé de votre projet</span> afin de vous livrer un produit <span class='highlight'>conforme à vos attentes et envies.</span>"
           BtnLink="#"
           BtnLabel="En savoir plus"
         />

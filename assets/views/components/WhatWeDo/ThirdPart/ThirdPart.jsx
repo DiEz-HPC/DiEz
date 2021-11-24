@@ -26,7 +26,11 @@ function ThirdPart() {
             <Dot color={'#56C6FF'} />
           </h2>
           <p className="text-start">
-          Notre équipe de passionnées, formé aux dernières technologies est à votre disposition pour réaliser le projet de vos rêves. Notre objectif est de vous satisfaire et nous utiliserons toutes les ressources nécessaires afin de vous apporter la plus grande satisfaction.
+            Notre équipe de passionné, formé aux dernières technologies est à
+            votre disposition pour réaliser le projet de vos rêves. Notre
+            objectif est de vous satisfaire et nous utiliserons toutes les
+            ressources necessaire afin de vous apporter la plus grande
+            satisfaction.
           </p>
           <div className="d-flex flex-column justify-content-around flex-md-row align-items-center">
             <Button
