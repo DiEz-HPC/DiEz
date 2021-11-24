@@ -1,8 +1,5 @@
 @import './variables.scss';
 
-body {
-    
-}
 .header {
 
     .bg-blue {
@@ -19,6 +16,10 @@ body {
 
 .container-fluid {
 	width: 80%;
-    margin-top: -300px;
+    min-height: 100vh;
+    margin-top: 50px;
+    @media screen and (min-width: 1399px) {
+        margin-top: -300px;
+    }
 }
 

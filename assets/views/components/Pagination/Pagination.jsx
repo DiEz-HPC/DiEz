@@ -5,7 +5,6 @@ import './pagination.scss';
 
 export default function PaginationOutlined(props) {
     const {setPage, pageNumber} = props;
-    console.log(pageNumber);
   return (
     <Stack spacing={2}>
       <Pagination

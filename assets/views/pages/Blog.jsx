@@ -45,7 +45,7 @@ function Blog() {
         <div className="header">
           <div className="bg-blue">
             <FeedLine title="blog" />
-            <h1 className="pageTitle">
+            <h1 className="pageTitle pb-3">
               Blog
               <Dot color="white" />
             </h1>
@@ -54,7 +54,7 @@ function Blog() {
         <div className="wave">
           <img id={"wave"} src={wave} alt="wave" />
         </div>
-        <div className="container-fluid d-flex justify-content-center row mb-5 mx-auto">
+        <div className="container-fluid d-flex justify-content-center row mb-5 mx-auto p-0">
           {articles.map((actu, index) => {
             return <CardBlog key={index} {...actu} />;
           })}
