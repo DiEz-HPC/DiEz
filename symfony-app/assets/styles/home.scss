@@ -1,0 +1,69 @@
+@import 'variables';
+
+@keyframes arrow-animation {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.home {
+    .first-view {
+        height: 100vh;
+        background-color:  var(--primaryColor);
+        position: relative;
+
+        .image-pc{
+            $width-pc: 100%;
+            position: relative;
+            width: $width-pc;
+            @media screen and (max-width: 1200px) {
+                bottom: -10%
+            }
+            .pc {
+                position: absolute;
+                width: $width-pc - 53%;
+                opacity: 0.15;
+                right: 0;
+                z-index: 0;
+                @media screen and (max-width: 768px) {
+                    width: 100%
+                }
+
+            }
+        }
+
+        h1 {
+            color:  var(--lightColor);
+            z-index: 1;
+        }
+
+        .arrowBox {
+            z-index: 1;
+            .arrow {
+                opacity: 35%;
+                color:  var(--lightColor);
+                font-size: 36px;
+                transition: visibility 0.5s, opacity 0.5s linear;
+                animation: arrow-animation 1.5s infinite;
+            }
+        }
+    }
+
+    .carousel-projects {
+        position: relative;
+        .wave {
+            overflow: hidden;
+            margin-top: -15px;
+            width: 100%;
+            height: auto;
+            transform: scale(-1, 1);
+            color: red;
+        }
+    }
+}

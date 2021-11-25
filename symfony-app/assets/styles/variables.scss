@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'AnjaEliane';
+  src: url('../fonts/Anja-Eliane.ttf');
+}
+
+@font-face {
+  font-family: 'LouisGeorgeCafe';
+  src: url('../fonts/Louis-George-Cafe.ttf');
+}
+
+@font-face {
+  font-family: 'SlencoBlack';
+  src: url('../fonts/Slenco-Black-demo.otf');
+}
+
+$font-title: 'SlencoBlack';
+$font-text: 'LouisGeorgeCafe';
+$font-logo: 'AnjaEliane';
+$spacing: 6px;
+$font-size-title : 76px;
+$font-size-subtitle: 56px;
+$font-size-text: 15px;
+$font-weight-text: 900;

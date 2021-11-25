@@ -1,0 +1,28 @@
+@import "variables";
+
+.header {
+
+    .bg-blue {
+        padding-top: 80px;
+        padding-left: 80px;
+        background-color:  var(--primaryColor);
+    }
+}
+
+.wave {
+    overflow: hidden;
+    margin-top: -15px;
+
+    img {
+        width: 100vw;
+        height: auto;
+        transform: scale(-1, 1)
+}
+}
+
+.hr-contact {
+    border-top: 3px solid  var(--primaryColor);
+    color:  var(--primaryColor);
+    opacity: 1;
+    margin: 50px 10%
+}

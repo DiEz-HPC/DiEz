@@ -1,0 +1,111 @@
+@import '../../../../../styles/variables.scss';
+
+$full: 100%;
+$half: 50vh;
+$box-width: 35vw;
+
+.text-on {
+    color:  var(--lightColor);
+    text-shadow: 0 0 10px rgb(0, 0, 0);
+}
+.text-off {
+    display: none;
+}
+
+.text-box {
+    height: $full;
+    width: $box-width;
+    .staff-info {
+        .staff-status {
+            font-size: $font-size-text;
+            font-weight: lighter;
+        }
+        .staff-name {
+            font-size: $font-size-subtitle/2;
+            font-weight: bolder;
+        }
+    }
+    .staff-social {
+        li {
+            a {
+                color:  var(--lightColor);
+                font-size: $font-size-subtitle/1.5;
+            }
+        }
+        li:hover {
+            transform: scale(1.1);
+        }
+    }
+}
+.img-box {
+    width: $box-width;
+    height: $full;
+    img {
+        width: $full;
+        height: $full;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+// Mobile portrait
+@media screen and (max-width: 768px) {
+    .text-off,
+    .text-on {
+        display: block;
+        color:  var(--lightColor);
+        background-color:  var(--darkColor);
+    }
+    .text-box {
+        width: $full;
+        height: $half/2;
+    }
+    .img-box {
+        width: $full;
+        height: $half;
+    }
+}
+@media screen and (min-width: 768px ) and (max-width: 992px) {
+    .text-off,
+    .text-on {
+        display: block;
+        color:  var(--lightColor);
+        background-color:  var(--darkColor);
+    }
+
+    .text-box {
+        width: $full;
+        height: $half/4;
+    }
+    .img-box {
+        width: $full;
+        height: $half;
+        display: flex;
+        justify-content: center;
+        background-color:  var(--darkColor);
+        padding-bottom: auto;
+        img{
+            width: $full/2;
+            height: $full;
+        }
+    }
+}
+@media screen and (min-width: 992px ) and (max-width: 1080px) and (max-height: 810px) {
+    .text-box{
+        height: $full;
+        width: $full;
+    }
+    .img-box {
+        width: $full;
+        height: $full;
+        display: flex;
+        justify-content: center;
+        background-color:  var(--darkColor);
+        padding-bottom: auto;
+        img{
+            width: $full;
+            height: $full;
+        }
+
+    }
+}

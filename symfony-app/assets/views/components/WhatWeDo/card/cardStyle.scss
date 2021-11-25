@@ -1,0 +1,29 @@
+@import '../../../../styles/variables.scss';
+
+.WWD_card {
+    max-width: 450px;
+    min-height: 450px;
+    .card_icon {
+        img {
+            width: 40%;
+            height: auto;
+            max-width: 50%;
+            max-height: 50%;
+            margin-bottom: 10px;
+        }
+    }
+    .card_content {
+        min-height: 180px;
+        .card_title {
+            font-size: $font-size-subtitle / 1.5;
+        }
+        .card_text {
+            font-size: $font-size-text;
+            font-weight: $font-weight-text;
+
+        }
+    }
+    .btnLink{
+        text-align: start !important;
+    }
+}

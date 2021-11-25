@@ -1,0 +1,172 @@
+@import '../../../styles/variables.scss';
+
+@mixin css-grid-container($imageNumber) {
+  $grid: 6;
+  grid-template-columns: repeat($grid, 1fr);
+  grid-template-rows: repeat($grid, 1fr);
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat($imageNumber, 1fr);
+    grid-template-rows: repeat($imageNumber, 1fr);
+  }
+
+  @if $imageNumber == 1 {
+    grid-template-areas:
+            'grid1 grid1 grid1 grid1 grid1 grid1'
+            'grid1 grid1 grid1 grid1 grid1 grid1'
+            'grid1 grid1 grid1 grid1 grid1 grid1'
+            'grid1 grid1 grid1 grid1 grid1 grid1'
+            'grid1 grid1 grid1 grid1 grid1 grid1'
+            'grid1 grid1 grid1 grid1 grid1 grid1';
+  } @else if $imageNumber == 2 {
+    grid-template-areas:
+            'grid1 grid1 grid1 grid2 grid2 grid2'
+            'grid1 grid1 grid1 grid2 grid2 grid2'
+            'grid1 grid1 grid1 grid2 grid2 grid2'
+            'grid1 grid1 grid1 grid2 grid2 grid2'
+            'grid1 grid1 grid1 grid2 grid2 grid2'
+            'grid1 grid1 grid1 grid2 grid2 grid2';
+    @media screen and (max-width: 768px) {
+      grid-template-areas:
+    'grid1 grid1 grid1 grid1 grid1 grid1'
+    'grid2 grid2 grid2 grid2 grid2 grid2';
+    }
+  } @else if $imageNumber == 3 {
+    grid-template-areas:
+            'grid1 grid1 grid2 grid2 grid3 grid3'
+            'grid1 grid1 grid2 grid2 grid3 grid3'
+            'grid1 grid1 grid2 grid2 grid3 grid3'
+            'grid1 grid1 grid2 grid2 grid3 grid3'
+            'grid1 grid1 grid2 grid2 grid3 grid3'
+            'grid1 grid1 grid2 grid2 grid3 grid3';
+    @media screen and (max-width: 768px) {
+      grid-template-areas:
+    'grid1 grid1 grid1 grid1 grid1 grid1'
+    'grid2 grid2 grid2 grid2 grid2 grid2'
+    'grid3 grid3 grid3 grid3 grid3 grid3';
+    }
+  } @else if $imageNumber == 4 {
+    grid-template-areas:
+            'grid1 grid1 grid2 grid2 grid2 grid2'
+            'grid1 grid1 grid2 grid2 grid2 grid2'
+            'grid1 grid1 grid3 grid3 grid4 grid4'
+            'grid1 grid1 grid3 grid3 grid4 grid4'
+            'grid1 grid1 grid3 grid3 grid4 grid4'
+            'grid1 grid1 grid3 grid3 grid4 grid4';
+    @media screen and (max-width: 768px) {
+      grid-template-areas:
+    'grid1 grid1 grid1 grid1 grid1 grid1'
+    'grid2 grid2 grid2 grid2 grid2 grid2'
+    'grid3 grid3 grid3 grid3 grid3 grid3'
+    'grid4 grid4 grid4 grid4 grid4 grid4';
+    }
+  } @else if $imageNumber == 5 {
+    grid-template-areas:
+            'grid1 grid1 grid2 grid2 grid2 grid2'
+            'grid1 grid1 grid2 grid2 grid2 grid2'
+            'grid1 grid1 grid3 grid3 grid4 grid4'
+            'grid1 grid1 grid3 grid3 grid4 grid4'
+            'grid1 grid1 grid5 grid5 grid5 grid5'
+            'grid1 grid1 grid5 grid5 grid5 grid5';
+    @media screen and (max-width: 768px) {
+      grid-template-areas:
+    'grid1 grid1 grid1 grid1 grid1 grid1'
+    'grid2 grid2 grid2 grid2 grid2 grid2'
+    'grid3 grid3 grid3 grid3 grid3 grid3'
+    'grid4 grid4 grid4 grid4 grid4 grid4'
+    'grid5 grid5 grid5 grid5 grid5 grid5';
+    }
+  } @else if $imageNumber == 6 {
+    grid-template-areas:
+            'grid1 grid1 grid2 grid2 grid2 grid2'
+            'grid1 grid1 grid2 grid2 grid2 grid2'
+            'grid1 grid1 grid3 grid3 grid4 grid4'
+            'grid1 grid1 grid3 grid3 grid4 grid4'
+            'grid1 grid1 grid5 grid5 grid6 grid6'
+            'grid1 grid1 grid5 grid5 grid6 grid6';
+    @media screen and (max-width: 768px) {
+      grid-template-areas:
+    'grid1 grid1 grid1 grid1 grid1 grid1'
+    'grid2 grid2 grid2 grid2 grid2 grid2'
+    'grid3 grid3 grid3 grid3 grid3 grid3'
+    'grid4 grid4 grid4 grid4 grid4 grid4'
+    'grid5 grid5 grid5 grid5 grid5 grid5'
+    'grid6 grid6 grid6 grid6 grid6 grid6';
+    }
+  }
+}
+
+.home-blog {
+  margin-bottom: 10vh;
+  padding-bottom: 10px;
+
+  .parent {
+    height: 60vh;
+    width: 60vw;
+    display: grid;
+    gap: 5px;
+
+    .grid1 {
+      grid-area: grid1;
+    }
+
+    .grid2 {
+      grid-area: grid2;
+    }
+
+    .grid3 {
+      grid-area: grid3;
+    }
+
+    .grid4 {
+      grid-area: grid4;
+    }
+
+    .grid5 {
+      grid-area: grid5;
+    }
+
+    .grid6 {
+      grid-area: grid6;
+    }
+  }
+
+
+}
+
+[data-grid="1"] {
+  @include css-grid-container(1);
+}
+
+[data-grid="2"] {
+  @include css-grid-container(2);
+}
+
+[data-grid="3"] {
+  @include css-grid-container(3);
+}
+
+[data-grid="4"] {
+  @include css-grid-container(4);
+}
+
+[data-grid="5"] {
+  @include css-grid-container(5);
+}
+
+[data-grid="6"] {
+  @include css-grid-container(6);
+}
+
+@media screen and (max-width: 768px) {
+  .parent {
+    height: 100% !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+  .parent {
+    height: 80% !important;
+    width: 75vw !important;
+  }
+}

@@ -1,0 +1,89 @@
+@import "../../../../styles/variables";
+
+.carouselProjects {
+	$init: initial;
+	position: relative;
+	min-height: 100vh;
+    overflow: hidden;
+	margin-top: -20%;
+	
+	@media (max-height: 900px) {
+        min-height: 950px;
+    }
+	
+	p {
+		font-size: $font-size-text;
+		text-align: center;
+	}
+	
+	.blocPiloting {
+		
+		$height-init: 100%;
+		$height-title: $height-init * .2;
+		$height-descripion: ($height-init - $height-title) * .4;
+		$height-command: $height-init - $height-title - $height-descripion;
+		$height-block: 250px;
+		
+		position: absolute;
+		bottom: 25%;
+		height: $height-block;
+		left: 20%;
+		
+		@media screen and (max-width: 768px) {
+			height: $height-block + 100px;
+		}
+		
+		.block-title {
+			@media screen and (max-width: 768px) {
+				position: relative;
+				right: $init;
+			}
+			
+			height: $height-title;
+			
+			.goutte {
+				width: 40px;
+			}
+		}
+		
+		.block-description {
+			height: $height-descripion;
+		}
+		
+		.command {
+			height: $height-command;
+		}
+		
+		.arrow {
+			cursor: pointer;
+		}
+		
+		
+		@media screen and (max-width: 1199px) {
+			position: static;
+		}
+	}
+	
+	.blocImages {
+		position: absolute;
+		right: 5%;
+		
+		.edevices {
+			position: relative;
+			
+			.element2 {
+				position: absolute;
+				left: -1%;
+				bottom: 0;
+			}
+		}
+		
+		
+		@media screen and (max-width: 1199px) {
+			position: relative;
+			right: $init;
+		}
+
+	}
+	
+}

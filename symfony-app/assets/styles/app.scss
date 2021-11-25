@@ -1,0 +1,47 @@
+/*
+  Default import
+  import here all style files call with app.scss in twig/webpack
+*/
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+
+
+/*
+  Reset all spacing
+ */
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	width: 100vw;
+}
+
+.logo {
+	font-family: $font-logo, serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: $font-title, sans-serif;
+}
+
+p {
+	font-family: $font-text, sans-serif;
+}
+
+:root{
+	--primaryColor: #56C6FF;
+	--secondaryColor: #A3E0FF;
+	--darkColor: #0F0F0FFF;
+	--lightColor: #FFFFFFFF;
+}
+
+span[class="highlight"] {
+	font-weight: bolder;
+	color: var(--primaryColor);
+}

@@ -1,0 +1,25 @@
+$fullHeight : 100%;
+.staff {
+    height: 65vh;
+    width: 99vw;
+    background-color: rgb(24, 24, 24);
+    .row {
+        height: $fullHeight;
+        --bs-gutter-x: 0 !important;
+    }
+}
+@media screen and (max-width: 768px) {
+    .staff {
+        height: $fullHeight;
+    }
+}
+@media screen and (min-width: 768px ) and (max-width: 992px) {
+    .staff {
+        height: $fullHeight;
+    }
+}
+@media screen and (min-width: 992px ) and (max-width: 1080px) and (max-height: 810px) {
+    .staff {
+        height: 45vh;
+    }
+}

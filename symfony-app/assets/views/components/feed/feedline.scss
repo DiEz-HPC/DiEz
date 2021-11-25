@@ -1,0 +1,18 @@
+@import "../../../styles/variables";
+
+.feedline {
+	font-family: $font-text;
+	font-size: 12px;
+	.chevron {
+		color:  var(--lightColor);
+	}
+
+	.last-feed {
+		color:  var(--lightColor);
+	}
+
+	a {
+		text-decoration: none;
+		color:  var(--darkColor);
+	}
+}

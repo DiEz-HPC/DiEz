@@ -1,0 +1,25 @@
+@import "../../../../styles/variables";
+
+.form-control {
+    font-family: $font-text;
+    background-color: #F5F5F5;
+    border: 1px solid #F5F5F5;
+}
+
+.btn {
+    height: 50px;
+    width: 50px;
+    font-family: $font-text;
+    color:  var(--lightColor);
+}
+
+.btn-primary {
+    background-color: var(--primaryColor) !important;
+    border: var(--primaryColor) !important;
+}
+
+.btn:hover {
+    color:  var(--lightColor);
+    background-color: var(--secondaryColor) !important;
+    border: var(--secondaryColor) !important;
+}
