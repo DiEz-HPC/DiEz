@@ -5,7 +5,7 @@ import "../../styles/single-blog.scss";
 import wave from "../../images/wave.svg";
 import { timeToRead } from "../../tools/timeToRead";
 import { ucFirst } from "../../tools/ucFirst";
-import Layout from "../components/layout";
+import Layout from "../components/Layout/Layout";
 import { getLastPostByNumber } from "../../queries/posts";
 import CardBlog from "../components/CardBlog/CardBlog";
 

@@ -6,7 +6,7 @@ import wave from '../../images/wave.svg';
 import pcFirst from '../../images/pc_first.png';
 import HomeBlog from '../components/HomeBlog/HomeBlog';
 import WhatWeDo from '../components/WhatWeDo/Whatwedo';
-import Layout from '../components/layout';
+import Layout from '../components/Layout/Layout';
 
 function Home() {
     return (
