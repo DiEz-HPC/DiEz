@@ -1,6 +1,7 @@
 @import "../../../styles/variables";
 
 .description {
+    z-index: 6;
     p {
         color: white;
         font-family: $font-title;

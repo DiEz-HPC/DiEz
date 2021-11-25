@@ -34,7 +34,7 @@ function ThirdPart() {
           </p>
           <div className="d-flex flex-column justify-content-around flex-md-row align-items-center">
             <Button
-              link={'#'}
+              link={'#projects'}
               label={'Nos projets'}
               color={'white'}
               style={'m-1'}

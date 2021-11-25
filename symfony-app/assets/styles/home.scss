@@ -30,7 +30,7 @@
                 width: $width-pc - 53%;
                 opacity: 0.15;
                 right: 0;
-                z-index: 0;
+                z-index: 5;
                 @media screen and (max-width: 768px) {
                     width: 100%
                 }

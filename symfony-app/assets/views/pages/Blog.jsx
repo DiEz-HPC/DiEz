@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import FeedLine from "../components/feed/FeedLine";
-import Layout from "../components/layout";
+import Layout from "../components/Layout/Layout";
 import CardBlog from "../components/CardBlog/CardBlog";
 import Pagination from "../components/Pagination/Pagination";
 import { getPosts } from "../../queries/posts";

@@ -5,7 +5,7 @@ import FeedLine from "../components/feed/FeedLine";
 import Dot from "../components/dot/Dot";
 import SecondPart from "../components/Contact/SecondPart/SecondPart";
 import FirstPart from "../components/Contact/FirstPart/FirstPart";
-import Layout from "../components/layout";
+import Layout from "../components/Layout/Layout";
 
 
 function Contact() {
