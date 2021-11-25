@@ -4,9 +4,9 @@ import './FirstPart.scss';
 
 function FirstPart() {
     return (
-        <div className="first-part">
-            <div className="container">
-                <div className="row d-flex justify-content-center">
+        <div className="first-part pt-5">
+            <div className="container py-5">
+                <div className="row d-flex justify-content-center pt-2">
                     <h2 className="text-start">
                         À propos de DevItEasy
                         <Dot />
