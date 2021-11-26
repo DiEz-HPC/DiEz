@@ -6,6 +6,8 @@ use App\Repository\ProfileRepository;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Serializer\Annotation\Ignore;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -25,26 +27,31 @@ class Profile
     /**
      * @ORM\Column(type="string", length=255)
      */
+    #[Groups(['user:read'])]
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
+    #[Groups(['user:read'])]
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    #[Groups(['user:read'])]
     private $linkedin;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
+    #[Groups(['user:read'])]
     private $Status;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    #[Groups(['user:read'])]
     private $imageName;
 
     /**
@@ -63,6 +70,12 @@ class Profile
      * @ORM\Column(type="datetime_immutable", nullable=true)
      */
     private $updatedAt;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    #[Groups(['user:read'])]
+    private $isShow = false;
 
 
     public function getFullName(): string
@@ -179,6 +192,27 @@ class Profile
     public function setStatus(string $Status): self
     {
         $this->Status = $Status;
+
+        return $this;
+    }
+
+    public function getEmail(): string
+    {
+        if ($this->getUser()) {
+            return $this->user->getEmail();
+        }
+
+        return '';
+    }
+
+    public function getIsShow(): ?bool
+    {
+        return $this->isShow;
+    }
+
+    public function setIsShow(bool $isShow): self
+    {
+        $this->isShow = $isShow;
 
         return $this;
     }

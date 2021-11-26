@@ -40,7 +40,7 @@ class PostAdminSubscriber implements EventSubscriberInterface
             }
 
             if (!$entity->getAuthor()) {
-                $entity->setAuthor($this->tokenStorage->getToken()->getUser()->getFullname());
+                $entity->setAuthor($this->tokenStorage->getToken()->getUser()->getProfile()->getFullname());
             }
         }
 

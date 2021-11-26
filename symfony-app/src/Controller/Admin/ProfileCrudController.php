@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\SearchDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -87,6 +88,8 @@ class ProfileCrudController extends AbstractCrudController
                 ->setTextAlign('center')
                 ->setFormType(VichImageType::class)
                 ->onlyOnForms(),
+            BooleanField::new('isShow', 'Afficher')
+                ->setTextAlign('center'),
         ];
     }
 
