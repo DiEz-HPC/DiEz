@@ -3,7 +3,7 @@ import FirstPart from "../components/About/First-Part/FirstPart";
 import FourthPart from "../components/About/Fourth-Part/FourthPart";
 import Skill from "../components/About/Skill/Skill";
 import Staff from "../components/About/Staff/Staff";
-import Layout from "../components/layout"
+import Layout from "../components/Layout/Layout"
 
 function About() {
     return (
