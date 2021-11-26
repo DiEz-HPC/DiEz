@@ -2,8 +2,8 @@ FROM php:8.0.13-fpm
 
 # Copy composer.lock and composer.json
 COPY ./symfony-app/composer.lock ./symfony-app/composer.json /var/www/
-COPY docker-entry.sh /
-RUN chmod +x /docker-entry.sh
+COPY docker-entry.sh /var/www/
+RUN chmod +x /var/www/docker-entry.sh
 
 # Set working directory
 WORKDIR /var/www
