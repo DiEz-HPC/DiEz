@@ -73,9 +73,11 @@ RUN rm -rf /etc/nginx/sites-enabled
 RUN mkdir -p /etc/nginx/sites-enabled
 
 RUN chmod -R 777 /var/www/public
-
+RUN ls /var/www
+RUN chmod +x docker-entry.sh
+RUN docker-entry.sh
 #RUN php bin/console cache:clear (don t do it with a symfony app because composer.json script post install and update do it)
 
 # Expose port 80 and start php-fpm server
 EXPOSE 80
-CMD ["/var/www//docker-entry.sh"]
+
