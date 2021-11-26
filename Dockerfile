@@ -78,4 +78,5 @@ RUN chmod -R 777 /var/www/public
 
 # Expose port 80 and start php-fpm server
 EXPOSE 80
+
 CMD ["/var/www/docker-entry.sh"]
