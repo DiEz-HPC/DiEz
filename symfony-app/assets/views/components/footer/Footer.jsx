@@ -4,6 +4,8 @@ import logo from '../../../images/deviteasy.png';
 import Button from '../buttons/links/BtnLinks';
 
 function Footer() {
+    const creationDate = 2021;
+    const currentYear = new Date().getFullYear();
     return (
         <footer className="footer background-blue">
             <div className="container">
@@ -65,7 +67,7 @@ function Footer() {
             </div>
             <div className="footer_copyright text-center">
                 <p className="copyright">
-                    © 2020 - Tous droits réservés - Dev It Easy
+                    © {creationDate} {creationDate !== currentYear ? ' / ' + currentYear : ' '} - Tous droits réservés - Dev It Easy
                 </p>
             </div>
         </footer>
