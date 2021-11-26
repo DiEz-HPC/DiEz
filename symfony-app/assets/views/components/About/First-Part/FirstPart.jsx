@@ -9,27 +9,19 @@ function FirstPart() {
                 <div className="row d-flex justify-content-center pt-2">
                     <h2 className="text-start">
                         À propos de DevItEasy
-                        <Dot />
+                        <Dot/>
                     </h2>
                     <div className="col-md-6">
                         <p>
-                            DevItEasy est une plateforme de développement web et
-                            mobile. Elle permet de créer des sites web et des
-                            applications mobiles.
+                            DevItEasy est une société spécialisée dans le développement web et
+                            web mobile. Elle a pour vocation de créer des sites web sur les différents supports
+                            existants.
                         </p>
                     </div>
                     <div className="col-md-6">
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Architecto obcaecati itaque, dolores atque
-                            similique nesciunt nemo tempore modi sequi voluptas
-                            eaque deserunt pariatur quod culpa voluptatibus
-                            molestiae? Nemo, delectus nobis!
-                            Lorem ipsum, dolor sit amet consectetur adipisicing
-                            elit. Architecto obcaecati itaque, dolores atque
-                            similique nesciunt nemo tempore modi sequi voluptas
-                            eaque deserunt pariatur quod culpa voluptatibus
-                            molestiae? Nemo, delectus nobis!
+                            DevItEasy est née de l'association de 3 développeurs web passionnés en nouvelles technologies.
+                            L'objectif principale de DevItEasy est de rendre réel votre projet. Que ce soit un site vitrine, un site de e-shopping ou bien une application plus complexe (Intranet, Extranet, Web), nous saurons répondre à vos attentes. DevItEasy évolue en restant à la page des nouvelles technologies. Tous nos services évoluerons avec le temps et les besoins de chacun.
                         </p>
                     </div>
                 </div>
@@ -37,4 +29,5 @@ function FirstPart() {
         </div>
     );
 }
+
 export default FirstPart;
