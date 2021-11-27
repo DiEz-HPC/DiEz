@@ -18,7 +18,7 @@
 
 @mixin divisor($device) {
     
-    $device-silver: #e2e3e4;
+    $device-silver:darken(#e2e3e4, 60%); 
     $device-silver-dark: darken($device-silver, 10%);
     $device-silver-panel: #222;
     
