@@ -25,9 +25,9 @@ function About() {
                 'HTML / CSS',
                 'PHP > 7.4',
                 'Framework SYMFONY > 5',
+                'Wordpress',
                 'API REST / API Plateform',
                 'React JS',
-                'Wordpress',
                 'Gatsby JS',
             ]
         }
