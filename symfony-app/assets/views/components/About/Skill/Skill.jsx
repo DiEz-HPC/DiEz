@@ -3,6 +3,7 @@ import './Skill.scss';
 
 function SecondPart(props) {
     const {img, title, list} = props;
+
     return (
         <div className="second-part">
             <div className="container">
@@ -11,11 +12,12 @@ function SecondPart(props) {
                         <img
                             src={img}
                             alt="Snow"
+                            className="second-part__image"
                         />
                     </div>
-                    <div className={`col-md-6 d-flex justify-content-center align-items-center ${props.textSide}`}>
+                    <div className={`text-boxSkill col-md-6 d-flex justify-content-center align-items-center ${props.textSide}`}>
                         <div>
-                            <h3 className={'text-center'}>{props.title}</h3>
+                            <h3 className={'text-center SkillTitle'}>{props.title}</h3>
                             <ul>
                                 {list?.map((item, index) => {
                                         return (

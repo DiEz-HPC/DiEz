@@ -10,17 +10,19 @@ $boxHeight : 450px;
         .fourth-part__container {
             position: relative;
             width: $fullInVW;
-            height: 100vh;
+            height: 650px;
             padding: 0;
             margin: 0;
             .fourth-part__text {
                 background-color:  var(--primaryColor);
-                padding: 5%;
+                padding: 2%;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                border-radius: 5px;;
                 position: absolute;
                 width: $boxWidth;
-                height: $boxHeight;
-                left: 10%;
-                top: 5%;
+                min-height: 450px;
+                left: 15%;
+                top: 10%;
                 z-index: 1;
                 h2 {
                     // A définir avec les nouvelles variables
@@ -37,14 +39,17 @@ $boxHeight : 450px;
             }
             .fourth-part__image {
                 img {
+                    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                    border-radius: 5px;
                     width: $fullInPercent;
                     height: $fullInPercent;
+                    object-fit: fill;
                 }
                 position: absolute;
                 width: $boxWidth;
                 height: $boxHeight;
-                left: 40%;
-                top: 100px;
+                left: 45%;
+                top: 20%;
             }
         }
     }
@@ -70,6 +75,7 @@ $boxHeight : 450px;
                     }
                     position: static;
                     width: $fullInVW;
+                    height:$boxHeight/2;
                 }
             }
         }
@@ -84,12 +90,12 @@ $boxHeight : 450px;
                 .fourth-part__text {
                     width: 550px;
                     height: 400px;
-                    left: 2%;
+                    left: 7%;
                 }
                 .fourth-part__image {
                     width: 550px;
                     height: 400px;
-                    left: 30%;
+                    left: 23%;
                     top: 200px;
                 }
             }
@@ -105,7 +111,7 @@ $boxHeight : 450px;
                 .fourth-part__text {
                     width: 650px;
                     height: 350px;
-                    left: 2%;
+                    left: 5%;
                 }
                 .fourth-part__image {
                     width: 650px;
