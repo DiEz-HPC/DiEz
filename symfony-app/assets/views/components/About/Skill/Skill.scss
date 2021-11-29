@@ -11,8 +11,10 @@
         }
         ul{
             list-style:none;
+            padding: 0 !important;
+            margin: 0 !important;
             li{
-                line-height: 400%;
+                line-height: 200%;
             }
         }
         img{
