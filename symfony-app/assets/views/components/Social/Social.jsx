@@ -1,8 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import '../Social/social.scss';
 
-function Social() {
-    const [text, setText] = React.useState([...'nous suivre']);
+function Social(props) {
+    const [text, setText] = useState([...'nous suivre']);
+    const {socials} = props;
+
     return (
         <div id={'social'} className="social">
             <p className="text-social">
@@ -13,19 +15,14 @@ function Social() {
             </p>
 
             <hr className="hr-social"/>
-            <a href="#" className="ms-3">
-                <i className="fab fa-facebook-f"/>
-            </a>
-            <a href="#" className="ms-4">
-                <i className="fab fa-twitter"/>
-            </a>
-            <a href="#" className="ms-4">
-                <i className="fab fa-instagram"/>
-            </a>
-            <a href="#" className="ms-4">
-                <i className="fab fa-linkedin-in"/>
-            </a>
 
+            {socials?.map((social, index) => {
+                return (
+                    <a key={index} href={social.url} target={'_blank'} className={index === 0 ? 'ms-3' : 'ms-4'}>
+                        <i className={social.icon} />
+                    </a>
+                );
+            })}
         </div>
     );
 }
