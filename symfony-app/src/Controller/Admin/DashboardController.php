@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Client;
 use App\Entity\ContactMessage;
 use App\Entity\Post;
+use App\Entity\Social;
 use App\Entity\Testimony;
 use App\Entity\Theme;
 use App\Entity\UploadedImage;
@@ -64,6 +65,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Sécurité', 'fa fa-lock', User::class);
         yield MenuItem::linkToCrud('L\'équipe', 'fa fa-user', Profile::class);
+        yield MenuItem::linkToCrud('Réseaux Sociaux', 'fas fa-hashtag', Social::class);
         yield MenuItem::linkToCrud('Message', 'fas fa-envelope-open-text', ContactMessage::class);
         yield MenuItem::linkToCrud('Témoignages', 'fas fa-comment', Testimony::class);
         yield MenuItem::LinkToCrud('Clients', 'fas fa-users', Client::class);
