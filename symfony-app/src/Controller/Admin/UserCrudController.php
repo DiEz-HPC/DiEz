@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use App\Entity\Profile;
 use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Collection\FilterCollection;
@@ -12,17 +13,22 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\SearchDto;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\UrlField;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Component\HttpFoundation\RequestStack;
 
 class UserCrudController extends AbstractCrudController
 {
+    private $request;
+
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->request = $requestStack->getCurrentRequest();
+    }
+
     public static function getEntityFqcn(): string
     {
         return User::class;
@@ -31,34 +37,42 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new(propertyName: 'firstName', label: 'Prénom')
-                ->setTextAlign('center'),
-            TextField::new(propertyName: 'lastName', label: 'Nom')
-                ->setTextAlign('center'),
             EmailField::new(propertyName: 'email', label: 'Email')
-                ->setTextAlign('center'),
-            UrlField::new(propertyName: 'linkedin', label: 'Linkedin',)
-                ->setTextAlign('center'),
-            TextareaField::new(propertyName: 'imageFile', label: 'Image Profil')
-                ->setTextAlign('center')
-                ->setFormType(VichImageType::class)
-                ->onlyOnForms(),
-            ImageField::new(propertyName: 'image', label: 'Image Profil')
-                ->setTextAlign('center')
-                ->setBasePath('/uploads/images/')
-                ->onlyOnIndex(),
-            TextField::new(propertyName: 'status', label: 'Status',)
                 ->setTextAlign('center'),
             TextField::new(propertyName: 'password', label: 'Password',)
                 ->setTextAlign('center')
                 ->onlyOnForms()
                 ->setFormType(PasswordType::class),
-
             ChoiceField::new(propertyName: 'roles', label: 'Roles',)
                 ->setTextAlign('center')
                 ->setChoices(['ROLE_ADMIN' => 'ROLE_ADMIN', 'ROLE_USER' => 'ROLE_USER'])
                 ->allowMultipleChoices()
                 ->onlyOnForms(),
+            AssociationField::new('profile', 'Profil')
+                ->setQueryBuilder(function (QueryBuilder $qb) {
+                    return $qb
+                        ->from(Profile::class, 'p')
+                        ->andWhere('p.user = :user')
+                        ->setParameter('user', $this->getEntityInstance())
+                        ->orWhere('p.user IS NULL');
+                })
+                ->setTextAlign('center')
+                ->onlyWhenUpdating(),
+            AssociationField::new('profile', 'Profil')
+                ->setQueryBuilder(function (QueryBuilder $qb) {
+                    return $qb
+                        ->select('p')
+                        ->from(Profile::class, 'p')
+                        ->andWhere('p.user IS NULL');
+                })
+                ->setTextAlign('center')
+                ->onlyWhenCreating(),
+            AssociationField::new('profile', 'Profil')
+                ->setTextAlign('center')
+                ->onlyOnIndex(),
+            AssociationField::new('profile', 'Profil')
+                ->setTextAlign('center')
+                ->onlyOnDetail(),
         ];
     }
 
@@ -82,5 +96,15 @@ class UserCrudController extends AbstractCrudController
         $response = parent::createIndexQueryBuilder($searchDto, $entityDto, $fields, $filters);
         $response->orderBy('entity.id', 'DESC');
         return $response;
+    }
+
+    private function getEntityInstance()
+    {
+        return $this->getEntityFromRequest();
+    }
+
+    private function getEntityFromRequest()
+    {
+        return $this->request->attributes->get('easyadmin_context')->getEntity()->getPrimaryKeyValue();
     }
 }
