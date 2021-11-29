@@ -58,17 +58,17 @@ class UserFixtures extends Fixture
         foreach (self::USERS as $userName => $userData) {
             $user = new User();
             $user->setEmail($userData['email']);
-            $user->setFirstname($userData['firstname']);
-            $user->setLastname($userData['lastname']);
             $user->setPassword($this->passwordHasher->hashPassword($user, $userData['password']));
             $user->setRoles($userData['roles']);
-            $user->setLinkedin($userData['linkedin']);
-            $user->setStatus($userData['status']);
             $manager->persist($user);
 
             $profile = new Profile();
             $profile->setUser($user);
             $profile->setImageName($userData['image']);
+            $profile->setLastName($userData['lastname']);
+            $profile->setFirstName($userData['firstname']);
+            $profile->setLinkedin($userData['linkedin']);
+            $profile->setStatus($userData['status']);
             $manager->persist($profile);
         }
         $manager->flush();
