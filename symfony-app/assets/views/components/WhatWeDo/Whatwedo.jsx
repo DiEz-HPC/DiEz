@@ -7,7 +7,7 @@ import ThirdPart from './ThirdPart/ThirdPart';
 function WhatWeDo() {
     return (
         <div className="whatwedo">
-            <h2 className="whatwedo_title">
+            <h2 className="whatwedo_title" data-aos="fade-up">
                 Nos compétences <span> . </span>
             </h2>
             <div className="px-5">
