@@ -7,12 +7,12 @@ function SecondPart(props) {
     return (
         <div className="second-part">
             <div className="container">
-                <div className={`row d-flex flex-row${props.reverse}`}>
+                <div className={`row d-flex flex-row${props?.reverse ?? ''}`}>
                     <div className="col-md-6">
                         <img
                             src={img}
                             alt="Snow"
-                            className="second-part__image"
+                            className="second-part__image col-12"
                         />
                     </div>
                     <div className={`text-boxSkill col-md-6 d-flex justify-content-center align-items-center ${props.textSide}`}>
