@@ -5,7 +5,7 @@ WORKDIR /var/www
 
 # Copy composer.lock and composer.json
 COPY ./symfony-app /
-COPY ./symfony-app/composer.lock ./symfony-app/composer.json /
+COPY ./symfony-app/composer.lock ./symfony-app/composer.json /var/www/
 COPY docker-entry.sh /
 RUN chmod +x /docker-entry.sh
 
