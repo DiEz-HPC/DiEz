@@ -17,3 +17,7 @@ php bin/console doctrine:migrations:migrate --verbose --no-interaction --allow-n
 php bin/console assets:install public
 php bin/console cache:clear
 php bin/console cache:warmup
+
+## server config
+php-fpm &
+nginx -g "daemon off;"
