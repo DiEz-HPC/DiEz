@@ -3,11 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
-use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -40,45 +39,15 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $firstName;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $lastName;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $linkedin;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $image;
-
-    /**
-     * @Vich\UploadableField(mapping="uploaded_image", fileNameProperty="image")
-     * @var File|null
-     */
-    private $imageFile;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $Status;
-
-    /**
      * @ORM\Column(type="datetime_immutable", nullable=true)
      */
     private $updatedAt;
 
-    public function getFullName(): string
-    {
-        return strtoupper($this->lastName) . ' ' . ucfirst($this->firstName);
-    }
+    /**
+     * @ORM\OneToOne(targetEntity=Profile::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $profile;
+
 
     public function getId(): ?int
     {
@@ -169,83 +138,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // $this->plainPassword = null;
     }
 
-    public function getFirstName(): ?string
-    {
-        return $this->firstName;
-    }
-
-    public function setFirstName(string $firstName): self
-    {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    public function getLastName(): ?string
-    {
-        return $this->lastName;
-    }
-
-    public function setLastName(string $lastName): self
-    {
-        $this->lastName = $lastName;
-
-        return $this;
-    }
-
-    public function getLinkedin(): ?string
-    {
-        return $this->linkedin;
-    }
-
-    public function setLinkedin(?string $linkedin): self
-    {
-        $this->linkedin = $linkedin;
-
-        return $this;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(?string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * @param File|null $imageFile
-     */
-    public function setImageFile(?File $imageFile = null): void
-    {
-        $this->imageFile = $imageFile;
-
-        if (null !== $imageFile) {
-            $this->updatedAt = new DateTimeImmutable();
-        }
-    }
-
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-    public function getStatus(): ?string
-    {
-        return $this->Status;
-    }
-
-    public function setStatus(string $Status): self
-    {
-        $this->Status = $Status;
-
-        return $this;
-    }
-
     public function getUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->updatedAt;
@@ -260,6 +152,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __toString(): string
     {
-        return $this->getFullName();
+        if ($this->getProfile()){
+            return $this->getProfile()->getFullName();
+        }
+        return $this->getEmail();
     }
+
+    public function getProfile(): ?Profile
+    {
+        return $this->profile;
+    }
+
+    public function setProfile(Profile $profile): self
+    {
+        // set the owning side of the relation if necessary
+        if ($profile->getUser() !== $this) {
+            $profile->setUser($this);
+        }
+
+        $this->profile = $profile;
+
+        return $this;
+    }
+
 }

@@ -2,22 +2,22 @@ import React from 'react'
 import './ThirdPart.scss'
 import '../../../../styles/device.min.scss'
 import Button from '../../buttons/links/BtnLinks'
-import PhonePic from '../../../../images/JobPermutMobile.png'
+import PhonePic from '../../../../images/jobpermutmobile.png'
 import ComputerPic from '../../../../images/JobPermutPc.png'
-import TabletPic from '../../../../images/JobPermutTablet.png'
-import Iphone from './device/Iphone'
+import TabletPic from '../../../../images/jobpermuttablet.png'
+import IphoneX from '../../edevices/iphoneX/IphoneX'
 import Ipad from './device/Ipad'
-import Macbook from './device/MacBook'
+import Macbook from '../../edevices/macbookPro/MacbookPro'
 import Dot from '../../dot/Dot'
 
 function ThirdPart() {
   return (
     <div className="thirdPart">
       <div className="inner-container row d-flex justify-content-evenly">
-        <div className="device-div col-md-6 row d-flex justify-content-around align-items-center">
-          <Macbook picture={ComputerPic} scale="90" alt="MacBook" />
+        <div className="device-div col-md-4 row">
+          <Macbook image={ComputerPic} scale="90" alt="MacBook" />
           <Ipad picture={TabletPic} scale="90" alt="ipad" />
-          <Iphone picture={PhonePic} scale="50" alt="iphone" />
+          <IphoneX image={PhonePic} scale="90" alt="iphoneX" />
         </div>
         <div className="text-div col-12 col-md-4">
           <h2 className="text-start">

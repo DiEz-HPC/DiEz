@@ -17,12 +17,13 @@ $device-size: 50%;
     }
     .inner-container {
         @media (min-device-width: 768px) and (max-device-width: 1080px) {
-            flex-direction: column-reverse;
-            .device-div{
+          
+            .device-div {
                 margin-top: $third-part-spacing;
             }
         }
         .device-div {
+            position: relative;
             /* Ipad */
             @media (min-device-width: 768px) and (max-device-width: 1080px) {
                 width: 100% !important;
@@ -33,32 +34,37 @@ $device-size: 50%;
             @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
                 margin-top: $third-part-spacing;
             }
-            .cd-mac {
-                display: none;
+            .device-macbook-pro {
+                display: none !important;
                 /* Ipad */
                 @media (min-device-width: 768px) and (max-device-width: 1080px) {
-                    display: inline;
-                    font-size: $device-size !important;
+                    display: inline !important;
+                    z-index: 0;
                 }
                 /* Mobile portrait */
                 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-                    display: inline;
-                    margin-bottom: $third-part-spacing;
-                    font-size: 49% !important;
-                    .cd-bottom {
-                        width: 99vw !important;
-                        left: -40px !important;
-                    }
+                    display: none;
                 }
                 /* Mobile landscape */
                 @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
                     font-size: $device-size !important;
                 }
             }
-            .cd-iphone-6 {
+            .device-iphone-x {
+                $bottom : 10px;
+                z-index: 1;
+                position: absolute;
+                bottom: -25px;
+                left: 350px;
+
                 /* Ipad */
-                @media (min-device-width: 768px) and (max-device-width: 1080px) {
-                    font-size: $device-size;
+                @media (min-device-width: 768px) and (max-device-width: 1080px) and (orientation: portrait) {
+                    left: 465px;
+                    bottom: $bottom;
+                }
+                @media (min-device-width: 768px) and (max-device-width: 1080px) and (orientation: landscape) {
+                    left: 660px;
+                    bottom: $bottom;
                 }
                 /* Mobile portrait */
                 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
@@ -71,6 +77,7 @@ $device-size: 50%;
                 }
             }
             .cd-ipad {
+                z-index: 0;
                 /* Ipad */
                 @media (min-device-width: 768px) and (max-device-width: 1080px) {
                     display: none;
@@ -78,7 +85,7 @@ $device-size: 50%;
                 /* Mobile portrait */
                 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
                     font-size: $device-size !important;
-                    margin-bottom: $third-part-spacing;
+                    margin: 0 auto $third-part-spacing auto;
                 }
                 /* Mobile landscape */
                 @media only screen and (min-device-height: 320px) and (max-device-height: 480px) {
@@ -88,6 +95,7 @@ $device-size: 50%;
         }
         .text-div {
             @media (min-device-width: 768px) and (max-device-width: 1080px) {
+                margin-top: 100px;
                 width: 100% !important;
             }
         }

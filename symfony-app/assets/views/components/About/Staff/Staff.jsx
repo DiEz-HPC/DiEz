@@ -5,7 +5,7 @@ import './Staff.scss';
 function Staff() {
     const [personals, setPersonals] = useState([]);
     useEffect(async () => {
-        const query = await fetch('api/v2/users', {
+        const query = await fetch('api/v2/profiles', {
             method: 'POST',
             header: {
                 'Content-Type': 'application/json',
@@ -37,13 +37,12 @@ function Staff() {
             });
         }
     }
-    
 
     return (
         <div className="staff">
             <div className="row">
                 <div className="d-flex flex-column flex-lg-row justify-content-end">
-                    {personals.map((personal, index) => (
+                    {personals.filter(personal => personal.profile.isShow).map((personal, index) => (
                         <Personal
                             key={index}
                             {...personal}

@@ -3,15 +3,22 @@ import TextBox from './Box/TextBox';
 import './FourthPart.scss';
 
 function FourthPart(props) {
+
+    const boxContent = {
+        title: "Votre projet n'attend plus que vous !",
+        subtitle: "Pourquoi hésiter à vous lancer ?",
+        text:"Plus aucune hésitation, DevItEasy vous accueillera et sera à votre écoute pour avancer avec vous. Notre équipe à taille humaine, simple et efficace saura vous accompagner dans la création de votre projet. Nos outils évolutifs et notre soif de connaissance placerons votre application au-devant de la concurrence. Venez vivre avec nous la création, le développement et la mise en route de votre application. Votre projet mérite le meilleur, nous saurons vous satisfaire."
+    }
+
     return (
         <div className="fourth-part">
             <div className="fourth-part__outer__container">
                 <div className="fourth-part__container">
-                    <div className="fourth-part__text">
+                    <div className="fourth-part__text d-flex justify-content-center align-items-center">
                         <TextBox
-                            title="Agency short on resource ?"
-                            subtitle="We offer the white-label solution your agency is looking for."
-                            text="Duis congue sapien at commodo ullamcorper. Suspendisse potenti. Fusce convallis bibendum ex sed consequat. Donec pulvinar purus aliquet diam consectetur, et molestie quam tempor. Aliquam interdum mollis dui, vitae cursus velit facilisis in. Etiam vitae lectus feugiat, eleifend magna sed, efficitur augue. Vestibulum ipsum arcu, aliquet imperdiet mi vel. "
+                            title={boxContent.title}
+                            subtitle={boxContent.subtitle}
+                            text={boxContent.text}
                         />
                     </div>
                     <div className="fourth-part__image">

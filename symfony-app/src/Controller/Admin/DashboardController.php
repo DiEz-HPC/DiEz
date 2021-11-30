@@ -5,6 +5,7 @@ namespace App\Controller\Admin;
 use App\Entity\Client;
 use App\Entity\ContactMessage;
 use App\Entity\Post;
+use App\Entity\Social;
 use App\Entity\Testimony;
 use App\Entity\Theme;
 use App\Entity\UploadedImage;
@@ -12,6 +13,7 @@ use App\Entity\User;
 use App\Entity\Project;
 use App\Service\ChartCreator;
 use App\Service\VisitorCounterService;
+use App\Entity\Profile;
 use Symfony\UX\Chartjs\Model\Chart;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -61,7 +63,9 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('L\'équipe', 'fa fa-user', User::class);
+        yield MenuItem::linkToCrud('Sécurité', 'fa fa-lock', User::class);
+        yield MenuItem::linkToCrud('L\'équipe', 'fa fa-user', Profile::class);
+        yield MenuItem::linkToCrud('Réseaux Sociaux', 'fas fa-hashtag', Social::class);
         yield MenuItem::linkToCrud('Message', 'fas fa-envelope-open-text', ContactMessage::class);
         yield MenuItem::linkToCrud('Témoignages', 'fas fa-comment', Testimony::class);
         yield MenuItem::LinkToCrud('Clients', 'fas fa-users', Client::class);

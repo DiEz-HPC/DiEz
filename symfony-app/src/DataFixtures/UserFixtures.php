@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use App\Entity\Profile;
 use Faker\Generator;
 use Faker\Factory;
 use Doctrine\Persistence\ObjectManager;
@@ -45,7 +46,7 @@ class UserFixtures extends Fixture
         ],
     ];
 
-    
+
     public function __construct(private UserPasswordHasherInterface $passwordHasher)
     {
 
@@ -57,14 +58,18 @@ class UserFixtures extends Fixture
         foreach (self::USERS as $userName => $userData) {
             $user = new User();
             $user->setEmail($userData['email']);
-            $user->setFirstname($userData['firstname']);
-            $user->setLastname($userData['lastname']);
             $user->setPassword($this->passwordHasher->hashPassword($user, $userData['password']));
             $user->setRoles($userData['roles']);
-            $user->setImage($userData['image']);
-            $user->setLinkedin($userData['linkedin']);
-            $user->setStatus($userData['status']);
-            $manager->persist($user);   
+            $manager->persist($user);
+
+            $profile = new Profile();
+            $profile->setUser($user);
+            $profile->setImageName($userData['image']);
+            $profile->setLastName($userData['lastname']);
+            $profile->setFirstName($userData['firstname']);
+            $profile->setLinkedin($userData['linkedin']);
+            $profile->setStatus($userData['status']);
+            $manager->persist($profile);
         }
         $manager->flush();
     }
