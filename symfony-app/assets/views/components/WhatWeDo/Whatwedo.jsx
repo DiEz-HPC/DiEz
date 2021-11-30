@@ -10,7 +10,9 @@ function WhatWeDo() {
             <h2 className="whatwedo_title">
                 Nos compétences <span> . </span>
             </h2>
+            <div className="px-5">
             <FirstPart />
+            </div>
             <SecondParts />
             <ThirdPart />
         </div>
