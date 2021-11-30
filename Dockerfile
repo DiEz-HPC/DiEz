@@ -1,12 +1,13 @@
 FROM php:8.0.13-fpm
 
 # Copy composer.lock and composer.json
-COPY ./symfony-app /var/www/
-COPY docker-entry.sh /var/www/
-RUN chmod +x /var/www/docker-entry.sh
 
 # Set working directory
 WORKDIR /var/www
+
+COPY ./symfony-app /
+COPY docker-entry.sh /
+RUN chmod +x /docker-entry.sh
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -53,22 +54,16 @@ RUN docker-php-ext-install -j$(nproc) intl
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN composer install --no-dev --no-interaction -o --no-scripts
 # Add user for laravel application
 #RUN groupadd -g 1000 www
 #RUN useradd -u 1000 -ms /bin/bash -g www www
-RUN if [ ${APP_ENV} = "prod" ] ; then composer install --no-dev --no-interaction -o ; else composer install --no-interaction -o ; fi
-
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
-RUN apt-get update && apt-get install -y nodejs
-RUN npm install npm@latest -g
-RUN node -v
-RUN npm -v
-RUN npm install --verbose
-RUN npm run build --production --verbose
 
 COPY ./configuration/nginx/conf.d/ /etc/nginx/conf.d/
+RUN ls /etc/nginx/conf.d
 
 COPY ./configuration/php/local.ini /usr/local/etc/php/conf.d/local.ini
+RUN ls /usr/local/etc/php/conf.d
 RUN cat /usr/local/etc/php/conf.d/local.ini
 
 RUN rm -rf /etc/nginx/sites-enabled
