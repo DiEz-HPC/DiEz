@@ -19,7 +19,7 @@ function ThirdPart() {
           <Ipad picture={TabletPic} scale="90" alt="ipad" />
           <IphoneX image={PhonePic} scale="90" alt="iphoneX" />
         </div>
-        <div className="text-div col-12 col-md-4" data-aos="fade-left">
+        <div className="text-div col-12 col-md-4" data-aos="fade-up">
           <h2 className="text-start">
             Conception et développement de sites Web personnalisés, pour vos
             projets de tous types et tailles

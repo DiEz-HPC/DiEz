@@ -14,14 +14,14 @@ function FourthPart(props) {
         <div className="fourth-part">
             <div className="fourth-part__outer__container">
                 <div className="fourth-part__container">
-                    <div className="fourth-part__text d-flex justify-content-center align-items-center" data-aos="fade-right" data-aos-duration="2500">
+                    <div className="fourth-part__text d-flex justify-content-center align-items-center">
                         <TextBox
                             title={boxContent.title}
                             subtitle={boxContent.subtitle}
                             text={boxContent.text}
                         />
                     </div>
-                    <div className="fourth-part__image" data-aos="fade-left" data-aos-duration="2500">
+                    <div className="fourth-part__image">
                         <img
                             src={props.image}
                             alt=""
