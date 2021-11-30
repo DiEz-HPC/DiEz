@@ -17,7 +17,7 @@ function Card(props) {
                         link={props.BtnLink}
                         label={props.BtnLabel}
                         color={'white'}
-                        style={'me-4'}
+                        style={'me-4 my-4'}
                         variant={'outlined'}
                     />
         </div>
