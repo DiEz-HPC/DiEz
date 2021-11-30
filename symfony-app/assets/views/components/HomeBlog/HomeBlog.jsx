@@ -17,8 +17,8 @@ function HomeBlog() {
 
     return (
         <div className="home-blog" id="HomeBlog">
-            <h2 className="text-center mb-5"> Nos dernières actualités <Dot/></h2>
-            <div className="parent m-auto" data-grid={`${actus.length}`}>
+            <h2 className="text-center mb-5 pb-5" data-aos="fade-up"> Nos dernières actualités <Dot/></h2>
+            <div className="parent m-auto" data-grid={`${actus.length}`} data-aos="fade-up">
                 {actus.map((actu, index) => {
                     const date = new Date(actu?.createdAt?.timestamp * 1000).toLocaleDateString('fr-FR', {
                         year: 'numeric',

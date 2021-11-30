@@ -8,10 +8,14 @@ import Blog from "./views/pages/Blog";
 import Contact from "./views/pages/Contact";
 import NotFound from "./views/pages/404";
 import SingleBlog from "./views/pages/SingleBlog";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 require ('../assets/tools/onLoad.js');
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
+
+AOS.init();
 
 export default function App() {
     return (
