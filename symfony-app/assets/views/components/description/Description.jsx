@@ -10,8 +10,8 @@ function Description() {
     }
 
     return (
-        <div className={'description d-flex flex-column justify-content-center align-items-center'}>
-            <h1 className={'text-center'}>UNE ÉQUIPE <br/> A VOTRE ECOUTE <Dot /></h1>
+        <div className={'description d-flex flex-column justify-content-center align-items-center pt-5 pt-sm-0'}>
+            <h1 className={'text-center pt-5 pt-sm-0'}>UNE ÉQUIPE <br/> A VOTRE ECOUTE <Dot /></h1>
             <p className={'text-center col-7 text-light mb-4'}>{text.description}</p>
             <div className="d-flex flex-column justify-content-around flex-md-row align-items-center">
                 <BtnLinks link={'/qui-sommes-nous'} label={'Qui sommes nous ?'} color={'primary'} style={'m-1'} variant={'outlined'} />

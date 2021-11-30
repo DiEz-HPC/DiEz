@@ -4,7 +4,7 @@ import './cardStyle.scss';
 
 function Card(props) {
     return (
-        <div className="WWD_card col-10 col-md-12 m-auto">
+        <div className="WWD_card col-10 col-md-12 m-auto" data-aos={props.aos} data-aos-duration={props.duration}>
             <div className="card_icon d-flex">
                 <img src={props.icon} alt="icon" />
             </div>

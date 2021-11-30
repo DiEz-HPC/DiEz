@@ -54,7 +54,7 @@ function Blog() {
         <div className="wave">
           <img id={"wave"} src={wave} alt="wave" />
         </div>
-        <div className="container-fluid d-flex justify-content-center row mb-5 mx-auto p-0">
+        <div className="container-fluid d-flex justify-content-center row mb-5 mx-auto p-0" data-aos="fade-up" data-aos-duration="2000">
           {articles.map((actu, index) => {
             return <CardBlog key={index} {...actu} />;
           })}

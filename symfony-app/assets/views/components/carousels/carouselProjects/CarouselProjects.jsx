@@ -54,7 +54,7 @@ function CarouselProjects() {
     }
 
     return (
-        <div id={'projects'} className={'carouselProjects d-flex flex-column flex-xl-row align-items-center justify-content-center'}>
+        <div id={'projects'} className={'carouselProjects d-flex flex-column flex-xl-row align-items-center justify-content-center'} data-aos="fade-left">
             <div className="blocImages d-flex justify-content-center my-5 col-12 col-xl-2">
                 <div className="edevices">
                     <div className="element1">
@@ -65,7 +65,7 @@ function CarouselProjects() {
                     </div>
                 </div>
             </div>
-            <div className="blocPiloting d-flex flex-column align-items-center align-items-xl-start col-12 col-md-4 px-5 px-sm-0 mt-5 mt-sm-0 mb-sm-5">
+            <div className="blocPiloting d-flex flex-column align-items-center align-items-xl-start col-12 col-md-4 px-5 px-sm-0 mt-5 mt-sm-0 mb-sm-5" data-aos="fade-up">
                 <div className={'block-title'}>
                     <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo"/>
                     <h3 className={'mb-3'}>{project?.name}</h3>

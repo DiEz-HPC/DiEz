@@ -61,12 +61,12 @@ function SecondPart() {
 
   return (
     <div>
-      <h2 className="h1 text-center mt-4">
+      <h2 className="h1 text-center my-4" data-aos="fade-up">
         Contactez-nous
         <Dot color="#56C6FF" />
       </h2>
       <div className="d-flex flex-column col-12 flex-md-row justify-content-center justify-content-md-start justify-content-xl-center align-items-center mb-5 mx-md-auto my-4">
-        <div className="d-flex justify-content-center justify-content-xl-start col-12 col-md-6 col-xl-3">
+        <div className="d-flex justify-content-center justify-content-xl-start col-12 col-md-6 col-xl-3 mb-5" data-aos="fade-up">
           <img className="w-75 opacity-75" src={mail} alt="mail" />
         </div>
 
@@ -79,7 +79,7 @@ function SecondPart() {
             ""
           )}
 
-          <form onSubmit={submitForm}>
+          <form onSubmit={submitForm} data-aos="fade-up">
             <div className="mb-3">
               {errors?.nom ? alertErrors(errors.nom) : ""}
               <label htmlFor="nom"> </label>
@@ -133,7 +133,7 @@ function SecondPart() {
                   value="send"
                   className="btn btn-primary mx-auto rounded-circle mt-2"
                 >
-                  <i className="fas fa-paper-plane me-1"/>
+                  <i className="fas fa-paper-plane me-1" />
                 </button>
               </div>
             )}
