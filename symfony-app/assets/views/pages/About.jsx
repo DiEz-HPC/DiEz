@@ -44,10 +44,10 @@ function About() {
         </section>
         <section className={"about-second-part"}>
           <div className="m-5">
-            <div data-aos="fade-right" data-aos-duration="2000">
+            <div data-aos="fade-up" data-aos-duration="2000">
               <Skill {...skillsData.data1} textSide={"text-right"} />
             </div>
-            <div data-aos="fade-left" data-aos-duration="2000">
+            <div data-aos="fade-up" data-aos-duration="2000">
               <Skill
                 reverse={"-reverse"}
                 {...skillsData.data2}

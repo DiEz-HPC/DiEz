@@ -75,7 +75,7 @@ function CarouselTestimony() {
                     <BtnLinks
                         link={'#'}
                         label={'Laisser un témoignage'}
-                        color={'dark'}
+                        color={'primary'}
                         style={'mt-5'}
                         variant={'outlined'}
                     />

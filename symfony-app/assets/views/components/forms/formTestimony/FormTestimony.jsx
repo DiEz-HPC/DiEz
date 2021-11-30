@@ -116,7 +116,7 @@ function FormTestimony(props) {
                         <BtnLinks
                             link={'#'}
                             label={'Envoyer le témoignage'}
-                            color={'dark'}
+                            color={'primary'}
                             style={'mt-4 mt-lg-5'}
                             variant={'outlined'}
                         />
