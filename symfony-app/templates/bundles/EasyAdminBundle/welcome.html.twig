@@ -2,7 +2,7 @@
 {% block page_title %}
     <div class="text-center mb-4">
         Salut
-        {{ app.user.firstname ?? 'Employé' }}
+        {{ app.user.profile.firstname ?? 'Employé' }} !
     </div>
 {% endblock %}
 
