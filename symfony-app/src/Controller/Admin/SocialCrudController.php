@@ -58,7 +58,7 @@ class SocialCrudController extends AbstractCrudController
         return [
             TextField::new('name', 'Nom'),
             UrlField::new('url', 'URL'),
-            TextField::new('icon', 'Icon'),
+            TextField::new('icon', 'Icône'),
         ];
     }
 }

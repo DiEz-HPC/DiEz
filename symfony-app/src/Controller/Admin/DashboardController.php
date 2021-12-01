@@ -66,13 +66,13 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Sécurité', 'fa fa-lock', User::class);
         yield MenuItem::linkToCrud('L\'équipe', 'fa fa-user', Profile::class);
         yield MenuItem::linkToCrud('Réseaux Sociaux', 'fas fa-hashtag', Social::class);
-        yield MenuItem::linkToCrud('Message', 'fas fa-envelope-open-text', ContactMessage::class);
+        yield MenuItem::linkToCrud('Messages', 'fas fa-envelope-open-text', ContactMessage::class);
         yield MenuItem::linkToCrud('Témoignages', 'fas fa-comment', Testimony::class);
         yield MenuItem::LinkToCrud('Clients', 'fas fa-users', Client::class);
         yield MenuItem::subMenu('Projets', 'fas fa-project-diagram')
             ->setSubItems([
                 MenuItem::linkToCrud('Les projets', 'fas fa-folder-open', Project::class),
-                MenuItem::linkToRoute('Refresh Project', 'fas fa-sync', 'admin_service_github')
+                MenuItem::linkToRoute('Charger les projets', 'fas fa-sync', 'admin_service_github')
             ]);
         yield MenuItem::linkToCrud('Les actus', 'fas fa-newspaper', Post::class);
         yield MenuItem::subMenu('Médias', 'fas fa-photo-video')

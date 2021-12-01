@@ -23,11 +23,11 @@ class ThemeCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
-            ColorField::new('primaryColor', 'Primary'),
-            ColorField::new('secondaryColor', 'Secondary'),
-            ColorField::new('darkColor', 'Dark'),
-            ColorField::new('lightColor', 'Light'),
+            TextField::new('name', 'Nom du thème'),
+            ColorField::new('primaryColor', 'Couleur primaire'),
+            ColorField::new('secondaryColor', 'Couleur secondaire'),
+            ColorField::new('darkColor', 'Couleur sombre'),
+            ColorField::new('lightColor', 'Couleur claire'),
             BooleanField::new('isActive', 'Actif')
                 ->setTextAlign('center')
                 ->setCssClass('radioColor'),
