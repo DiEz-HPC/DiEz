@@ -45,3 +45,12 @@ span[class="highlight"] {
 	font-weight: bolder;
 	color: var(--primaryColor);
 }
+
+a{
+	text-decoration: none;
+	color: var(--primaryColor);
+}
+
+a:hover{
+	color: var(--secondaryColor);
+}
