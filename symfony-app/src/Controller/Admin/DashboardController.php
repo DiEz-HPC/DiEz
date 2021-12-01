@@ -19,7 +19,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[Route('/admin', name: 'admin_')]
 class DashboardController extends AbstractDashboardController
@@ -56,7 +58,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('DiEz')
+            ->setTitle('Dev It Easy')
             ->renderContentMaximized();
     }
 
@@ -79,5 +81,15 @@ class DashboardController extends AbstractDashboardController
             ->setSubItems([
                 MenuItem::linkToCrud('Themes', 'fas fa-palette', Theme::class),
             ]);
+    }
+    
+    public function configureUserMenu(UserInterface $user): UserMenu
+    {
+       return parent::configureUserMenu($user)
+           ->setName($user->getProfile()->getFirstName())
+           ->setAvatarUrl($user->getProfile()->getImageName())
+           ->addMenuItems([
+            MenuItem::linkToUrl('Retour sur le site', 'fas fa-home', 'https://deviteasy.fr'),
+        ]);
     }
 }
