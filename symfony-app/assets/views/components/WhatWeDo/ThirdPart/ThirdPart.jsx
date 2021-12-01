@@ -26,7 +26,7 @@ function ThirdPart() {
             <Dot color={'#56C6FF'} />
           </h2>
           <p className="text-start">
-            Notre équipe de passionné, formé aux dernières technologies est à
+            Notre équipe de passionnés, formée aux dernières technologies, est à
             votre disposition pour réaliser le projet de vos rêves. Notre
             objectif est de vous satisfaire et nous utiliserons toutes les
             ressources necessaire afin de vous apporter la plus grande

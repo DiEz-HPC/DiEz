@@ -48,7 +48,8 @@ function CarouselTestimony() {
                 ""
             )}
             <Carousel variant={'dark'} controls={false} indicators={false}>
-                {testimonies.map((testimony, index) => {
+                {testimonies.length !== 0 ?
+                    testimonies.map((testimony, index) => {
                     return (
                         <Carousel.Item key={index}>
                             <Carousel.Caption>
@@ -63,7 +64,17 @@ function CarouselTestimony() {
                             </Carousel.Caption>
                         </Carousel.Item>
                     )
-                })}
+                }) :
+                    <Carousel.Item>
+                        <Carousel.Caption>
+                            <div className="review">
+                                <h5>
+                                    Aucun témoignage actuellement
+                                </h5>
+                            </div>
+                        </Carousel.Caption>
+                    </Carousel.Item>
+                }
             </Carousel>
             <div className={`form ${formActive} d-flex flex-column align-items-center mt-5`}>
                 <FormTestimony display={setFormActive} success={setSuccess} cancel={scroll}/>

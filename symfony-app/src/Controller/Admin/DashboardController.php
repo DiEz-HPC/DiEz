@@ -78,7 +78,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Médias', 'fas fa-photo-video')
             ->setSubItems([
                 MenuItem::linkToCrud('Themes', 'fas fa-palette', Theme::class),
-                MenuItem::linkToCrud('Images', 'fas fa-images', UploadedImage::class),
             ]);
     }
 }
