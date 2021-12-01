@@ -72,6 +72,9 @@ $footer_line_height: 50%;
                 color:  var(--lightColor);
                 text-decoration: none;
             }
+            a:hover {
+                color:  var(--secondaryColor);
+            }   
         }
     }
     .footer_copyright {
