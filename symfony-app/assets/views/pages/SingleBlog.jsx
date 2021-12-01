@@ -27,7 +27,7 @@ function SingleBlog() {
 
     const [actus, setActus] = useState([]);
     useEffect(async () => {
-        const query = await getLastPostByNumber(2);
+        const query = await getLastPostByNumber(3);
         const data = await query.json();
         setActus(data);
     }, []);
@@ -80,7 +80,7 @@ function SingleBlog() {
                 </section>
                 <hr className={"my-5 line-blue"}/>
                 <div className="actus-single_blog d-flex justify-content-center row mx-auto p-0">
-                    {actus.map((actu, index) => {
+                    {actus.filter(actu => actu.slug !== post.slug).map((actu, index) => {
                         return <CardBlog key={index} {...actu} />;
                     })}
                 </div>

@@ -24,6 +24,7 @@ class PostAdminSubscriber implements EventSubscriberInterface
     public function onBeforeEntityPersistedEvent(BeforeEntityPersistedEvent $event): BeforeEntityPersistedEvent
     {
         $entity = $event->getEntityInstance();
+        $user = $this->tokenStorage->getToken()->getUser();
         if ($entity instanceof Post)
         {
             $slugify = new Slugify();
@@ -39,8 +40,10 @@ class PostAdminSubscriber implements EventSubscriberInterface
                 $entity->setUpdatedAt(new DateTimeImmutable('', new DateTimeZone('Europe/Paris')));
             }
 
-            if (!$entity->getAuthor()) {
+            if (!$entity->getAuthor() && $user->getProfile()) {
                 $entity->setAuthor($this->tokenStorage->getToken()->getUser()->getProfile()->getFullname());
+            } else {
+                $entity->setAuthor('Anonyme');
             }
         }
 
