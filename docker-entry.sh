@@ -10,6 +10,9 @@ npm run build
 chmod -R 777 /var/www/var
 chmod -R 777 /var/www/public
 
+chmod -R 777 var
+chmod -R 777 public
+
 php bin/console doctrine:database:create --if-not-exists --quiet --no-interaction
 php bin/console doctrine:migrations:migrate --verbose --no-interaction --allow-no-migration
 
