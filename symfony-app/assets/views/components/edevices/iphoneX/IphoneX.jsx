@@ -11,7 +11,7 @@ function IphoneX(props) {
     return (
             <div className="device device-iphone-x" style={style}>
                 <div className="device-frame">
-                    <img className="device-content" src={image} alt={alt} loading="lazy"/>
+                    <img className="device-content" src={image} alt={alt}/>
                 </div>
                 <div className="device-stripe"/>
                 <div className="device-header"/>
