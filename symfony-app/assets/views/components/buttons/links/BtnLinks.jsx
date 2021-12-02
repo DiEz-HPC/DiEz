@@ -9,7 +9,7 @@ function BtnLinks(props) {
   return (
     <div className={`btnLink btnLink-${variant}-${color} text-center ${style}`}>
       <a href={link} target={target}>
-        <button className="blob-btn">
+        <button className="blob-btn" aria-hidden="true">
           <div className="labelBtn">{label}</div>
           <span className="blob-btn__inner">
             <span className="blob-btn__blobs">
