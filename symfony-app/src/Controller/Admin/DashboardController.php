@@ -8,7 +8,6 @@ use App\Entity\Post;
 use App\Entity\Social;
 use App\Entity\Testimony;
 use App\Entity\Theme;
-use App\Entity\UploadedImage;
 use App\Entity\User;
 use App\Entity\Project;
 use App\Service\ChartCreator;
