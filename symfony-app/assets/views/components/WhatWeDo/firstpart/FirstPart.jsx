@@ -1,9 +1,9 @@
 import React from 'react'
 import './FirstPart.scss'
 import Card from '../card/Card'
-import CartLogo from '../../../../images/sac_icon.png'
-import PcLogo from '../../../../images/pc_icon.png'
-import CoffeeLogo from '../../../../images/cofee_icon.png'
+import CartLogo from '../../../../images/sac_icon.webp'
+import PcLogo from '../../../../images/pc_icon.webp'
+import CoffeeLogo from '../../../../images/cofee_icon.webp'
 
 function FirstPart() {
   return (

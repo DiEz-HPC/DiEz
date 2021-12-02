@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import BtnLinks from "../../buttons/links/BtnLinks";
 import {getAllProjects} from "../../../../queries/projects";
-import goutte from "../../../../images/logo_goutte.png";
+import goutte from "../../../../images/logo_goutte.webp";
 import IphoneX from "../../edevices/iphoneX/IphoneX";
 import MacbookPro from "../../edevices/macbookPro/MacbookPro";
 import {imageUploadUrl} from "../../../../tools/image";

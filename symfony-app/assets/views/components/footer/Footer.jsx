@@ -1,6 +1,6 @@
 import React from 'react';
 import './footer.scss';
-import logo from '../../../images/deviteasy.png';
+import logo from '../../../images/deviteasy.webp';
 import Button from '../buttons/links/BtnLinks';
 
 function Footer() {
