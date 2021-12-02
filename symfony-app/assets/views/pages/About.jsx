@@ -4,9 +4,9 @@ import FourthPart from "../components/About/Fourth-Part/FourthPart";
 import Skill from "../components/About/Skill/Skill";
 import Staff from "../components/About/Staff/Staff";
 import Layout from "../components/Layout/Layout";
-import Pict2 from "../../images/about1.jpg";
-import Pict1 from "../../images/about2.jpg";
-import Pict3 from "../../images/about3.jpg";
+import Pict2 from "../../images/about1.webp";
+import Pict1 from "../../images/about2.webp";
+import Pict3 from "../../images/about3.webp";
 
 function About() {
   const skillsData = {

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import mail from "../../../../images/mail.png";
+import mail from "../../../../images/mail.webp";
 import Dot from "../../dot/Dot";
 import "./SecondPart.scss";
 
