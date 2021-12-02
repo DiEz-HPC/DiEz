@@ -25,6 +25,7 @@ function FourthPart(props) {
                         <img
                             src={props.image}
                             alt=""
+                            loading="lazy"
                         />
                     </div>
                 </div>

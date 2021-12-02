@@ -51,7 +51,7 @@ function FirstPart() {
                 </div>
 
                 <div className="contact-image col-10 col-md-6 col-xl-5 mx-auto mx-xl-0" data-aos="fade-left">
-                    <img className="w-100" src={support} alt="support"/>
+                    <img className="w-100" src={support} alt="support" loading="lazy"/>
                 </div>
             </div>
         </>

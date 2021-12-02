@@ -67,7 +67,7 @@ function SecondPart() {
       </h2>
       <div className="d-flex flex-column col-12 flex-md-row justify-content-center justify-content-md-start justify-content-xl-center align-items-center mb-5 mx-md-auto my-4">
         <div className="d-flex justify-content-center justify-content-xl-start col-12 col-md-6 col-xl-3 mb-5" data-aos="fade-up">
-          <img className="w-75 opacity-75" src={mail} alt="mail" />
+          <img className="w-75 opacity-75" src={mail} alt="mail" loading="lazy"/>
         </div>
 
         <div className="col-10 col-md-4 col-xl-3">

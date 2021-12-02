@@ -7,7 +7,7 @@ function Ipad(props) {
                 <div className="cd-camera"></div>
                 <div className="cd-home"></div>
                 <div className="cd-screen">
-                    <img src={props.picture} alt="FotoPc" />
+                    <img src={props.picture} alt="FotoPc" loading="lazy"/>
                 </div>
             </div>
         </div>

@@ -43,7 +43,7 @@ function Personal(props) {
                     render(index);
                 }}
             >
-                <img className={`image de ${profile.firstname}`} src={imageUploadUrl(profile.imageName)} alt="" />
+                <img className={`image de ${profile.firstname}`} src={imageUploadUrl(profile.imageName)} alt="" loading="lazy" />
             </div>
         </>
     );

@@ -10,7 +10,7 @@ function Footer() {
         <footer className="footer background-blue">
             <div className="container">
                 <div className="footer_header text-center">
-                    <img src={logo} alt="logo" className="footer_logo" />
+                    <img src={logo} alt="logo" className="footer_logo" loading="lazy"/>
                     <h1 className="footer_title">
                         Vous souhaitez travailler avec nous <span>?</span>
                     </h1>
