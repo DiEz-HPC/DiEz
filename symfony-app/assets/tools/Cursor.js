@@ -2,7 +2,7 @@ export function customCursor(dot, outline) {
   let isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
   if (!isMobile) {
     const cursor = {
-      delay: 8,
+      delay: 4,
       _x: 0,
       _y: 0,
       endX: window.innerWidth / 2,
@@ -117,7 +117,7 @@ export function customCursor(dot, outline) {
 
         if (self.cursorEnlarged) {
           self.$dot.style.transform = "translate(-50%, -50%) scale(0.75)";
-          self.$outline.style.transform = "translate(-50%, -50%) scale(1.5)";
+          self.$outline.style.transform = "translate(-50%, -50%) scale(1.1)";
         } else {
           self.$dot.style.transform = "translate(-50%, -50%) scale(1)";
           self.$outline.style.transform = "translate(-50%, -50%) scale(1)";
