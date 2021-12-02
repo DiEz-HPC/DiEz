@@ -8,7 +8,6 @@ use App\Entity\Post;
 use App\Entity\Social;
 use App\Entity\Testimony;
 use App\Entity\Theme;
-use App\Entity\UploadedImage;
 use App\Entity\User;
 use App\Entity\Project;
 use App\Service\ChartCreator;
@@ -82,14 +81,20 @@ class DashboardController extends AbstractDashboardController
                 MenuItem::linkToCrud('Themes', 'fas fa-palette', Theme::class),
             ]);
     }
-    
+
     public function configureUserMenu(UserInterface $user): UserMenu
     {
-       return parent::configureUserMenu($user)
-           ->setName($user->getProfile()->getFirstName())
-           ->setAvatarUrl($user->getProfile()->getImageName())
-           ->addMenuItems([
-            MenuItem::linkToUrl('Retour sur le site', 'fas fa-home', 'https://deviteasy.fr'),
-        ]);
+        $image = '';
+        $firstname = $user->getUserIdentifier();
+        if ($user->getProfile()) {
+            $image = '/uploads/images/' . $user->getProfile()->getImageName();
+            $firstname = $user->getProfile()->getFirstname();
+        }
+        return parent::configureUserMenu($user)
+            ->setName($firstname)
+            ->setAvatarUrl($image)
+            ->addMenuItems([
+                MenuItem::linkToUrl('Retour sur le site', 'fas fa-home', 'https://deviteasy.fr'),
+            ]);
     }
 }
