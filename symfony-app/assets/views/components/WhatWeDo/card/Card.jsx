@@ -6,7 +6,7 @@ function Card(props) {
     return (
         <div className="WWD_card col-10 col-md-12 m-auto" data-aos={props.aos} data-aos-duration={props.duration}>
             <div className="card_icon d-flex">
-                <img src={props.icon} alt="icon" />
+                <img src={props.icon} alt="icon" loading="lazy"/>
             </div>
             <div className="card_content">
                 <h3 className="card_title">{props.title}</h3>

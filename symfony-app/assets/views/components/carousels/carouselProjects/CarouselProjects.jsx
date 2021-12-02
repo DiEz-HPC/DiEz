@@ -67,7 +67,7 @@ function CarouselProjects() {
             </div>
             <div className="blocPiloting d-flex flex-column align-items-center align-items-xl-start col-12 col-md-4 px-5 px-sm-0 mt-5 mt-sm-0 mb-sm-5" data-aos="fade-up">
                 <div className={'block-title'}>
-                    <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo"/>
+                    <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo" loading="lazy"/>
                     <h3 className={'mb-3'}>{project?.name}</h3>
                 </div>
                 <div className="block-description d-flex align-items-center">
