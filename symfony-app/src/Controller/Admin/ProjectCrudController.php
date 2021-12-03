@@ -69,7 +69,15 @@ class ProjectCrudController extends AbstractCrudController
                 ->setTextAlign('center')
                 ->setBasePath('/uploads/images/')
                 ->onlyOnIndex(),
-            UrlField::new(propertyName: 'link', label: 'Lien site en prod',)
+                TextareaField::new(propertyName: 'imageFileMobile', label: 'Image carousel mobile')
+                ->setTextAlign('center')
+                ->setFormType(VichImageType::class)
+                ->onlyOnForms(),
+            ImageField::new(propertyName: 'imageNameMobile', label: 'Image carousel mobile')
+                ->setTextAlign('center')
+                ->setBasePath('/uploads/images/')
+                ->onlyOnIndex(),
+            UrlField::new(propertyName: 'url', label: 'Lien site en prod',)
                 ->setTextAlign('center'),
             BooleanField::new(propertyName: 'homeVisible', label: 'Affichage'),
         ];
