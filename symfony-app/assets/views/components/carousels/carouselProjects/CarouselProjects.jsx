@@ -57,7 +57,7 @@ function CarouselProjects() {
                 break;
         }
     }
-console.log(project)
+
     return (
         <div id={'projects'} className={'carouselProjects d-flex flex-column flex-xl-row align-items-center justify-content-center'}>
             <div className="blocImages d-flex justify-content-center my-5 col-12 col-xl-2">
