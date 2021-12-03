@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "../navbar/navbar.scss";
-import logo from "../../../images/deviteasy.png";
+import logo from "../../../images/deviteasy.webp";
 import {ucFirst} from "../../../tools/ucFirst";
 
 function Navbar(props) {

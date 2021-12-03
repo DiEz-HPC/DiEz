@@ -61,12 +61,6 @@ class Profile
     private $imageFile;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, inversedBy="profile", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-
-    /**
      * @ORM\Column(type="datetime_immutable", nullable=true)
      */
     private $updatedAt;
@@ -76,6 +70,12 @@ class Profile
      */
     #[Groups(['user:read'])]
     private $isShow = false;
+
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="profile", cascade={"persist"})
+     */
+    #[Ignore]
+    private $user;
 
 
     public function getFullName(): string
@@ -96,18 +96,6 @@ class Profile
     public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(User $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }
@@ -216,4 +204,17 @@ class Profile
 
         return $this;
     }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
 }

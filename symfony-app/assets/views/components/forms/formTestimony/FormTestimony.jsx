@@ -55,7 +55,7 @@ function FormTestimony(props) {
         <>
             <form className={'testimony'}>
                 <div className="mb-3 col-12">
-                    <label htmlFor="inputLastName" className="form-label">Nom<span className={'text-light fw-bold'}> *</span></label>
+                    <label htmlFor="lastname" className="form-label">Nom<span className={'text-light fw-bold'}> *</span></label>
                     <input
                         type="text"
                         className="form-control opacity-50"
@@ -67,7 +67,7 @@ function FormTestimony(props) {
                     {errors?.lastName ? alertErrors(errors.lastName) : ""}
                 </div>
                 <div className="mb-3 col-12">
-                    <label htmlFor="inputfirstName" className="form-label">Prénom<span className={'text-light fw-bold'}> *</span></label>
+                    <label htmlFor="firstname" className="form-label">Prénom<span className={'text-light fw-bold'}> *</span></label>
                     <input
                         type="text"
                         className="form-control opacity-50"
@@ -79,7 +79,7 @@ function FormTestimony(props) {
                     {errors?.firstName ? alertErrors(errors.firstName) : ""}
                 </div>
                 <div className="mb-3 col-12">
-                    <label htmlFor="inputfirstName" className="form-label">Société</label>
+                    <label htmlFor="company" className="form-label">Société</label>
                     <input
                         type="text"
                         className="form-control opacity-50"

@@ -2,7 +2,6 @@ import {scrollMenu} from "./scrollMenu";
 import {initChangeColor} from "./changeColorAccordingBackgroundColor";
 import {displayArrow} from "./displayArrow";
 import {customCursor} from "./Cursor";
-import $ from 'jquery';
 
 function colors() {
     const styleSocial = {

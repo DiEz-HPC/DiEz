@@ -17,7 +17,7 @@ function Grid(props) {
                             <p className="date">{date}</p>
                         </div>
                     </div>
-                    <img src={imageUploadUrl(image)} alt="Image d'arcticle"/>
+                    <img src={imageUploadUrl(image)} alt="Image d'arcticle" loading="lazy"/>
                 </div>
             </a>
         </div>

@@ -13,7 +13,7 @@ function MacbookPro(props) {
 
             <div className="device device-macbook-pro device-spacegray"  style={style}>
                 <div className="device-frame">
-                    <img className="device-content" src={image} alt={alt} />
+                    <img className="device-content" src={image} alt={alt}/>
                 </div>
                 <div className="device-stripe" />
                 <div className="device-header" />

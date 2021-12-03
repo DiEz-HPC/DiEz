@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import BtnLinks from "../../buttons/links/BtnLinks";
 import {getAllProjects} from "../../../../queries/projects";
-import goutte from "../../../../images/logo_goutte.png";
+import goutte from "../../../../images/logo_goutte.webp";
 import IphoneX from "../../edevices/iphoneX/IphoneX";
 import MacbookPro from "../../edevices/macbookPro/MacbookPro";
 import {imageUploadUrl} from "../../../../tools/image";
@@ -54,7 +54,7 @@ function CarouselProjects() {
     }
 
     return (
-        <div id={'projects'} className={'carouselProjects d-flex flex-column flex-xl-row align-items-center justify-content-center'} data-aos="fade-up">
+        <div id={'projects'} className={'carouselProjects d-flex flex-column flex-xl-row align-items-center justify-content-center'}>
             <div className="blocImages d-flex justify-content-center my-5 col-12 col-xl-2">
                 <div className="edevices">
                     <div className="element1">
@@ -67,7 +67,7 @@ function CarouselProjects() {
             </div>
             <div className="blocPiloting d-flex flex-column align-items-center align-items-xl-start col-12 col-md-4 px-5 px-sm-0 mt-5 mt-sm-0 mb-sm-5" data-aos="fade-up">
                 <div className={'block-title'}>
-                    <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo"/>
+                    <img className={'goutte'} src={goutte} alt="goutte d'eau avec logo" loading="lazy"/>
                     <h3 className={'mb-3'}>{project?.name}</h3>
                 </div>
                 <div className="block-description d-flex align-items-center">

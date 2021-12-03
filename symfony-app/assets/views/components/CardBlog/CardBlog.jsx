@@ -49,7 +49,7 @@ function CardBlog(props) {
             <div className="day">{day}</div>
             <div className="month">{month}</div>
           </div>
-          <img className="w-100 h-75" src={imageUploadUrl(imageName)} />
+          <img className="w-100 h-75" src={imageUploadUrl(imageName)} loading="lazy"/>
         </div>
 
         <div className="post-content d-flex flex-column justify-content-between col-12">

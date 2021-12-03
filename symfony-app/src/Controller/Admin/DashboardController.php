@@ -8,7 +8,6 @@ use App\Entity\Post;
 use App\Entity\Social;
 use App\Entity\Testimony;
 use App\Entity\Theme;
-use App\Entity\UploadedImage;
 use App\Entity\User;
 use App\Entity\Project;
 use App\Service\ChartCreator;
@@ -19,7 +18,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[Route('/admin', name: 'admin_')]
 class DashboardController extends AbstractDashboardController
@@ -56,7 +57,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('DiEz')
+            ->setTitle('Dev It Easy')
             ->renderContentMaximized();
     }
 
@@ -66,19 +67,34 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Sécurité', 'fa fa-lock', User::class);
         yield MenuItem::linkToCrud('L\'équipe', 'fa fa-user', Profile::class);
         yield MenuItem::linkToCrud('Réseaux Sociaux', 'fas fa-hashtag', Social::class);
-        yield MenuItem::linkToCrud('Message', 'fas fa-envelope-open-text', ContactMessage::class);
+        yield MenuItem::linkToCrud('Messages', 'fas fa-envelope-open-text', ContactMessage::class);
         yield MenuItem::linkToCrud('Témoignages', 'fas fa-comment', Testimony::class);
         yield MenuItem::LinkToCrud('Clients', 'fas fa-users', Client::class);
         yield MenuItem::subMenu('Projets', 'fas fa-project-diagram')
             ->setSubItems([
                 MenuItem::linkToCrud('Les projets', 'fas fa-folder-open', Project::class),
-                MenuItem::linkToRoute('Refresh Project', 'fas fa-sync', 'admin_service_github')
+                MenuItem::linkToRoute('Charger les projets', 'fas fa-sync', 'admin_service_github')
             ]);
         yield MenuItem::linkToCrud('Les actus', 'fas fa-newspaper', Post::class);
         yield MenuItem::subMenu('Médias', 'fas fa-photo-video')
             ->setSubItems([
                 MenuItem::linkToCrud('Themes', 'fas fa-palette', Theme::class),
-                MenuItem::linkToCrud('Images', 'fas fa-images', UploadedImage::class),
+            ]);
+    }
+
+    public function configureUserMenu(UserInterface $user): UserMenu
+    {
+        $image = '';
+        $firstname = $user->getUserIdentifier();
+        if ($user->getProfile()) {
+            $image = '/uploads/images/' . $user->getProfile()->getImageName();
+            $firstname = $user->getProfile()->getFirstname();
+        }
+        return parent::configureUserMenu($user)
+            ->setName($firstname)
+            ->setAvatarUrl($image)
+            ->addMenuItems([
+                MenuItem::linkToUrl('Retour sur le site', 'fas fa-home', 'https://deviteasy.fr'),
             ]);
     }
 }

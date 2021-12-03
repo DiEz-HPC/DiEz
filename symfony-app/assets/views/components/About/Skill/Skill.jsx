@@ -13,6 +13,7 @@ function SecondPart(props) {
                             src={img}
                             alt="Snow"
                             className="second-part__image col-12"
+                            loading="lazy"
                         />
                     </div>
                     <div className={`text-boxSkill col-md-6 d-flex justify-content-center align-items-center ${props.textSide}`}>

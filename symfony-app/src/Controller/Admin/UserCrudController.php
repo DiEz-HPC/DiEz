@@ -39,7 +39,7 @@ class UserCrudController extends AbstractCrudController
         return [
             EmailField::new(propertyName: 'email', label: 'Email')
                 ->setTextAlign('center'),
-            TextField::new(propertyName: 'password', label: 'Password',)
+            TextField::new(propertyName: 'password', label: 'Mot de passe',)
                 ->setTextAlign('center')
                 ->onlyOnForms()
                 ->setFormType(PasswordType::class),

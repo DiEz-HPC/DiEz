@@ -19,7 +19,8 @@ function HomeBlog() {
         <div className="home-blog" id="HomeBlog">
             <h2 className="text-center mb-5 pb-5" data-aos="fade-up"> Nos dernières actualités <Dot/></h2>
             <div className="parent m-auto" data-grid={`${actus.length}`} data-aos="fade-up">
-                {actus.map((actu, index) => {
+                {actus.length !== 0 ?
+                    actus.map((actu, index) => {
                     const date = new Date(actu?.createdAt?.timestamp * 1000).toLocaleDateString('fr-FR', {
                         year: 'numeric',
                         month: 'long',
@@ -27,7 +28,11 @@ function HomeBlog() {
                     });
 
                     return (<Grid key={index} number={index + 1} title={actu.title} author={actu.author} image={actu.imageName} link={actu.slug} description={actu.article} date={date}/>)
-                })}
+                }) :
+                    <div className="text-center">
+                        <h3>Aucune actualité n'a été publiée pour le moment</h3>
+                    </div>
+                }
             </div>
         </div>
     );

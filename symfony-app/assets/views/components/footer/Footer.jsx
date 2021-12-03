@@ -1,6 +1,6 @@
 import React from 'react';
 import './footer.scss';
-import logo from '../../../images/deviteasy.png';
+import logo from '../../../images/deviteasy.webp';
 import Button from '../buttons/links/BtnLinks';
 
 function Footer() {
@@ -10,7 +10,7 @@ function Footer() {
         <footer className="footer background-blue">
             <div className="container">
                 <div className="footer_header text-center">
-                    <img src={logo} alt="logo" className="footer_logo" />
+                    <img src={logo} alt="logo" className="footer_logo" loading="lazy"/>
                     <h1 className="footer_title">
                         Vous souhaitez travailler avec nous <span>?</span>
                     </h1>

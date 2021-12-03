@@ -1,5 +1,5 @@
 import React from "react";
-import support from "../../../../images/support.png";
+import support from "../../../../images/support.webp";
 import "./FirstPart.scss";
 import Dot from "../../dot/Dot";
 
@@ -51,7 +51,7 @@ function FirstPart() {
                 </div>
 
                 <div className="contact-image col-10 col-md-6 col-xl-5 mx-auto mx-xl-0" data-aos="fade-left">
-                    <img className="w-100" src={support} alt="support"/>
+                    <img className="w-100" src={support} alt="support" loading="lazy"/>
                 </div>
             </div>
         </>

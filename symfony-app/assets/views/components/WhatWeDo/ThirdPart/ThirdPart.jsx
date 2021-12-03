@@ -2,9 +2,9 @@ import React from 'react'
 import './ThirdPart.scss'
 import '../../../../styles/device.min.scss'
 import Button from '../../buttons/links/BtnLinks'
-import PhonePic from '../../../../images/jobpermutmobile.png'
-import ComputerPic from '../../../../images/JobPermutPc.png'
-import TabletPic from '../../../../images/jobpermuttablet.png'
+import PhonePic from '../../../../images/jobpermutmobile.webp'
+import ComputerPic from '../../../../images/JobPermutPc.webp'
+import TabletPic from '../../../../images/jobpermuttablet.webp'
 import IphoneX from '../../edevices/iphoneX/IphoneX'
 import Ipad from './device/Ipad'
 import Macbook from '../../edevices/macbookPro/MacbookPro'
@@ -26,7 +26,7 @@ function ThirdPart() {
             <Dot color={'#56C6FF'} />
           </h2>
           <p className="text-start">
-            Notre équipe de passionné, formé aux dernières technologies est à
+            Notre équipe de passionnés, formée aux dernières technologies, est à
             votre disposition pour réaliser le projet de vos rêves. Notre
             objectif est de vous satisfaire et nous utiliserons toutes les
             ressources necessaire afin de vous apporter la plus grande

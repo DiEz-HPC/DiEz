@@ -3,9 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <title>{% block title %}DiEz{% endblock %}</title>
+        <meta name="description" content="L'agence web Dev It Easy vous accompagne pour vos projets web ! Création de site web et Ecommerce, Développement Web, Web Design, Optimisation SEO, Référencements, Identité numérique.">
+        <title>
+            {% block title %}Dev It Easy
+            {% endblock %}
+        </title>
+        <link rel="icon" type="image/png" href="{{ asset('icons/favicon.ico') }}"/>
         <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
         {% block javascripts %}
+
             {{ encore_entry_script_tags('index') }}
         {% endblock %}
         {% block stylesheets %}
@@ -14,6 +20,14 @@
 
     </head>
     <body>
+        <noscript>
+            <h2>Javascript est désactivé dans votre navigateur web. Certaines fonctionnalités ne fonctionneront pas correctement.</h2>
+            <style type="text/css">
+                #main-content {
+                    display: none;
+                }
+            </style>
+        </noscript>
         {% block body %}{% endblock %}
     </body>
 </html>
