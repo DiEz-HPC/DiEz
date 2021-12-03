@@ -15,7 +15,10 @@ class HomeController extends AbstractController
     {
         $theme->defineTheme();
         $visitorCounterService->getVisitorCounter();
-
+        // Active this header only on prod
+        if ($_ENV['APP_ENV'] === 'prod') {
+            header("Content-Security-Policy: default-src '*'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; connect-src 'self';");
+        }
         return $this->render('home/index.html.twig', [
             'controller_name' => 'DefaultController',
         ]);
