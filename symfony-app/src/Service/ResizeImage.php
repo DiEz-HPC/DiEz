@@ -15,6 +15,7 @@ class ResizeImage
 
     private const ROOT_PATH = 'uploads/images/';
 
+
     public function __construct(
         private string   $filename = '',
         private int|null $width = null,
@@ -28,7 +29,6 @@ class ResizeImage
 
     public function resize()
     {
-        $this->rename();
         // Content type
         header('Content-Type: image/jpeg');
 
