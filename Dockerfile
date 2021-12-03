@@ -60,6 +60,9 @@ RUN composer install --no-dev --no-interaction -o --no-scripts
 
 # Copy existing application directory
 COPY ./symfony-app /var/www/
+COPY robots.txt /var/www/public/
+COPY .htaccess /var/www/public/
+COPY sitemap.xml /var/www/public/
 RUN ls /var/www
 
 COPY ./configuration/nginx/conf.d/ /etc/nginx/conf.d/
