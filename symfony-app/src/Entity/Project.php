@@ -43,32 +43,32 @@ class Project
     private $imageFile;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $url;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $language;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $created_at;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $updated_at;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $issue_number;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $visibility;
 
@@ -96,6 +96,17 @@ class Project
      * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="project")
      */
     private $client;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $imageNameMobile;
+
+    /**
+     * @Vich\UploadableField(mapping="uploaded_image", fileNameProperty="imageNameMobile")
+     * @var File|null
+     */
+    private $imageFileMobile;
 
 
     public function getId(): ?int
@@ -291,6 +302,35 @@ class Project
     public function __toString(): string
     {
         return $this->name;
+    }
+
+    public function getImageNameMobile(): ?string
+    {
+        return $this->imageNameMobile;
+    }
+
+    public function setImageNameMobile(?string $imageNameMobile): self
+    {
+        $this->imageNameMobile = $imageNameMobile;
+
+        return $this;
+    }
+
+        /**
+     * @param File|null $imageFileMobile
+     */
+    public function setImageFileMobile(?File $imageFileMobile = null): void
+    {
+        $this->imageFileMobile = $imageFileMobile;
+
+        if (null !== $imageFileMobile) {
+            $this->updated_at = (new DateTimeImmutable())->format('Y-m-d h-i-s');
+        }
+    }
+
+    public function getImageFileMobile(): ?File
+    {
+        return $this->imageFileMobile;
     }
 
 }
