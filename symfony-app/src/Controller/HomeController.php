@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use App\Service\ConfigurationTheme;
-use App\Service\ResizeImage;
+use App\Service\Image\ResizeImage;
 use App\Service\VisitorCounterService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,7 +25,7 @@ class HomeController extends AbstractController
     #[Route('/test', name: 'test')]
     public function test(ResizeImage $resizeImage): Response
     {
-        $resizeImage = new ResizeImage('61a5e1f160632_15440567.jpg', 1000, 500);
+        $resizeImage->setFileName('61ab86a8a6c74_background-image.png');
         return $this->render('home/test.html.twig', [
             'controller_name' => 'DefaultController',
             'image' => $resizeImage->resize(),
