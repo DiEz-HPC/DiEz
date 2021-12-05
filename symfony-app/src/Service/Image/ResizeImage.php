@@ -2,7 +2,11 @@
 
 namespace App\Service\Image;
 
+use App\Entity\ImageFluid;
 use App\Repository\FormatImageSizeRepository;
+use DateTimeImmutable;
+use DateTimeZone;
+use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use GdImage;
 
@@ -19,13 +23,17 @@ class ResizeImage
     private const IMAGE_PATH = 'fluid/';
     private string $fileName;
 
-    public function __construct(private FormatImageSizeRepository $formatImageSizeRepository)
+    public function __construct(
+        private FormatImageSizeRepository $formatImageSizeRepository,
+        private EntityManagerInterface $entityManager
+    )
     {
     }
 
 
-    public function resize(): bool
+    public function resize(): bool|array
     {
+        $imagesNames = [];
         $formats = $this->formatImageSizeRepository->findAll();
         list($width, $height) = $this->getResolution();
         try {
@@ -55,15 +63,14 @@ class ResizeImage
                     src_height: $height);
 
                 $image = [
-                    'newImage'=> $imageNewSize,
-                    'width'=> $newWidth,
-                    'height'=> $newHeight,
-                    'quality'=> $format->getQuality(),
+                    'baseImageName' => $this->fileName,
+                    'format' => $format,
+                    'newImage' => $imageNewSize,
                 ];
                 //Création
-                $this->renderImageByType($image);
+                $imagesNames[] = $this->createImageByType($image);
             }
-            return true;
+            return $imagesNames;
         } catch (Exception $e) {
             return false;
         }
@@ -84,13 +91,21 @@ class ResizeImage
         };
     }
 
-    private function renderImageByType(array $image): bool
+    /**
+     * @throws Exception
+     */
+    private function createImageByType(array $image): void
     {
-        return match ($this->imageType(self::ROOT_PATH . $this->getFileName())) {
-            1 => imagegif($image['newImage'], self::ROOT_PATH . self::IMAGE_PATH . $this->rename($image)),
-            2 => imagejpeg($image['newImage'], self::ROOT_PATH . self::IMAGE_PATH . $this->rename($image), 100),
-            3 => imagepng($image['newImage'], self::ROOT_PATH . self::IMAGE_PATH . $this->rename($image), $image['quality']),
-            18 => imagewebp($image['newImage'], self::ROOT_PATH . self::IMAGE_PATH . $this->rename($image), $image['quality']),
+        $gdImage = $image['newImage'];
+        $newImageName = $this->rename($image);
+        $newPath = self::ROOT_PATH . self::IMAGE_PATH . $newImageName;
+        $image['imageName'] = $newImageName;
+        $image['path'] = $newPath;
+        match ($this->imageType(self::ROOT_PATH . $this->getFileName())) {
+            1 => imagegif($gdImage, $newPath) && $this->newImageFluid($image),
+            2 => imagejpeg($gdImage, $newPath, 100) && $this->newImageFluid($image),
+            3 => imagepng($gdImage, $newPath, $image['format']->getQuality()) && $this->newImageFluid($image),
+            18 => imagewebp($gdImage, $newPath, $image['format']->getQuality()) && $this->newImageFluid($image),
         };
     }
 
@@ -100,11 +115,28 @@ class ResizeImage
         foreach (self::IMAGE_TYPE as $type => $extension) {
             if ($this->imageType(self::ROOT_PATH . $oldName) === $type) {
                 foreach ($extension as $ext) {
-                    return str_replace($ext, '_' . $image['width'] . 'x' . $image['height'] . $ext, $oldName);
+                    return str_replace($ext, '_' . $image['format']->getWidth() . 'x' . $image['format']->getHeight() . $ext, $oldName);
                 }
             }
         }
         return $oldName;
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function newImageFluid(array $image): bool
+    {
+        $fluidImage = new ImageFluid();
+        $fluidImage->setBaseImageName($image['baseImageName']);
+        $fluidImage->setImageName($image['imageName']);
+        $fluidImage->setFormatImageSize($image['format']);
+        $fluidImage->setWidth($image['format']->getWidth());
+        $fluidImage->setHeight($image['format']->getHeight());
+        $fluidImage->setCreatedAt(new DateTimeImmutable('', new DateTimeZone('Europe/Paris')));
+        $this->entityManager->persist($fluidImage);
+        $this->entityManager->flush();
+        return true;
     }
 
 

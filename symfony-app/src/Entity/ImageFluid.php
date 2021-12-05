@@ -10,7 +10,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ImageFluidRepository::class)
- * @Vich\Uploadable
  */
 class ImageFluid
 {
@@ -25,12 +24,6 @@ class ImageFluid
      * @ORM\Column(type="string", length=255)
      */
     private $imageName;
-
-    /**
-     * @Vich\UploadableField(mapping="uploaded_fluid_image", fileNameProperty="imageName")
-     * @var File|null
-     */
-    private $imageFile;
 
     /**
      * @ORM\Column(type="integer")
@@ -48,15 +41,15 @@ class ImageFluid
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime_immutable", nullable=true)
-     */
-    private $updatedAt;
-
-    /**
      * @ORM\ManyToOne(targetEntity=FormatImageSize::class, inversedBy="imageFluids")
      * @ORM\JoinColumn(nullable=false)
      */
     private $formatImageSize;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $baseImageName;
 
     public function getId(): ?int
     {
@@ -73,23 +66,6 @@ class ImageFluid
         $this->imageName = $imageName;
 
         return $this;
-    }
-
-    /**
-     * @param File|null $imageFile
-     */
-    public function setImageFile(?File $imageFile = null): void
-    {
-        $this->imageFile = $imageFile;
-
-        if (null !== $imageFile) {
-            $this->updatedAt = new DateTimeImmutable();
-        }
-    }
-
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
     }
 
     public function getWidth(): ?int
@@ -128,18 +104,6 @@ class ImageFluid
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeImmutable
-    {
-        return $this->updatedAt;
-    }
-
-    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
-    {
-        $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
     public function getFormatImageSize(): ?FormatImageSize
     {
         return $this->formatImageSize;
@@ -148,6 +112,18 @@ class ImageFluid
     public function setFormatImageSize(?FormatImageSize $formatImageSize): self
     {
         $this->formatImageSize = $formatImageSize;
+
+        return $this;
+    }
+
+    public function getBaseImageName(): ?string
+    {
+        return $this->baseImageName;
+    }
+
+    public function setBaseImageName(string $baseImageName): self
+    {
+        $this->baseImageName = $baseImageName;
 
         return $this;
     }

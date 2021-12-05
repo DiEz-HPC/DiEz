@@ -3,8 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ProfileRepository;
-use App\Service\Image\ImageFluidInterface;
-use App\Service\Image\ResizeImage;
+use App\Service\Image\MediasFluid;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -16,12 +15,8 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Entity(repositoryClass=ProfileRepository::class)
  * @Vich\Uploadable
  */
-class Profile implements ImageFluidInterface
+class Profile extends MediasFluid
 {
-    public function __construct(private ResizeImage $resizeImage)
-    {
-    }
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -83,7 +78,6 @@ class Profile implements ImageFluidInterface
     #[Ignore]
     private $user;
 
-
     public function getFullName(): string
     {
         return strtoupper($this->lastName) . ' ' . ucfirst($this->firstName);
@@ -102,14 +96,8 @@ class Profile implements ImageFluidInterface
     public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
-
-        if ($this->getImageName()) {
-            $this->setImageFluid();
-        }
-
         return $this;
     }
-
 
     /**
      * @param File|null $imageFile
@@ -225,17 +213,5 @@ class Profile implements ImageFluidInterface
         $this->user = $user;
 
         return $this;
-    }
-
-    public function getImagesFluid()
-    {
-
-    }
-
-    public function setImageFluid()
-    {
-       /* $resize = new ResizeImage();
-        $resize->setFileName($this->getImageName());
-        $resize->resize();*/
     }
 }
