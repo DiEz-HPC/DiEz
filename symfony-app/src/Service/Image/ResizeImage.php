@@ -30,7 +30,7 @@ class ResizeImage
         list($width, $height) = $this->getResolution();
         try {
             foreach ($formats as $format) {
-                header('Content-Type: image/jpeg');
+                //header('Content-Type: image/jpeg');
                 // Calcul des nouvelles dimensions
                 $newWidth = $width;
                 $newHeight = $height;
@@ -60,7 +60,6 @@ class ResizeImage
                     'height'=> $newHeight,
                     'quality'=> $format->getQuality(),
                 ];
-
                 //Création
                 $this->renderImageByType($image);
             }
@@ -87,9 +86,9 @@ class ResizeImage
 
     private function renderImageByType(array $image): bool
     {
-        return match ($this->imageType($this->getFileName())) {
+        return match ($this->imageType(self::ROOT_PATH . $this->getFileName())) {
             1 => imagegif($image['newImage'], self::ROOT_PATH . self::IMAGE_PATH . $this->rename($image)),
-            2 => imagejpeg($image['newImage'], self::ROOT_PATH . self::IMAGE_PATH . $this->rename($image), $image['quality']),
+            2 => imagejpeg($image['newImage'], self::ROOT_PATH . self::IMAGE_PATH . $this->rename($image), 100),
             3 => imagepng($image['newImage'], self::ROOT_PATH . self::IMAGE_PATH . $this->rename($image), $image['quality']),
             18 => imagewebp($image['newImage'], self::ROOT_PATH . self::IMAGE_PATH . $this->rename($image), $image['quality']),
         };
@@ -98,9 +97,8 @@ class ResizeImage
     private function rename(array $image): array|string
     {
         $oldName = $this->getFileName();
-        dd($oldName);
         foreach (self::IMAGE_TYPE as $type => $extension) {
-            if ($this->imageType($oldName) === $type) {
+            if ($this->imageType(self::ROOT_PATH . $oldName) === $type) {
                 foreach ($extension as $ext) {
                     return str_replace($ext, '_' . $image['width'] . 'x' . $image['height'] . $ext, $oldName);
                 }
