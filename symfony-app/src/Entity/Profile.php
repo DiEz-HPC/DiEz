@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use App\Repository\ProfileRepository;
-use App\Service\Image\MediasFluid;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -15,7 +14,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @ORM\Entity(repositoryClass=ProfileRepository::class)
  * @Vich\Uploadable
  */
-class Profile extends MediasFluid
+class Profile
 {
     /**
      * @ORM\Id

@@ -7,6 +7,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 class MediasFluid implements ImageFluidInterface
 {
+    private array $imagesFluids = [];
 
     public function __construct(
         private ResizeImage $resizeImage,
@@ -16,14 +17,31 @@ class MediasFluid implements ImageFluidInterface
 
     public function getImagesFluid(string $baseImageName): array
     {
-        return $this->entityManager->getRepository(ImageFluid::class)->findBy([
+         $this->imagesFluids = $this->entityManager->getRepository(ImageFluid::class)->findBy([
             'baseImageName' => $baseImageName
         ]);
+
+         return $this->imagesFluids;
     }
 
-    public function setImagesFluid(string $baseImageName): void
+    public function setImagesFluid(string $baseImageName): array
+    {
+        $this->imagesFluids =  $this->createImagesFluid($baseImageName);
+        return $this->imagesFluids;
+    }
+
+    public function createImagesFluid(string $baseImageName): array
     {
         $this->resizeImage->setFileName($baseImageName());
-        $this->resizeImage->resize();
+        return $this->resizeImage->resize();
+    }
+
+    public function removeImagesFluid(string $baseImageName): void
+    {
+        foreach ($this->getImagesFluid($baseImageName) as $imageFluid) {
+            $this->entityManager->remove($imageFluid);
+        }
+
+        $this->imagesFluids =  [];
     }
 }

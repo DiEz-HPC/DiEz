@@ -94,18 +94,18 @@ class ResizeImage
     /**
      * @throws Exception
      */
-    private function createImageByType(array $image): void
+    private function createImageByType(array $image): ImageFluid|null
     {
         $gdImage = $image['newImage'];
         $newImageName = $this->rename($image);
         $newPath = self::ROOT_PATH . self::IMAGE_PATH . $newImageName;
         $image['imageName'] = $newImageName;
         $image['path'] = $newPath;
-        match ($this->imageType(self::ROOT_PATH . $this->getFileName())) {
-            1 => imagegif($gdImage, $newPath) && $this->newImageFluid($image),
-            2 => imagejpeg($gdImage, $newPath, 100) && $this->newImageFluid($image),
-            3 => imagepng($gdImage, $newPath, $image['format']->getQuality()) && $this->newImageFluid($image),
-            18 => imagewebp($gdImage, $newPath, $image['format']->getQuality()) && $this->newImageFluid($image),
+        return match ($this->imageType(self::ROOT_PATH . $this->getFileName())) {
+            1 => imagegif($gdImage, $newPath) ? $this->newImageFluid($image) : null,
+            2 => imagejpeg($gdImage, $newPath, 100) ? $this->newImageFluid($image) : null,
+            3 => imagepng($gdImage, $newPath, $image['format']->getQuality()) ? $this->newImageFluid($image) : null,
+            18 => imagewebp($gdImage, $newPath, $image['format']->getQuality()) ? $this->newImageFluid($image) : null,
         };
     }
 
@@ -125,7 +125,7 @@ class ResizeImage
     /**
      * @throws Exception
      */
-    public function newImageFluid(array $image): bool
+    public function newImageFluid(array $image): ImageFluid
     {
         $fluidImage = new ImageFluid();
         $fluidImage->setBaseImageName($image['baseImageName']);
@@ -136,7 +136,7 @@ class ResizeImage
         $fluidImage->setCreatedAt(new DateTimeImmutable('', new DateTimeZone('Europe/Paris')));
         $this->entityManager->persist($fluidImage);
         $this->entityManager->flush();
-        return true;
+        return $fluidImage;
     }
 
 

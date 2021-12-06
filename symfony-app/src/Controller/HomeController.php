@@ -25,7 +25,8 @@ class HomeController extends AbstractController
     #[Route('/test', name: 'test')]
     public function test(ResizeImage $resizeImage): Response
     {
-        $resizeImage->setFileName('61ac84d57b4ec_IMG_2372.jpeg');
+        $resizeImage->setFileName('61ada023d334f_Capture d’écran de 2021-08-05 10-43-30.png');
+        dd($resizeImage->resize());
         return $this->render('home/test.html.twig', [
             'controller_name' => 'DefaultController',
             'image' => $resizeImage->resize(),
