@@ -77,7 +77,6 @@ class Profile
     #[Ignore]
     private $user;
 
-
     public function getFullName(): string
     {
         return strtoupper($this->lastName) . ' ' . ucfirst($this->firstName);
@@ -96,10 +95,8 @@ class Profile
     public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
-
         return $this;
     }
-
 
     /**
      * @param File|null $imageFile
@@ -216,5 +213,4 @@ class Profile
 
         return $this;
     }
-
 }
