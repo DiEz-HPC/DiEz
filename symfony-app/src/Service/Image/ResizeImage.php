@@ -2,6 +2,7 @@
 
 namespace App\Service\Image;
 
+use App\Entity\FormatImageSize;
 use App\Entity\ImageFluid;
 use App\Repository\FormatImageSizeRepository;
 use DateTimeImmutable;
@@ -76,6 +77,19 @@ class ResizeImage
         }
     }
 
+    public function removeFluidsImage(): void
+    {
+        $images = $this->entityManager->getRepository(ImageFluid::class)->findBy([
+            'baseImageName' => $this->fileName,
+        ]);
+        foreach ($images as $image) {
+            $path = self::ROOT_PATH . self::IMAGE_PATH . $image->getImageName();
+            if (file_exists($path)) {
+                unlink($path);
+            }
+        }
+    }
+
     private function imageType($filename): int
     {
         return exif_imagetype($filename);
@@ -125,7 +139,7 @@ class ResizeImage
     /**
      * @throws Exception
      */
-    public function newImageFluid(array $image): ImageFluid
+    private function newImageFluid(array $image): ImageFluid
     {
         $fluidImage = new ImageFluid();
         $fluidImage->setBaseImageName($image['baseImageName']);

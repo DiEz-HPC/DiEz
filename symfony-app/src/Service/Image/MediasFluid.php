@@ -32,16 +32,34 @@ class MediasFluid implements ImageFluidInterface
 
     public function createImagesFluid(string $baseImageName): array
     {
-        $this->resizeImage->setFileName($baseImageName());
+        $this->resizeImage->setFileName($baseImageName);
         return $this->resizeImage->resize();
     }
 
     public function removeImagesFluid(string $baseImageName): void
     {
+        $this->resizeImage->setFileName($baseImageName);
+        $this->resizeImage->removeFluidsImage();
         foreach ($this->getImagesFluid($baseImageName) as $imageFluid) {
             $this->entityManager->remove($imageFluid);
         }
+    }
 
-        $this->imagesFluids =  [];
+    /**
+     * @return array
+     */
+    public function getImagesFluids(): array
+    {
+        return $this->imagesFluids;
+    }
+
+    /**
+     * @param array $imagesFluids
+     * @return MediasFluid
+     */
+    public function setImagesFluids(array $imagesFluids): MediasFluid
+    {
+        $this->imagesFluids = $imagesFluids;
+        return $this;
     }
 }

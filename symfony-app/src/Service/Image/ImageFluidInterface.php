@@ -8,5 +8,4 @@ interface ImageFluidInterface
     public function setImagesFluid(string $baseImageName): array;
     public function removeImagesFluid(string $baseImageName): void;
     public function createImagesFluid(string $baseImageName): array;
-
 }
