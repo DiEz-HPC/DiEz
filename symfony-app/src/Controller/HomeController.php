@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Service\ConfigurationTheme;
-use App\Service\Image\ResizeImage;
 use App\Service\VisitorCounterService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
