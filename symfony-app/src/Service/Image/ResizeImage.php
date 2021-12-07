@@ -20,6 +20,9 @@ class ResizeImage
         18 => ['.webp'],
     ];
 
+    private const QUALTIY_MIN_PNG = 9;
+    private const QUALTIY_MAX_JPEG = 100;
+
     private const ROOT_PATH = 'uploads/images/';
     private const IMAGE_PATH = 'fluid/';
     private string $fileName;
@@ -32,7 +35,7 @@ class ResizeImage
     }
 
 
-    public function resize(): bool|array
+    public function resize(): array|Exception
     {
         $imagesNames = [];
         $formats = $this->formatImageSizeRepository->findAll();
@@ -73,7 +76,7 @@ class ResizeImage
             }
             return $imagesNames;
         } catch (Exception $e) {
-            return false;
+            return $e;
         }
     }
 
@@ -117,9 +120,9 @@ class ResizeImage
         $image['path'] = $newPath;
         return match ($this->imageType(self::ROOT_PATH . $this->getFileName())) {
             1 => imagegif($gdImage, $newPath) ? $this->newImageFluid($image) : null,
-            2 => imagejpeg($gdImage, $newPath, 100) ? $this->newImageFluid($image) : null,
-            3 => imagepng($gdImage, $newPath, $image['format']->getQuality()) ? $this->newImageFluid($image) : null,
-            18 => imagewebp($gdImage, $newPath, $image['format']->getQuality()) ? $this->newImageFluid($image) : null,
+            2 => imagejpeg($gdImage, $newPath, $this->getQuality($image)) ? $this->newImageFluid($image) : null,
+            3 => imagepng($gdImage, $newPath, $this->getQuality($image)) ? $this->newImageFluid($image) : null,
+            18 => imagewebp($gdImage, $newPath, $this->getQuality($image)) ? $this->newImageFluid($image) : null,
         };
     }
 
@@ -151,6 +154,16 @@ class ResizeImage
         $this->entityManager->persist($fluidImage);
         $this->entityManager->flush();
         return $fluidImage;
+    }
+
+    private function getQuality(array $image): int
+    {
+        $type = $this->imageType(self::ROOT_PATH . $this->getFileName());
+        if ($type === 3) {
+            return intval(($image['format']->getQuality() * self::QUALTIY_MIN_PNG) / self::QUALTIY_MAX_JPEG);
+        }
+
+        return $image['quality']->getQuality();
     }
 
 
