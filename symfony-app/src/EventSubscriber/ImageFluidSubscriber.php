@@ -2,6 +2,7 @@
 
 namespace App\EventSubscriber;
 
+use App\Entity\ImageFluid;
 use App\Service\Image\ImageFluidInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityPersistedEvent;
 use EasyCorp\Bundle\EasyAdminBundle\Event\BeforeEntityDeletedEvent;
@@ -18,7 +19,7 @@ class ImageFluidSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
 
-        if ($entity->getImageName()) {
+        if ( $entity->getImageName()) {
             $this->imageFluid->setImagesFluid($entity->getImageName());
         }
     }
@@ -26,7 +27,7 @@ class ImageFluidSubscriber implements EventSubscriberInterface
     public function onBeforeEntityUpdatedEvent(BeforeEntityUpdatedEvent $event)
     {
         $entity = $event->getEntityInstance();
-        if ($entity->getImageName()) {
+        if ( $entity->getImageName()) {
             $this->imageFluid->removeImagesFluid($entity->getImageName());
         }
     }
@@ -35,7 +36,7 @@ class ImageFluidSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
 
-        if ($entity->getImageName()) {
+        if (($entity instanceof ImageFluid) && $entity->getImageName()) {
             $this->imageFluid->setImagesFluid($entity->getImageName());
         }
     }
@@ -44,7 +45,7 @@ class ImageFluidSubscriber implements EventSubscriberInterface
     {
         $entity = $event->getEntityInstance();
 
-        if ($entity->getImageName()) {
+         if (($entity instanceof ImageFluid) && $entity->getImageName()) {
             $this->imageFluid->removeImagesFluid($entity->getImageName());
         }
     }
