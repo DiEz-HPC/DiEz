@@ -13,13 +13,13 @@ use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityUpdatedEvent;
 class ImageFluidSubscriber implements EventSubscriberInterface
 {
     public function __construct(private ImageFluidInterface $imageFluid)
-    {}
+    {
+    }
 
     public function onAfterEntityUpdatedEvent(AfterEntityUpdatedEvent $event)
     {
         $entity = $event->getEntityInstance();
-
-        if ( $entity->getImageName()) {
+        if (property_exists($entity, 'imageName') && $entity->getImageName()) {
             $this->imageFluid->setImagesFluid($entity->getImageName());
         }
     }
@@ -27,7 +27,7 @@ class ImageFluidSubscriber implements EventSubscriberInterface
     public function onBeforeEntityUpdatedEvent(BeforeEntityUpdatedEvent $event)
     {
         $entity = $event->getEntityInstance();
-        if ( $entity->getImageName()) {
+        if (property_exists($entity, 'imageName') && $entity->getImageName()) {
             $this->imageFluid->removeImagesFluid($entity->getImageName());
         }
     }
@@ -35,8 +35,7 @@ class ImageFluidSubscriber implements EventSubscriberInterface
     public function onAfterEntityPersistedEvent(AfterEntityPersistedEvent $event)
     {
         $entity = $event->getEntityInstance();
-
-        if (($entity instanceof ImageFluid) && $entity->getImageName()) {
+        if (property_exists($entity, 'imageName') && $entity->getImageName()) {
             $this->imageFluid->setImagesFluid($entity->getImageName());
         }
     }
@@ -44,8 +43,7 @@ class ImageFluidSubscriber implements EventSubscriberInterface
     public function onBeforeEntityDeletedEvent(BeforeEntityDeletedEvent $event)
     {
         $entity = $event->getEntityInstance();
-
-         if (($entity instanceof ImageFluid) && $entity->getImageName()) {
+        if (property_exists($entity, 'imageName') && $entity->getImageName()) {
             $this->imageFluid->removeImagesFluid($entity->getImageName());
         }
     }
