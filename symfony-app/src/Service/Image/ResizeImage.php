@@ -162,8 +162,7 @@ class ResizeImage
         if ($type === 3) {
             return intval(($image['format']->getQuality() * self::QUALTIY_MIN_PNG) / self::QUALTIY_MAX_JPEG);
         }
-
-        return $image['quality']->getQuality();
+        return $image['format']->getQuality();
     }
 
 
