@@ -1,56 +1,51 @@
-# CaproverSymfony
+# DiEz - DevItEasy
 
-## 1/ Se rendre sur le vps et installer via docker
-`docker run -p 80:80 -p 443:443 -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock -v /captain:/captain caprover/caprover`
+Welcome to ***DiEz web Site***
+This project aims to pass our diploma in Web and Mobile Web Developer.
 
-Ceci installera caprover et sera directement accessible à 
+It will also be used for our business creation project.
 
-http://[IP_OF_YOUR_SERVER]:3000
+We are 3 developers driven by the same idea of creation.
 
-Le mot de passe par défaut est *captain42*
+We aim to create tools for our clients ranging from a script to a full website.
 
-## 2/ Créer un wildcard 
+We are specialized in php / symfony development but also use the JS language (Vanilla / React / ...)
 
-Sur un nom de domaine afin de permettre à caprover de générer des sous domaines à la volée pour créer les applications par exemple : votreapplication.votreNDD.fr, phpmyadmin.votreNDD.fr, etc)
+## Configuration & Dependencies:
 
-## 3/ Créer les apps.
-
-Aller dans le menu Apps et créez ces Apps (et autres si besoin) :
-
-(one click app) mysql
-(one click app) phpmyadmin
-Votre application symfony
+### 1) Configuration:
+1) [x] PHP >= 8.0
+2) [x] mysql >= 8.0
+3) [x] Symfony >= 5.3
+4) [x] Node >= 12.21
 
 
-## 4/ Configurez votre app symfony depuis l’interface caprover
+### 2) FrontEnd:
+1) [x] Webpack
+2) [x] ReactJs
+3) [x] Sass
+4) [x] Bootstrap 5 React
+5) [x] Font Awesome React
 
-### onglet App configs
 
-Indiquez les variables globales
+### 3) BackEnd:
+1) [x] VichUpload
+2) [x] EasyAdmin 3
+3) [x] Doctrine Fixtures
 
-APP_ENV : prod
-
-DATABASE_URL : mysql://db_user:db_password@127.0.0.1:3306/db_name
-
-### onglet Deployment
-
-Indiquez le repo github ainsi que la branche pour le déploiement automatique
-
-Puis allez dans les webhooks de votre repo github pour copier coller l’url fourni dans le premier champ par caprover
-
-## Pour se connecter en ssh
-
-Il faudra automatiser lors du déploiement les migrations. Pour l'instant, se connecter en ssh pour accéder à bin/console
-Exemple :
-
-`ssh root@vps734968.ovh.net`
-
-Puis entrer dans le container docker avec cette commande : (remplacez par le nom de votre application)
-
-`docker exec -it $(docker ps --filter name=srv-captain--poc-symfony -q) /bin/sh`
-
-Ou si comme moi vous préférez le bash que le shell :
-
-`docker exec -it $(docker ps --filter name=srv-captain--poc-symfony -q) /bin/bash`
-
-Si vous testez ce POC, sachez que cette application n'a qu'une seule route de controller : /home
+## For Dev:
+```
+   - Run composer install
+   - Run npm install
+   - Configure your .env and your DSN
+   - Create your database with :
+         A) symfony console d:d:c 
+         or 
+         B) php bin/console d:d:c
+   - Generate Fixtures with :
+         A) symfony console d:f:l 
+         or 
+         B) php bin/console d:f:l 
+   - Launch your server php with symfony serve
+   - Compile your css with npm run watch or dev-server 
+```

@@ -25,9 +25,14 @@ function CarouselProjects() {
         await setProject(projects[0])
     }, [projects])
 
-    const [image, setImage] = useState(['test.jpg']);
+    const [image, setImage] = useState();
     useEffect(() => {
         setImage(project?.imageName)
+    }, [project])
+
+    const [imageMobile, setImageMobile] = useState();
+    useEffect(() => {
+        setImageMobile(project?.imageNameMobile)
     }, [project])
 
     const [paginate, setPaginate] = useState(0)
@@ -61,7 +66,7 @@ function CarouselProjects() {
                         <MacbookPro image={imageUploadUrl(image)} alt={`${project?.name} sur pc`} scale={100}/>
                     </div>
                     <div className="element2">
-                        <IphoneX image={imageUploadUrl(image)} alt={`${project?.name} sur mobile`} scale={100}/>
+                        <IphoneX image={imageUploadUrl(imageMobile)} alt={`${project?.name} sur mobile`} scale={100}/>
                     </div>
                 </div>
             </div>

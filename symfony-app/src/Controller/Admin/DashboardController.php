@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Client;
 use App\Entity\ContactMessage;
+use App\Entity\FormatImageSize;
 use App\Entity\Post;
 use App\Entity\Social;
 use App\Entity\Testimony;
@@ -79,6 +80,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::subMenu('Médias', 'fas fa-photo-video')
             ->setSubItems([
                 MenuItem::linkToCrud('Themes', 'fas fa-palette', Theme::class),
+                MenuItem::linkToCrud('Formats d\'images', 'fas fa-images', FormatImageSize::class),
             ]);
     }
 

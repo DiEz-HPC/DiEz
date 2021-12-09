@@ -3,13 +3,31 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width,initial-scale=1"/>
-        <meta name="description" content="L'agence web Dev It Easy vous accompagne pour vos projets web ! Création de site web et Ecommerce, Développement Web, Web Design, Optimisation SEO, Référencements, Identité numérique.">
+        <!-- Primary Meta Tags -->
         <title>
             {% block title %}Dev It Easy
             {% endblock %}
         </title>
+        <meta name="title" content="Dev It Easy">
+        <meta name="description" content="L'agence web Dev It Easy vous accompagne pour vos projets web ! Création de site web et Ecommerce, Développement Web, Web Design, Optimisation SEO, Référencements, Identité numérique.">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://deviteasy.fr/">
+        <meta property="og:title" content="Dev It Easy">
+        <meta property="og:description" content="L'agence web Dev It Easy vous accompagne pour vos projets web ! Création de site web et Ecommerce, Développement Web, Web Design, Optimisation SEO, Référencements, Identité numérique.">
+        <meta
+        property="og:image" content="">
+
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image">
+        <meta property="twitter:url" content="https://deviteasy.fr/">
+        <meta property="twitter:title" content="Dev It Easy">
+        <meta property="twitter:description" content="L'agence web Dev It Easy vous accompagne pour vos projets web ! Création de site web et Ecommerce, Développement Web, Web Design, Optimisation SEO, Référencements, Identité numérique.">
+        <meta property="twitter:image" content="">
+
         <link rel="icon" type="image/png" href="{{ asset('icons/favicon.ico') }}"/>
-        <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/theme.css') }}" type="text/css"/>
         {% block javascripts %}
 
             {{ encore_entry_script_tags('index') }}
