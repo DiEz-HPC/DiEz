@@ -21,19 +21,13 @@ export default function Layout({ children }) {
   }, [])
 
   return (
-    <motion.div
-    variants={variants} // Pass the variant object into Framer Motion 
-    initial="hidden" // Set the initial state to variants.hidden
-    animate="enter" // Animated state to variants.enter
-    exit="exit" // Exit state to variants.exit
-    transition={{ type: 'ease-in' }} // Set the transition to linear
-    >
+<>
       <Cursor />
       <Navbar socials={socials} />
       <Social socials={socials} />
       <ScrollUp />
       <div>{children}</div>
       <Footer />
-    </motion.div>
+</>
   )
 }
