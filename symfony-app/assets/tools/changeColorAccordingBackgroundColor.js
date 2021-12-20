@@ -8,18 +8,22 @@ function changeColorAccordingBackgroundColor(
   const allElements = [...document.getElementById(body).querySelectorAll("*")];
   const positionElement = elementChange.getBoundingClientRect();
   let colors = [];
-  allElements
-    .filter(
+
+  // On filtre les éléments
+  allElements.filter(
       (element) =>
+      // On vérifie que l'élément actuel n'est pas l'élément a changer.
         element !== elementChange &&
+        // On vérifie que l'élément actuel n'est pas dans la liste des éléments à ne pas changer.
         !notElements.includes(element) &&
+        // On vérifie que l'élément actuel est dans la zone de l'élément à changer.
         positionElement.top >= element.getBoundingClientRect().top &&
         positionElement.top <=
           element.getBoundingClientRect().top +
             element.getBoundingClientRect().height &&
         positionElement.width >= element.getBoundingClientRect().left &&
         positionElement.width <=
-          element.getBoundingClientRect().left +
+          element.getBoundingClientRect().left + 
             element.getBoundingClientRect().width
     )
     .map((element) => {

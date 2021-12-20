@@ -2,9 +2,9 @@ import React, { Suspense } from 'react'
 import wave from '../../images/wave.svg'
 import '../../styles/home.scss'
 import pcFirst from '../../images/pc_first.webp'
+import Layout from '../components/Layout/Layout'
 
 function Home() {
-  const Layout = React.lazy(() => import('../components/Layout/Layout'))
   const Description = React.lazy(() =>
     import('../components/description/Description'),
   )
