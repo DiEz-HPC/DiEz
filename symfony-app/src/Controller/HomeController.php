@@ -26,7 +26,6 @@ class HomeController extends AbstractController
             header('X-Download-Options: noopen');
             header('X-Permitted-Cross-Domain-Policies: none');
             header('X-DNS-Prefetch-Control: off');
-            header('X-Robots-Tag: none');
         }
         return $this->render('home/index.html.twig', [
             'controller_name' => 'DefaultController',
