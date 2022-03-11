@@ -15,9 +15,11 @@ class ContactMessageSubscriber implements EventSubscriberInterface
 
     public function postPersist(LifecycleEventArgs $args)
     {
+        // On récupère l'entité qui vient d'être persistée
         $entity = $args->getEntity();
-
+        // On vérifie que l'entité est bien un ContactMessage
         if ($entity instanceof ContactMessage) {
+            // On envoi l'email
             $this->sendMail->onNewMessage($entity);
         }
     }
