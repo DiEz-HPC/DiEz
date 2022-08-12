@@ -1,0 +1,36 @@
+<!-- Modal -->
+<div class="modal fade" id="calendarmodal" tabindex="-1" aria-labelledby="CalendarModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="CalendarModal">Ajouter un évènement</h5>
+            </div>
+            <div class="modal-body">
+                <form name="save-event" method="post">
+                    <div class="form-group">
+                        <label>Titre</label>
+                        <input type="text" id="evtTitle" name="title" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Date de début</label>
+                        <input type="datetime-local" id="evtStart" name="evtStart" class="form-control col-xs-3"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Date de fin</label>
+                        <input type="datetime-local" id="evtEnd" name="evtEnd" class="form-control col-xs-3"/>
+                    </div>
+
+                    <div class="form-group d-flex justify-content-around align-items-center">
+                        <div class="form-color">
+                            <input type="color" class="form-control form-control-color" id="evtColor" value="#563d7c" title="Choississez votre couleur">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="calendarModalCloseButton" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" id="calendarModalSaveButton" class="btn btn-primary">Sauvegarder</button>
+            </div>
+        </div>
+    </div>
+</div>
