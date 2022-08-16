@@ -131,7 +131,7 @@ function HandleEventMouseLeave() {
     while (deleteButton.length > 0) deleteButton[0].remove();
 }
 
-function EditEvent(info) {
+async function EditEvent(info) {
     var start = info.event.start;
     var end = info.event.end;
     var title = info.event.title;
@@ -147,14 +147,13 @@ function EditEvent(info) {
         end: end,
         color: color,
     };
-
-    axios.post('/admin/service/calendarEdit', data);
+    await axios.post('/admin/service/calendarEdit', data);
 }
 
-function SaveNewEvent(eventData) {
-    axios.post('/admin/service/calendarAdd', eventData);
+async function SaveNewEvent(eventData) {
+    await axios.post('/admin/service/calendarAdd', eventData);
 }
 
-function DeleteEvent(eventId) {
-    axios.post('/admin/service/calendarDelete', eventId);
+async function DeleteEvent(eventId) {
+    await axios.post('/admin/service/calendarDelete', eventId);
 }
