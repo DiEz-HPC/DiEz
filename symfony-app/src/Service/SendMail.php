@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Entity\ContactMessage;
+use App\Interface\ContactMessageInterface;
 use App\Repository\UserRepository;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
@@ -15,7 +16,7 @@ class SendMail
     {
     }
 
-    public function onNewMessage(ContactMessage $message)
+    public function onNewMessage(ContactMessageInterface $message, Bool $isCalendar = false )
     {
         // On récupère tout les utilisateurs
         $users = $this->userRepository->findAll();
@@ -37,7 +38,7 @@ class SendMail
             // Adresse de réception
             ->to(...$userEmails)
             // Objet du mail
-            ->subject('Nouveau message de contact')
+            ->subject( $isCalendar ? 'Nouvel évènement' : 'Nouveau message de contact')
             // Template du mail
             ->htmlTemplate('mail/mail.html.twig')
             // Variables du template
@@ -45,6 +46,7 @@ class SendMail
                 'userName' => $userName,
                 'userEmail' => $userEmail,
                 'message' => $message, 
+                'isCalendar' => $isCalendar,
             ]);
         // Envoie du mail
                 $this->mailer->send($mail);
