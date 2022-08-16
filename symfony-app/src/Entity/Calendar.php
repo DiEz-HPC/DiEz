@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
+use App\Interface\ContactMessageInterface;
 use App\Repository\CalendarRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass=CalendarRepository::class)
  */
-class Calendar
+class Calendar implements ContactMessageInterface
 {
     /**
      * @ORM\Id
@@ -88,5 +90,20 @@ class Calendar
         $this->color = $color;
 
         return $this;
+    }
+    // Needed to work with interface ContactMessageInterface
+    public function getNom(): ?string
+    {
+        return $this->title;
+    }
+
+    public function getEmail(): ?string
+    {
+        return 'contact@deviteasy.fr';
+    }
+
+    public function getMessage(): ?string
+    {
+       return ' Nouvel évènement ' . $this->title . ' du ' . date_format(New DateTime($this->start), "d/m/Y H:i") . ' au ' . date_format(New DateTime($this->end), "d/m/Y H:i");
     }
 }
