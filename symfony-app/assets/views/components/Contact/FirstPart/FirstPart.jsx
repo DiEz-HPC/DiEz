@@ -17,7 +17,7 @@ function FirstPart() {
                             className="contact-describe text-center mx-auto mx-md-1 mt-2 p-4 col-12 col-md-5 col-xl-10 text-md-start" data-aos="fade-right">
                             <h3 className="my-2">Nous concernant</h3>
                             <p>
-                                <span className={'highlight'}>DevItEasy</span> est une équipe composée de trois <span className={'highlight'}>développeurs passionnés</span> en nouvelles
+                                <span className={'highlight'}>Deviteasy</span> est une équipe composée de trois <span className={'highlight'}>développeurs passionnés</span> par les nouvelles
                                 technologies.
                                 <br/>
                                 Nous sommes à votre entière disposition pour discuter de vos différents projets.
