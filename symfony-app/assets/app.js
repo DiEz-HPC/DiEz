@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import './styles/app.scss';
 import './bootstrap';
 import Home from './views/pages/Home';
@@ -11,6 +11,7 @@ import NotFound from './views/pages/404';
 import SingleBlog from './views/pages/SingleBlog';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Mention from "./views/pages/Mention";
 
 require('../assets/tools/onLoad.js');
 require('@fortawesome/fontawesome-free/css/all.min.css');
@@ -40,6 +41,7 @@ export default function App() {
                     <Route exact path={'/blog'} component={Blog} />
                     <Route exact path={'/blog/*'} component={SingleBlog} />
                     <Route exact path={'/contact'} component={Contact} />
+                    <Route exact path={'/mentions-legales'} component={Mention}/>
                     <Route path="*" component={NotFound} />
                 </Switch>
             </AnimatePresence>
