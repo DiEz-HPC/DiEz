@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import mail from "../../../../images/mail.webp";
+import mail from "../../../../images/mail.svg";
 import Dot from "../../dot/Dot";
 import "./SecondPart.scss";
 
@@ -66,7 +66,7 @@ function SecondPart() {
         <Dot color="#56C6FF" />
       </h2>
       <div className="d-flex flex-column col-12 flex-md-row justify-content-center justify-content-md-start justify-content-xl-center align-items-center mb-5 mx-md-auto my-4">
-        <div className="d-flex justify-content-center justify-content-xl-start col-12 col-md-6 col-xl-3 mb-5" data-aos="fade-up">
+        <div className="d-flex justify-content-center justify-content-xl-start col-12 col-md-6 col-xl-3 mb-5 mt-2 me-xl-5" data-aos="fade-up">
           <img className="w-75 opacity-75" src={mail} alt="mail" loading="lazy"/>
         </div>
 

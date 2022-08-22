@@ -33,7 +33,7 @@ function Home() {
             </div>
           </section>
           <section className={'carousel-projects'}>
-            <div classname={'waveBox'}>
+            <div className={'waveBox'}>
               <img id={'wave'} className={'wave'} src={wave} alt="wave" />
             </div>
             <CarouselProjects />
