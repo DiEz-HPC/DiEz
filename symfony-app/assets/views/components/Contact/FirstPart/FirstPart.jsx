@@ -1,5 +1,5 @@
 import React from "react";
-import support from "../../../../images/support.webp";
+import support from "../../../../images/support.svg";
 import "./FirstPart.scss";
 import Dot from "../../dot/Dot";
 
