@@ -77,7 +77,7 @@ class ProjectCrudController extends AbstractCrudController
                 ->setTextAlign('center')
                 ->setBasePath('/uploads/images/')
                 ->onlyOnIndex(),
-            UrlField::new(propertyName: 'url', label: 'Lien site en prod',)
+            UrlField::new(propertyName: 'link', label: 'Lien site en prod',)
                 ->setTextAlign('center'),
             BooleanField::new(propertyName: 'homeVisible', label: 'Affichage'),
         ];

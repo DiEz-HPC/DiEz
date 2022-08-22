@@ -1,7 +1,6 @@
 @import 'variables';
 //@import '~bootstrap/scss/bootstrap';
 
-
 :root {
     --color-primary: #56c6ff; // set primary variables
 }
@@ -29,5 +28,8 @@ body {
                     brightness(130%);
             }
         }
+    }
+    #calendarmodal{
+        background-color: rgba(51, 51, 51, 0.8);
     }
 }

@@ -2,23 +2,26 @@
 {% block page_title %}
     <div class="text-center mb-4">
         Salut
-        {{ app.user.profile.firstname ?? 'Employé' }} !
+        {{ app.user.profile.firstname ?? 'Employé' }}
+        !
     </div>
 {% endblock %}
 
 {% block head_javascript %}
     {{ parent() }}
 
-    {{ encore_entry_script_tags('initChart') }}
+    {{ encore_entry_script_tags('initCalendar') }}
+{% endblock %}
+{% block head_stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('calendarStyle') }}
 {% endblock %}
 
 {% block main %}
     <div class="row w-100">
-        <div class="col-md-5 h-100 m-auto">
-            {{ render_chart(chart1) }}
-        </div>
+        <div id="calendar"></div>
+        {% include "includes/modalCalendar.html.twig" %}
     </div>
-
     <div class="row my-5">
         <h2 class="text-center mb-4">Les derniers messages</h2>
         {% for message in messages %}
@@ -61,4 +64,4 @@
             </div>
         {% endfor %}
     </div>
-    {% endblock %}
+{% endblock %}

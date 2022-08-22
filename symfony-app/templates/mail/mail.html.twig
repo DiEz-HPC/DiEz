@@ -175,7 +175,7 @@
                                                                     <p style="font-size: 14px; line-height: 130%;">
                                                                         <strong>
                                                                             <span style="font-size: 48px; line-height: 62.4px; font-family: helvetica, sans-serif; color: #ffffff;">
-                                                                                Vous avez un nouveau message !</span>
+                                                                                 {{ isCalendar ? 'Nouvel évènement' : "Vous avez un nouveau message"}} !</span>
                                                                         </strong>
                                                                     </p>
                                                                 </div>
@@ -261,7 +261,7 @@
                                                                 <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
                                                                     <ul style="list-style-type: circle;">
                                                                         <li style="font-size: 14px; line-height: 19.6px;">
-                                                                            <span style="color: #292929; font-size: 16px; line-height: 22.4px;">Nom de l'expéditeur :
+                                                                            <span style="color: #292929; font-size: 16px; line-height: 22.4px;">Nom de {{ isCalendar ? 'L\'évènement' : "l'expéditeur"}} :
                                                                             {{ userName }}</span>
                                                                         </li>
                                                                     </ul>
