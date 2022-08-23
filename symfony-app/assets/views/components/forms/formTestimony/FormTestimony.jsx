@@ -121,15 +121,15 @@ function FormTestimony(props) {
                     />
                     {errors?.comment ? alertErrors(errors.comment) : ''}
                 </div>
-                <div class="form-check">
+                <div className="form-check">
                     <input
-                        class="form-check-input"
+                        className="form-check-input"
                         type="checkbox"
                         value=""
                         id="flexCheckChecked"
                         required
                     />
-                    <label class="form-check-label" for="flexCheckChecked">
+                    <label className="form-check-label" htmlFor="flexCheckChecked">
                         {' '}
                         En soumettant ce formulaire, j'accepte que mes données
                         soient stockées sur les serveurs appartenant à
