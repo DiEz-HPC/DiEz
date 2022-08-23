@@ -26,3 +26,11 @@
     opacity: 1;
     margin: 50px 10%
 }
+
+.form-check-input:checked{
+    background-color: var(--primaryColor);
+    border-color: var(--primaryColor);
+}
+.form-check-label.cookieConsent{
+    font-size: xx-small;
+}

@@ -15,9 +15,9 @@ function ThirdPart() {
     <div className="thirdPart">
       <div className="inner-container row d-flex justify-content-evenly" data-aos="fade-up">
         <div className="device-div col-md-4 row">
-          <Macbook image={ComputerPic} scale="90" alt="MacBook" />
-          <Ipad picture={TabletPic} scale="90" alt="ipad" />
-          <IphoneX image={PhonePic} scale="90" alt="iphoneX" />
+          <Macbook image={ComputerPic} scale={90} alt="MacBook" />
+          <Ipad picture={TabletPic} scale={90} alt="ipad" />
+          <IphoneX image={PhonePic} scale={90} alt="iphoneX" />
         </div>
         <div className="text-div col-12 col-md-4" data-aos="fade-up">
           <h2 className="text-start">
