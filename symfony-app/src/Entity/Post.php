@@ -144,6 +144,18 @@ class Post
         return $this;
     }
 
+    /**
+     * @param File|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new DateTimeImmutable();
+        }
+    }
+
     public function getImageFile(): ?File
     {
         return $this->imageFile;
