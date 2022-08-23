@@ -64,9 +64,9 @@ function Mention() {
                         <li>
                             <h5>Pinguet Loïc</h5>
                             <p>
-                                Numéro de SIRET : XXX
+                                Numéro de SIRET : 91176794500015
                                 <br/>
-                                XXX
+                                3 rue du grand clos 45170 Chilleurs-aux-Bois
                                 <br/>
                                 Téléphone: 0766886671
                                 <br/>
