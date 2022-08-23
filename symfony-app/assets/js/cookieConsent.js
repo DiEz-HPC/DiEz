@@ -25,6 +25,7 @@ export default function cookieConsentButton() {
     );
     var cookieConsentMore = document.getElementById('cookieConsentButtonMore');
     var cookieConsentDeny = document.getElementById('cookieConsentButtonDeny');
+    localStorage.clear();
     if (getWithExpiry('cookieConsent') === null ) {
         cookieConsent.style.display = 'block';
         cookieConsentAccept.addEventListener('click', () => {
