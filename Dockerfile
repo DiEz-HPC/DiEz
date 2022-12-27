@@ -53,7 +53,10 @@ RUN docker-php-ext-install -j$(nproc) intl
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install --no-dev --no-interaction -o --no-scripts
+RUN composer install --no-dev --no-interaction -o --no-scripts --optimize-autoloader
+RUN npm install && npm run build
+# Copy the build files to the public folder
+COPY ./symfony-app/public/build /var/www/public/build
 # Add user for laravel application
 #RUN groupadd -g 1000 www
 #RUN useradd -u 1000 -ms /bin/bash -g www www
