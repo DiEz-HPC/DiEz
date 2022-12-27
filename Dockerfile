@@ -60,7 +60,7 @@ ENV NODE_VERSION 14.15
 
 # Install nvm with node and npm
 RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
-    && . $NVM_DIR/nvm.sh \
+    && . ~/.bashrc \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
     && nvm use default
