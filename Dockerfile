@@ -71,7 +71,7 @@ RUN . $NVM_DIR/nvm.sh \
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 
-RUN . /root/.bashrc
+RUN source ~/.bashrc
 
 RUN npm install && npm run build
 # Add user for laravel application
