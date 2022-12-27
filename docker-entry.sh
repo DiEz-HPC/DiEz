@@ -1,5 +1,5 @@
 
-#!/bin/sh
+#!/bin/bash
 
 composer install
 
