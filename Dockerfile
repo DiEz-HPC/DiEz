@@ -1,4 +1,5 @@
 FROM php:8.0.13-fpm
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
 # Copy composer.lock and composer.json
 COPY ./symfony-app/composer.lock ./symfony-app/composer.json /var/www/
@@ -54,7 +55,18 @@ RUN docker-php-ext-install -j$(nproc) intl
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-dev --no-interaction -o --no-scripts --optimize-autoloader
-RUN npm install && npm run build
+ENV NVM_DIR ~/.nvm
+ENV NODE_VERSION 14.15
+
+# Install nvm with node and npm
+RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
+
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
 # Copy the build files to the public folder
 COPY ./symfony-app/public/build /var/www/public/build
 # Add user for laravel application
