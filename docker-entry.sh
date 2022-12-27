@@ -3,7 +3,7 @@
 
 composer install
 
-apt update -y && apt upgrade -y && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && nvm install 14.15 && nvm use 14.15 && npm install -y
+apt update -y && apt upgrade -y && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && source ~/.bashrc && nvm install 14.15 && nvm use 14.15 && npm install -y
 npm run build
 
 
