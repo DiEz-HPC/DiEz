@@ -1,5 +1,6 @@
 FROM php:8.0.13-fpm
 
+ENV PATH="/usr/local/npm/bin:${PATH}"
 # Copy composer.lock and composer.json
 COPY ./symfony-app/composer.lock ./symfony-app/composer.json /var/www/
 COPY docker-entry.sh /var/www/
