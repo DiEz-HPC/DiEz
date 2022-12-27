@@ -94,7 +94,7 @@ ENV NVM_DIR /root/.nvm
 RUN . $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
-    && nvm use default &&  npm install -f && npm run build
+    && nvm use default && npm install @symfony/stimulus-testing -f && npm install -f && npm run build
 
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
