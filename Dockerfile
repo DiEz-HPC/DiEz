@@ -62,7 +62,7 @@ ENV NODE_VERSION 14.15
 RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash 
 
 ENV NVM_DIR /root/.nvm
-RUN . /root/.bashrc
+
 RUN . $NVM_DIR/nvm.sh \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
@@ -70,6 +70,8 @@ RUN . $NVM_DIR/nvm.sh \
 
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
+
+RUN . /root/.bashrc
 
 RUN npm install && npm run build
 # Add user for laravel application
