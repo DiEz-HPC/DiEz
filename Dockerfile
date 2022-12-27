@@ -81,25 +81,6 @@ RUN mkdir -p /etc/nginx/sites-enabled
 
 RUN chmod -R 777 /var/www/public
 
-WORKDIR /var/www
-
-
-ENV NODE_VERSION 14.15
-
-# Install nvm with node and npm
-RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash 
-
-ENV NVM_DIR /root/.nvm
-
-RUN . $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default && npm install --force && npm run build --force
-
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
-
-RUN source ~/.bashrc
 
 #RUN php bin/console cache:clear (don t do it with a symfony app because composer.json script post install and update do it)
 
