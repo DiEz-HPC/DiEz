@@ -56,23 +56,6 @@ RUN docker-php-ext-install -j$(nproc) intl
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-dev --no-interaction -o --no-scripts --optimize-autoloader
 
-ENV NODE_VERSION 14.15
-
-# Install nvm with node and npm
-RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash 
-
-ENV NVM_DIR /root/.nvm
-
-RUN . $NVM_DIR/nvm.sh \
-    && nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default && npm install && npm run build
-
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
-
-RUN source ~/.bashrc
-
 # Add user for laravel application
 #RUN groupadd -g 1000 www
 #RUN useradd -u 1000 -ms /bin/bash -g www www
@@ -97,6 +80,26 @@ RUN rm -rf /etc/nginx/sites-enabled
 RUN mkdir -p /etc/nginx/sites-enabled
 
 RUN chmod -R 777 /var/www/public
+
+WORKDIR /var/www
+
+
+ENV NODE_VERSION 14.15
+
+# Install nvm with node and npm
+RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash 
+
+ENV NVM_DIR /root/.nvm
+
+RUN . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default && npm install && npm run build
+
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
+
+RUN source ~/.bashrc
 
 #RUN php bin/console cache:clear (don t do it with a symfony app because composer.json script post install and update do it)
 
