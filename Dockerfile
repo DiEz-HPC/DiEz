@@ -54,7 +54,7 @@ RUN docker-php-ext-install -j$(nproc) intl
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer install --no-dev --no-interaction -o --no-scripts --optimize-autoloader
+RUN composer install --no-dev --no-interaction -o --no-scripts
 
 # Add user for laravel application
 #RUN groupadd -g 1000 www
