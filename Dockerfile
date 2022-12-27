@@ -55,7 +55,7 @@ RUN docker-php-ext-install -j$(nproc) intl
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-dev --no-interaction -o --no-scripts --optimize-autoloader
-ENV NVM_DIR ~/.nvm
+ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 14.15
 
 # Install nvm with node and npm
