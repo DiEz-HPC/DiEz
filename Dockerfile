@@ -70,8 +70,8 @@ RUN . $NVM_DIR/nvm.sh \
 
 ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
 ENV PATH      $NVM_DIR/v$NODE_VERSION/bin:$PATH
-# Copy the build files to the public folder
-COPY ./symfony-app/public/build /var/www/public/build
+
+RUN npm install && npm run build
 # Add user for laravel application
 #RUN groupadd -g 1000 www
 #RUN useradd -u 1000 -ms /bin/bash -g www www
