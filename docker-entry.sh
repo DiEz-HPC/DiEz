@@ -1,9 +1,10 @@
 
-#!/bin/sh
+#!/bin/bash
 
-composer install
-apt update -y && apt upgrade -y && apt install npm -y && npm install -y
-npm run build
+#composer install
+
+#apt update -y && apt upgrade -y && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash && . ~/.bashrc && nvm install 14.15 && nvm use 14.15 && npm install -y
+#npm run build
 
 
 ## Symfony configuration
