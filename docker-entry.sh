@@ -21,6 +21,10 @@ php bin/console assets:install public
 php bin/console cache:clear
 php bin/console cache:warmup
 
+
+chmod -R 777 var
+chmod -R 777 public
+
 ## server config
 php-fpm &
 nginx -g "daemon off;"
