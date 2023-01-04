@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
-use Vich\UploaderBundle\Entity\File;
+use Symfony\Component\HttpFoundation\File\File;
 use App\Repository\TemplateRepository;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -46,6 +46,32 @@ class Template
      * @var File|null
      */
     private $templateFile;
+
+    /**
+     * @ORM\Column(type="string", length=255,nullable=true)
+     */
+    private $templateScreenshot;
+
+    /**
+     * @Vich\UploadableField(mapping="uploaded_image", fileNameProperty="templateScreenshot")
+     * @var File|null
+     */
+    private $templateScreenshotFile;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $templateType;
+    
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $templateDescription;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -90,7 +116,7 @@ class Template
     }
 
     /**
-     * @param File|null $imageFile
+     * @param File|null $templateFile
      */
     public function setTemplateFile(?File $templateFile = null): void
     {
@@ -114,6 +140,60 @@ class Template
     public function setUpdatedAt(?\DateTimeImmutable $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+
+    public function getTemplateScreenshot(): ?string
+    {
+        return $this->templateScreenshot;
+    }
+
+    public function setTemplateScreenshot(?string $templateScreenshot): ?self
+    {
+        $this->templateScreenshot = $templateScreenshot;
+
+        return $this;
+    }
+
+     /**
+     * @param File|null $templateScreenshotFile
+     */
+    public function setTemplateScreenshotFile(?File $templateScreenshotFile = null): void
+    {
+        $this->templateScreenshotFile = $templateScreenshotFile;
+
+        if (null !== $templateScreenshotFile) {
+            $this->updatedAt = new DateTimeImmutable();
+        }
+    }
+
+    public function getTemplateScreenshotFile(): ?File
+    {
+        return $this->templateScreenshotFile;
+    }
+
+    public function getTemplateType(): ?string
+    {
+        return $this->templateType;
+    }
+
+    public function setTemplateType(?string $templateType): ?self
+    {
+        $this->templateType = $templateType;
+
+        return $this;
+    }
+
+    public function getTemplateDescription(): ?string
+    {
+        return $this->templateDescription;
+    }
+
+    public function setTemplateDescription(?string $templateDescription): ?self
+    {
+        $this->templateDescription = $templateDescription;
 
         return $this;
     }
