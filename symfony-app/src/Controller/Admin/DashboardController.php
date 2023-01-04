@@ -78,7 +78,7 @@ class DashboardController extends AbstractDashboardController
                 MenuItem::linkToRoute('Charger les projets', 'fas fa-sync', 'admin_service_github')
             ]);
         yield MenuItem::linkToCrud('Les actus', 'fas fa-newspaper', Post::class);
-        yield MenuItem::linkToCrud('Nos templates', 'fas fa-newspaper', Template::class);
+        yield MenuItem::linkToCrud('Nos templates', 'fas fa-folder', Template::class);
         yield MenuItem::subMenu('Médias', 'fas fa-photo-video')
             ->setSubItems([
                 MenuItem::linkToCrud('Themes', 'fas fa-palette', Theme::class),

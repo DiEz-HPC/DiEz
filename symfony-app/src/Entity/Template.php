@@ -68,6 +68,11 @@ class Template
      */
     private $templateDescription;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $downloadLink;
+
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
@@ -181,7 +186,9 @@ class Template
 
     public function setTemplateType(?string $templateType): ?self
     {
-        $this->templateType = $templateType;
+        $this->templateType = $templateType;    /**
+        * Get the value of downloadLink
+        */ 
 
         return $this;
     }
@@ -194,6 +201,19 @@ class Template
     public function setTemplateDescription(?string $templateDescription): ?self
     {
         $this->templateDescription = $templateDescription;
+
+        return $this;
+    }
+
+    public function getDownloadLink(): ?string
+    {
+        return $this->downloadLink;
+    }
+
+
+    public function setDownloadLink(?string $downloadLink): ?self
+    {
+        $this->downloadLink = $downloadLink;
 
         return $this;
     }
