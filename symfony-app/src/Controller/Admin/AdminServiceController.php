@@ -2,8 +2,9 @@
 
 namespace App\Controller\Admin;
 
-use App\Service\GithubApi;
 use App\Entity\Calendar;
+use App\Service\GithubApi;
+use App\Service\templatePreview;
 use App\Repository\CalendarRepository;
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 #[Route('/admin/service', name: 'admin_service_')]
 class AdminServiceController extends AbstractController
@@ -106,5 +108,12 @@ class AdminServiceController extends AbstractController
             status: Response::HTTP_OK,
             headers: ['Content-Type' => 'application/json']
         );
+    }
+
+    #[Route('/templatePreview/{id}', name: 'template_preview')]
+    public function templatePreview(int $id, templatePreview $templatePreview)
+    {
+       $indexPath = $templatePreview->getTemplate($id);
+       return new JsonResponse($indexPath);
     }
 }
