@@ -1,4 +1,6 @@
 import axios from 'axios';
+import injectGrappeJs from './injectGrappeJs';
+
 window.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.admin-template-preview');
     buttons.forEach((button) => {
@@ -29,7 +31,7 @@ async function requestController(dataId) {
         );
         return response.data;
     } catch (error) {
-        console.error(error);
+        console.error(error, 'error');
     }
 }
 
@@ -40,8 +42,9 @@ const createModal = (parent, indexPath) => {
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title">Prévisualisation</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h5 class="modal-title">Prévisualisation</h5>
+            <button id="editButton" type="button" class="btn btn-success ms-5">ÉDITER</button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
           <div class="iframe"></div>
@@ -60,8 +63,36 @@ const createModal = (parent, indexPath) => {
 };
 
 const loadIframe = (modal, indexPath) => {
-    const iframe = modal.querySelector('.iframe');
-    iframe.innerHTML = `
+    const iframeDiv = modal.querySelector('.iframe');
+    iframeDiv.innerHTML = `
         <iframe src="${indexPath}" frameborder="0"></iframe>
     `;
+    const iframe = iframeDiv.querySelector('iframe');
+
+    iframe.addEventListener('load', () => {
+        const body = iframe.contentWindow.document.querySelector('body');
+        body.id = 'gjs';
+        modal.querySelector('#editButton').addEventListener('click', () => {
+            injectScript(iframe);
+        });
+    });
+};
+
+const injectScript = (iframe) => {
+    // On inject le style de grapesJs
+    const grapesJsStyle = iframe.contentWindow.document.createElement('link');
+    grapesJsStyle.rel = 'stylesheet';
+    grapesJsStyle.href =
+        'https://unpkg.com/grapesjs@0.20.3/dist/css/grapes.min.css';
+    iframe.contentWindow.document.head.appendChild(grapesJsStyle);
+
+    // On inject le script de grapesJs
+    const script = iframe.contentWindow.document.createElement('script');
+    const scriptContent = injectGrappeJs.toString();
+    script.innerHTML = scriptContent;
+    iframe.contentWindow.document.body.appendChild(script);
+
+    const script2 = iframe.contentWindow.document.createElement('script');
+    script2.innerHTML = 'injectGrappeJs()';
+    iframe.contentWindow.document.body.appendChild(script2);
 };

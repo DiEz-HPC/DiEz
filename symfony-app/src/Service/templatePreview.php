@@ -27,7 +27,6 @@ class templatePreview
 
     public function unzipFile(string $fileName)
     {
-
         // On vérifie si le fichier existe
         if (!file_exists(self::PATH . $fileName)) {
             return false;
@@ -91,4 +90,5 @@ class templatePreview
         $fileName = str_replace('.zip', '', $fileName);
         return $fileName;
     }
+
 }
