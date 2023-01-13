@@ -61,7 +61,7 @@ class AdminServiceController extends AbstractController
         $eventId = json_decode($requestData)->id;
 
         $updatedEvent = $this->serializer->deserialize($requestData, Calendar::class, 'json');
-       
+
         $savedEvent = $calendarRepository->findOneBy(['id' => $eventId]);
         $savedEvent->setTitle($updatedEvent->getTitle());
         $savedEvent->setStart($updatedEvent->getStart());

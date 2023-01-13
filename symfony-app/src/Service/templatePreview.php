@@ -8,13 +8,16 @@ use RecursiveIteratorIterator;
 use RecursiveDirectoryIterator;
 use App\Repository\TemplateRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 
 class templatePreview
 {
     const PATH = 'uploads/templates/';
-    public function __construct(private TemplateRepository $templateRepository)
+    private string $indexEmpty;
+    public function __construct(private TemplateRepository $templateRepository, KernelInterface $appKernel)
     {
+        $this->indexEmpty = $appKernel->getProjectDir() . '/src/Service/TemplateSkeleton/index.html';
     }
 
 
@@ -22,36 +25,44 @@ class templatePreview
     {
         $template = $this->templateRepository->find($id);
         $templateName = $template->getTemplateName();
-        return $this->unzipFile($templateName);
+        $projectName = $template->getName();
+        return $this->unzipFile($projectName, $templateName);
     }
 
-    public function unzipFile(string $fileName)
+    public function unzipFile(string $projectName, ?string $fileName)
+
     {
-        // On vérifie si le fichier existe
-        if (!file_exists(self::PATH . $fileName)) {
-            return false;
+        // si on a un zip on effectue le traitement
+        if ($fileName && file_exists(self::PATH . $fileName)){
+            $folderName = $this->parseFilename($fileName);
+            $extractPath = self::PATH . 'unziped/' . $folderName;
+            $zip = new \ZipArchive();
+            $zip->open(self::PATH . $fileName);
+            $zip->extractTo($extractPath);
+            $zip->close();
+
+            $indexPath = $this->findIndex($extractPath);
+
+            if ($indexPath === null) {
+                // Aucun fichier "index.html" n'a été trouvé
+                return ("Fichier index.html non trouvé");
+            } else {
+                // On a trouvé le fichier, on affiche son chemin complet
+                return $indexPath;
+            }
         }
-        $folderName = $this->parseFilename($fileName);
-        $extractPath = self::PATH . 'unziped/' . $folderName;
-        $zip = new \ZipArchive();
-        $zip->open(self::PATH . $fileName);
-        $zip->extractTo($extractPath);
-        $zip->close();
 
+        $path = self::PATH . 'unziped/' . $projectName;
 
-        // On appelle la fonction de recherche avec le chemin de départ
-        $indexPath = $this->findIndex($extractPath);
-
-        if ($indexPath === null) {
-            // Aucun fichier "index.html" n'a été trouvé
-            return ("Fichier index.html non trouvé");
-        } else {
-            // On a trouvé le fichier, on affiche son chemin complet
-            return $indexPath;
+        //on vérifie si le dossier existe sinon on le créé
+        if (!file_exists($path)) {
+            mkdir(self::PATH . 'unziped/' . $projectName, 0777, true);
         }
+
+        //copie du fichier index.html dans le dossier public
+        copy ($this->indexEmpty, $path . '/index.html');
+        return $path . '/index.html';
     }
-
-
 
     // Fonction récursive pour parcourir l'arborescence de dossiers
     function findIndex($path)
