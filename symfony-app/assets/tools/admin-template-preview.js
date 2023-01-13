@@ -1,5 +1,5 @@
 import axios from 'axios';
-import injectGrappeJs from './injectGrappeJs';
+import handleStyleSheet from './injectGrappeJs';
 
 window.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.admin-template-preview');
@@ -79,20 +79,14 @@ const loadIframe = (modal, indexPath) => {
 };
 
 const injectScript = (iframe) => {
-    // On inject le style de grapesJs
-    const grapesJsStyle = iframe.contentWindow.document.createElement('link');
-    grapesJsStyle.rel = 'stylesheet';
-    grapesJsStyle.href =
-        'https://unpkg.com/grapesjs@0.20.3/dist/css/grapes.min.css';
-    iframe.contentWindow.document.head.appendChild(grapesJsStyle);
+    const handleStyleSheetScript =
+        iframe.contentWindow.document.createElement('script');
+    const handleStyleSheetScriptContent = handleStyleSheet.toString();
+    handleStyleSheetScript.innerHTML = handleStyleSheetScriptContent;
+    iframe.contentWindow.document.body.appendChild(handleStyleSheetScript);
 
-    // On inject le script de grapesJs
-    const script = iframe.contentWindow.document.createElement('script');
-    const scriptContent = injectGrappeJs.toString();
-    script.innerHTML = scriptContent;
-    iframe.contentWindow.document.body.appendChild(script);
-
-    const script2 = iframe.contentWindow.document.createElement('script');
-    script2.innerHTML = 'injectGrappeJs()';
-    iframe.contentWindow.document.body.appendChild(script2);
+    const handleStyleSheetInit =
+        iframe.contentWindow.document.createElement('script');
+    handleStyleSheetInit.innerHTML = 'handleStyleSheet()';
+    iframe.contentWindow.document.body.appendChild(handleStyleSheetInit);
 };
