@@ -33,12 +33,13 @@ Encore
     .addEntry('index', './assets/index.js')
     .addEntry('app', './assets/app.js')
     .addEntry('initCalendar', './assets/tools/initCalendar.js')
+    .addEntry('adminTemplatePreview', './assets/tools/admin-template-preview.js')
 
     .addEntry('adminScript', './assets/js/admin.js')
     .addStyleEntry('adminStyle', './assets/styles/admin.scss')
     .addStyleEntry('loginStyle', './assets/styles/login.scss')
     .addStyleEntry('calendarStyle', './assets/styles/calendar.css')
-
+    .addStyleEntry('adminTemplatePreviewStyle', './assets/styles/adminTemplatePreview.scss')
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
 

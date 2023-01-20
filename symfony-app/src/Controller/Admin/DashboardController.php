@@ -14,6 +14,7 @@ use App\Entity\Project;
 use App\Service\ChartCreator;
 use App\Service\VisitorCounterService;
 use App\Entity\Profile;
+use App\Entity\Template;
 use Symfony\UX\Chartjs\Model\Chart;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -77,6 +78,7 @@ class DashboardController extends AbstractDashboardController
                 MenuItem::linkToRoute('Charger les projets', 'fas fa-sync', 'admin_service_github')
             ]);
         yield MenuItem::linkToCrud('Les actus', 'fas fa-newspaper', Post::class);
+        yield MenuItem::linkToCrud('Nos templates', 'fas fa-folder', Template::class);
         yield MenuItem::subMenu('Médias', 'fas fa-photo-video')
             ->setSubItems([
                 MenuItem::linkToCrud('Themes', 'fas fa-palette', Theme::class),
