@@ -11,7 +11,9 @@ function colors() {
     scrollMenu();
 }
 
-window.onload = () => {
+
+
+document.addEventListener("DOMContentLoaded", function () {
 
     const dot = document.querySelector('.cursor-dot');
     const outline = document.querySelector('.cursor-dot-outline');
@@ -44,4 +46,4 @@ window.onload = () => {
             navbar.classList.toggle('header-dark')
         }
     });
-}
+});
