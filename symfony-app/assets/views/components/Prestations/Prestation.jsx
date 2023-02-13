@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PrestationsCard from './PrestationsCard';
-import '../../styles/prestation.scss';
-import wave from '../../images/wave.svg';
+import './prestation.scss';
+import wave from '../../../images/wave.svg';
 import { getAllPrestation } from '../../../queries/prestations';
 function Prestation() {
     const [prestations, setPrestations] = useState([]);

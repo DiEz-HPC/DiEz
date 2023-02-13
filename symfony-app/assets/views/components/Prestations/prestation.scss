@@ -1,4 +1,4 @@
-@import 'variables';
+@import '../../../styles/variables.scss';
 
 .prestation-section {
     justify-content: space-around;
@@ -12,6 +12,8 @@
         transform: scale(-1, 1);
     }
     .prestation-section__item {
+        position: relative;
+        height: 300px;
         background-color: var(--primaryColor);
         padding: 1rem;
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -22,7 +24,6 @@
             margin-bottom: 1rem;
         }
         .prestation-section__item__title {
-            font-size: 2rem;
             font-weight: 600;
             color: white;
         }
@@ -33,6 +34,9 @@
         }
         .prestation-button{
             text-align: start !important;
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
         }
         &:hover {
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
