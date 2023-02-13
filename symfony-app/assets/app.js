@@ -13,7 +13,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Mention from './views/pages/Mention';
 import cookieConsentButton from './js/cookieConsent.js';
-import Prestation from './views/pages/Prestation';
 
 require('../assets/tools/onLoad.js');
 require('@fortawesome/fontawesome-free/css/all.min.css');
@@ -51,8 +50,7 @@ export default function App() {
                     <Route exact path={'/blog'} component={Blog} />
                     <Route exact path={'/blog/*'} component={SingleBlog} />
                     <Route exact path={'/contact'} component={Contact} />
-                    <Route exact path={'/mentions-legales'} component={Mention} />
-                    <Route exact path={'/nos-prestations'} component={Prestation} />
+                    <Route exact path={'/mentions-legales'} component={Mention} />z
                     <Route path="*" component={NotFound} />
                 </Switch>
             </AnimatePresence>

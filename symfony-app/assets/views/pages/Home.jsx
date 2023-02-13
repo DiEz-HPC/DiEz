@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import '../../styles/home.scss'
 import pcFirst from '../../images/pc_first.webp'
 import Layout from '../components/Layout/Layout'
-import Prestation from './Prestation'
+import Prestation from '../components/Prestations/Prestation'
 
 function Home() {
   const Description = React.lazy(() =>
