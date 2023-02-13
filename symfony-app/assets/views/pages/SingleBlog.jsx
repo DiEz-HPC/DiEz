@@ -71,9 +71,9 @@ function SingleBlog() {
                     </div>
                     <img src={wave} className={"wave"} alt="vague"/>
                 </div>
-                <section className={"mx-2 ps-xl-5 ms-xl-5"}>
+                <section className={"mx-2 ps-xl-5 ms-xl-5 singleArticleSection"}>
                     <article
-                        className={"col-12 col-xl-6 ps-xl-5 ms-xl-5 pt-sm-4 mt-sm-5"}
+                        className={"col-12 col-xl-10 ps-xl-5 ms-xl-5 pt-sm-4 mt-sm-5"}
                     >
                         <div dangerouslySetInnerHTML={{__html: post.article}}/>
                     </article>
