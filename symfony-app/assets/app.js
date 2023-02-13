@@ -50,7 +50,7 @@ export default function App() {
                     <Route exact path={'/blog'} component={Blog} />
                     <Route exact path={'/blog/*'} component={SingleBlog} />
                     <Route exact path={'/contact'} component={Contact} />
-                    <Route exact path={'/mentions-legales'} component={Mention} />z
+                    <Route exact path={'/mentions-legales'} component={Mention} />
                     <Route path="*" component={NotFound} />
                 </Switch>
             </AnimatePresence>
