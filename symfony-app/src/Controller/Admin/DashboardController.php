@@ -66,19 +66,32 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Sécurité', 'fa fa-lock', User::class);
-        yield MenuItem::linkToCrud('L\'équipe', 'fa fa-user', Profile::class);
-        yield MenuItem::linkToCrud('Réseaux Sociaux', 'fas fa-hashtag', Social::class);
-        yield MenuItem::linkToCrud('Messages', 'fas fa-envelope-open-text', ContactMessage::class);
-        yield MenuItem::linkToCrud('Témoignages', 'fas fa-comment', Testimony::class);
-        yield MenuItem::LinkToCrud('Clients', 'fas fa-users', Client::class);
+        yield MenuItem::subMenu('Utilisateurs', 'fas fa-users-cog')
+            ->setSubItems([
+                MenuItem::linkToCrud('Sécurité', 'fas fa-user', User::class),
+                MenuItem::linkToCrud('Profils', 'fas fa-user', Profile::class),
+            ]);
+            yield MenuItem::subMenu('Contenus', 'fas fa-file-alt')
+            ->setSubItems([
+                MenuItem::linkToCrud('Réseaux Sociaux', 'fas fa-hashtag', Social::class),
+                MenuItem::linkToCrud('Témoignages', 'fas fa-comment', Testimony::class),
+                MenuItem::linkToCrud('Les actus', 'fas fa-newspaper', Post::class),
+            ]);
+            yield MenuItem::subMenu('Entreprise', 'fas fa-file-alt')
+            ->setSubItems([
+                MenuItem::linkToCrud('Messages', 'fas fa-envelope-open-text', ContactMessage::class),
+                MenuItem::linkToCrud('Clients', 'fas fa-users', Client::class),
+                MenuItem::linkToCrud('Nos templates', 'fas fa-folder', Template::class),
+
+            ]);
+       
+       
+    
         yield MenuItem::subMenu('Projets', 'fas fa-project-diagram')
             ->setSubItems([
                 MenuItem::linkToCrud('Les projets', 'fas fa-folder-open', Project::class),
                 MenuItem::linkToRoute('Charger les projets', 'fas fa-sync', 'admin_service_github')
             ]);
-        yield MenuItem::linkToCrud('Les actus', 'fas fa-newspaper', Post::class);
-        yield MenuItem::linkToCrud('Nos templates', 'fas fa-folder', Template::class);
         yield MenuItem::subMenu('Médias', 'fas fa-photo-video')
             ->setSubItems([
                 MenuItem::linkToCrud('Themes', 'fas fa-palette', Theme::class),
