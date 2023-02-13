@@ -51,9 +51,6 @@ function Navbar(props) {
                             <a href="/qui-sommes-nous">Qui sommes-nous ?</a>
                         </li>
                         <li>
-                            <a href="/nos-prestations">Nos préstations</a>
-                        </li>
-                        <li>
                             <a href="/blog">Blog</a>
                         </li>
 
