@@ -4,45 +4,65 @@
     justify-content: space-around;
     align-items: center;
     margin-bottom: 2rem;
+    min-height: 100vh;
     .wave {
+        top: 0;
         overflow: hidden;
         margin-top: -15px;
         width: 100%;
         height: auto;
         transform: scale(-1, 1);
     }
-    .prestation-section__item {
-        position: relative;
-        height: 300px;
-        background-color: var(--primaryColor);
-        padding: 1rem;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        transition: all 0.3s ease 0s;
-        .prestation-section__item__icon{
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 1rem;
-        }
-        .prestation-section__item__title {
-            font-weight: 600;
-            color: white;
-        }
-        .prestation-section__item__teaser {
-            font-size: 1rem;
-            font-weight: 400;
-            color: white;
-        }
-        .prestation-button{
-            text-align: start !important;
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-        }
-        &:hover {
-            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            transform: scale(1.02);
+    .prestationCardContainer {
+        margin-top: -15%;
+        width: 100%;
+        .prestation-section__item {
+            position: relative;
+            height: 300px;
+            background-color: var(--primaryColor);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+                rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            transition: all 0.3s ease 0s;
+            border-radius: 10px;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            .prestation-section__item__icon {
+                background-color: var(--darkColor);
+                display: flex;
+                flex-direction: row;
+                padding: 0.75rem;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                svg {
+                    font-size: 3rem;
+                    color: var(--primaryColor);
+                    align-self: center;
+                }
+                .prestation-section__item__title {
+                    font-weight: 600;
+                    color: white;
+                    align-self: center;
+                    margin-left: 1rem;
+                    margin-bottom: 0px;
+                }
+            }
 
+            .prestation-section__item__teaser {
+                padding: 1rem;
+                font-size: 1rem;
+                font-weight: 400;
+                color: var(--darkColor);
+            }
+            .prestation-button {
+                text-align: start !important;
+                position: absolute;
+                bottom: 15px;
+                left: 15px;
+            }
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                transform: scale(1.02);
+            }
         }
     }
-
 }

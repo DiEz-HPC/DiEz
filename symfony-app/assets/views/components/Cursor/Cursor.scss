@@ -2,46 +2,8 @@
 @import "../../../styles/variables.scss";
 
 
-html,
-body {
-	&,
-	* {
-		@media screen and (min-width: 768px) {
-			cursor: none;
-		}
-	}
-}
-
-.dot-cursor {
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-}
-
-
 .cursor-dot,
 .cursor-dot-outline {
-	pointer-events: none;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	border-radius: 50%;
-	opacity: 0;
-	transform: translate(-50%, -50%);
-	transition: opacity 0.3s ease-in-out,
-	transform 0.3s ease-in-out;
-	z-index: 1200;
-}
+display: none;
 
-.cursor-dot {
-	$size: 8px;
-	width: $size;
-	height: $size;
-}
-
-.cursor-dot-outline {
-	$size: 30px;
-	width: $size;
-	height: $size;
-	opacity: 0.5 !important;
 }

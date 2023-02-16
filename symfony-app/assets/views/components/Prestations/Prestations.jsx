@@ -3,7 +3,7 @@ import PrestationsCard from './PrestationsCard';
 import './prestation.scss';
 import wave from '../../../images/wave.svg';
 import { getAllPrestation } from '../../../queries/prestations';
-function Prestation() {
+function Prestations() {
     const [prestations, setPrestations] = useState([]);
     useEffect(() => {
         getAllPrestation.then((response) => {
@@ -18,16 +18,18 @@ function Prestation() {
             <div className={'waveBox'}>
                 <img id={'wave'} className={'wave'} src={wave} alt="wave" />
             </div>
+            <div className={'prestationCardContainer row justify-content-around align-items-center'}>
             {prestations.map((prestation) => (
                 <PrestationsCard
                     icon={prestation.icon}
                     title={prestation.title}
                     teaser={prestation.teaser}
-                    link={''}
+                    link={'/prestations/' + prestation.title}
                 />
             ))}
+            </div>
         </section>
     );
 }
 
-export default Prestation;
+export default Prestations;
