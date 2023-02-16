@@ -2,6 +2,17 @@ fos_ck_editor:
     configs:
         basic_conf:
             toolbar: full
+            templates: 'prestation' 
+            language: 'fr'
+            contentsCss: '/ckeditor.css'
+            allowedContent: true
+    templates:
+        prestation:
+            templates:
+                - title: 'Single Prestation'
+                  description: 'Template page prestation'
+                  template: '/ckeditor/prestation.html.twig'
+              
 twig:
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'

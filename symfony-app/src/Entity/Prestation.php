@@ -32,6 +32,11 @@ class Prestation
      */
     private $icon;
 
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $content;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -69,6 +74,18 @@ class Prestation
     public function setIcon(string $icon): self
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function getContent(): ?string
+    {
+        return $this->content;
+    }
+
+    public function setContent($content): self
+    {
+        $this->content = $content;
 
         return $this;
     }

@@ -37,4 +37,17 @@ class PrestationController extends AbstractController
         );
     }
 
+    #[Route('/prestation/{id}', name: 'one')]
+    public function getPrestation(Prestation $prestation): Response
+    {
+        $prestation = $this->serializer->serialize($prestation, 'json');
+        return new Response(
+            content: $prestation,
+            status: Response::HTTP_OK,
+            headers: [
+                'content-type' => 'application/json'
+            ]
+        );
+    }
+
 }

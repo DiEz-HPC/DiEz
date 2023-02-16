@@ -36,6 +36,16 @@ class PrestationCrudController extends AbstractCrudController
                 ->setTextAlign('center'),
             TextField::new(propertyName: 'icon', label: 'Icon font awesome')
                 ->setTextAlign('center'),
+            TextEditorField::new(propertyName: 'content', label: 'Contenu')
+                ->setFormType(CKEditorType::class)
+                ->setFormTypeOptions(
+                    [
+                        'config'=>[
+                            'rows' => '20',
+                        ],
+                        'attr' => ['rows' => '20'] ,
+                    ])
+                ->setTextAlign('center')
         ];
     }
 
@@ -46,7 +56,8 @@ class PrestationCrudController extends AbstractCrudController
             ->setEntityLabelInPlural('Préstations')
             ->setPageTitle(Crud::PAGE_INDEX, '%entity_label_plural%')
             ->setPageTitle(Crud::PAGE_EDIT, 'Modifier l\'actualité')
-            ->setPageTitle(Crud::PAGE_NEW, 'Ajouter une préstations');
+            ->setPageTitle(Crud::PAGE_NEW, 'Ajouter une préstations')
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
     }
 
     public function configureActions(Actions $actions): Actions

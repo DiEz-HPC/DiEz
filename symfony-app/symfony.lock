@@ -133,6 +133,15 @@
     "jms/metadata": {
         "version": "2.5.1"
     },
+    "kms/froala-editor-bundle": {
+        "version": "4.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "666a78d430cecebe61a1990d7b8f638e45b2eeab"
+        }
+    },
     "laminas/laminas-code": {
         "version": "4.4.3"
     },
