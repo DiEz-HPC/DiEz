@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import '../../styles/home.scss'
 import pcFirst from '../../images/pc_first.webp'
 import Layout from '../components/Layout/Layout'
-import Prestation from '../components/Prestations/Prestation'
+import Prestations from '../components/Prestations/Prestations'
 
 function Home() {
   const Description = React.lazy(() =>
@@ -33,7 +33,7 @@ function Home() {
             </div>
           </section>
   
-          <Prestation />
+          <Prestations />
           <section className={'carousel-projects'}>
             <CarouselProjects />
           </section>

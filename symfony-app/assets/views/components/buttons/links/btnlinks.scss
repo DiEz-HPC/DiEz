@@ -280,3 +280,27 @@ $animation: all 0,3s ease-in-out !global;
     }
 }
 
+.btnLink-outlined-dark {
+    .blob-btn {
+        font-size: $font-size-text;
+        font-family: $fontButton;
+        .labelBtn {
+            color: $textColor;
+        }
+        &:before {
+            border: $borderW solid  var(--darkColor);
+        }
+        &:hover {
+            .labelBtn {
+                color: $textColorHover;
+            }
+        }
+        &__inner {
+            background:  var(--darkColor);
+        }
+        &__blob {
+            background: $waveColor;
+        }
+    }
+}
+
