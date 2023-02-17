@@ -1,18 +1,41 @@
 fos_ck_editor:
     configs:
         basic_conf:
-            toolbar: full
+            toolbar: 'full'
             templates: 'prestation' 
             language: 'fr'
-            contentsCss: '/ckeditor.css'
+            contentsCss: '/ckeditorCustom/ckeditor.css'
             allowedContent: true
+            extraPlugins: 'file-manager'
+            urlFileManager: '/api/v2/filemanager'
+            urlFiles: '%env(resolve:FILE_MANAGER_URL)%'       
     templates:
         prestation:
             templates:
                 - title: 'Single Prestation'
                   description: 'Template page prestation'
                   template: '/ckeditor/prestation.html.twig'
-              
+                - title: 'bootstrap feature'
+                  description: 'Component Bootstrap'
+                  template: '/ckeditor/feature.html.twig'
+    toolbars:
+        items:
+          full.basic_styles : ['Bold','Italic','Underline','Strike','-', 'Removeat'],
+          full.clipboard : ['Cut', 'Copy', 'Paste', 'PasteFromWord', '-', 'Undo', 'Redo'],
+          full.colors : ['TextColor', 'BGColor'],
+          full.document : ['Source', '-', 'Preview', '-', 'Templates'],
+          full.editing : ['Find'],
+          full.forms : [ 'Field','Button'],
+          full.insert : ['HorizontalRule', 'Smiley'],
+          full.links : ['Link', 'Unlink'],
+          full.paragraph : ['NumberedList','BulletedList','-','Outdent','Indent','-','Blockquote','CreateDiv','-','JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock',],
+          full.styles : ['Styles', 'at', 'Font', 'FontSize', 'TextColor', 'BGColor'],
+          full.tools : ['Maximize', 'ShowBlocks'],
+    plugins:
+        file-manager:
+            path: '/ckeditorCustom/file-manager/'
+            filename: 'plugin.js' 
+      
 twig:
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'

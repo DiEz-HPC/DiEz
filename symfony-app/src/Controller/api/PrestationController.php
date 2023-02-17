@@ -26,7 +26,7 @@ class PrestationController extends AbstractController
     #[Route('/prestation/all', name: 'all')]
     public function getAllPrestations(PrestationRepository $prestationRepository): Response
     {
-        $prestations = $prestationRepository->findAll();
+        $prestations = $prestationRepository->findForHomepage();
         $prestations = $this->serializer->serialize($prestations, 'json');
         return new Response(
             content: $prestations,

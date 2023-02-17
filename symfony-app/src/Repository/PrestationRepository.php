@@ -19,6 +19,24 @@ class PrestationRepository extends ServiceEntityRepository
         parent::__construct($registry, Prestation::class);
     }
 
+
+    public function findForHomepage()
+    {
+        // select  id, icon, title, teaser from prestation order by position asc
+        return $this->createQueryBuilder('p')
+            ->select('p.id, p.icon, p.title, p.teaser')
+            ->orderBy('p.position', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findByOrderedPosition()
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.position', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Prestation[] Returns an array of Prestation objects
     //  */

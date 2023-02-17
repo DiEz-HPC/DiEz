@@ -8,3 +8,13 @@ export const getAllPrestation = fetch(
         },
     }
 );
+
+export const getPrestationById = (id) => {
+    return fetch(`/api/v2/prestation/${id}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json',
+        },
+    });
+}
