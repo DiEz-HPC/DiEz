@@ -1,0 +1,15 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{# @var field \EasyCorp\Bundle\EasyAdminBundle\Dto\FieldDto #}
+{# @var entity \EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto #}
+    {% if ea.crud.currentAction == 'detail' %}
+        {% if field.property == "icon" %}<i class="{{ field.formattedValue|raw }}"> </i>
+    {% else %}
+        <span title="{{ field.value }}">{{ field.formattedValue|raw|nl2br }}</span>
+    {% endif %}
+{% else %}
+    {% if field.property == "icon" %}
+        <i class="{{ field.formattedValue|raw }}"></i>
+    {% else %}
+        <span title="{{ field.value }}">{{ field.formattedValue|raw }}</span>
+    {% endif %}
+{% endif %}

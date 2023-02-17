@@ -24,7 +24,8 @@ function Prestations() {
                     icon={prestation.icon}
                     title={prestation.title}
                     teaser={prestation.teaser}
-                    link={'/prestations/' + prestation.title}
+                    link={'/prestations/' + prestation.id}
+                    key={prestation.id}
                 />
             ))}
             </div>

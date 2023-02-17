@@ -49,7 +49,7 @@ export default function App() {
                 <Switch location={location} key={location.pathname}>
                     <Route exact path={'/'} component={Home} />
                     <Route exact path={'/qui-sommes-nous'} component={About} />
-                    <Route exact path={'/prestation/*'} component={SinglePrestation} />
+                    <Route exact path={'/prestations/*'} component={SinglePrestation} />
                     <Route exact path={'/blog'} component={Blog} />
                     <Route exact path={'/blog/*'} component={SingleBlog} />
                     <Route exact path={'/contact'} component={Contact} />

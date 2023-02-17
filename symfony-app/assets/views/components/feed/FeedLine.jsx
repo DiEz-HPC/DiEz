@@ -7,6 +7,12 @@ function FeedLine(props) {
     const {title} = props;
     useEffect(() => {
         const locations = window.location.pathname.split('/').filter(link => link !== '');
+        if (locations.includes('prestations')) {
+            // On recupere l'index de prestations dans le tableau
+            const index = locations.indexOf('prestations');
+            // On supprime l'element prestations
+            locations.splice(index, 1);
+        }
         setFeeds(locations);
     }, []);
 

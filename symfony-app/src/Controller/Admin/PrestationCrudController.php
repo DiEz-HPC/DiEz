@@ -8,11 +8,13 @@ use EasyCorp\Bundle\EasyAdminBundle\Collection\FieldCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Collection\FilterCollection;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\SearchDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -35,18 +37,34 @@ class PrestationCrudController extends AbstractCrudController
             TextareaField::new(propertyName: 'teaser', label: 'Résumé')
                 ->setTextAlign('center'),
             TextField::new(propertyName: 'icon', label: 'Icon font awesome')
-                ->setTextAlign('center'),
+                ->setTextAlign('center')
+                ->setHelp('Exemple: fas fa-rocket'),
+            NumberField::new(propertyName: 'position', label: 'Position')
+                ->setTextAlign('center')
+                ->setHelp('Plus la position est élevée, plus la prestation sera en haut de la liste'),
+            TextEditorField::new(propertyName: 'content', label: 'Contenu')
+                ->setFormType(CKEditorType::class)
+                ->setFormTypeOptions(
+                    [
+                        'config'=>[
+                            'rows' => '20',
+                        ],
+                        'attr' => ['rows' => '20'] ,
+                    ])
+                ->setTextAlign('center')
+                ->hideOnIndex(),
         ];
     }
 
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            ->setEntityLabelInSingular('Préstation')
-            ->setEntityLabelInPlural('Préstations')
+            ->setEntityLabelInSingular('Prestation')
+            ->setEntityLabelInPlural('Prestations')
             ->setPageTitle(Crud::PAGE_INDEX, '%entity_label_plural%')
-            ->setPageTitle(Crud::PAGE_EDIT, 'Modifier l\'actualité')
-            ->setPageTitle(Crud::PAGE_NEW, 'Ajouter une préstations');
+            ->setPageTitle(Crud::PAGE_EDIT, 'Modifier la prestation')
+            ->setPageTitle(Crud::PAGE_NEW, 'Ajouter une prestations')
+            ->addFormTheme('@FOSCKEditor/Form/ckeditor_widget.html.twig');
     }
 
     public function configureActions(Actions $actions): Actions

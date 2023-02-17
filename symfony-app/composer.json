@@ -16,8 +16,10 @@
         "doctrine/doctrine-migrations-bundle": "^3.1",
         "doctrine/orm": "^2.10",
         "easycorp/easyadmin-bundle": "^3.5",
+        "edsdk/flmngr-server-php": "^1.5",
         "fakerphp/faker": "^1.16",
         "friendsofsymfony/ckeditor-bundle": "^2.3",
+        "kms/froala-editor-bundle": "^4.0",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/asset": "5.3.*",
@@ -107,7 +109,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": "true",
             "require": "5.3.*"
         }
     }
