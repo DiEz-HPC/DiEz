@@ -127,16 +127,16 @@ function SecondPart() {
                                 value={message.message}
                             />
                         </div>
-                        <div class="form-check">
+                        <div className="form-check">
                             <input
-                                class="form-check-input"
+                                className="form-check-input"
                                 type="checkbox"
                                 value=""
                                 id="flexCheckChecked"
                                 required
                             />
                             <label
-                                class="form-check-label cookieConsent"
+                                className="form-check-label cookieConsent"
                                 for="flexCheckChecked"
                             >
                                     {' '}

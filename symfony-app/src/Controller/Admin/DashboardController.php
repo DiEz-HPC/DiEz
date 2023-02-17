@@ -2,27 +2,28 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Post;
+use App\Entity\User;
+use App\Entity\Theme;
 use App\Entity\Client;
+use App\Entity\Social;
+use App\Entity\Profile;
+use App\Entity\Project;
+use App\Entity\Template;
+use App\Entity\Testimony;
+use App\Entity\Prestation;
+use App\Service\ChartCreator;
 use App\Entity\ContactMessage;
 use App\Entity\FormatImageSize;
-use App\Entity\Post;
-use App\Entity\Social;
-use App\Entity\Testimony;
-use App\Entity\Theme;
-use App\Entity\User;
-use App\Entity\Project;
-use App\Service\ChartCreator;
-use App\Service\VisitorCounterService;
-use App\Entity\Profile;
-use App\Entity\Template;
 use Symfony\UX\Chartjs\Model\Chart;
+use App\Service\VisitorCounterService;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use Symfony\Component\Security\Core\User\UserInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 #[Route('/admin', name: 'admin_')]
 class DashboardController extends AbstractDashboardController
@@ -68,6 +69,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Sécurité', 'fa fa-lock', User::class);
         yield MenuItem::linkToCrud('L\'équipe', 'fa fa-user', Profile::class);
+        yield MenuItem::linkToCrud('Les prestations', 'fas fa-briefcase', Prestation::class);
         yield MenuItem::linkToCrud('Réseaux Sociaux', 'fas fa-hashtag', Social::class);
         yield MenuItem::linkToCrud('Messages', 'fas fa-envelope-open-text', ContactMessage::class);
         yield MenuItem::linkToCrud('Témoignages', 'fas fa-comment', Testimony::class);
