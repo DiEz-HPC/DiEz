@@ -69,8 +69,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::subMenu('Utilisateurs', 'fas fa-users-cog')
             ->setSubItems([
-                MenuItem::linkToCrud('Sécurité', 'fas fa-user', User::class),
-                MenuItem::linkToCrud('Profils', 'fas fa-user', Profile::class),
+                MenuItem::linkToCrud('Compte', 'fas fa-user', User::class),
+                MenuItem::linkToCrud('Profils', 'fas fa-address-card', Profile::class),
             ]);
         yield MenuItem::subMenu('Contenu', 'fas fa-file-alt')
             ->setSubItems([
