@@ -109,6 +109,9 @@
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
     },
+    "edsdk/flmngr-server-php": {
+        "version": "1.5.1"
+    },
     "egulias/email-validator": {
         "version": "3.1.1"
     },
@@ -132,6 +135,15 @@
     },
     "jms/metadata": {
         "version": "2.5.1"
+    },
+    "kms/froala-editor-bundle": {
+        "version": "4.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "3.0",
+            "ref": "666a78d430cecebe61a1990d7b8f638e45b2eeab"
+        }
     },
     "laminas/laminas-code": {
         "version": "4.4.3"
