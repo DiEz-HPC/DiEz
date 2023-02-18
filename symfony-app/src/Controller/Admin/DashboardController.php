@@ -72,18 +72,18 @@ class DashboardController extends AbstractDashboardController
                 MenuItem::linkToCrud('Sécurité', 'fas fa-user', User::class),
                 MenuItem::linkToCrud('Profils', 'fas fa-user', Profile::class),
             ]);
-        yield MenuItem::subMenu('Contenus', 'fas fa-file-alt')
+        yield MenuItem::subMenu('Contenu', 'fas fa-file-alt')
             ->setSubItems([
                 MenuItem::linkToCrud('Réseaux Sociaux', 'fas fa-hashtag', Social::class),
                 MenuItem::linkToCrud('Témoignages', 'fas fa-comment', Testimony::class),
                 MenuItem::linkToCrud('Les actus', 'fas fa-newspaper', Post::class),
+                MenuItem::linkToCrud('Les prestations', 'fas fa-briefcase', Prestation::class)
             ]);
-        yield MenuItem::subMenu('Entreprise', 'fas fa-file-alt')
+        yield MenuItem::subMenu('Entreprise', 'fas fa-building')
             ->setSubItems([
                 MenuItem::linkToCrud('Messages', 'fas fa-envelope-open-text', ContactMessage::class),
                 MenuItem::linkToCrud('Clients', 'fas fa-users', Client::class),
                 MenuItem::linkToCrud('Nos templates', 'fas fa-folder', Template::class),
-                MenuItem::linkToCrud('Les prestations', 'fas fa-briefcase', Prestation::class);
             ]);
         yield MenuItem::subMenu('Projets', 'fas fa-project-diagram')
             ->setSubItems([
