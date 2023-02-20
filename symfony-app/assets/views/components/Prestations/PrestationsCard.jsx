@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '../buttons/links/BtnLinks';
 const PrestationsCard = (props) => {
-    const { icon, title, teaser, link } = props;
+    const { icon, title, intro, link } = props;
     return (
         <div
             className={

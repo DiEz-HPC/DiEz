@@ -22,10 +22,6 @@ const changePositionNumber = (element, number) => {
     positionElement.innerHTML = number;
 };
 
-
-
-
-
 const savePosition = (positions) => {
     console.log(positions);
     $.ajax({
@@ -39,3 +35,12 @@ const savePosition = (positions) => {
         },
     });
 };
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const countableField = document.querySelector('.char-count');
+    const countableFieldLabel = countableField.querySelector('.form-help');
+    countableField.addEventListener('input', (event) => {
+    countableFieldLabel.innerHTML = `Texte affiché sur la card (${event.target.value.length} / 255)`;
+    });
+});

@@ -23,7 +23,7 @@ function Prestations() {
                 <PrestationsCard
                     icon={prestation.icon}
                     title={prestation.title}
-                    teaser={prestation.intro}
+                    intro={prestation.intro}
                     link={'/prestations/' + prestation.id}
                     key={prestation.id}
                 />

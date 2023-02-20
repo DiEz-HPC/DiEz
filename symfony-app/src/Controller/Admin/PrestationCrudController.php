@@ -36,7 +36,8 @@ class PrestationCrudController extends AbstractCrudController
                 ->setTextAlign('center'),
             TextareaField::new(propertyName: 'intro', label: 'Texte card')
                 ->setTextAlign('center')
-                ->setHelp('Texte affiché sur la card, max 255 caractères'),
+                ->setCssClass('char-count')
+                ->setHelp('Texte affiché sur la card'),
             TextareaField::new(propertyName: 'teaser', label: 'Résumé')
                 ->setTextAlign('center')
                 ->setHelp('Texte d\'introduction affiché sur la page détail')
