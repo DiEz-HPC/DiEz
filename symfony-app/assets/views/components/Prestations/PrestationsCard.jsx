@@ -15,7 +15,7 @@ const PrestationsCard = (props) => {
                 </h3>
             </div>
 
-            <p className="prestation-section__item__teaser">{teaser}</p>
+            <p className="prestation-section__item__teaser">{intro}</p>
             <Button
                 link={link}
                 label={'En savoir plus'}

@@ -23,9 +23,14 @@ class Prestation
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $teaser;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $intro; 
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -103,6 +108,18 @@ class Prestation
     public function setPosition($position): self
     {
         $this->position = $position;
+
+        return $this;
+    }
+
+    public function getIntro(): ?string
+    {
+        return $this->intro;
+    }
+
+    public function setIntro(string $intro): self
+    {
+        $this->intro = $intro;
 
         return $this;
     }
