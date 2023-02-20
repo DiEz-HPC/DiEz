@@ -18,6 +18,9 @@ fos_ck_editor:
                 - title: 'bootstrap feature'
                   description: 'Component Bootstrap'
                   template: '/ckeditor/feature.html.twig'
+                - title: 'bootstrap heroes'
+                  description: 'Component Bootstrap'
+                  template: '/ckeditor/heroes.html.twig'
     toolbars:
         items:
           full.basic_styles : ['Bold','Italic','Underline','Strike','-', 'Removeat'],
