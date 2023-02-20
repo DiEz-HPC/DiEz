@@ -1,8 +1,8 @@
 import React, { Suspense } from 'react'
-import wave from '../../images/wave.svg'
 import '../../styles/home.scss'
 import pcFirst from '../../images/pc_first.webp'
 import Layout from '../components/Layout/Layout'
+import Prestations from '../components/Prestations/Prestations'
 
 function Home() {
   const Description = React.lazy(() =>
@@ -32,10 +32,9 @@ function Home() {
               </a>
             </div>
           </section>
+  
+          <Prestations />
           <section className={'carousel-projects'}>
-            <div className={'waveBox'}>
-              <img id={'wave'} className={'wave'} src={wave} alt="wave" />
-            </div>
             <CarouselProjects />
           </section>
           <section className={'HomeBlog mt-md-5 pt-md-5'}>

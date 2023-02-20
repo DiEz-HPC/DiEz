@@ -1,7 +1,7 @@
 import {scrollMenu} from "./scrollMenu";
 import {initChangeColor} from "./changeColorAccordingBackgroundColor";
 import {displayArrow} from "./displayArrow";
-import {customCursor} from "./Cursor";
+
 
 function colors() {
     const styleSocial = {
@@ -20,19 +20,18 @@ window.onload = () => {
         backgroundColor: ''
     };
 
-    customCursor(dot, outline);
     colors()
 
     window.onscroll = () => {
         const menu = !document.getElementById('menu').classList.contains('open') ? document.getElementById('menu') : document.getElementById('header');
         colors()
         displayArrow('arrowIcon')
-        initChangeColor(document.querySelector('.dot-cursor'), styleCursor, [menu, dot, outline]);
+       
     }
 
     document.body.onmousemove = () => {
         const menu = !document.getElementById('menu').classList.contains('open') ? document.getElementById('menu') : document.getElementById('header');
-        initChangeColor(document.querySelector('.dot-cursor'), styleCursor, [menu, dot, outline]);
+     
     }
 
 
