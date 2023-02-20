@@ -34,8 +34,14 @@ class PrestationCrudController extends AbstractCrudController
         return [
             TextField::new(propertyName: 'title', label: 'Titre')
                 ->setTextAlign('center'),
+            TextareaField::new(propertyName: 'intro', label: 'Texte card')
+                ->setTextAlign('center')
+                ->setCssClass('char-count')
+                ->setHelp('Texte affiché sur la card'),
             TextareaField::new(propertyName: 'teaser', label: 'Résumé')
-                ->setTextAlign('center'),
+                ->setTextAlign('center')
+                ->setHelp('Texte d\'introduction affiché sur la page détail')
+                ->hideOnIndex(),
             TextField::new(propertyName: 'icon', label: 'Icon font awesome')
                 ->setTextAlign('center')
                 ->setHelp('Exemple: fas fa-rocket'),

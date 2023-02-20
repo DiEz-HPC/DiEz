@@ -38,7 +38,7 @@ const SinglePrestation = () => {
                                 <i className={prestation.icon}></i>{' '}
                                 {prestation?.title}
                             </h1>
-                            <div className="ms-2 text-light d-flex ms-xl-5 ps-xl-5">
+                            <div className="mx-2 text-light d-flex mx-xl-5 px-xl-5">
                                 <p className={'mt-2'}>{prestation.teaser}</p>
                             </div>
                         </div>
