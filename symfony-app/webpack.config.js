@@ -36,6 +36,7 @@ Encore
     .addEntry('adminTemplatePreview', './assets/tools/admin-template-preview.js')
 
     .addEntry('adminScript', './assets/js/admin.js')
+    .addEntry('adminDraggable'  , './assets/tools/admin-draggable.js')
     .addStyleEntry('adminStyle', './assets/styles/admin.scss')
     .addStyleEntry('loginStyle', './assets/styles/login.scss')
     .addStyleEntry('calendarStyle', './assets/styles/calendar.css')
