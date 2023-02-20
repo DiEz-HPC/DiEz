@@ -5,6 +5,7 @@ namespace App\Controller\api;
 use App\Entity\Prestation;
 use App\Repository\PrestationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
@@ -50,4 +51,29 @@ class PrestationController extends AbstractController
         );
     }
 
+    #[Route('/prestation/order', name: 'one', methods: ['POST'])]
+    public function orderPrestation(Request $request, PrestationRepository $prestationRepository): Response
+    {
+
+        $request = $request->request->all();
+        $positions = $request['positions'];
+        foreach ($positions as $position) {
+            if (isset($position['id']) && isset($position['position'])) {
+                $prestation = $prestationRepository->findOneBy(['id' => $position['id']]);
+
+                if ($prestation) {
+                    $prestation->setPosition($position['position']);
+                    $this->getDoctrine()->getManager()->flush();
+                }
+            }
+        }
+
+        return new Response(
+            content: 'ok',
+            status: Response::HTTP_OK,
+            headers: [
+                'content-type' => 'application/json'
+            ]
+        );
+    }
 }

@@ -46,11 +46,12 @@ class PrestationCrudController extends AbstractCrudController
                 ->setFormType(CKEditorType::class)
                 ->setFormTypeOptions(
                     [
-                        'config'=>[
+                        'config' => [
                             'rows' => '20',
                         ],
-                        'attr' => ['rows' => '20'] ,
-                    ])
+                        'attr' => ['rows' => '20'],
+                    ]
+                )
                 ->setTextAlign('center')
                 ->hideOnIndex(),
         ];
@@ -91,10 +92,20 @@ class PrestationCrudController extends AbstractCrudController
             });
     }
 
+    public function configureAssets(Assets $assets): Assets
+    {
+        return $assets
+            ->addJsFile('https://code.jquery.com/jquery-3.6.3.min.js')
+            ->addJsFile('https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js')
+            ->addJsFile('https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js')
+
+            ->addWebpackEncoreEntry('adminDraggable');
+    }
+
     public function createIndexQueryBuilder(SearchDto $searchDto, EntityDto $entityDto, FieldCollection $fields, FilterCollection $filters): QueryBuilder
     {
         $response = parent::createIndexQueryBuilder($searchDto, $entityDto, $fields, $filters);
-        $response->orderBy('entity.id', 'DESC');
+        $response->orderBy('entity.position', 'ASC');
         return $response;
     }
 }
