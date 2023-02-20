@@ -6,22 +6,21 @@
 @import '~bootstrap/scss/bootstrap';
 @import 'cookieConsent';
 
-
 /*
   Reset all spacing
  */
 * {
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-	width: 100vw;
+    width: 100vw;
     overflow-x: hidden;
 }
 
 .logo {
-	font-family: $font-logo, serif;
+    font-family: $font-logo, serif;
 }
 
 h1,
@@ -29,30 +28,30 @@ h2,
 h3,
 h4,
 h5 {
-	font-family: $font-title, sans-serif;
+    font-family: $font-title, sans-serif;
 }
 
 p {
-	font-family: $font-text, sans-serif;
+    font-family: $font-text, sans-serif;
 }
 
-:root{
-	--primaryColor: #56C6FF;
-	--secondaryColor: #A3E0FF;
-	--darkColor: #0F0F0FFF;
-	--lightColor: #FFFFFFFF;
+:root {
+    --primaryColor: #56c6ff;
+    --secondaryColor: #a3e0ff;
+    --darkColor: rgb(35, 35, 35);
+    --lightColor: #ffffffff;
 }
 
-span[class="highlight"] {
-	font-weight: bolder;
-	color: var(--primaryColor);
+span[class='highlight'] {
+    font-weight: bolder;
+    color: var(--primaryColor);
 }
 
-a{
-	text-decoration: none;
-	color: var(--primaryColor);
+a {
+    text-decoration: none;
+    color: var(--primaryColor);
 }
 
-a:hover{
-	color: var(--secondaryColor);
+a:hover {
+    color: var(--secondaryColor);
 }
