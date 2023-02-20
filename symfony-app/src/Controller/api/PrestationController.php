@@ -51,7 +51,7 @@ class PrestationController extends AbstractController
         );
     }
 
-    #[Route('/prestation/order', name: 'one', methods: ['POST'])]
+    #[Route('/prestation/order', name: 'order', methods: ['POST'])]
     public function orderPrestation(Request $request, PrestationRepository $prestationRepository): Response
     {
 

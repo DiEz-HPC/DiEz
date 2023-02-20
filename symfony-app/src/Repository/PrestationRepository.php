@@ -24,7 +24,7 @@ class PrestationRepository extends ServiceEntityRepository
     {
         // select  id, icon, title, teaser from prestation order by position asc
         return $this->createQueryBuilder('p')
-            ->select('p.id, p.icon, p.title, p.teaser')
+            ->select('p.id, p.icon, p.title, p.intro')
             ->orderBy('p.position', 'ASC')
             ->getQuery()
             ->getResult();
