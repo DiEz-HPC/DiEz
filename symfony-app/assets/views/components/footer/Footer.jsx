@@ -1,22 +1,37 @@
-import React from 'react'
-import './footer.scss'
-import logo from '../../../images/deviteasy.webp'
-import Button from '../buttons/links/BtnLinks'
+import React, { useState, useEffect } from 'react';
+import './footer.scss';
+import logo from '../../../images/deviteasy.webp';
+import Button from '../buttons/links/BtnLinks';
+import { getAllPrestation } from '../../../queries/prestations';
 
 function Footer() {
-    const creationDate = 2021
-    const currentYear = new Date().getFullYear()
+    const creationDate = 2021;
+    const currentYear = new Date().getFullYear();
+    const [prestations, setPrestations] = useState([]);
+    useEffect(() => {
+        getAllPrestation.then((response) => {
+            response.json().then((data) => {
+                setPrestations(data);
+            });
+        });
+    }, []);
+
     return (
         <footer className="footer background-blue">
             <div className="container">
                 <div className="footer_header text-center">
-                    <img src={logo} alt="logo" className="footer_logo" loading="lazy"/>
+                    <img
+                        src={logo}
+                        alt="logo"
+                        className="footer_logo"
+                        loading="lazy"
+                    />
                     <h1 className="footer_title">
                         Vous souhaitez travailler avec nous <span>?</span>
                     </h1>
                     <h5>
-                        Nous sommes à votre disposition pour vous accompagner dans vos
-                        projets.
+                        Nous sommes à votre disposition pour vous accompagner
+                        dans vos projets.
                     </h5>
                     <Button
                         link="/contact"
@@ -41,10 +56,16 @@ function Footer() {
                     </p>
                 </div>
                 <div className="footer_body_section2 col-md-2">
-                    <h3 className="footer_section_title">Nos services</h3>
-                    <p>Création de site web</p>
-                    <p>Thème Wordpress</p>
-                    <p>Script sur mesure</p>
+                    <h3 className="footer_section_title">Nos prestations</h3>
+
+                    {prestations.map((prestation) => (
+                        <p>
+                            <a href={'/prestations/' + prestation.id}>
+                                {' '}
+                                {prestation.title}{' '}
+                            </a>
+                        </p>
+                    ))}
                 </div>
                 <div className="footer_body_section3 col-md-2">
                     <h3 className="footer_section_title">Qui sommes-nous</h3>
@@ -55,7 +76,9 @@ function Footer() {
                         </a>
                     </p>
                     <p>
-                        <a href="/qui-sommes-nous/#aboutStaff">À propos de nous</a>
+                        <a href="/qui-sommes-nous/#aboutStaff">
+                            À propos de nous
+                        </a>
                     </p>
                 </div>
                 <div className="footer_body_section4 col-md-2">
@@ -68,18 +91,16 @@ function Footer() {
                     </p>
                 </div>
             </div>
-            <div>
-
-            </div>
+            <div></div>
             <div className="footer_copyright text-center">
                 <p className="copyright">
                     © {creationDate}{' '}
-                    {creationDate !== currentYear ? ' / ' + currentYear : ' '} - Tous
-                    droits réservés - Dev It Easy
+                    {creationDate !== currentYear ? ' / ' + currentYear : ' '} -
+                    Tous droits réservés - Dev It Easy
                 </p>
             </div>
         </footer>
-    )
+    );
 }
 
-export default Footer
+export default Footer;
