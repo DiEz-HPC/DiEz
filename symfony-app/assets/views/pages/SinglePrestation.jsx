@@ -25,8 +25,8 @@ const SinglePrestation = () => {
 
     return (
         <Layout>
-            <div className={'blog'}>
-                <div className="header-blog">
+            <div className={'single-prestation'}>
+                <div className="header-prestation">
                     <div className="bg-blue d-flex flex-column justify-content-center pt-5 ps-sm-4 ps-xl-5">
                         <div className="ms-xl-5 pt-5">
                             <div className="ms-2 my-2 ms-xl-5 ps-xl-5">

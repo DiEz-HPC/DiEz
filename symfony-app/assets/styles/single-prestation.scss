@@ -1,4 +1,25 @@
 @import 'variables';
+.single-prestation {
+	$border-radius-hr: 5px;
+	$height-hr: 4px;
+	$opacity-hr: 1;
+    min-height: 100vh;
+	.header-prestation {
+		position: relative;
+
+		.bg-blue {
+			background-color:  var(--primaryColor) !important;
+		}
+
+		.wave {
+			overflow: hidden;
+			margin-top: -15px;
+			width: 100%;
+			height: auto;
+			transform: scale(-1, 1)
+		}
+	}
+}
 
 .prestationContainer{
     margin-top: -10%;
