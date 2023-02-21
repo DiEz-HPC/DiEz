@@ -18,3 +18,14 @@ export const getPrestationById = (id) => {
         },
     });
 }
+
+export const getFooterPrestation = fetch(
+    '/api/v2/prestation/footer',
+    {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            accept: 'application/json',
+        },
+    }
+);

@@ -2,15 +2,22 @@ import React, { useState, useEffect } from 'react';
 import './footer.scss';
 import logo from '../../../images/deviteasy.webp';
 import Button from '../buttons/links/BtnLinks';
+import { getFooterPrestation } from '../../../queries/prestations';
 
-function Footer(props) {
+function Footer() {
     const creationDate = 2021;
     const currentYear = new Date().getFullYear();
 
     const [prestations, setPrestations] = useState([]);
+
     useEffect(() => {
-        setPrestations(props.prestations);
-    }, [props.prestations]);
+        getFooterPrestation.then((response) => {
+            response.json().then((data) => {
+                setPrestations(data);
+            });
+        });
+    }, []);
+
 
         
     return (

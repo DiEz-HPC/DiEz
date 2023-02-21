@@ -38,6 +38,20 @@ class PrestationController extends AbstractController
         );
     }
 
+    #[Route('/prestation/footer', name: 'footer')]
+    public function getPrestationsForFooter(PrestationRepository $prestationRepository): Response
+    {
+        $prestations = $prestationRepository->findForFooter();
+        $prestations = $this->serializer->serialize($prestations, 'json');
+        return new Response(
+            content: $prestations,
+            status: Response::HTTP_OK,
+            headers: [
+                'content-type' => 'application/json'
+            ]
+        );
+    }
+    
     #[Route('/prestation/{id}', name: 'one')]
     public function getPrestation(Prestation $prestation): Response
     {
