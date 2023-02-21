@@ -2,20 +2,17 @@ import React, { useState, useEffect } from 'react';
 import './footer.scss';
 import logo from '../../../images/deviteasy.webp';
 import Button from '../buttons/links/BtnLinks';
-import { getAllPrestation } from '../../../queries/prestations';
 
-function Footer() {
+function Footer(props) {
     const creationDate = 2021;
     const currentYear = new Date().getFullYear();
+
     const [prestations, setPrestations] = useState([]);
     useEffect(() => {
-        getAllPrestation.then((response) => {
-            response.json().then((data) => {
-                setPrestations(data);
-            });
-        });
-    }, []);
+        setPrestations(props.prestations);
+    }, [props.prestations]);
 
+        
     return (
         <footer className="footer background-blue">
             <div className="container">
@@ -58,14 +55,14 @@ function Footer() {
                 <div className="footer_body_section2 col-md-2">
                     <h3 className="footer_section_title">Nos prestations</h3>
 
-                    {prestations.map((prestation) => (
-                        <p>
+                    {prestations.map((prestation, index) => (
+                        <p key={index}>
                             <a href={'/prestations/' + prestation.id}>
                                 {' '}
                                 {prestation.title}{' '}
                             </a>
                         </p>
-                    ))}
+                    ))}                   
                 </div>
                 <div className="footer_body_section3 col-md-2">
                     <h3 className="footer_section_title">Qui sommes-nous</h3>
