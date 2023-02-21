@@ -3,17 +3,8 @@ import '../../styles/home.scss';
 import pcFirst from '../../images/pc_first.webp';
 import Layout from '../components/Layout/Layout';
 import Prestations from '../components/Prestations/Prestations';
-import { getAllPrestation } from '../../queries/prestations';
 
 function Home() {
-    const [prestations, setPrestations] = useState([]);
-    useEffect(() => {
-        getAllPrestation.then((response) => {
-            response.json().then((data) => {
-                setPrestations(data);
-            });
-        });
-    }, []);
     const Description = React.lazy(() =>
         import('../components/description/Description')
     );
@@ -28,7 +19,7 @@ function Home() {
     );
     return (
         <Suspense fallback={<div>Chargement...</div>}>
-            <Layout prestations={prestations}>
+            <Layout>
                 <div className={'home'}>
                     <section className="first-view background-blue d-flex flex-column justify-content-between">
                         <div className={'image-pc'}>
@@ -50,7 +41,7 @@ function Home() {
                         </div>
                     </section>
 
-                    <Prestations prestations={prestations} />
+                    <Prestations/>
                     <section className={'carousel-projects'}>
                         <CarouselProjects />
                     </section>

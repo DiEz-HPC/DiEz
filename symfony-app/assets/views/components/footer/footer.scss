@@ -55,7 +55,7 @@ $footer_line_height: 50%;
             }
         }
         p {
-            line-height: $footer_line_height;
+            line-height: 100%;
             /* Ipad */
             @media (min-device-width: 768px) and (max-device-width: 1080px) {
                 line-height: $footer_line_height + 40%;

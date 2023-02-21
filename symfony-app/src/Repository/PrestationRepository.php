@@ -30,6 +30,15 @@ class PrestationRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findForFooter()
+    {
+        return $this->createQueryBuilder('p')
+            ->select('p.id, p.title')
+            ->orderBy('p.position', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
     public function findByOrderedPosition()
     {
         return $this->createQueryBuilder('p')
