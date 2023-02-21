@@ -53,14 +53,31 @@
         <call-us-selector phonesystem-url="https://1218.3cx.cloud" party="tensthinkerdev" class="callUsContainer"></call-us-selector>
         <script defer src="https://downloads-global.3cx.com/downloads/livechatandtalk/v1/callus.js" id="tcx-callus-js" charset="utf-8"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function() {
+            // Sélectionne l'élément personnalisé
             const callUsContainer = document.querySelector('call-us-selector');
-            const shadowRoot = callUsContainer.shadowRoot;
-            var callButton = shadowRoot.firstChild
-            callButton.style.bottom = '204px'
-            callButton.style.left = '12.5px'
-            callButton.style.right = 'auto'
-        });
+
+            // Crée un observateur pour détecter les modifications sur l'élément personnalisé
+            const observer = new MutationObserver(function (mutationsList, observer) { // Parcourt la liste des mutations détectées
+                for (let mutation of mutationsList) { // Vérifie si une mutation de type "childList" est survenue
+                    if (mutation.type === 'childList') { // Vérifie si l'élément personnalisé a ajouté un Shadow DOM
+                        if (callUsContainer.shadowRoot !== null) { // Le Shadow DOM est prêt, on peut apporter des modifications
+                            const shadowRoot = callUsContainer.shadowRoot;
+                            var callButton = shadowRoot.firstChild
+                            callButton.style.bottom = '204px'
+                            callButton.style.left = '12.5px'
+                            callButton.style.right = 'auto'
+                            // On peut arrêter d'observer les mutations
+                            observer.disconnect();
+                        }
+                    }
+                }
+            });
+
+            // Configure l'observateur pour surveiller les ajouts d'enfants à l'élément personnalisé
+            const observerConfig = {
+                childList: true
+            };
+            observer.observe(callUsContainer, observerConfig);
         </script>
     </body>
 </html>
