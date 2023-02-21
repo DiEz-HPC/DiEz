@@ -15,7 +15,7 @@ function Prestations() {
     }, []);
 
     return (
-        <section className={'prestation-section row'}>
+        <section className={'prestation-section row g-0'}>
             <div className={'waveBox'}>
                 <img id={'wave'} className={'wave'} src={wave} alt="wave" />
             </div>
