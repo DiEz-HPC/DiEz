@@ -12,7 +12,7 @@ $placement: 30px;
     border-radius: 4px;
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     position: fixed;
-    bottom: $placement;
+    bottom: $placement * 5;
     right: $placement;
     transition: background-color 0.3s, opacity 0.5s, visibility 0.5s;
     opacity: 0;
