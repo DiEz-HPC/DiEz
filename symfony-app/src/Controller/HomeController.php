@@ -17,7 +17,7 @@ class HomeController extends AbstractController
         $visitorCounterService->getVisitorCounter();
         // Active this header only on prod
         if ($_ENV['APP_ENV'] === 'prod') {
-            header("Content-Security-Policy: default-src '*'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; connect-src 'self' https://1218.3cx.cloud/MyPhone/config/tensthinkerdev; base-uri 'self';");
+            header("Content-Security-Policy: default-src '*'; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src 'self' 'unsafe-inline' https:; font-src 'self' data: https:; connect-src 'self' https://1218.3cx.cloud/; base-uri 'self';");
             header("strict-transport-security: max-age=600");
             header('X-Content-Type-Options: nosniff');
             header('X-Frame-Options: DENY');
